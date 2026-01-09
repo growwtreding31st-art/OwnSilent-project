@@ -41,12 +41,12 @@ export default function ConditionalLayout({
       if (user && isAuthPage) {
         // If user is logged in and tries to access login/signup pages, send them home
         router.replace('/');
-      } else if (!user && !isAuthPage) {
-        // If user is not logged in and tries to access protected pages, send them to login
+      } else if (!user && (isAdminPage || isAccountPage)) {
+        // Only redirect to login if the user is not logged in and tries to access admin or account pages
         router.replace('/login');
       }
     }
-  }, [authChecked, user, isAuthPage, router]);
+  }, [authChecked, user, isAuthPage, isAdminPage, isAccountPage, router]);
 
   if (!authChecked) {
     return (
@@ -58,14 +58,6 @@ export default function ConditionalLayout({
 
   if (hideHeaderFooter) {
     return <>{children}</>;
-  }
-
-  if (!user) {
-    return (
-      <div className="flex items-center justify-center min-h-screen bg-slate-50">
-        <Loader2 className="w-12 h-12 animate-spin text-[#176FC0]" />
-      </div>
-    );
   }
 
   return (
