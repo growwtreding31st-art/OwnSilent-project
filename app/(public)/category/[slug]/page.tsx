@@ -34,6 +34,7 @@ interface FaqItem {
     answer: string;
 }
 
+
 function debounce<T extends (...args: any[]) => void>(func: T, delay: number) {
     let timeoutId: NodeJS.Timeout;
     return (...args: Parameters<T>) => {
@@ -43,10 +44,10 @@ function debounce<T extends (...args: any[]) => void>(func: T, delay: number) {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ part }) => {
-    const descriptionText = (typeof part.description === 'string' 
-        ? part.description 
+    const descriptionText = (typeof part.description === 'string'
+        ? part.description
         : part.description?.fullDescription) || '';
-    
+
     return (
         <div className="group relative flex flex-col bg-white rounded-xl overflow-hidden border border-transparent transition-all duration-300 ease-in-out hover:shadow-lg hover:border-slate-200/80 h-full">
             <Link href={`/product/${part.slug}`} className="block p-2">
@@ -88,10 +89,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ part }) => {
 export default function DynamicCategoryPage() {
     const dispatch = useDispatch<AppDispatch>();
     const params = useParams();
-    
+
     const slugParam = params?.slug;
     const categorySlug = (Array.isArray(slugParam) ? slugParam[0] : slugParam) || '';
-    
+
     const [showFaqSection, setShowFaqSection] = useState(false);
     const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -106,8 +107,8 @@ export default function DynamicCategoryPage() {
         if (categorySlug) {
             dispatch(fetchCategoryBySlug(categorySlug));
         }
-        return () => { 
-            dispatch(clearCurrentCategory()); 
+        return () => {
+            dispatch(clearCurrentCategory());
         }
     }, [dispatch, categorySlug]);
 
@@ -126,7 +127,7 @@ export default function DynamicCategoryPage() {
             return () => clearTimeout(timer);
         }
     }, [categoryPageStatus, currentCategory]);
-    
+
     const faqs: FaqItem[] = [
         {
             question: "What does Own Silent International Limited specialize in?",
@@ -233,7 +234,7 @@ export default function DynamicCategoryPage() {
             <section className="py-8 bg-white">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
                     <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-                        <button 
+                        <button
                             onClick={() => setShowFaqSection(!showFaqSection)}
                             className="w-full flex items-center justify-between p-6 sm:p-8 bg-white hover:bg-slate-50 transition-colors duration-300"
                         >
@@ -250,8 +251,8 @@ export default function DynamicCategoryPage() {
                             <div className="overflow-hidden bg-slate-50/50">
                                 {faqs.map((faq, index) => (
                                     <div key={index} className="border-b border-slate-200/80 last:border-0">
-                                        <button 
-                                            onClick={() => setOpenFaq(openFaq === index ? null : index)} 
+                                        <button
+                                            onClick={() => setOpenFaq(openFaq === index ? null : index)}
                                             className="w-full flex justify-between items-center text-left p-6 group hover:bg-white transition-colors duration-200"
                                         >
                                             <span className={`font-semibold text-base sm:text-lg pr-4 transition-colors ${openFaq === index ? 'text-amber-600' : 'text-slate-800 group-hover:text-slate-900'}`}>

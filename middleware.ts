@@ -18,13 +18,20 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
 
   const domainMap: Record<string, string> = {
-    IN: "ownsilent.in",
-    AE: "ownsilent.ae",
-    UK: "ownsilent.uk",
-    US: "ownsilent.us",
-    AU: "ownsilentau.com",
-    DE: "ownsilent.eu",
-    FR: "ownsilent.eu",
+    // IN: "ownsilent.in",
+    // AE: "ownsilent.ae",
+    // UK: "ownsilent.uk",
+    // US: "ownsilent.us",
+    // AU: "ownsilentau.com",
+    // DE: "ownsilent.eu",
+    // FR: "ownsilent.eu",
+    IN: "ownsilent.international",
+    AE: "ownsilent.international",
+    UK: "ownsilent.international",
+    US: "ownsilent.international",
+    AU: "ownsilent.international",
+    DE: "ownsilent.international",
+    FR: "ownsilent.international",
   };
 
   const targetDomain = domainMap[country] ?? "ownsilent.international";
