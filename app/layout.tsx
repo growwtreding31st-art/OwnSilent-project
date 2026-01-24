@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   authors: [{ name: "OwnSilent Team" }],
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
+  verification: {
+    google: "5w-CgaXCySEQhYiSv5c6ylMOLtOt7UC-75zVu5dbTX8",
+  },
 }
 
 export default function RootLayout({
