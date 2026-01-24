@@ -17,6 +17,9 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "OwnSilent - Auto Parts & Accessories",
   description: "Your one-stop shop for premium auto parts and accessories.",
+  verification: {
+    google: "5w-CgaXCySEQhYiSv5c6ylMOLtOt7UC-75zVu5dbTX8",
+  },
 }
 
 export default function RootLayout({
