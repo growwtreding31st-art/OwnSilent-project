@@ -167,26 +167,6 @@ export default function ProductDetailPage() {
 
     return (
         <main className="bg-white lg:mt-16">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Product",
-                        name: part.name,
-                        image: imageUrls,
-                        description: descriptionContent,
-                        sku: part.sku,
-                        offers: {
-                            "@type": "Offer",
-                            url: `https://ownsilent.international/product/${slug}`,
-                            priceCurrency: "USD",
-                            price: part.price,
-                            availability: part.stockQuantity > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-                        },
-                    }),
-                }}
-            />
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-14">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
                     

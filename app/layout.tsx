@@ -15,8 +15,15 @@ import { Toaster } from "react-hot-toast"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "OwnSilent - Auto Parts & Accessories",
-  description: "Your one-stop shop for premium auto parts and accessories.",
+  title: {
+    default: "OwnSilent - Auto Parts & Accessories",
+    template: "%s | OwnSilent"
+  },
+  description: "Premium Auto Parts & Accessories Marketplace. Find high-quality parts for your vehicle with OwnSilent.",
+  keywords: ["auto parts", "car accessories", "OwnSilent", "premium parts"],
+  authors: [{ name: "OwnSilent Team" }],
+  viewport: "width=device-width, initial-scale=1",
+  robots: "index, follow",
 }
 
 export default function RootLayout({
