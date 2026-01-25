@@ -1,15 +1,28 @@
 "use client";
-import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '@/lib/redux/store';
-import { fetchPublicCategories } from '@/lib/redux/productSlice';
-import { fetchPublicCategorySlides } from '@/lib/redux/categorySlideSlice';
-import { ArrowRight, ChevronLeft, ChevronRight, Check, Sparkles, Layers } from 'lucide-react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  useMemo,
+} from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/lib/redux/store";
+import { fetchPublicCategories } from "@/lib/redux/productSlice";
+import { fetchPublicCategorySlides } from "@/lib/redux/categorySlideSlice";
+import {
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  Check,
+  Sparkles,
+  Layers,
+} from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 const CategoryHeroCard = ({
   slide,
@@ -19,7 +32,9 @@ const CategoryHeroCard = ({
   isSingleView?: boolean;
 }) => {
   const { t } = useLanguage();
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 5000, stopOnInteraction: false })]);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 5000, stopOnInteraction: false }),
+  ]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
@@ -37,21 +52,30 @@ const CategoryHeroCard = ({
     };
   }, [emblaApi, onSelect]);
 
-  const scrollTo = useCallback((index: number) => {
-    if (emblaApi) emblaApi.scrollTo(index);
-  }, [emblaApi]);
+  const scrollTo = useCallback(
+    (index: number) => {
+      if (emblaApi) emblaApi.scrollTo(index);
+    },
+    [emblaApi],
+  );
 
-  const scrollPrev = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
+  const scrollPrev = useCallback(
+    (e: React.MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (emblaApi) emblaApi.scrollPrev();
+    },
+    [emblaApi],
+  );
 
-  const scrollNext = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+  const scrollNext = useCallback(
+    (e: React.MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (emblaApi) emblaApi.scrollNext();
+    },
+    [emblaApi],
+  );
 
   if (!slide) return null;
 
@@ -65,20 +89,23 @@ const CategoryHeroCard = ({
         <div className="relative h-[400px] lg:h-full w-full overflow-hidden group/slider">
           <div className="h-full w-full" ref={emblaRef}>
             <div className="flex h-full">
-              {slide.images && slide.images.length > 0 ? (
-                slide.images.map((img: string, index: number) => (
-                  <div className="flex-[0_0_100%] relative h-full w-full" key={index}>
-                    <Image
-                      src={img}
-                      alt={`${slide.title} - view ${index + 1}`}
-                      fill
-                      className="object-cover"
-                      priority={index === 0}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-900/5 to-transparent pointer-events-none" />
-                  </div>
-                ))
-              ) : null}
+              {slide.images && slide.images.length > 0
+                ? slide.images.map((img: string, index: number) => (
+                    <div
+                      className="flex-[0_0_100%] relative h-full w-full"
+                      key={index}
+                    >
+                      <Image
+                        src={img}
+                        alt={`${slide.title} - view ${index + 1}`}
+                        fill
+                        className="object-cover"
+                        priority={index === 0}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-r from-slate-900/5 to-transparent pointer-events-none" />
+                    </div>
+                  ))
+                : null}
             </div>
           </div>
 
@@ -106,26 +133,44 @@ const CategoryHeroCard = ({
                       return scrollSnaps.map((_, idx) => (
                         <button
                           key={idx}
-                          onClick={(e) => { e.preventDefault(); scrollTo(idx); }}
-                          className={`h-1.5 rounded-full transition-all duration-300 shadow-sm ${idx === selectedIndex ? "w-6 bg-white" : "w-1.5 bg-white/60 hover:bg-white/80"
-                            }`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            scrollTo(idx);
+                          }}
+                          className={`h-1.5 rounded-full transition-all duration-300 shadow-sm ${
+                            idx === selectedIndex
+                              ? "w-6 bg-white"
+                              : "w-1.5 bg-white/60 hover:bg-white/80"
+                          }`}
                         />
                       ));
                     }
 
-                    let start = Math.max(0, selectedIndex - Math.floor(maxDots / 2));
+                    let start = Math.max(
+                      0,
+                      selectedIndex - Math.floor(maxDots / 2),
+                    );
                     let end = start + maxDots;
                     if (end > total) {
                       end = total;
                       start = end - maxDots;
                     }
 
-                    return Array.from({ length: maxDots }, (_, i) => start + i).map((idx) => (
+                    return Array.from(
+                      { length: maxDots },
+                      (_, i) => start + i,
+                    ).map((idx) => (
                       <button
                         key={idx}
-                        onClick={(e) => { e.preventDefault(); scrollTo(idx); }}
-                        className={`h-1.5 rounded-full transition-all duration-300 shadow-sm ${idx === selectedIndex ? "w-6 bg-white" : "w-1.5 bg-white/60 hover:bg-white/80"
-                          }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          scrollTo(idx);
+                        }}
+                        className={`h-1.5 rounded-full transition-all duration-300 shadow-sm ${
+                          idx === selectedIndex
+                            ? "w-6 bg-white"
+                            : "w-1.5 bg-white/60 hover:bg-white/80"
+                        }`}
                       />
                     ));
                   })()}
@@ -163,7 +208,9 @@ const CategoryHeroCard = ({
                       <div className="flex-shrink-0 w-6 h-6 rounded-sm bg-green-50 flex items-center justify-center">
                         <Check className="w-3.5 h-3.5 text-green-600" />
                       </div>
-                      <span className="text-sm font-medium text-slate-700">{highlight}</span>
+                      <span className="text-sm font-medium text-slate-700">
+                        {highlight}
+                      </span>
                     </div>
                   ))}
               </div>
@@ -188,7 +235,9 @@ const CategoryHeroCard = ({
 
 const MobileCategoryCard = ({ slide }: { slide: any }) => {
   const { t } = useLanguage();
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 4000, stopOnInteraction: false })]);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 4000, stopOnInteraction: false }),
+  ]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
 
@@ -206,21 +255,30 @@ const MobileCategoryCard = ({ slide }: { slide: any }) => {
     };
   }, [emblaApi, onSelect]);
 
-  const scrollTo = useCallback((index: number) => {
-    if (emblaApi) emblaApi.scrollTo(index);
-  }, [emblaApi]);
+  const scrollTo = useCallback(
+    (index: number) => {
+      if (emblaApi) emblaApi.scrollTo(index);
+    },
+    [emblaApi],
+  );
 
-  const scrollPrev = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
+  const scrollPrev = useCallback(
+    (e: React.MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (emblaApi) emblaApi.scrollPrev();
+    },
+    [emblaApi],
+  );
 
-  const scrollNext = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
+  const scrollNext = useCallback(
+    (e: React.MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (emblaApi) emblaApi.scrollNext();
+    },
+    [emblaApi],
+  );
 
   if (!slide) return null;
   const categoryLink = slide.category?.slug
@@ -230,23 +288,26 @@ const MobileCategoryCard = ({ slide }: { slide: any }) => {
   return (
     <div className="mb-8 last:mb-0 px-2">
       <div className="group relative block bg-white rounded-sm shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 overflow-hidden transition-all duration-300">
-
         <div className="relative w-full aspect-[4/5] bg-slate-50 overflow-hidden">
           <div className="h-full w-full" ref={emblaRef}>
             <div className="flex h-full">
-              {slide.images && slide.images.map((img: string, index: number) => (
-                <div className="flex-[0_0_100%] relative h-full w-full" key={index}>
-                  <Image
-                    src={img}
-                    alt={`${slide.title} ${index + 1}`}
-                    fill
-                    className="object-cover"
-                    priority={index === 0}
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-transparent" />
-                </div>
-              ))}
+              {slide.images &&
+                slide.images.map((img: string, index: number) => (
+                  <div
+                    className="flex-[0_0_100%] relative h-full w-full"
+                    key={index}
+                  >
+                    <Image
+                      src={img}
+                      alt={`${slide.title} ${index + 1}`}
+                      fill
+                      className="object-cover"
+                      priority={index === 0}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-transparent" />
+                  </div>
+                ))}
             </div>
           </div>
 
@@ -274,26 +335,44 @@ const MobileCategoryCard = ({ slide }: { slide: any }) => {
                       return scrollSnaps.map((_, idx) => (
                         <button
                           key={idx}
-                          onClick={(e) => { e.preventDefault(); scrollTo(idx); }}
-                          className={`h-1 rounded-full transition-all duration-300 shadow-sm ${idx === selectedIndex ? "w-4 bg-white" : "w-1 bg-white/50"
-                            }`}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            scrollTo(idx);
+                          }}
+                          className={`h-1 rounded-full transition-all duration-300 shadow-sm ${
+                            idx === selectedIndex
+                              ? "w-4 bg-white"
+                              : "w-1 bg-white/50"
+                          }`}
                         />
                       ));
                     }
 
-                    let start = Math.max(0, selectedIndex - Math.floor(maxDots / 2));
+                    let start = Math.max(
+                      0,
+                      selectedIndex - Math.floor(maxDots / 2),
+                    );
                     let end = start + maxDots;
                     if (end > total) {
                       end = total;
                       start = end - maxDots;
                     }
 
-                    return Array.from({ length: maxDots }, (_, i) => start + i).map((idx) => (
+                    return Array.from(
+                      { length: maxDots },
+                      (_, i) => start + i,
+                    ).map((idx) => (
                       <button
                         key={idx}
-                        onClick={(e) => { e.preventDefault(); scrollTo(idx); }}
-                        className={`h-1 rounded-full transition-all duration-300 shadow-sm ${idx === selectedIndex ? "w-4 bg-white" : "w-1 bg-white/50"
-                          }`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          scrollTo(idx);
+                        }}
+                        className={`h-1 rounded-full transition-all duration-300 shadow-sm ${
+                          idx === selectedIndex
+                            ? "w-4 bg-white"
+                            : "w-1 bg-white/50"
+                        }`}
                       />
                     ));
                   })()}
@@ -338,7 +417,7 @@ const useSlider = () => {
       const isScrollable = el.scrollWidth > el.clientWidth;
       setCanScrollLeft(isScrollable && el.scrollLeft > 5);
       setCanScrollRight(
-        isScrollable && el.scrollLeft < el.scrollWidth - el.clientWidth - 5
+        isScrollable && el.scrollLeft < el.scrollWidth - el.clientWidth - 5,
       );
     }
   }, []);
@@ -346,7 +425,8 @@ const useSlider = () => {
   const handleScroll = (direction: "left" | "right") => {
     const el = scrollRef.current;
     if (el) {
-      const scrollAmount = el.clientWidth * 0.75 * (direction === "left" ? -1 : 1);
+      const scrollAmount =
+        el.clientWidth * 0.75 * (direction === "left" ? -1 : 1);
       el.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
@@ -377,7 +457,10 @@ const DesktopSkeletonLoader = () => (
 const MobileSkeletonLoader = () => (
   <div className="grid grid-cols-1 gap-6 px-2">
     {[1, 2].map((i) => (
-      <div key={i} className="bg-slate-200 rounded-[2rem] h-[450px] animate-pulse shadow-sm"></div>
+      <div
+        key={i}
+        className="bg-slate-200 rounded-[2rem] h-[450px] animate-pulse shadow-sm"
+      ></div>
     ))}
   </div>
 );
@@ -386,7 +469,7 @@ export default function CategoryShowcaseSection() {
   const dispatch = useDispatch<AppDispatch>();
   const { categories } = useSelector((state: RootState) => state.products);
   const { slides: categorySlides, status } = useSelector(
-    (state: RootState) => state.categorySlides
+    (state: RootState) => state.categorySlides,
   );
   const { t } = useLanguage();
 
@@ -409,8 +492,8 @@ export default function CategoryShowcaseSection() {
 
   const categoriesWithContent = useMemo(() => {
     if (!categories || !validCategorySlides.length) return [];
-    return categories.filter(cat =>
-      validCategorySlides.some(slide => slide.category?._id === cat._id)
+    return categories.filter((cat) =>
+      validCategorySlides.some((slide) => slide.category?._id === cat._id),
     );
   }, [categories, validCategorySlides]);
 
@@ -421,7 +504,9 @@ export default function CategoryShowcaseSection() {
   }, [categoriesWithContent, activeCategoryId]);
 
   const filteredSlides = activeCategoryId
-    ? validCategorySlides.filter((slide) => slide.category?._id === activeCategoryId)
+    ? validCategorySlides.filter(
+        (slide) => slide.category?._id === activeCategoryId,
+      )
     : [];
 
   if (status !== "loading" && categoriesWithContent.length === 0) return null;
@@ -475,16 +560,17 @@ export default function CategoryShowcaseSection() {
               <div
                 ref={tabsScrollRef}
                 className="flex items-center space-x-3 overflow-x-auto p-2.5 rounded-full bg-white shadow-sm border border-slate-100 no-scrollbar"
-                style={{ scrollbarWidth: 'none' }}
+                style={{ scrollbarWidth: "none" }}
               >
                 {categoriesWithContent.map((category) => (
                   <button
                     key={category._id}
                     onClick={() => setActiveCategoryId(category._id)}
-                    className={`flex-shrink-0 whitespace-nowrap rounded-sm py-3.5 px-8 text-sm font-bold transition-all duration-300 ${activeCategoryId === category._id
-                      ? "bg-slate-900 text-white shadow-lg transform scale-100 ring-4 ring-slate-100"
-                      : "bg-transparent text-slate-500 hover:text-slate-900 hover:bg-slate-50"
-                      }`}
+                    className={`flex-shrink-0 whitespace-nowrap rounded-sm py-3.5 px-8 text-sm font-bold transition-all duration-300 ${
+                      activeCategoryId === category._id
+                        ? "bg-slate-900 text-white shadow-lg transform scale-100 ring-4 ring-slate-100"
+                        : "bg-transparent text-slate-500 hover:text-slate-900 hover:bg-slate-50"
+                    }`}
                   >
                     {category.name}
                   </button>
@@ -506,10 +592,7 @@ export default function CategoryShowcaseSection() {
             {status === "loading" ? (
               <DesktopSkeletonLoader />
             ) : filteredSlides.length > 0 ? (
-              <CategoryHeroCard
-                slide={filteredSlides[0]}
-                isSingleView={true}
-              />
+              <CategoryHeroCard slide={filteredSlides[0]} isSingleView={true} />
             ) : null}
           </div>
         </div>
