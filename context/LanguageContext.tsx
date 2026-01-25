@@ -320,12 +320,63 @@ const enTranslations = {
   "shop.cart.addError": "Could not add to cart.",
   "shop.cart.loginError": "Please login to add items to your cart.",
   // ENGLISH (en)//disclamer
-  "footer.disclaimer.p1": "All brand names, logos, and trademarks displayed on this website are for reference only. Own Silent International Limited is not affiliated, endorsed, or authorized by any vehicle manufacturers. All product names, numbers, and images are for identification and compatibility purposes only.",
-  "footer.disclaimer.p2": "We manufacture and trade aftermarket, genuine, and custom automotive parts worldwide. Customers are responsible for ensuring legal compliance, safe installation, and proper use of all products. Own Silent International Limited is not liable for damages, vehicle modifications, or warranty impacts resulting from use of our products.",
-  "footer.disclaimer.p3": "Use of this website and purchase of products constitutes acceptance of our full disclaimer. For complete legal terms, see our",
+  "footer.disclaimer.p1":
+    "All brand names, logos, and trademarks displayed on this website are for reference only. Own Silent International Limited is not affiliated, endorsed, or authorized by any vehicle manufacturers. All product names, numbers, and images are for identification and compatibility purposes only.",
+  "footer.disclaimer.p2":
+    "We manufacture and trade aftermarket, genuine, and custom automotive parts worldwide. Customers are responsible for ensuring legal compliance, safe installation, and proper use of all products. Own Silent International Limited is not liable for damages, vehicle modifications, or warranty impacts resulting from use of our products.",
+  "footer.disclaimer.p3":
+    "Use of this website and purchase of products constitutes acceptance of our full disclaimer. For complete legal terms, see our",
   "footer.disclaimer.link": "Full Disclaimer Page",
-  "footer.copyright.short": "All brands, logos, and trademarks are for reference only; we are not affiliated or endorsed by any manufacturer. Products are aftermarket, genuine, or custom; use at your own risk. See our {link} for details.",
+  "footer.copyright.short":
+    "All brands, logos, and trademarks are for reference only; we are not affiliated or endorsed by any manufacturer. Products are aftermarket, genuine, or custom; use at your own risk. See our {link} for details.",
   "footer.copyright.link": "Full Disclaimer",
+
+  // Showcase
+  "showcase.series": "High Performance Series",
+  "showcase.stats": "Engineering Stats",
+  "showcase.status": "Showcase",
+  "showcase.paused": "Paused",
+  "showcase.auto": "Auto",
+  "showcase.osPerformance": "OS PERFORMANCE",
+  "showcase.est": "EST. 1998",
+  "showcase.aerospace": "AEROSPACE GRADE",
+  "showcase.discover": "DISCOVER UNLIMITED POWER",
+
+  "showcase.part1.name": "Carbon Matrix Rotors",
+  "showcase.part1.headline": "Thermal Mastery in Every Stop.",
+  "showcase.part1.desc":
+    "Our carbon ceramic matrix rotors provide unmatched heat dissipation and zero brake fade, even under extreme track conditions.",
+  "showcase.part1.bgText": "POWER",
+  "showcase.part1.s1.l": "Material",
+  "showcase.part1.s1.v": "Carbon-Silicon",
+  "showcase.part1.s2.l": "Heat Limit",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "Weight Red.",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Forged Aero-S Wheels",
+  "showcase.part2.headline": "Lightweight. Forged. Unstoppable.",
+  "showcase.part2.desc":
+    "Precision engineered from aerospace-grade 6061-T6 aluminum, the Aero-S series significantly reduces unsprung mass for superior handling.",
+  "showcase.part2.bgText": "LIGHT",
+  "showcase.part2.s1.l": "Process",
+  "showcase.part2.s1.v": "8000T Forged",
+  "showcase.part2.s2.l": "Load Rating",
+  "showcase.part2.s2.v": "950kg",
+  "showcase.part2.s3.l": "Wheel Weight",
+  "showcase.part2.s3.v": "8.2kg",
+
+  "showcase.part3.name": "Adaptive Nitro Coilovers",
+  "showcase.part3.headline": "Precision Perfected.",
+  "showcase.part3.desc":
+    "Ultra-fast response nitrogen-charged dampers with 32-way adjustment, offering the perfect balance between track rigidity and road comfort.",
+  "showcase.part3.bgText": "GLIDE",
+  "showcase.part3.s1.l": "Adjustment",
+  "showcase.part3.s1.v": "32-Way Click",
+  "showcase.part3.s2.l": "Gas Type",
+  "showcase.part3.s2.v": "High-Purity N2",
+  "showcase.part3.s3.l": "Stroke",
+  "showcase.part3.s3.v": "110mm",
 };
 
 // ==========================================
@@ -581,14 +632,65 @@ const esTranslations = {
   "shop.cart.addError": "No se pudo añadir al carrito.",
   "shop.cart.loginError":
     "Por favor, inicie sesión para añadir artículos a su carrito.",
-    //dislaimer
-    // SPANISH (es)
-  "footer.disclaimer.p1": "Todos los nombres de marcas, logotipos y marcas comerciales que se muestran en este sitio web son solo de referencia. Own Silent International Limited no está afiliada, respaldada ni autorizada por ningún fabricante de vehículos.",
-  "footer.disclaimer.p2": "Fabricamos y comercializamos piezas de automoción de posventa, originales y personalizadas en todo el mundo. Los clientes son responsables de garantizar el cumplimiento legal y el uso adecuado de todos los productos.",
-  "footer.disclaimer.p3": "El uso de este sitio web y la compra de productos constituye la aceptación de nuestro descargo de responsabilidad completo. Para los términos legales completos, consulte nuestra",
+  //dislaimer
+  // SPANISH (es)
+  "footer.disclaimer.p1":
+    "Todos los nombres de marcas, logotipos y marcas comerciales que se muestran en este sitio web son solo de referencia. Own Silent International Limited no está afiliada, respaldada ni autorizada por ningún fabricante de vehículos.",
+  "footer.disclaimer.p2":
+    "Fabricamos y comercializamos piezas de automoción de posventa, originales y personalizadas en todo el mundo. Los clientes son responsables de garantizar el cumplimiento legal y el uso adecuado de todos los productos.",
+  "footer.disclaimer.p3":
+    "El uso de este sitio web y la compra de productos constituye la aceptación de nuestro descargo de responsabilidad completo. Para los términos legales completos, consulte nuestra",
   "footer.disclaimer.link": "Página de descargo de responsabilidad completo",
-  "footer.copyright.short": "Todas las marcas son solo de referencia; no estamos afiliados a ningún fabricante. El uso de los productos es bajo su propio riesgo. Consulte nuestro {link} para más detalles.",
+  "footer.copyright.short":
+    "Todas las marcas son solo de referencia; no estamos afiliados a ningún fabricante. El uso de los productos es bajo su propio riesgo. Consulte nuestro {link} para más detalles.",
   "footer.copyright.link": "Descargo de responsabilidad completo",
+
+  // Showcase
+  "showcase.series": "Serie de Alto Rendimiento",
+  "showcase.stats": "Estadísticas de Ingeniería",
+  "showcase.status": "Escaparate",
+  "showcase.paused": "Pausado",
+  "showcase.auto": "Auto",
+  "showcase.osPerformance": "RENDIMIENTO OS",
+  "showcase.est": "EST. 1998",
+  "showcase.aerospace": "GRADO AEROESPACIAL",
+  "showcase.discover": "DESCUBRE EL PODER ILIMITADO",
+
+  "showcase.part1.name": "Rotores de Matriz de Carbono",
+  "showcase.part1.headline": "Maestría Térmica en Cada Parada.",
+  "showcase.part1.desc":
+    "Nuestros rotores de matriz cerámica de carbono proporcionan una disipación de calor inigualable y cero fatiga de frenos, incluso en condiciones extremas de pista.",
+  "showcase.part1.bgText": "PODER",
+  "showcase.part1.s1.l": "Material",
+  "showcase.part1.s1.v": "Carbono-Silicio",
+  "showcase.part1.s2.l": "Límite de Calor",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "Red. de Peso",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Llantas Forjadas Aero-S",
+  "showcase.part2.headline": "Ligero. Forjado. Imparable.",
+  "showcase.part2.desc":
+    "Diseñadas con precisión a partir de aluminio 6061-T6 de grado aeroespacial, la serie Aero-S reduce significativamente la masa no suspendida para un manejo superior.",
+  "showcase.part2.bgText": "LIGERO",
+  "showcase.part2.s1.l": "Proceso",
+  "showcase.part2.s1.v": "8000T Forjado",
+  "showcase.part2.s2.l": "Capacidad de Carga",
+  "showcase.part2.s2.v": "950kg",
+  "showcase.part2.s3.l": "Peso de Llanta",
+  "showcase.part2.s3.v": "8.2kg",
+
+  "showcase.part3.name": "Coilovers de Nitro Adaptativos",
+  "showcase.part3.headline": "Precisión Perfeccionada.",
+  "showcase.part3.desc":
+    "Amortiguadores cargados con nitrógeno de respuesta ultra rápida con ajuste de 32 vías, ofreciendo el equilibrio perfecto entre rigidez de pista y comodidad en carretera.",
+  "showcase.part3.bgText": "DESLICE",
+  "showcase.part3.s1.l": "Ajuste",
+  "showcase.part3.s1.v": "32 vías",
+  "showcase.part3.s2.l": "Tipo de Gas",
+  "showcase.part3.s2.v": "N2 de alta pureza",
+  "showcase.part3.s3.l": "Carrera",
+  "showcase.part3.s3.v": "110mm",
 };
 
 // ==========================================
@@ -841,15 +943,65 @@ const deTranslations = {
   "shop.cart.addError": "Konnte nicht zum Warenkorb hinzugefügt werden.",
   "shop.cart.loginError":
     "Bitte melden Sie sich an, um Artikel in Ihren Warenkorb zu legen.",
-    // GERMAN (de) - For Footer Disclaimer
-// ===================================
-  "footer.disclaimer.p1": "Alle auf dieser Website angezeigten Markennamen, Logos und Warenzeichen dienen nur als Referenz. Own Silent International Limited ist nicht mit Fahrzeugherstellern verbunden, von diesen unterstützt oder autorisiert. Alle Produktnamen, Nummern und Bilder dienen nur zu Identifikations- und Kompatibilitätszwecken.",
-  "footer.disclaimer.p2": "Wir produzieren und handeln weltweit mit Aftermarket-, Original- und kundenspezifischen Autoteilen. Die Kunden sind für die Einhaltung der gesetzlichen Bestimmungen, die sichere Installation und die ordnungsgemäße Verwendung aller Produkte verantwortlich. Own Silent International Limited haftet nicht für Schäden, Fahrzeugmodifikationen oder Garantieauswirkungen, die aus der Verwendung unserer Produkte resultieren.",
-  "footer.disclaimer.p3": "Die Nutzung dieser Website und der Kauf von Produkten stellen die Annahme unseres vollständigen Haftungsausschlusses dar. Die vollständigen rechtlichen Bedingungen finden Sie auf unserer",
+  // GERMAN (de) - For Footer Disclaimer
+  // ===================================
+  "footer.disclaimer.p1":
+    "Alle auf dieser Website angezeigten Markennamen, Logos und Warenzeichen dienen nur als Referenz. Own Silent International Limited ist nicht mit Fahrzeugherstellern verbunden, von diesen unterstützt oder autorisiert. Alle Produktnamen, Nummern und Bilder dienen nur zu Identifikations- und Kompatibilitätszwecken.",
+  "footer.disclaimer.p2":
+    "Wir produzieren und handeln weltweit mit Aftermarket-, Original- und kundenspezifischen Autoteilen. Die Kunden sind für die Einhaltung der gesetzlichen Bestimmungen, die sichere Installation und die ordnungsgemäße Verwendung aller Produkte verantwortlich. Own Silent International Limited haftet nicht für Schäden, Fahrzeugmodifikationen oder Garantieauswirkungen, die aus der Verwendung unserer Produkte resultieren.",
+  "footer.disclaimer.p3":
+    "Die Nutzung dieser Website und der Kauf von Produkten stellen die Annahme unseres vollständigen Haftungsausschlusses dar. Die vollständigen rechtlichen Bedingungen finden Sie auf unserer",
   "footer.disclaimer.link": "Vollständige Haftungsausschluss-Seite",
-  "footer.copyright.short": "Alle Marken, Logos und Warenzeichen dienen nur als Referenz; wir sind nicht mit einem Hersteller verbunden oder von diesem unterstützt. Produkte sind Aftermarket, Original oder kundenspezifisch; Verwendung auf eigene Gefahr. Siehe unseren {link} für Details.",
+  "footer.copyright.short":
+    "Alle Marken, Logos und Warenzeichen dienen nur als Referenz; wir sind nicht mit einem Hersteller verbunden oder von diesem unterstützt. Produkte sind Aftermarket, Original oder kundenspezifisch; Verwendung auf eigene Gefahr. Siehe unseren {link} für Details.",
   "footer.copyright.link": "Vollständigen Haftungsausschluss",
-    
+
+  // Showcase
+  "showcase.series": "Hochleistungsserie",
+  "showcase.stats": "Technische Daten",
+  "showcase.status": "Showcase",
+  "showcase.paused": "Pausiert",
+  "showcase.auto": "Auto",
+  "showcase.osPerformance": "OS PERFORMANCE",
+  "showcase.est": "SEIT 1998",
+  "showcase.aerospace": "AEROSPACE GRADE",
+  "showcase.discover": "ENTDECKE GRENZENLOSE POWER",
+
+  "showcase.part1.name": "Carbon-Matrix-Rotoren",
+  "showcase.part1.headline": "Thermische Meisterschaft bei jedem Stopp.",
+  "showcase.part1.desc":
+    "Unsere Carbon-Keramik-Matrix-Rotoren bieten eine unerreichte Wärmeableitung und null Bremsfading, selbst unter extremen Rennstreckenbedingungen.",
+  "showcase.part1.bgText": "POWER",
+  "showcase.part1.s1.l": "Material",
+  "showcase.part1.s1.v": "Carbon-Silizium",
+  "showcase.part1.s2.l": "Hitzewert",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "Gewichtsred.",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Geschmiedete Aero-S Räder",
+  "showcase.part2.headline": "Leichtgewicht. Geschmiedet. Unaufhaltsam.",
+  "showcase.part2.desc":
+    "Präzisionsgefertigt aus 6061-T6 Aluminium in Luftfahrtqualität, reduziert die Aero-S Serie die ungefederten Massen für überlegenes Handling erheblich.",
+  "showcase.part2.bgText": "LEICHT",
+  "showcase.part2.s1.l": "Verfahren",
+  "showcase.part2.s1.v": "8000T Geschmiedet",
+  "showcase.part2.s2.l": "Tragfähigkeit",
+  "showcase.part2.s2.v": "950kg",
+  "showcase.part2.s3.l": "Radgewicht",
+  "showcase.part2.s3.v": "8.2kg",
+
+  "showcase.part3.name": "Adaptive Nitro Gewindefahrwerke",
+  "showcase.part3.headline": "Perfektionierte Präzision.",
+  "showcase.part3.desc":
+    "Ultraschnell ansprechende stickstoffgefüllte Dämpfer mit 32-facher Verstellung, die die perfekte Balance zwischen Steifigkeit auf der Rennstrecke und Komfort auf der Straße bieten.",
+  "showcase.part3.bgText": "GLEITEN",
+  "showcase.part3.s1.l": "Einstellung",
+  "showcase.part3.s1.v": "32-fach Klick",
+  "showcase.part3.s2.l": "Gastype",
+  "showcase.part3.s2.v": "Hochreines N2",
+  "showcase.part3.s3.l": "Hub",
+  "showcase.part3.s3.v": "110mm",
 };
 
 // ==========================================
@@ -1106,14 +1258,65 @@ const frTranslations = {
   "shop.cart.addError": "Impossible d'ajouter au panier.",
   "shop.cart.loginError":
     "Veuillez vous connecter pour ajouter des articles à votre panier.",
-    // FRENCH (fr) - For Footer Disclaimer
-// ===================================
-  "footer.disclaimer.p1": "Tous les noms de marque, logos et marques de commerce affichés sur ce site Web sont à titre de référence uniquement. Own Silent International Limited n'est affilié, approuvé ou autorisé par aucun constructeur de véhicules. Tous les noms de produits, numéros et images sont à des fins d'identification et de compatibilité uniquement.",
-  "footer.disclaimer.p2": "Nous fabriquons et commercialisons des pièces automobiles de rechange, d'origine et personnalisées dans le monde entier. Les clients sont responsables de garantir la conformité légale, l'installation sûre et l'utilisation correcte de tous les produits. Own Silent International Limited n'est pas responsable des dommages, des modifications de véhicules ou des impacts sur la garantie résultant de l'utilisation de nos produits.",
-  "footer.disclaimer.p3": "L'utilisation de ce site Web et l'achat de produits constituent l'acceptation de notre dénégation de responsabilité complète. Pour les termes légaux complets, consultez notre",
+  // FRENCH (fr) - For Footer Disclaimer
+  // ===================================
+  "footer.disclaimer.p1":
+    "Tous les noms de marque, logos et marques de commerce affichés sur ce site Web sont à titre de référence uniquement. Own Silent International Limited n'est affilié, approuvé ou autorisé par aucun constructeur de véhicules. Tous les noms de produits, numéros et images sont à des fins d'identification et de compatibilité uniquement.",
+  "footer.disclaimer.p2":
+    "Nous fabriquons et commercialisons des pièces automobiles de rechange, d'origine et personnalisées dans le monde entier. Les clients sont responsables de garantir la conformité légale, l'installation sûre et l'utilisation correcte de tous les produits. Own Silent International Limited n'est pas responsable des dommages, des modifications de véhicules ou des impacts sur la garantie résultant de l'utilisation de nos produits.",
+  "footer.disclaimer.p3":
+    "L'utilisation de ce site Web et l'achat de produits constituent l'acceptation de notre dénégation de responsabilité complète. Pour les termes légaux complets, consultez notre",
   "footer.disclaimer.link": "Page de dénégation de responsabilité complète",
-  "footer.copyright.short": "Toutes les marques, logos et marques de commerce sont à titre de référence uniquement ; nous ne sommes affiliés ou approuvés par aucun fabricant. Les produits sont des pièces de rechange, d'origine ou personnalisées ; utilisez à vos propres risques. Consultez notre {link} pour plus de détails.",
+  "footer.copyright.short":
+    "Toutes les marques, logos et marques de commerce sont à titre de référence uniquement ; nous ne sommes affiliés ou approuvés par aucun fabricant. Les produits sont des pièces de rechange, d'origine ou personnalisées ; utilisez à vos propres risques. Consultez notre {link} pour plus de détails.",
   "footer.copyright.link": "Dénégation de responsabilité complète",
+
+  // Showcase
+  "showcase.series": "Série Haute Performance",
+  "showcase.stats": "Stats d'Ingénierie",
+  "showcase.status": "Présentation",
+  "showcase.paused": "En pause",
+  "showcase.auto": "Auto",
+  "showcase.osPerformance": "PERFORMANCE OS",
+  "showcase.est": "EST. 1998",
+  "showcase.aerospace": "QUALITÉ AÉROSPATIALE",
+  "showcase.discover": "DÉCOUVREZ UNE PUISSANCE ILLIMITÉE",
+
+  "showcase.part1.name": "Rotors à Matrice en Carbone",
+  "showcase.part1.headline": "Maîtrise Thermique à Chaque Arrêt.",
+  "showcase.part1.desc":
+    "Nos rotors à matrice carbone-céramique offrent une dissipation thermique inégalée et un évanouissement des freins nul, même dans des conditions de piste extrêmes.",
+  "showcase.part1.bgText": "PUISSANCE",
+  "showcase.part1.s1.l": "Matériau",
+  "showcase.part1.s1.v": "Carbone-Silicium",
+  "showcase.part1.s2.l": "Limite Therm.",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "Réd. de Poids",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Jantes Forgées Aero-S",
+  "showcase.part2.headline": "Léger. Forgé. Inarrêtable.",
+  "showcase.part2.desc":
+    "Conçue avec précision à partir d'aluminium 6061-T6 de qualité aérospatiale, la série Aero-S réduit considérablement la masse non suspendue pour une maniabilité supérieure.",
+  "showcase.part2.bgText": "LÉGER",
+  "showcase.part2.s1.l": "Procédé",
+  "showcase.part2.s1.v": "Forgé 8000T",
+  "showcase.part2.s2.l": "Capacité Charge",
+  "showcase.part2.s2.v": "950kg",
+  "showcase.part2.s3.l": "Poids de Jante",
+  "showcase.part2.s3.v": "8.2kg",
+
+  "showcase.part3.name": "Combinés Adaptive Nitro",
+  "showcase.part3.headline": "Précision Perfectionnée.",
+  "showcase.part3.desc":
+    "Amortisseurs à azote à réponse ultra-rapide avec réglage à 32 positions, offrant l'équilibre parfait entre rigidité sur piste et confort sur route.",
+  "showcase.part3.bgText": "GLISSE",
+  "showcase.part3.s1.l": "Réglage",
+  "showcase.part3.s1.v": "32 positions",
+  "showcase.part3.s2.l": "Type de Gaz",
+  "showcase.part3.s2.v": "N2 Haute Pureté",
+  "showcase.part3.s3.l": "Course",
+  "showcase.part3.s3.v": "110mm",
 };
 
 // ==========================================
@@ -1370,15 +1573,65 @@ const itTranslations = {
   "shop.cart.addError": "Impossibile aggiungere al carrello.",
   "shop.cart.loginError":
     "Effettua il login per aggiungere articoli al carrello.",
-    // ITALIAN (it) - For Footer Disclaimer
-// ===================================
-  "footer.disclaimer.p1": "Tutti i nomi di marchi, loghi e marchi di fabbrica visualizzati su questo sito Web sono solo di riferimento. Own Silent International Limited non è affiliata, approvata o autorizzata da alcun produttore di veicoli. Tutti i nomi, i numeri e le immagini dei prodotti sono solo a scopo di identificazione e compatibilità.",
-  "footer.disclaimer.p2": "Produciamo e commercializziamo parti automobilistiche aftermarket, originali e personalizzate in tutto il mondo. I clienti sono responsabili di garantire la conformità legale, l'installazione sicura e l'uso corretto di tutti i prodotti. Own Silent International Limited non è responsabile per danni, modifiche al veicolo o impatti sulla garanzia derivanti dall'uso dei nostri prodotti.",
-  "footer.disclaimer.p3": "L'uso di questo sito Web e l'acquisto di prodotti costituiscono l'accettazione del nostro disclaimer completo. Per i termini legali completi, consultare la nostra",
+  // ITALIAN (it) - For Footer Disclaimer
+  // ===================================
+  "footer.disclaimer.p1":
+    "Tutti i nomi di marchi, loghi e marchi di fabbrica visualizzati su questo sito Web sono solo di riferimento. Own Silent International Limited non è affiliata, approvata o autorizzata da alcun produttore di veicoli. Tutti i nomi, i numeri e le immagini dei prodotti sono solo a scopo di identificazione e compatibilità.",
+  "footer.disclaimer.p2":
+    "Produciamo e commercializziamo parti automobilistiche aftermarket, originali e personalizzate in tutto il mondo. I clienti sono responsabili di garantire la conformità legale, l'installazione sicura e l'uso corretto di tutti i prodotti. Own Silent International Limited non è responsabile per danni, modifiche al veicolo o impatti sulla garanzia derivanti dall'uso dei nostri prodotti.",
+  "footer.disclaimer.p3":
+    "L'uso di questo sito Web e l'acquisto di prodotti costituiscono l'accettazione del nostro disclaimer completo. Per i termini legali completi, consultare la nostra",
   "footer.disclaimer.link": "Pagina del disclaimer completo",
-  "footer.copyright.short": "Tutti i marchi, loghi e marchi di fabbrica sono solo di riferimento; non siamo affiliati o approvati da alcun produttore. I prodotti sono aftermarket, originali o personalizzati; utilizzare a proprio rischio. Consultare il nostro {link} per i dettagli.",
+  "footer.copyright.short":
+    "Tutti i marchi, loghi e marchi di fabbrica sono solo di riferimento; non siamo affiliati o approvati da alcun produttore. I prodotti sono aftermarket, originali o personalizzati; utilizzare a proprio rischio. Consultare il nostro {link} per i dettagli.",
   "footer.copyright.link": "Disclaimer completo",
 
+  // Showcase
+  "showcase.series": "Serie Alte Prestazioni",
+  "showcase.stats": "Statistiche Ingegneria",
+  "showcase.status": "Showcase",
+  "showcase.paused": "In pausa",
+  "showcase.auto": "Auto",
+  "showcase.osPerformance": "PERFORMANCE OS",
+  "showcase.est": "EST. 1998",
+  "showcase.aerospace": "GRADO AEROSPAZIALE",
+  "showcase.discover": "SCOPRI LA POTENZA ILLIMITATA",
+
+  "showcase.part1.name": "Rotori a Matrice di Carbonio",
+  "showcase.part1.headline": "Maestria Termica in Ogni Frenata.",
+  "showcase.part1.desc":
+    "I nostri rotori a matrice carboceramica offrono una dissipazione del calore senza pari e zero 'brake fade', anche in condizioni estreme in pista.",
+  "showcase.part1.bgText": "POTENZA",
+  "showcase.part1.s1.l": "Materiale",
+  "showcase.part1.s1.v": "Carbonio-Silicio",
+  "showcase.part1.s2.l": "Limite Calore",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "Ridiz. Peso",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Cerchi Forgiati Aero-S",
+  "showcase.part2.headline": "Leggeri. Forgiati. Inarrestabili.",
+  "showcase.part2.desc":
+    "Progettati con precisione in alluminio aeronautico 6061-T6, i cerchi della serie Aero-S riducono significativamente le masse non sospese per una maneggevolezza superiore.",
+  "showcase.part2.bgText": "LEGGERO",
+  "showcase.part2.s1.l": "Processo",
+  "showcase.part2.s1.v": "Forgiato 8000T",
+  "showcase.part2.s2.l": "Carico Massimo",
+  "showcase.part2.s2.v": "950kg",
+  "showcase.part2.s3.l": "Peso Cerchio",
+  "showcase.part2.s3.v": "8.2kg",
+
+  "showcase.part3.name": "Assetto Adaptive Nitro",
+  "showcase.part3.headline": "Precisione Perfezionata.",
+  "showcase.part3.desc":
+    "Ammortizzatori all'azoto a risposta ultra-rapida con regolazione a 32 vie, offrono il perfetto equilibrio tra rigidità in pista e comfort su strada.",
+  "showcase.part3.bgText": "FLUIDO",
+  "showcase.part3.s1.l": "Regolazione",
+  "showcase.part3.s1.v": "32 Vie",
+  "showcase.part3.s2.l": "Tipo Gas",
+  "showcase.part3.s2.v": "N2 Alta Purezza",
+  "showcase.part3.s3.l": "Corsa",
+  "showcase.part3.s3.v": "110mm",
 };
 
 // ==========================================
@@ -1617,13 +1870,64 @@ const arTranslations = {
   "shop.cart.addError": "لا يمكن الإضافة إلى السلة.",
   "shop.cart.loginError": "يرجى تسجيل الدخول لإضافة عناصر إلى سلتك.",
   // ARABIC (ar) - For Footer Disclaimer
-// ===================================
-  "footer.disclaimer.p1": "جميع أسماء العلامات التجارية والشعارات والعلامات التجارية المعروضة على هذا الموقع هي للإشارة فقط. شركة Own Silent International Limited ليست تابعة أو معتمدة أو مصرح بها من قبل أي من مصنعي المركبات. جميع أسماء المنتجات وأرقامها وصورها هي لأغراض التعريف والتوافق فقط.",
-  "footer.disclaimer.p2": "نقوم بتصنيع وتجارة قطع غيار السيارات ما بعد البيع والأصلية والمخصصة في جميع أنحاء العالم. العملاء مسؤولون عن ضمان الامتثال القانوني والتركيب الآمن والاستخدام السليم لجميع المنتجات. لا تتحمل شركة Own Silent International Limited المسؤولية عن الأضرار أو تعديلات المركبات أو التأثيرات على الضمان الناتجة عن استخدام منتجاتنا.",
-  "footer.disclaimer.p3": "يشكل استخدام هذا الموقع وشراء المنتجات قبولًا لإخلاء المسؤولية الكامل الخاص بنا. للاطلاع على الشروط القانونية الكاملة، راجع موقعنا",
+  // ===================================
+  "footer.disclaimer.p1":
+    "جميع أسماء العلامات التجارية والشعارات والعلامات التجارية المعروضة على هذا الموقع هي للإشارة فقط. شركة Own Silent International Limited ليست تابعة أو معتمدة أو مصرح بها من قبل أي من مصنعي المركبات. جميع أسماء المنتجات وأرقامها وصورها هي لأغراض التعريف والتوافق فقط.",
+  "footer.disclaimer.p2":
+    "نقوم بتصنيع وتجارة قطع غيار السيارات ما بعد البيع والأصلية والمخصصة في جميع أنحاء العالم. العملاء مسؤولون عن ضمان الامتثال القانوني والتركيب الآمن والاستخدام السليم لجميع المنتجات. لا تتحمل شركة Own Silent International Limited المسؤولية عن الأضرار أو تعديلات المركبات أو التأثيرات على الضمان الناتجة عن استخدام منتجاتنا.",
+  "footer.disclaimer.p3":
+    "يشكل استخدام هذا الموقع وشراء المنتجات قبولًا لإخلاء المسؤولية الكامل الخاص بنا. للاطلاع على الشروط القانونية الكاملة، راجع موقعنا",
   "footer.disclaimer.link": "صفحة إخلاء المسؤولية الكاملة",
-  "footer.copyright.short": "جميع العلامات التجارية والشعارات والعلامات التجارية هي للإشارة فقط؛ نحن لسنا تابعين أو معتمدين من قبل أي مصنع. المنتجات هي ما بعد البيع أو أصلية أو مخصصة؛ استخدمها على مسؤوليتك الخاصة. راجع {link} الخاص بنا للحصول على التفاصيل.",
+  "footer.copyright.short":
+    "جميع العلامات التجارية والشعارات والعلامات التجارية هي للإشارة فقط؛ نحن لسنا تابعين أو معتمدين من قبل أي مصنع. المنتجات هي ما بعد البيع أو أصلية أو مخصصة؛ استخدمها على مسؤوليتك الخاصة. راجع {link} الخاص بنا للحصول على التفاصيل.",
   "footer.copyright.link": "إخلاء المسؤولية الكامل",
+
+  // Showcase
+  "showcase.series": "سلسلة الأداء العالي",
+  "showcase.stats": "إحصائيات الهندسة",
+  "showcase.status": "العرض",
+  "showcase.paused": "متوقف",
+  "showcase.auto": "تلقائي",
+  "showcase.osPerformance": "أداء OS",
+  "showcase.est": "تأسست عام 1998",
+  "showcase.aerospace": "درجة الطيران والفضاء",
+  "showcase.discover": "اكتشف القوة غير المحدودة",
+
+  "showcase.part1.name": "دوارات مصفوفة الكربون",
+  "showcase.part1.headline": "إتقان حراري في كل توقف.",
+  "showcase.part1.desc":
+    "توفر دوارات مصفوفة الكربون والسيراميك الخاصة بنا تبديدًا لا مثيل له للحرارة وتلاشي الصفر للفرامل ، حتى في ظروف الحلبة القاسية.",
+  "showcase.part1.bgText": "قوة",
+  "showcase.part1.s1.l": "المادة",
+  "showcase.part1.s1.v": "كربون-سيليكون",
+  "showcase.part1.s2.l": "حد الحرارة",
+  "showcase.part1.s2.v": "1200 درجة مئوية",
+  "showcase.part1.s3.l": "تقليل الوزن",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "عجلات Aero-S المطروقة",
+  "showcase.part2.headline": "خفيفة. مطروقة. لا يمكن إيقافها.",
+  "showcase.part2.desc":
+    "تم تصميم سلسلة Aero-S بدقة من ألومنيوم 6061-T6 المستخدم في صناعة الطيران ، وهي تقلل بشكل كبير من الكتلة غير المعلقة للتعامل الفائق.",
+  "showcase.part2.bgText": "خفيف",
+  "showcase.part2.s1.l": "العملية",
+  "showcase.part2.s1.v": "طرق 8000 طن",
+  "showcase.part2.s2.l": "تصنيف الحمل",
+  "showcase.part2.s2.v": "950 كجم",
+  "showcase.part2.s3.l": "وزن العجلة",
+  "showcase.part2.s3.v": "8.2 كجم",
+
+  "showcase.part3.name": "نظام التعليق Adaptive Nitro",
+  "showcase.part3.headline": "دقة مثالية.",
+  "showcase.part3.desc":
+    "مخمدات مشحونة بالنيتروجين فائقة الاستجابة مع تعديل بـ 32 اتجاهاً ، مما يوفر التوازن المثالي بين صلابة المسار وراحة الطريق.",
+  "showcase.part3.bgText": "انزلاق",
+  "showcase.part3.s1.l": "التعديل",
+  "showcase.part3.s1.v": "32 اتجاهًا",
+  "showcase.part3.s2.l": "نوع الغاز",
+  "showcase.part3.s2.v": "N2 عالي النقاء",
+  "showcase.part3.s3.l": "الشوط",
+  "showcase.part3.s3.v": "110 ملم",
 };
 
 // ==========================================
@@ -1846,14 +2150,64 @@ const zhTranslations = {
   "shop.cart.addError": "无法添加到购物车。",
   "shop.cart.loginError": "请登录以将商品添加到您的购物车。",
   // CHINESE (zh) - For Footer Disclaimer
-// ===================================
-  "footer.disclaimer.p1": "本网站上显示的所有品牌名称、徽标和商标仅供参考。Own Silent International Limited与任何汽车制造商均无附属、认可或授权关系。所有产品名称、编号和图像仅用于识别和兼容性目的。",
-  "footer.disclaimer.p2": "我们在全球范围内制造和交易售后、原厂和定制汽车零件。客户有责任确保所有产品的合法合规、安全安装和正确使用。Own Silent International Limited对因使用我们的产品而造成的损害、车辆改装或保修影响不承担任何责任。",
-  "footer.disclaimer.p3": "使用本网站和购买产品即表示接受我们的完整免责声明。有关完整的法律条款，请参阅我们的",
+  // ===================================
+  "footer.disclaimer.p1":
+    "本网站上显示的所有品牌名称、徽标和商标仅供参考。Own Silent International Limited与任何汽车制造商均无附属、认可或授权关系。所有产品名称、编号和图像仅用于识别和兼容性目的。",
+  "footer.disclaimer.p2":
+    "我们在全球范围内制造和交易售后、原厂和定制汽车零件。客户有责任确保所有产品的合法合规、安全安装和正确使用。Own Silent International Limited对因使用我们的产品而造成的损害、车辆改装或保修影响不承担任何责任。",
+  "footer.disclaimer.p3":
+    "使用本网站和购买产品即表示接受我们的完整免责声明。有关完整的法律条款，请参阅我们的",
   "footer.disclaimer.link": "完整免责声明页面",
-  "footer.copyright.short": "所有品牌、徽标和商标仅供参考；我们与任何制造商均无附属或认可关系。产品为售后、原厂或定制件；使用风险自负。有关详细信息，请参阅我们的{link}。",
+  "footer.copyright.short":
+    "所有品牌、徽标和商标仅供参考；我们与任何制造商均无附属或认可关系。产品为售后、原厂或定制件；使用风险自负。有关详细信息，请参阅我们的{link}。",
   "footer.copyright.link": "完整免责声明",
 
+  // Showcase
+  "showcase.series": "高性能系列",
+  "showcase.stats": "工程数据",
+  "showcase.status": "展示",
+  "showcase.paused": "已暂停",
+  "showcase.auto": "自动",
+  "showcase.osPerformance": "OS 性能",
+  "showcase.est": "始于 1998",
+  "showcase.aerospace": "航空航天级",
+  "showcase.discover": "探索无限动力",
+
+  "showcase.part1.name": "碳基矩阵制动盘",
+  "showcase.part1.headline": "每一次制动，皆是热能主宰。",
+  "showcase.part1.desc":
+    "我们的碳陶瓷矩阵制动盘提供无与伦比的散热性能，即使在极端赛道条件下也能确保零热衰退。",
+  "showcase.part1.bgText": "动力",
+  "showcase.part1.s1.l": "材质",
+  "showcase.part1.s1.v": "碳硅复合材料",
+  "showcase.part1.s2.l": "热极限",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "减重",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Aero-S 锻造轮毂",
+  "showcase.part2.headline": "轻量。锻造。势不可挡。",
+  "showcase.part2.desc":
+    "采用航空级 6061-T6 铝材精密制造，Aero-S 系列显著降低簧下质量，提供卓越的操控感。",
+  "showcase.part2.bgText": "轻盈",
+  "showcase.part2.s1.l": "工艺",
+  "showcase.part2.s1.v": "8000吨锻造",
+  "showcase.part2.s2.l": "载重指数",
+  "showcase.part2.s2.v": "950kg",
+  "showcase.part2.s3.l": "轮毂重量",
+  "showcase.part2.s3.v": "8.2kg",
+
+  "showcase.part3.name": "Adaptive Nitro 氮气避震",
+  "showcase.part3.headline": "精准无暇。",
+  "showcase.part3.desc":
+    "超快响应的充氮减震器，具有 32 段阻尼调节，在赛道刚性与街道舒适度之间取得完美平衡。",
+  "showcase.part3.bgText": "丝滑",
+  "showcase.part3.s1.l": "调节",
+  "showcase.part3.s1.v": "32 段可调",
+  "showcase.part3.s2.l": "气体类型",
+  "showcase.part3.s2.v": "高纯度氮气",
+  "showcase.part3.s3.l": "行程",
+  "showcase.part3.s3.v": "110mm",
 };
 
 // ==========================================
@@ -2108,13 +2462,64 @@ const ptTranslations = {
   "shop.cart.addError": "Não foi possível adicionar ao carrinho.",
   "shop.cart.loginError": "Faça login para adicionar itens ao seu carrinho.",
   // PORTUGUESE (pt) - For Footer Disclaimer
-// ===================================
-  "footer.disclaimer.p1": "Todos os nomes de marcas, logotipos e marcas registradas exibidos neste site são apenas para referência. A Own Silent International Limited não é afiliada, endossada ou autorizada por nenhum fabricante de veículos. Todos os nomes, números e imagens de produtos são apenas para fins de identificação e compatibilidade.",
-  "footer.disclaimer.p2": "Fabricamos e comercializamos peças automotivas de reposição, genuínas e personalizadas em todo o mundo. Os clientes são responsáveis por garantir a conformidade legal, a instalação segura e o uso adequado de todos os produtos. A Own Silent International Limited não se responsabiliza por danos, modificações no veículo ou impactos na garantia resultantes do uso de nossos produtos.",
-  "footer.disclaimer.p3": "O uso deste site e a compra de produtos constituem a aceitação de nosso aviso legal completo. Para os termos legais completos, consulte nossa",
+  // ===================================
+  "footer.disclaimer.p1":
+    "Todos os nomes de marcas, logotipos e marcas registradas exibidos neste site são apenas para referência. A Own Silent International Limited não é afiliada, endossada ou autorizada por nenhum fabricante de veículos. Todos os nomes, números e imagens de produtos são apenas para fins de identificação e compatibilidade.",
+  "footer.disclaimer.p2":
+    "Fabricamos e comercializamos peças automotivas de reposição, genuínas e personalizadas em todo o mundo. Os clientes são responsáveis por garantir a conformidade legal, a instalação segura e o uso adequado de todos os produtos. A Own Silent International Limited não se responsabiliza por danos, modificações no veículo ou impactos na garantia resultantes do uso de nossos produtos.",
+  "footer.disclaimer.p3":
+    "O uso deste site e a compra de produtos constituem a aceitação de nosso aviso legal completo. Para os termos legais completos, consulte nossa",
   "footer.disclaimer.link": "Página de Aviso Legal Completo",
-  "footer.copyright.short": "Todas as marcas, logotipos e marcas registradas são apenas para referência; não somos afiliados ou endossados por nenhum fabricante. Os produtos são de reposição, genuínos ou personalizados; use por sua conta e risco. Consulte nosso {link} para obter detalhes.",
+  "footer.copyright.short":
+    "Todas as marcas, logotipos e marcas registradas são apenas para referência; não somos afiliados ou endossados por nenhum fabricante. Os produtos são de reposição, genuínos ou personalizados; use por sua conta e risco. Consulte nosso {link} para obter detalhes.",
   "footer.copyright.link": "Aviso Legal Completo",
+
+  // Showcase
+  "showcase.series": "Série de Alta Performance",
+  "showcase.stats": "Estatísticas de Engenharia",
+  "showcase.status": "Vitrine",
+  "showcase.paused": "Pausado",
+  "showcase.auto": "Auto",
+  "showcase.osPerformance": "PERFORMANCE OS",
+  "showcase.est": "EST. 1998",
+  "showcase.aerospace": "GRAU AEROESPACIAL",
+  "showcase.discover": "DESCUBRA O PODER ILIMITADO",
+
+  "showcase.part1.name": "Rotores de Matriz de Carbono",
+  "showcase.part1.headline": "Maestria Térmica em Cada Parada.",
+  "showcase.part1.desc":
+    "Os nossos rotores de matriz de carbono-cerâmica proporcionam uma dissipação de calor inigualável e zero fadiga de travagem, mesmo em condições extremas de pista.",
+  "showcase.part1.bgText": "PODER",
+  "showcase.part1.s1.l": "Material",
+  "showcase.part1.s1.v": "Carbono-Silício",
+  "showcase.part1.s2.l": "Limite Calor",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "Red. Peso",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Jantes Forjadas Aero-S",
+  "showcase.part2.headline": "Leve. Forjado. Imparável.",
+  "showcase.part2.desc":
+    "Concebida com precisão a partir de alumínio 6061-T6 de qualidade aeroespacial, a série Aero-S reduz significativamente a massa não suspensa para uma manobrabilidade superior.",
+  "showcase.part2.bgText": "LEVE",
+  "showcase.part2.s1.l": "Processo",
+  "showcase.part2.s1.v": "8000T Forjado",
+  "showcase.part2.s2.l": "Capacidade Carga",
+  "showcase.part2.s2.v": "950kg",
+  "showcase.part2.s3.l": "Peso Jante",
+  "showcase.part2.s3.v": "8.2kg",
+
+  "showcase.part3.name": "Coilovers Nitro Adaptáveis",
+  "showcase.part3.headline": "Precisão Perfeccionada.",
+  "showcase.part3.desc":
+    "Amortecedores carregados com nitrogénio de resposta ultra-rápida com ajuste de 32 posições, oferecendo el equilíbrio perfeito entre rigidez em pista e conforto na estrada.",
+  "showcase.part3.bgText": "DESLIZE",
+  "showcase.part3.s1.l": "Ajuste",
+  "showcase.part3.s1.v": "32 Vias",
+  "showcase.part3.s2.l": "Tipo Gás",
+  "showcase.part3.s2.v": "N2 Alta Purezza",
+  "showcase.part3.s3.l": "Curso",
+  "showcase.part3.s3.v": "110mm",
 };
 
 // ==========================================
@@ -2366,15 +2771,65 @@ const ruTranslations = {
   "shop.cart.addError": "Не удалось добавить в корзину.",
   "shop.cart.loginError":
     "Пожалуйста, войдите, чтобы добавлять товары в корзину.",
-    // RUSSIAN (ru) - For Footer Disclaimer
-// ===================================
-  "footer.disclaimer.p1": "Все названия брендов, логотипы и товарные знаки, отображаемые на этом веб-сайте, предназначены только для справки. Own Silent International Limited не является аффилированным лицом, не поддерживается и не авторизована ни одним из производителей транспортных средств. Все названия, номера и изображения продуктов предназначены только для целей идентификации и совместимости.",
-  "footer.disclaimer.p2": "Мы производим и продаем послепродажные, оригинальные и заказные автомобильные запчасти по всему миру. Клиенты несут ответственность за обеспечение соблюдения законодательства, безопасную установку и правильное использование всех продуктов. Own Silent International Limited не несет ответственности за ущерб, модификации транспортных средств или влияние на гарантию в результате использования нашей продукции.",
-  "footer.disclaimer.p3": "Использование этого веб-сайта и покупка продуктов означает принятие нашего полного отказа от ответственности. Полные юридические условия см. на нашей",
+  // RUSSIAN (ru) - For Footer Disclaimer
+  // ===================================
+  "footer.disclaimer.p1":
+    "Все названия брендов, логотипы и товарные знаки, отображаемые на этом веб-сайте, предназначены только для справки. Own Silent International Limited не является аффилированным лицом, не поддерживается и не авторизована ни одним из производителей транспортных средств. Все названия, номера и изображения продуктов предназначены только для целей идентификации и совместимости.",
+  "footer.disclaimer.p2":
+    "Мы производим и продаем послепродажные, оригинальные и заказные автомобильные запчасти по всему миру. Клиенты несут ответственность за обеспечение соблюдения законодательства, безопасную установку и правильное использование всех продуктов. Own Silent International Limited не несет ответственности за ущерб, модификации транспортных средств или влияние на гарантию в результате использования нашей продукции.",
+  "footer.disclaimer.p3":
+    "Использование этого веб-сайта и покупка продуктов означает принятие нашего полного отказа от ответственности. Полные юридические условия см. на нашей",
   "footer.disclaimer.link": "Странице полного отказа от ответственности",
-  "footer.copyright.short": "Все бренды, логотипы и товарные знаки предназначены только для справки; мы не являемся аффилированными лицами и не поддерживаемся ни одним производителем. Продукты являются послепродажными, оригинальными или заказными; используйте на свой страх и риск. Подробности см. в нашем {link}.",
+  "footer.copyright.short":
+    "Все бренды, логотипы и товарные знаки предназначены только для справки; мы не являемся аффилированными лицами и не поддерживаемся ни одним производителем. Продукты являются послепродажными, оригинальными или заказными; используйте на свой страх и риск. Подробности см. в нашем {link}.",
   "footer.copyright.link": "Полном отказе от ответственности",
 
+  // Showcase
+  "showcase.series": "Высокопроизводительная серия",
+  "showcase.stats": "Инженерные данные",
+  "showcase.status": "Шоукейс",
+  "showcase.paused": "Пауза",
+  "showcase.auto": "Авто",
+  "showcase.osPerformance": "PERFORMANCE OS",
+  "showcase.est": "ОСН. В 1998",
+  "showcase.aerospace": "АЭРОКОСМИЧЕСКИЙ КЛАСС",
+  "showcase.discover": "ОТКРОЙТЕ БЕЗГРАНИЧНУЮ МОЩЬ",
+
+  "showcase.part1.name": "Углеродно-матричные роторы",
+  "showcase.part1.headline": "Термическое мастерство при каждой остановке.",
+  "showcase.part1.desc":
+    "Наши карбон-керамические матричные роторы обеспечивают непревзойденный отвод тепла и полное отсутствие потери эффективности тормозов даже в экстремальных трековых условиях.",
+  "showcase.part1.bgText": "МОЩЬ",
+  "showcase.part1.s1.l": "Материал",
+  "showcase.part1.s1.v": "Углерод-кремний",
+  "showcase.part1.s2.l": "Темп. лимит",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "Сниж. веса",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Кованые диски Aero-S",
+  "showcase.part2.headline": "Легкость. Прочность. Скорость.",
+  "showcase.part2.desc":
+    "Прецизионно изготовленные из аэрокосмического алюминия 6061-T6, диски серии Aero-S значительно снижают неподрессоренную массу для превосходной управляемости.",
+  "showcase.part2.bgText": "ЛЕГКОСТЬ",
+  "showcase.part2.s1.l": "Процесс",
+  "showcase.part2.s1.v": "Ковка 8000T",
+  "showcase.part2.s2.l": "Нагрузка",
+  "showcase.part2.s2.v": "950 кг",
+  "showcase.part2.s3.l": "Вес диска",
+  "showcase.part2.s3.v": "8.2 кг",
+
+  "showcase.part3.name": "Адаптивные койловеры Nitro",
+  "showcase.part3.headline": "Совершенная точность.",
+  "showcase.part3.desc":
+    "Сверхбыстрые азотонаполненные амортизаторы с 32-ступенчатой регулировкой обеспечивают идеальный баланс между жесткостью на треке и комфортом на дороге.",
+  "showcase.part3.bgText": "ГЛАДКОСТЬ",
+  "showcase.part3.s1.l": "Регулировка",
+  "showcase.part3.s1.v": "32 клика",
+  "showcase.part3.s2.l": "Тип газа",
+  "showcase.part3.s2.v": "Азот N2",
+  "showcase.part3.s3.l": "Ход",
+  "showcase.part3.s3.v": "110 мм",
 };
 
 // ==========================================
@@ -2622,13 +3077,64 @@ const jaTranslations = {
   "shop.cart.addError": "カートに追加できませんでした。",
   "shop.cart.loginError": "カートに商品を追加するにはログインしてください。",
   // JAPANESE (ja) - For Footer Disclaimer
-// ===================================
-  "footer.disclaimer.p1": "このウェブサイトに表示されているすべてのブランド名、ロゴ、および商標は参照用です。Own Silent International Limitedは、いかなる自動車メーカーとも提携、承認、または認可されていません。すべての製品名、番号、および画像は、識別および互換性の目的でのみ使用されます。",
-  "footer.disclaimer.p2": "当社は、アフターマーケット、純正、およびカスタムの自動車部品を世界中で製造および取引しています。お客様は、すべての製品の法的遵守、安全な設置、および適切な使用を保証する責任があります。Own Silent International Limitedは、当社製品の使用に起因する損害、車両の改造、または保証への影響について責任を負いません。",
-  "footer.disclaimer.p3": "このウェブサイトの使用および製品の購入は、当社の完全な免責事項への同意を構成します。完全な法的条件については、当社の",
+  // ===================================
+  "footer.disclaimer.p1":
+    "このウェブサイトに表示されているすべてのブランド名、ロゴ、および商標は参照用です。Own Silent International Limitedは、いかなる自動車メーカーとも提携、承認、または認可されていません。すべての製品名、番号、および画像は、識別および互換性の目的でのみ使用されます。",
+  "footer.disclaimer.p2":
+    "当社は、アフターマーケット、純正、およびカスタムの自動車部品を世界中で製造および取引しています。お客様は、すべての製品の法的遵守、安全な設置、および適切な使用を保証する責任があります。Own Silent International Limitedは、当社製品の使用に起因する損害、車両の改造、または保証への影響について責任を負いません。",
+  "footer.disclaimer.p3":
+    "このウェブサイトの使用および製品の購入は、当社の完全な免責事項への同意を構成します。完全な法的条件については、当社の",
   "footer.disclaimer.link": "完全な免責事項ページ",
-  "footer.copyright.short": "すべてのブランド、ロゴ、商標は参照用です。当社はいかなるメーカーとも提携または承認されていません。製品はアフターマーケット品、純正品、またはカスタム品です。自己責任で使用してください。詳細については、{link}をご覧ください。",
+  "footer.copyright.short":
+    "すべてのブランド、ロゴ、商標は参照用です。当社はいかなるメーカーとも提携または承認されていません。製品はアフターマーケット品、純正品、またはカスタム品です。自己責任で使用してください。詳細については、{link}をご覧ください。",
   "footer.copyright.link": "完全な免責事項",
+
+  // Showcase
+  "showcase.series": "ハイパフォーマンスシリーズ",
+  "showcase.stats": "エンジニアリング統計",
+  "showcase.status": "ショーケース",
+  "showcase.paused": "一時停止",
+  "showcase.auto": "オート",
+  "showcase.osPerformance": "OS パフォーマンス",
+  "showcase.est": "EST. 1998",
+  "showcase.aerospace": "航空宇宙グレード",
+  "showcase.discover": "無限のパワーを解き放つ",
+
+  "showcase.part1.name": "カーボンマトリックスローター",
+  "showcase.part1.headline": "すべての停止に熱制御の極意を。",
+  "showcase.part1.desc":
+    "当社のカーボンセラミックマトリックスローターは、極限のトラック条件下でも、比類のない放熱性とブレーキフェードゼロを実現します。",
+  "showcase.part1.bgText": "POWER",
+  "showcase.part1.s1.l": "素材",
+  "showcase.part1.s1.v": "カーボンシリコン",
+  "showcase.part1.s2.l": "耐熱限界",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "軽量化",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Aero-S 鍛造ホイール",
+  "showcase.part2.headline": "軽量。鍛造。無双。",
+  "showcase.part2.desc":
+    "航空宇宙グレードの6061-T6アルミニウムから精密に設計されたAero-Sシリーズは、バネ下重量を大幅に削減し、優れたハンドリングを実現します。",
+  "showcase.part2.bgText": "LIGHT",
+  "showcase.part2.s1.l": "製法",
+  "showcase.part2.s1.v": "8000T鍛造",
+  "showcase.part2.s2.l": "耐荷重",
+  "showcase.part2.s2.v": "950kg",
+  "showcase.part2.s3.l": "ホイール重量",
+  "showcase.part2.s3.v": "8.2kg",
+
+  "showcase.part3.name": "アダプティブ Nitro 車高調",
+  "showcase.part3.headline": "究極の精度。",
+  "showcase.part3.desc":
+    "32段階調整が可能な超高速レスポンス窒素充填ダンパー。サーキットでの剛性と公道での快適性を完璧なバランスで両立します。",
+  "showcase.part3.bgText": "GLIDE",
+  "showcase.part3.s1.l": "調整",
+  "showcase.part3.s1.v": "32段階",
+  "showcase.part3.s2.l": "ガスタイプ",
+  "showcase.part3.s2.v": "高純度窒素",
+  "showcase.part3.s3.l": "ストローク",
+  "showcase.part3.s3.v": "110mm",
 };
 
 // ==========================================
@@ -2656,7 +3162,7 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
-  undefined
+  undefined,
 );
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
@@ -2681,7 +3187,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   // UPDATED 't' FUNCTION
   const t = (
     key: string,
-    replacements?: { [key: string]: string | number }
+    replacements?: { [key: string]: string | number },
   ): string => {
     let translation =
       translations[language]?.[key] || translations["en"]?.[key] || key;
