@@ -237,6 +237,11 @@ const enTranslations = {
   "aboutPage.careers.cat4": "Marketing & Communications",
   "aboutPage.careers.cat5": "Operations & Logistics",
   "aboutPage.careers.cat6": "Customer & Technical Support",
+
+  "home.banner.title": "Experience Peak Performance",
+  "home.banner.desc":
+    "Elevate your vehicle with our world-class carbon components and precision engineering.",
+  "home.banner.btn": "View Collection",
   // News Page
   "newsPage.loading": "Loading Articles...",
   "newsPage.title": "News & Insights",
@@ -261,7 +266,7 @@ const enTranslations = {
   "contact.info.email.title": "Email Us",
   "contact.info.email.sub": "For general inquiries & sales",
   "contact.info.phone.title": "Call Us",
-  "contact.info.phone.sub": "Mon-Fri from 9am to 6pm",
+  "contact.info.phone.sub": "Mon-Fri from 9am to 5pm",
   "contact.info.addr.title": "Visit Us",
   "contact.help.title": "Need Instant Help?",
   "contact.help.sub": "Check our frequently asked questions for quick answers.",
@@ -377,6 +382,30 @@ const enTranslations = {
   "showcase.part3.s2.v": "High-Purity N2",
   "showcase.part3.s3.l": "Stroke",
   "showcase.part3.s3.v": "110mm",
+
+  "showcase.part4.name": "Matrix LASER Headlights",
+  "showcase.part4.headline": "Illuminating the Path Ahead.",
+  "showcase.part4.desc":
+    "High-definition laser projection system with adaptive beam technology, providing up to 600m of crystal clear visibility.",
+  "showcase.part4.bgText": "LIGHT",
+  "showcase.part4.s1.l": "Range",
+  "showcase.part4.s1.v": "600m",
+  "showcase.part4.s2.l": "Tech",
+  "showcase.part4.s2.v": "Laser Matrix",
+  "showcase.part4.s3.l": "Efficiency",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "Forged Carbon Aero Kit",
+  "showcase.part5.headline": "Aerodynamics Redefined.",
+  "showcase.part5.desc":
+    "Ultra-lightweight forged carbon fiber components designed for maximum downforce and aggressive aesthetics.",
+  "showcase.part5.bgText": "AERO",
+  "showcase.part5.s1.l": "Material",
+  "showcase.part5.s1.v": "Forged Carbon",
+  "showcase.part5.s2.l": "Downforce",
+  "showcase.part5.s2.v": "+120kg",
+  "showcase.part5.s3.l": "Weight Red.",
+  "showcase.part5.s3.v": "-15kg",
 };
 
 // ==========================================
@@ -576,7 +605,7 @@ const esTranslations = {
   "aboutPage.careers.why.l3":
     "Acceda a oportunidades de formación, desarrollo de habilidades y promoción profesional.",
   "aboutPage.careers.why.l4":
-    "Contribuya a crear soluciones premium para coches de lujo, SUV y superdeportivos.",
+    "Contribuya a crear soluciones premium para autos de lujo, SUV y superdeportivos.",
   "aboutPage.careers.open.t": "Áreas Abiertas de Especialización",
   "aboutPage.careers.open.sub":
     "Aceptamos solicitudes en múltiples áreas de negocio. Si tiene las habilidades y la pasión, queremos saber de usted.",
@@ -586,6 +615,11 @@ const esTranslations = {
   "aboutPage.careers.cat4": "Marketing y Comunicaciones",
   "aboutPage.careers.cat5": "Operaciones y Logística",
   "aboutPage.careers.cat6": "Soporte Técnico y al Cliente",
+
+  "home.banner.title": "Experimenta el Máximo Rendimiento",
+  "home.banner.desc":
+    "Eleva tu vehículo con nuestros componentes de carbono de clase mundial y tecnología de precisión.",
+  "home.banner.btn": "Ver Colección",
   // new page // ===================================
   "newsPage.loading": "Cargando Artículos...",
   "newsPage.title": "Noticias y Perspectivas",
@@ -615,7 +649,7 @@ const esTranslations = {
   "shop.filter.showResults": "Mostrar Resultados",
   "shop.filter.categories": "Categorías",
   "shop.filter.brands": "Marcas",
-  "shop.filter.models": "Modelos",
+  "shop.filter.models": "Modulos",
   "shop.filter.searchPlaceholder": "Buscar {title}...",
   "shop.filter.noCategories": "No hay categorías que coincidan.",
   "shop.filter.noBrands": "No hay marcas que coincidan.",
@@ -635,9 +669,9 @@ const esTranslations = {
   //dislaimer
   // SPANISH (es)
   "footer.disclaimer.p1":
-    "Todos los nombres de marcas, logotipos y marcas comerciales que se muestran en este sitio web son solo de referencia. Own Silent International Limited no está afiliada, respaldada ni autorizada por ningún fabricante de vehículos.",
+    "Todos los nombres de marcas, logotipos y marcas comerciales que se muestran en este sitio web son solo de referencia. Own Silent International Limited no está afiliada, respaldada ni autorizada por ningún fabricante de vehículos. Todos los nombres de productos, números y imágenes son solo para fines de identificación y compatibilidad.",
   "footer.disclaimer.p2":
-    "Fabricamos y comercializamos piezas de automoción de posventa, originales y personalizadas en todo el mundo. Los clientes son responsables de garantizar el cumplimiento legal y el uso adecuado de todos los productos.",
+    "Fabricamos y comercializamos piezas de automoción de posventa, originales y personalizadas en todo el mundo. Los clientes son responsables de garantizar el cumplimiento legal y el uso adecuado de todos los productos. Own Silent International Limited no es responsable de daños, modificaciones de vehículos o impactos en la garantía resultantes del uso de nuestros productos.",
   "footer.disclaimer.p3":
     "El uso de este sitio web y la compra de productos constituye la aceptación de nuestro descargo de responsabilidad completo. Para los términos legales completos, consulte nuestra",
   "footer.disclaimer.link": "Página de descargo de responsabilidad completo",
@@ -691,6 +725,30 @@ const esTranslations = {
   "showcase.part3.s2.v": "N2 de alta pureza",
   "showcase.part3.s3.l": "Carrera",
   "showcase.part3.s3.v": "110mm",
+
+  "showcase.part4.name": "Faros LASER de Matriz",
+  "showcase.part4.headline": "Iluminando el camino por delante.",
+  "showcase.part4.desc":
+    "Sistema de proyección láser de alta definición con tecnología de haz adaptativo, que proporciona hasta 600 m de visibilidad clara.",
+  "showcase.part4.bgText": "LUZ",
+  "showcase.part4.s1.l": "Alcance",
+  "showcase.part4.s1.v": "600m",
+  "showcase.part4.s2.l": "Tecnología",
+  "showcase.part4.s2.v": "Matriz Láser",
+  "showcase.part4.s3.l": "Eficiencia",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "Kit Aero de Carbono Forjado",
+  "showcase.part5.headline": "Aerodinámica Redefinida.",
+  "showcase.part5.desc":
+    "Componentes de fibra de carbono forjada ultraligeros diseñados para una carga aerodinámica máxima y una estética agresiva.",
+  "showcase.part5.bgText": "AERO",
+  "showcase.part5.s1.l": "Material",
+  "showcase.part5.s1.v": "Carbono Forjado",
+  "showcase.part5.s2.l": "Carga Aerod.",
+  "showcase.part5.s2.v": "+120kg",
+  "showcase.part5.s3.l": "Red. Peso",
+  "showcase.part5.s3.v": "-15kg",
 };
 
 // ==========================================
@@ -816,54 +874,58 @@ const deTranslations = {
   "ccr.faq3.a":
     "Die Wartung ist minimal - sie produzieren fast keinen Bremsstaub und halten deutlich länger.",
   // GERMAN (de) - For About Us Page
-  "aboutPage.meta.de": "Über OwnSilent",
-  "aboutPage.title.de": "Die Zukunft der automobilen Leistung gestalten",
-  "aboutPage.subtitle.de":
+  "aboutPage.meta": "Über OwnSilent",
+  "aboutPage.title": "Die Zukunft der automobilen Leistung gestalten",
+  "aboutPage.subtitle":
     "Seit 2015 sind wir der globale Maßstab für Qualität und Vertrauen bei Hochleistungs-Autoteilen und maßgeschneiderten Fahrzeuganpassungen.",
-  "aboutPage.exploreBtn.de": "Unsere Produkte entdecken",
-  "aboutPage.story.meta.de": "Unsere Geschichte",
-  "aboutPage.story.title.de":
-    "Angetrieben von Leidenschaft, gebaut auf Vertrauen",
-  "aboutPage.story.p1.de":
+  "aboutPage.exploreBtn": "Unsere Produkte entdecken",
+  "aboutPage.story.meta": "Unsere Geschichte",
+  "aboutPage.story.title": "Angetrieben von Leidenschaft, gebaut auf Vertrauen",
+  "aboutPage.story.p1":
     "OwnSilent entstand aus einer einfachen Leidenschaft: das Finden des perfekten Bauteils zu einem einfachen, transparenten und zufriedenstellenden Erlebnis für jeden Enthusiasten zu machen.",
-  "aboutPage.story.p2.de":
+  "aboutPage.story.p2":
     "Jeder Kauf bei uns ist mehr als eine Transaktion; es ist ein Schritt zur Wartung und Aufrüstung Ihres Fahrzeugs mit vollem Vertrauen und Weltklasse-Qualität.",
-  "aboutPage.principles.meta.de": "Unsere Prinzipien",
-  "aboutPage.principles.title.de": "Unser Versprechen an Sie",
-  "aboutPage.principles.sub.de":
+  "aboutPage.principles.meta": "Unsere Prinzipien",
+  "aboutPage.principles.title": "Unser Versprechen an Sie",
+  "aboutPage.principles.sub":
     "Wir bauen auf Grundwerten, die jede unserer Entscheidungen und Interaktionen mit unserer globalen Gemeinschaft leiten.",
-  "aboutPage.value1.t.de": "Kompromisslose Qualität",
-  "aboutPage.value1.d.de":
+  "aboutPage.value1.t": "Kompromisslose Qualität",
+  "aboutPage.value1.d":
     "Wir sind bestrebt, Ihnen die besten Teile zu liefern und sicherzustellen, dass jede Komponente unseren strengen Qualitätsstandards entspricht.",
-  "aboutPage.value2.t.de": "Expertise & Leidenschaft",
-  "aboutPage.value2.d.de":
+  "aboutPage.value2.t": "Expertise & Leidenschaft",
+  "aboutPage.value2.d":
     "Unser Team besteht aus Auto-Enthusiasten und Experten, die bereit sind, Sie auf Ihrer Reise zu begleiten.",
-  "aboutPage.value3.t.de": "Vertrauen & Transparenz",
-  "aboutPage.value3.d.de":
+  "aboutPage.value3.t": "Vertrauen & Transparenz",
+  "aboutPage.value3.d":
     "Die Zufriedenheit unserer Kunden hat für uns Priorität. Wir handeln integer, um dauerhafte Beziehungen aufzubauen.",
-  "aboutPage.careers.meta.de": "Karriere",
-  "aboutPage.careers.title.de":
+  "aboutPage.careers.meta": "Karriere",
+  "aboutPage.careers.title":
     "Werden Sie Teil eines globalen Führers für automobile Innovation",
-  "aboutPage.careers.sub.de":
+  "aboutPage.careers.sub":
     "Wir sind immer auf der Suche nach talentierten Personen, die sich unserer Mission anschließen möchten.",
-  "aboutPage.careers.why.t.de": "Warum bei uns arbeiten?",
-  "aboutPage.careers.why.l1.de":
+  "aboutPage.careers.why.t": "Warum bei uns arbeiten?",
+  "aboutPage.careers.why.l1":
     "Arbeiten Sie mit modernster Technologie und innovativen Automobilprozessen.",
-  "aboutPage.careers.why.l2.de":
-    "Werden Sie Teil eines Unternehmens, das weltweit mit Partnern zusammenarbeitet.",
-  "aboutPage.careers.why.l3.de":
+  "aboutPage.careers.why.l2":
+    "Werden Sie Teil eines Unternehmens, das weltweit liefert und mit Partnern zusammenarbeitet.",
+  "aboutPage.careers.why.l3":
     "Nutzen Sie Möglichkeiten für Schulungen, Kompetenzentwicklung und Karriereaufstieg.",
-  "aboutPage.careers.why.l4.de":
+  "aboutPage.careers.why.l4":
     "Tragen Sie zur Entwicklung von Premium-Lösungen für Luxusautos bei.",
-  "aboutPage.careers.open.t.de": "Offene Fachbereiche",
-  "aboutPage.careers.open.sub.de":
+  "aboutPage.careers.open.t": "Offene Fachbereiche",
+  "aboutPage.careers.open.sub":
     "Wir freuen uns über Bewerbungen in verschiedenen Geschäftsbereichen. Wenn Sie die Fähigkeiten und die Leidenschaft haben, möchten wir von Ihnen hören.",
-  "aboutPage.careers.cat1.de": "Ingenieurwesen & Fertigung",
-  "aboutPage.careers.cat2.de": "Forschung & Entwicklung",
-  "aboutPage.careers.cat3.de": "Vertrieb & Händlerbeziehungen",
-  "aboutPage.careers.cat4.de": "Marketing & Kommunikation",
-  "aboutPage.careers.cat5.de": "Betrieb & Logistik",
-  "aboutPage.careers.cat6.de": "Kunden- & technischer Support",
+  "aboutPage.careers.cat1": "Ingenieurwesen & Fertigung",
+  "aboutPage.careers.cat2": "Forschung & Entwicklung",
+  "aboutPage.careers.cat3": "Vertrieb & Händlerbeziehungen",
+  "aboutPage.careers.cat4": "Marketing & Kommunikation",
+  "aboutPage.careers.cat5": "Betrieb & Logistik",
+  "aboutPage.careers.cat6": "Kunden- & technischer Support",
+
+  "home.banner.title": "Erleben Sie Höchstleistung",
+  "home.banner.desc":
+    "Verbessern Sie Ihr Fahrzeug mit unseren erstklassigen Carbon-Komponenten und Präzisionstechnik.",
+  "home.banner.btn": "Kollektion ansehen",
   //news page // ===================================
   "newsPage.loading": "Artikel werden geladen...",
   "newsPage.title": "Nachrichten & Einblicke",
@@ -948,7 +1010,7 @@ const deTranslations = {
   "footer.disclaimer.p1":
     "Alle auf dieser Website angezeigten Markennamen, Logos und Warenzeichen dienen nur als Referenz. Own Silent International Limited ist nicht mit Fahrzeugherstellern verbunden, von diesen unterstützt oder autorisiert. Alle Produktnamen, Nummern und Bilder dienen nur zu Identifikations- und Kompatibilitätszwecken.",
   "footer.disclaimer.p2":
-    "Wir produzieren und handeln weltweit mit Aftermarket-, Original- und kundenspezifischen Autoteilen. Die Kunden sind für die Einhaltung der gesetzlichen Bestimmungen, die sichere Installation und die ordnungsgemäße Verwendung aller Produkte verantwortlich. Own Silent International Limited haftet nicht für Schäden, Fahrzeugmodifikationen oder Garantieauswirkungen, die aus der Verwendung unserer Produkte resultieren.",
+    "Wir produzieren und handeln weltweit mit Aftermarket-, Original- und kundenspezifischen Autoteilen. Die Kunden sind für die Einhaltung der gesetzlichen Bestimmungen, die sichere Installation und die ordnungsgemäße Verwendung aller Produkte. Own Silent International Limited haftet nicht für Schäden, Fahrzeugmodifikationen oder Garantieauswirkungen, die aus der Verwendung unserer Produkte resultieren.",
   "footer.disclaimer.p3":
     "Die Nutzung dieser Website und der Kauf von Produkten stellen die Annahme unseres vollständigen Haftungsausschlusses dar. Die vollständigen rechtlichen Bedingungen finden Sie auf unserer",
   "footer.disclaimer.link": "Vollständige Haftungsausschluss-Seite",
@@ -970,7 +1032,7 @@ const deTranslations = {
   "showcase.part1.name": "Carbon-Matrix-Rotoren",
   "showcase.part1.headline": "Thermische Meisterschaft bei jedem Stopp.",
   "showcase.part1.desc":
-    "Unsere Carbon-Keramik-Matrix-Rotoren bieten eine unerreichte Wärmeableitung und null Bremsfading, selbst unter extremen Rennstreckenbedingungen.",
+    "Unsere Carbon-Keramik-Matrix-Rotoren bieten eine unerreichte Wärmeableitung und null Bremsfading, sogar unter extremen Rennstreckenbedingungen.",
   "showcase.part1.bgText": "POWER",
   "showcase.part1.s1.l": "Material",
   "showcase.part1.s1.v": "Carbon-Silizium",
@@ -1002,6 +1064,30 @@ const deTranslations = {
   "showcase.part3.s2.v": "Hochreines N2",
   "showcase.part3.s3.l": "Hub",
   "showcase.part3.s3.v": "110mm",
+
+  "showcase.part4.name": "Matrix LASER Scheinwerfer",
+  "showcase.part4.headline": "Den Weg nach vorne beleuchten.",
+  "showcase.part4.desc":
+    "Hochauflösendes Laserprojektionssystem mit adaptiver Strahltechnologie, das bis zu 600 m kristallklare Sicht bietet.",
+  "showcase.part4.bgText": "LICHT",
+  "showcase.part4.s1.l": "Reichweite",
+  "showcase.part4.s1.v": "600m",
+  "showcase.part4.s2.l": "Technik",
+  "showcase.part4.s2.v": "Laser Matrix",
+  "showcase.part4.s3.l": "Effizienz",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "Geschmiedetes Carbon Aero Kit",
+  "showcase.part5.headline": "Aerodynamik neu definiert.",
+  "showcase.part5.desc":
+    "Ultraleichte Komponenten aus geschmiedeter Kohlefaser, entwickelt für maximalen Abtrieb und aggressive Ästhetik.",
+  "showcase.part5.bgText": "AERO",
+  "showcase.part5.s1.l": "Material",
+  "showcase.part5.s1.v": "Schmiede-Carbon",
+  "showcase.part5.s2.l": "Abtrieb",
+  "showcase.part5.s2.v": "+120kg",
+  "showcase.part5.s3.l": "Gewichtsred.",
+  "showcase.part5.s3.v": "-15kg",
 };
 
 // ==========================================
@@ -1177,6 +1263,11 @@ const frTranslations = {
   "aboutPage.careers.cat4": "Marketing et communications",
   "aboutPage.careers.cat5": "Opérations et logistique",
   "aboutPage.careers.cat6": "Support client et technique",
+
+  "home.banner.title": "Découvrez des performances de pointe",
+  "home.banner.desc":
+    "Sublimez votre véhicule avec nos composants en carbone de classe mondiale et notre ingénierie de précision.",
+  "home.banner.btn": "Voir la collection",
   //news// ===================================
   "newsPage.loading": "Chargement des articles...",
   "newsPage.title": "Actualités et Analyses",
@@ -1317,6 +1408,30 @@ const frTranslations = {
   "showcase.part3.s2.v": "N2 Haute Pureté",
   "showcase.part3.s3.l": "Course",
   "showcase.part3.s3.v": "110mm",
+
+  "showcase.part4.name": "Phares LASER à Matrice",
+  "showcase.part4.headline": "Illuminer la route devant vous.",
+  "showcase.part4.desc":
+    "Système de projection laser haute définition avec technologie de faisceau adaptatif, offrant jusqu'à 600 m de visibilité cristalline.",
+  "showcase.part4.bgText": "LUMIÈRE",
+  "showcase.part4.s1.l": "Portée",
+  "showcase.part4.s1.v": "600m",
+  "showcase.part4.s2.l": "Techno",
+  "showcase.part4.s2.v": "Laser Matrix",
+  "showcase.part4.s3.l": "Efficacité",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "Kit Géo Aero en Carbone Forgé",
+  "showcase.part5.headline": "L'aérodynamisme redéfini.",
+  "showcase.part5.desc":
+    "Composants en fibre de carbone forgée ultra-légers conçus pour un appui maximal et une esthétique agressive.",
+  "showcase.part5.bgText": "AERO",
+  "showcase.part5.s1.l": "Matériau",
+  "showcase.part5.s1.v": "Carbone Forgé",
+  "showcase.part5.s2.l": "Appui",
+  "showcase.part5.s2.v": "+120kg",
+  "showcase.part5.s3.l": "Réd. de Poids",
+  "showcase.part5.s3.v": "-15kg",
 };
 
 // ==========================================
@@ -1492,6 +1607,11 @@ const itTranslations = {
   "aboutPage.careers.cat4": "Marketing e comunicazioni",
   "aboutPage.careers.cat5": "Operazioni e logistica",
   "aboutPage.careers.cat6": "Assistenza clienti e tecnica",
+
+  "home.banner.title": "Sperimenta Prestazioni al Top",
+  "home.banner.desc":
+    "Migliora il tuo veicolo con i nostri componenti in carbonio di classe mondiale e ingegneria di precisione.",
+  "home.banner.btn": "Vedi Collezione",
   //news page
   "newsPage.loading": "Caricamento articoli...",
   "newsPage.title": "Notizie e Approfondimenti",
@@ -1632,6 +1752,30 @@ const itTranslations = {
   "showcase.part3.s2.v": "N2 Alta Purezza",
   "showcase.part3.s3.l": "Corsa",
   "showcase.part3.s3.v": "110mm",
+
+  "showcase.part4.name": "Fari LASER a Matrice",
+  "showcase.part4.headline": "Illuminare la strada davanti a sé.",
+  "showcase.part4.desc":
+    "Sistema di proiezione laser ad alta definizione con tecnologia a fascio adattivo, che fornisce fino a 600 m di visibilità cristallina.",
+  "showcase.part4.bgText": "LUCE",
+  "showcase.part4.s1.l": "Portata",
+  "showcase.part4.s1.v": "600m",
+  "showcase.part4.s2.l": "Tecno",
+  "showcase.part4.s2.v": "Laser Matrix",
+  "showcase.part4.s3.l": "Efficienza",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "Kit Aero in Carbonio Forgiato",
+  "showcase.part5.headline": "Aerodinamica ridefinita.",
+  "showcase.part5.desc":
+    "Componenti in fibra di carbonio forgiata ultra-leggeri progettati per la massima deportanza e un'estetica aggressiva.",
+  "showcase.part5.bgText": "AERO",
+  "showcase.part5.s1.l": "Materiale",
+  "showcase.part5.s1.v": "Carbonio Forgiato",
+  "showcase.part5.s2.l": "Deportanza",
+  "showcase.part5.s2.v": "+120kg",
+  "showcase.part5.s3.l": "Riduzione Peso",
+  "showcase.part5.s3.v": "-15kg",
 };
 
 // ==========================================
@@ -1792,6 +1936,11 @@ const arTranslations = {
   "aboutPage.careers.cat4": "التسويق والاتصالات",
   "aboutPage.careers.cat5": "العمليات والخدمات اللوجستية",
   "aboutPage.careers.cat6": "دعم العملاء والدعم الفني",
+
+  "home.banner.title": "جرب قمة الأداء",
+  "home.banner.desc":
+    "ارتقِ بمركبتك من خلال مكونات الكربون ذات المستوى العالمي والهندسة الدقيقة.",
+  "home.banner.btn": "عرض المجموعة",
   //news page
   "newsPage.loading": "جار تحميل المقالات...",
   "newsPage.title": "الأخبار والرؤى",
@@ -1928,6 +2077,30 @@ const arTranslations = {
   "showcase.part3.s2.v": "N2 عالي النقاء",
   "showcase.part3.s3.l": "الشوط",
   "showcase.part3.s3.v": "110 ملم",
+
+  "showcase.part4.name": "مصابيح ليزر مصفوفة",
+  "showcase.part4.headline": "إضاءة الطريق أمامك.",
+  "showcase.part4.desc":
+    "نظام إسقاط ليزر عالي الدقة مع تقنية الشعاع التكيفي ، مما يوفر رؤية بلورية واضحة تصل إلى 600 متر.",
+  "showcase.part4.bgText": "ضوء",
+  "showcase.part4.s1.l": "المدى",
+  "showcase.part4.s1.v": "600 متر",
+  "showcase.part4.s2.l": "التقنية",
+  "showcase.part4.s2.v": "مصفوفة ليزر",
+  "showcase.part4.s3.l": "الكفاءة",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "طقم ايرو من الكربون المطروق",
+  "showcase.part5.headline": "إعادة تعريف الديناميكا الهوائية.",
+  "showcase.part5.desc":
+    "مكونات ألياف كربونية مطروقة خفيفة الوزن للغاية مصممة لتوفير أقصى قوة سفلية وجماليات هجومية.",
+  "showcase.part5.bgText": "ايرو",
+  "showcase.part5.s1.l": "المادة",
+  "showcase.part5.s1.v": "كربون مطروق",
+  "showcase.part5.s2.l": "القوة السفلية",
+  "showcase.part5.s2.v": "+120 كجم",
+  "showcase.part5.s3.l": "تقليل الوزن",
+  "showcase.part5.s3.v": "-15 كجم",
 };
 
 // ==========================================
@@ -2073,6 +2246,10 @@ const zhTranslations = {
   "aboutPage.careers.cat4": "市场营销与传播",
   "aboutPage.careers.cat5": "运营与物流",
   "aboutPage.careers.cat6": "客户与技术支持",
+
+  "home.banner.title": "体验极致性能",
+  "home.banner.desc": "通过我们的世界级碳组件和精密工程提升您的座驾。",
+  "home.banner.btn": "查看系列",
   //news page
   // ===================================
   "newsPage.loading": "正在加载文章...",
@@ -2208,6 +2385,30 @@ const zhTranslations = {
   "showcase.part3.s2.v": "高纯度氮气",
   "showcase.part3.s3.l": "行程",
   "showcase.part3.s3.v": "110mm",
+
+  "showcase.part4.name": "激光矩阵大灯",
+  "showcase.part4.headline": "照亮前行之路。",
+  "showcase.part4.desc":
+    "高清激光投影系统，采用自适应光束技术，可提供长达 600 米的清晰视野。",
+  "showcase.part4.bgText": "光芒",
+  "showcase.part4.s1.l": "照射范围",
+  "showcase.part4.s1.v": "600米",
+  "showcase.part4.s2.l": "技术",
+  "showcase.part4.s2.v": "激光矩阵",
+  "showcase.part4.s3.l": "效率",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "锻造碳纤维气动组件",
+  "showcase.part5.headline": "空气动力学新篇章。",
+  "showcase.part5.desc":
+    "超轻量锻造碳纤维组件，专为最大下压力和激进美学而设计。",
+  "showcase.part5.bgText": "气动",
+  "showcase.part5.s1.l": "材质",
+  "showcase.part5.s1.v": "锻造碳纤维",
+  "showcase.part5.s2.l": "下压力",
+  "showcase.part5.s2.v": "+120kg",
+  "showcase.part5.s3.l": "减重",
+  "showcase.part5.s3.v": "-15kg",
 };
 
 // ==========================================
@@ -2381,6 +2582,11 @@ const ptTranslations = {
   "aboutPage.careers.cat4": "Marketing e Comunicações",
   "aboutPage.careers.cat5": "Operações e Logística",
   "aboutPage.careers.cat6": "Suporte ao Cliente e Técnico",
+
+  "home.banner.title": "Experimente a Performance Máxima",
+  "home.banner.desc":
+    "Eleve o seu veículo com os nossos componentes de carbono de classe mundial e engenharia de precisão.",
+  "home.banner.btn": "Ver Coleção",
   //news page
   "newsPage.loading": "Carregando artigos...",
   "newsPage.title": "Notícias e Insights",
@@ -2520,6 +2726,30 @@ const ptTranslations = {
   "showcase.part3.s2.v": "N2 Alta Purezza",
   "showcase.part3.s3.l": "Curso",
   "showcase.part3.s3.v": "110mm",
+
+  "showcase.part4.name": "Faróis LASER de Matriz",
+  "showcase.part4.headline": "Iluminando o caminho à frente.",
+  "showcase.part4.desc":
+    "Sistema de projeção laser de alta definição com tecnologia de feixe adaptativo, proporcionando até 600 m de visibilidade cristalina.",
+  "showcase.part4.bgText": "LUZ",
+  "showcase.part4.s1.l": "Alcance",
+  "showcase.part4.s1.v": "600m",
+  "showcase.part4.s2.l": "Tecnologia",
+  "showcase.part4.s2.v": "Matriz Laser",
+  "showcase.part4.s3.l": "Eficiência",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "Kit Aero de Carbono Forjado",
+  "showcase.part5.headline": "Aerodinâmica redefinida.",
+  "showcase.part5.desc":
+    "Componentes de fibra de carbono forjada ultra-leves projetados para máxima força descendente e estética agressiva.",
+  "showcase.part5.bgText": "AERO",
+  "showcase.part5.s1.l": "Material",
+  "showcase.part5.s1.v": "Carbono Forjado",
+  "showcase.part5.s2.l": "Downforce",
+  "showcase.part5.s2.v": "+120kg",
+  "showcase.part5.s3.l": "Redução Peso",
+  "showcase.part5.s3.v": "-15kg",
 };
 
 // ==========================================
@@ -2691,6 +2921,11 @@ const ruTranslations = {
   "aboutPage.careers.cat4": "Маркетинг и коммуникации",
   "aboutPage.careers.cat5": "Операции и логистика",
   "aboutPage.careers.cat6": "Клиентская и техническая поддержка",
+
+  "home.banner.title": "Испытайте пиковую производительность",
+  "home.banner.desc":
+    "Усовершенствуйте свой автомобиль с помощью наших углеродных компонентов мирового класса и точного инжиниринга.",
+  "home.banner.btn": "Посмотреть коллекцию",
   //news page
   "newsPage.loading": "Загрузка статей...",
   "newsPage.title": "Новости и Аналитика",
@@ -2830,6 +3065,30 @@ const ruTranslations = {
   "showcase.part3.s2.v": "Азот N2",
   "showcase.part3.s3.l": "Ход",
   "showcase.part3.s3.v": "110 мм",
+
+  "showcase.part4.name": "Матричные ЛАЗЕРНЫЕ фары",
+  "showcase.part4.headline": "Освещая путь вперед.",
+  "showcase.part4.desc":
+    "Лазерная проекционная система высокого разрешения с технологией адаптивного луча, обеспечивающая кристально чистую видимость на расстоянии до 600 м.",
+  "showcase.part4.bgText": "СВЕТ",
+  "showcase.part4.s1.l": "Дальность",
+  "showcase.part4.s1.v": "600м",
+  "showcase.part4.s2.l": "Техно",
+  "showcase.part4.s2.v": "Laser Matrix",
+  "showcase.part4.s3.l": "Эффективность",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "Аэро-кит из кованого карбона",
+  "showcase.part5.headline": "Аэродинамика в новом прочтении.",
+  "showcase.part5.desc":
+    "Ультралегкие компоненты из кованого углеродного волокна, разработанные для максимальной прижимной силы и агрессивной эстетики.",
+  "showcase.part5.bgText": "АЭРО",
+  "showcase.part5.s1.l": "Материал",
+  "showcase.part5.s1.v": "Кованый карбон",
+  "showcase.part5.s2.l": "Прижим. сила",
+  "showcase.part5.s2.v": "+120кг",
+  "showcase.part5.s3.l": "Сниж. веса",
+  "showcase.part5.s3.v": "-15кг",
 };
 
 // ==========================================
@@ -3000,6 +3259,11 @@ const jaTranslations = {
   "aboutPage.careers.cat4": "マーケティングとコミュニケーション",
   "aboutPage.careers.cat5": "運営とロジスティクス",
   "aboutPage.careers.cat6": "顧客および技術サポート",
+
+  "home.banner.title": "最高のパフォーマンスを体験",
+  "home.banner.desc":
+    "当社のワールドクラスのカーボンコンポーネントと精密エンジニアリングであなたの車をアップグレードしましょう。",
+  "home.banner.btn": "コレクションを見る",
   //mews page
   "newsPage.loading": "記事を読み込んでいます...",
   "newsPage.title": "ニュースと洞察",
@@ -3135,6 +3399,30 @@ const jaTranslations = {
   "showcase.part3.s2.v": "高純度窒素",
   "showcase.part3.s3.l": "ストローク",
   "showcase.part3.s3.v": "110mm",
+
+  "showcase.part4.name": "マトリックス LASER ヘッドライト",
+  "showcase.part4.headline": "進むべき道を照らす。",
+  "showcase.part4.desc":
+    "アダプティブビームテクノロジーを搭載した高精細レーザープロジェクションシステム。最大600m先までクリアな視界を提供します。",
+  "showcase.part4.bgText": "LIGHT",
+  "showcase.part4.s1.l": "照射範囲",
+  "showcase.part4.s1.v": "600m",
+  "showcase.part4.s2.l": "テクノロジー",
+  "showcase.part4.s2.v": "レーザーマトリックス",
+  "showcase.part4.s3.l": "効率",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "フォージドカーボン エアロキット",
+  "showcase.part5.headline": "空力特性の再定義。",
+  "showcase.part5.desc":
+    "最大ダウンフォースとアグレッシブな美学を追求して設計された、超軽量なフォージドカーボンファイバー製コンポーネント。",
+  "showcase.part5.bgText": "AERO",
+  "showcase.part5.s1.l": "素材",
+  "showcase.part5.s1.v": "フォージドカーボン",
+  "showcase.part5.s2.l": "ダウンフォース",
+  "showcase.part5.s2.v": "+120kg",
+  "showcase.part5.s3.l": "軽量化",
+  "showcase.part5.s3.v": "-15kg",
 };
 
 // ==========================================

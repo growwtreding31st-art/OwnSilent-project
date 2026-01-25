@@ -149,7 +149,7 @@ export default function PremiumCarShowcase() {
         image: "/images/showcase/image3.png",
         bgText: t("showcase.part3.bgText") || "GLIDE",
         bgColor: "bg-[#e2e8f0]",
-        accentColor: "#af1e1e",
+        accentColor: "#ff0000ff",
         glowColor: "rgba(175, 30, 30, 0.15)",
         specs: [
           {
@@ -166,6 +166,67 @@ export default function PremiumCarShowcase() {
             label: t("showcase.part3.s3.l"),
             value: t("showcase.part3.s3.v"),
             icon: <Target size={14} />,
+          },
+        ],
+      },
+      {
+        id: 4,
+        name: t("showcase.part4.name") || "Matrix LASER Headlights",
+        headline:
+          t("showcase.part4.headline") || "Illuminating the Path Ahead.",
+        description:
+          t("showcase.part4.desc") ||
+          "High-definition laser projection system with adaptive beam technology, providing up to 600m of crystal clear visibility.",
+        image: "/images/showcase/image4.png",
+        bgText: t("showcase.part4.bgText") || "LIGHT",
+        bgColor: "bg-[#f8fafc]",
+        accentColor: "#1eaf31",
+        glowColor: "rgba(30, 175, 49, 0.15)",
+        specs: [
+          {
+            label: t("showcase.part4.s1.l"),
+            value: t("showcase.part4.s1.v"),
+            icon: <Activity size={14} />,
+          },
+          {
+            label: t("showcase.part4.s2.l"),
+            value: t("showcase.part4.s2.v"),
+            icon: <Zap size={14} />,
+          },
+          {
+            label: t("showcase.part4.s3.l"),
+            value: t("showcase.part4.s3.v"),
+            icon: <Target size={14} />,
+          },
+        ],
+      },
+      {
+        id: 5,
+        name: t("showcase.part5.name") || "Forged Carbon Aero Kit",
+        headline: t("showcase.part5.headline") || "Aerodynamics Redefined.",
+        description:
+          t("showcase.part5.desc") ||
+          "Ultra-lightweight forged carbon fiber components designed for maximum downforce and aggressive aesthetics.",
+        image: "/images/showcase/image5.png",
+        bgText: t("showcase.part5.bgText") || "AERO",
+        bgColor: "bg-[#f1f5f9]",
+        accentColor: "#e47010ff",
+        glowColor: "rgba(175, 168, 30, 0.15)",
+        specs: [
+          {
+            label: t("showcase.part5.s1.l"),
+            value: t("showcase.part5.s1.v"),
+            icon: <Cog size={14} />,
+          },
+          {
+            label: t("showcase.part5.s2.l"),
+            value: t("showcase.part5.s2.v"),
+            icon: <Activity size={14} />,
+          },
+          {
+            label: t("showcase.part5.s3.l"),
+            value: t("showcase.part5.s3.v"),
+            icon: <Zap size={14} />,
           },
         ],
       },

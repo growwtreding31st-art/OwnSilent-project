@@ -6,6 +6,7 @@ import AboutUs from "@/components/AboutUs";
 import BlogSection from "@/components/NewsSection";
 import FeaturesBanner from "@/components/FeaturesBanner";
 import CollectionsSection from "@/components/CollectionsSection";
+import BannerSegment from "@/components/BannerSegment";
 
 export default function HomePageContent() {
   return (
@@ -17,6 +18,7 @@ export default function HomePageContent() {
       {/* <CollectionsSection /> */}
       <AboutUs />
       <BlogSection />
+      <BannerSegment />
       <FeaturesBanner />
     </div>
   );
