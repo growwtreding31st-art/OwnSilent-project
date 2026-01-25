@@ -139,7 +139,7 @@ export default function BlogSection() {
           </div>
         </div>
 
-        {status === "loading" && posts.length === 0 ? (
+        {status === "loading" && (posts ?? []).length === 0 ? (
           <SkeletonLoader />
         ) : (
           <div className="overflow-hidden -mx-3" ref={emblaRef}>

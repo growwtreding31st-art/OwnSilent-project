@@ -161,7 +161,7 @@ const BlogPostsDisplay = ({ posts }: { posts: Post[] }) => {
       <div className="relative md:hidden -mx-4 px-4">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex -ml-4 py-4">
-            {posts.map((post) => (
+            {(posts ?? []).map((post) => (
               <div
                 key={post._id}
                 className="flex-[0_0_85%] sm:flex-[0_0_60%] pl-4 min-w-0"
@@ -192,7 +192,7 @@ const BlogPostsDisplay = ({ posts }: { posts: Post[] }) => {
       </div>
 
       <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {posts.map((post: Post) => (
+        {(posts ?? []).map((post: Post) => (
           <BlogCard key={post._id} post={post} />
         ))}
       </div>
@@ -244,7 +244,7 @@ export default function BlogPage() {
     dispatch(fetchPublicBlogPosts({}));
   }, [dispatch]);
 
-  if (status === "loading" && posts.length === 0) {
+  if (status === "loading" && (posts ?? []).length === 0) {
     return <SkeletonLoader />;
   }
 
@@ -271,7 +271,7 @@ export default function BlogPage() {
       </div>
 
       <div className="container mx-auto px-4 -mt-10 relative z-20 pb-24">
-        {posts.length > 0 ? (
+        {(posts ?? []).length > 0 ? (
           <BlogPostsDisplay posts={posts} />
         ) : (
           <div className="bg-white rounded-3xl p-16 text-center shadow-xl shadow-slate-200/50 border border-slate-100">

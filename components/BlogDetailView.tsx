@@ -49,7 +49,7 @@ export default function BlogDetailPage() {
   useEffect(() => {
     if (slug) {
       dispatch(fetchPublicBlogPostBySlug(slug));
-      if (posts.length === 0) {
+      if ((posts ?? []).length === 0) {
         dispatch(fetchPublicBlogPosts({ limit: 4 }));
       }
     }
