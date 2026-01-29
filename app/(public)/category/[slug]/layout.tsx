@@ -1,32 +1,45 @@
-import type { Metadata } from 'next'
-
-type Props = {
-  params: Promise<{ slug: string }>
-}
+import type { Metadata } from "next";
 
 async function getCategory(slug: string) {
-  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://api.ownsilent.international/api/v1'
-  try {
-    const res = await fetch(`${baseUrl}/categories/${slug}`, { next: { revalidate: 3600 } })
-    if (!res.ok) return null
-    return res.json()
-  } catch (error) {
-    return null
-  }
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/categories/${slug}`,
+    { next: { revalidate: 3600 } },
+  );
+  if (!res.ok) return null;
+  return res.json();
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = (await params).slug
-  const category = await getCategory(slug)
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const category = await getCategory(params.slug);
 
-  if (!category) return { title: 'Category Not Found' }
+  if (!category) {
+    return {
+      title: "Category",
+    };
+  }
 
   return {
     title: category.name,
-    description: `Browse our collection of ${category.name} at OwnSilent.`,
-  }
+    description: `Browse our collection of ${category.name} at OwnSilent. Premium quality auto parts and accessories.`,
+    alternates: {
+      canonical: `https://ownsilent.international/category/${params.slug}`,
+    },
+    openGraph: {
+      title: `${category.name} | OwnSilent`,
+      description: `Premium ${category.name} for your vehicle.`,
+      url: `https://ownsilent.international/category/${params.slug}`,
+    },
+  };
 }
 
-export default function CategoryLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+export default function CategoryLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
 }

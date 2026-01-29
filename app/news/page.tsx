@@ -116,7 +116,7 @@ export default function NewsPage() {
 
           <div className="lg:col-span-9">
             <div className="space-y-6">
-              {articles.length > 0 ? (
+              {(articles ?? []).length > 0 ? (
                 articles.map((article: any) => (
                   <article
                     key={article._id}
