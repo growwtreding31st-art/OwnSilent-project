@@ -14,10 +14,12 @@ import PremiumPartsCategories from "@/components/PremiumPartsCategories";
 import OurGallery from "@/components/OurGallery";
 import HowWeWork from "@/components/HowWeWork";
 import Reviews from "@/components/Reviews";
+import WelcomeScreen from "./WelcomeScreen";
 
 export default function HomePageContent() {
   return (
     <div className="min-h-screen overflow-x-hidden">
+      <WelcomeScreen />
       <PremiumCarShowcase />
       <Hero />
       <CarsSection />
