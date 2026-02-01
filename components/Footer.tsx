@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import {
   Facebook,
   Twitter,
@@ -216,6 +217,150 @@ export default function Footer() {
               </p>
             </div>
           </div>
+
+          {/* Enhanced Payment Methods Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="w-full mb-10"
+          >
+            <div className="relative bg-gradient-to-br from-blue-50/70 via-indigo-50/50 to-blue-50/70 p-8 sm:p-10 rounded-3xl border border-blue-200/50 shadow-xl shadow-blue-500/5 overflow-hidden">
+              {/* Animated Background Elements */}
+              <motion.div
+                animate={{
+                  scale: [1, 1.2, 1],
+                  opacity: [0.1, 0.2, 0.1],
+                }}
+                transition={{
+                  duration: 8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-400/20 to-indigo-400/20 rounded-full blur-3xl"
+              />
+
+              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                {/* Left Side - Title & Description */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="flex items-center gap-4"
+                >
+                  <motion.div
+                    whileHover={{ rotate: 360, scale: 1.1 }}
+                    transition={{ duration: 0.6 }}
+                    className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#176FC0] to-[#0F4C85] text-white shadow-2xl shadow-blue-500/40"
+                  >
+                    <ShieldCheck className="w-8 h-8" strokeWidth={2.5} />
+                  </motion.div>
+                  <div>
+                    <h3 className="font-black text-slate-900 text-base sm:text-lg uppercase tracking-wide mb-2 flex items-center gap-2">
+                      {t("footer.payment.title")}
+                      <motion.span
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="inline-flex h-2 w-2 rounded-full bg-green-500"
+                      />
+                    </h3>
+                    <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed max-w-md">
+                      {t("footer.payment.subtitle")}
+                    </p>
+                  </div>
+                </motion.div>
+
+                {/* Right Side - Payment Badges */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="flex flex-wrap items-center justify-center gap-3"
+                >
+                  {/* PayPal */}
+                  <motion.div
+                    whileHover={{ y: -5, scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                    className="group relative px-5 py-3 bg-white/90 backdrop-blur-sm rounded-xl border-2 border-slate-200 hover:border-[#0070BA] shadow-lg hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300"
+                  >
+                    <span className="text-sm font-black text-[#0070BA] group-hover:scale-110 inline-block transition-transform">
+                      PayPal
+                    </span>
+                    <motion.div
+                      className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#0070BA]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+                      initial={false}
+                    />
+                  </motion.div>
+
+                  {/* Visa */}
+                  <motion.div
+                    whileHover={{ y: -5, scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                    className="group relative px-5 py-3 bg-white/90 backdrop-blur-sm rounded-xl border-2 border-slate-200 hover:border-blue-500 shadow-lg hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300"
+                  >
+                    <span className="text-sm font-black text-slate-700 group-hover:text-blue-600 transition-colors">
+                      Visa
+                    </span>
+                    <motion.div
+                      className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+                      initial={false}
+                    />
+                  </motion.div>
+
+                  {/* Mastercard */}
+                  <motion.div
+                    whileHover={{ y: -5, scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                    className="group relative px-5 py-3 bg-white/90 backdrop-blur-sm rounded-xl border-2 border-slate-200 hover:border-orange-500 shadow-lg hover:shadow-xl hover:shadow-orange-500/20 transition-all duration-300"
+                  >
+                    <span className="text-sm font-black text-slate-700 group-hover:text-orange-600 transition-colors">
+                      Mastercard
+                    </span>
+                    <motion.div
+                      className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+                      initial={false}
+                    />
+                  </motion.div>
+
+                  {/* Amex */}
+                  <motion.div
+                    whileHover={{ y: -5, scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                    className="group relative px-5 py-3 bg-white/90 backdrop-blur-sm rounded-xl border-2 border-slate-200 hover:border-indigo-500 shadow-lg hover:shadow-xl hover:shadow-indigo-500/20 transition-all duration-300"
+                  >
+                    <span className="text-sm font-black text-slate-700 group-hover:text-indigo-600 transition-colors">
+                      Amex
+                    </span>
+                    <motion.div
+                      className="absolute inset-0 rounded-xl bg-gradient-to-r from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+                      initial={false}
+                    />
+                  </motion.div>
+
+                  {/* Bank Transfer */}
+                  <motion.div
+                    whileHover={{ y: -5, scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400 }}
+                    className="group relative px-5 py-3 bg-white/90 backdrop-blur-sm rounded-xl border-2 border-slate-200 hover:border-green-500 shadow-lg hover:shadow-xl hover:shadow-green-500/20 transition-all duration-300"
+                  >
+                    <span className="text-sm font-black text-slate-700 group-hover:text-green-600 transition-colors">
+                      {t("footer.payment.bank")}
+                    </span>
+                    <motion.div
+                      className="absolute inset-0 rounded-xl bg-gradient-to-r from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+                      initial={false}
+                    />
+                  </motion.div>
+                </motion.div>
+              </div>
+
+              {/* Decorative Corner Element */}
+              <div className="absolute top-4 right-4 w-20 h-20 border-t-2 border-r-2 border-blue-300/30 rounded-tr-3xl" />
+            </div>
+          </motion.div>
 
           <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-8">
             <div className="text-center md:text-left space-y-2">

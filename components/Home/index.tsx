@@ -9,6 +9,11 @@ import CollectionsSection from "@/components/CollectionsSection";
 import BannerSegment from "@/components/BannerSegment";
 import AboutUs from "../AboutUs";
 import FeaturesBanner from "../FeaturesBanner";
+import WhatWeDo from "@/components/WhatWeDo";
+import PremiumPartsCategories from "@/components/PremiumPartsCategories";
+import OurGallery from "@/components/OurGallery";
+import HowWeWork from "@/components/HowWeWork";
+import Reviews from "@/components/Reviews";
 
 export default function HomePageContent() {
   return (
@@ -18,6 +23,11 @@ export default function HomePageContent() {
       <CarsSection />
       {/* <BrandProductsSection /> */}
       {/* <CollectionsSection /> */}
+      <WhatWeDo />
+      <PremiumPartsCategories />
+      <OurGallery />
+      <HowWeWork />
+      <Reviews />
       <AboutUs />
       <BlogSection />
       <BannerSegment />

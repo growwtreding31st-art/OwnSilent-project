@@ -406,6 +406,162 @@ const enTranslations = {
   "showcase.part5.s2.v": "+120kg",
   "showcase.part5.s3.l": "Weight Red.",
   "showcase.part5.s3.v": "-15kg",
+
+  // What We Do Section
+  "whatWeDo.badge": "Our Services",
+  "whatWeDo.title": "What We",
+  "whatWeDo.titleHighlight": "Do",
+  "whatWeDo.subtitle":
+    "We deliver premium automotive solutions with precision engineering and unmatched quality.",
+  "whatWeDo.feature1.title": "Premium Parts Supply",
+  "whatWeDo.feature1.desc":
+    "High-performance components sourced from top manufacturers worldwide.",
+  "whatWeDo.feature2.title": "Quality Assurance",
+  "whatWeDo.feature2.desc":
+    "Every part is rigorously tested to meet OEM standards and beyond.",
+  "whatWeDo.feature3.title": "Expert Installation",
+  "whatWeDo.feature3.desc":
+    "Professional fitting services through our global partner network.",
+  "whatWeDo.feature4.title": "Worldwide Shipping",
+  "whatWeDo.feature4.desc":
+    "Fast and reliable delivery to customers across the globe.",
+
+  // Premium Parts Categories
+  "categories.badge": "Shop by Category",
+  "categories.title": "Choose From Premium Parts For",
+  "categories.titleHighlight": "Your Car",
+  "categories.subtitle":
+    "Explore our curated selection of high-performance automotive components.",
+  "categories.brakes.title": "Brakes & Rotors",
+  "categories.engine.title": "Engine Parts",
+  "categories.suspension.title": "Suspension",
+  "categories.exhaust.title": "Exhaust Systems",
+  "categories.body.title": "Body Kits",
+  "categories.lighting.title": "Lighting",
+  "categories.viewAll": "View All Categories",
+
+  // Our Gallery
+  "gallery.badge": "Our Work",
+  "gallery.title": "Our",
+  "gallery.titleHighlight": "Gallery",
+  "gallery.subtitle":
+    "Explore our portfolio of premium builds and installations.",
+  "gallery.img1.alt": "Premium carbon ceramic brake installation",
+  "gallery.img2.alt": "Custom body kit fitment",
+  "gallery.img3.alt": "High-performance exhaust system",
+  "gallery.img4.alt": "Luxury interior upgrade",
+  "gallery.img5.alt": "Forged wheel installation",
+  "gallery.img6.alt": "Carbon fiber components",
+  "gallery.img7.alt": "Complete vehicle transformation",
+  "gallery.img8.alt": "Professional detailing work",
+
+  // Latest Articles
+  "articles.badge": "Insights & Updates",
+  "articles.title": "Latest",
+  "articles.titleHighlight": "Articles",
+  "articles.subtitle":
+    "Stay informed with the latest trends and technologies in automotive performance.",
+  "articles.article1.title": "The Future of Carbon-Ceramic Braking Technology",
+  "articles.article1.excerpt":
+    "Discover how carbon-ceramic rotors are revolutionizing high-performance braking systems with superior heat management and durability.",
+  "articles.article1.author": "James Chen",
+  "articles.article1.date": "Jan 28, 2026",
+  "articles.article2.title": "Choosing the Right Suspension for Your Vehicle",
+  "articles.article2.excerpt":
+    "A comprehensive guide to selecting suspension components that match your driving style and performance goals.",
+  "articles.article2.author": "Sarah Williams",
+  "articles.article2.date": "Jan 25, 2026",
+  "articles.article3.title": "Aerodynamics: How Body Kits Improve Performance",
+  "articles.article3.excerpt":
+    "Learn how properly designed body kits can enhance downforce, reduce drag, and improve overall vehicle dynamics.",
+  "articles.article3.author": "Michael Torres",
+  "articles.article3.date": "Jan 22, 2026",
+  "articles.readMore": "Read More",
+  "articles.viewAll": "View All Articles",
+
+  // How We Work
+  "howWeWork.badge": "Our Process",
+  "howWeWork.title": "How We",
+  "howWeWork.titleHighlight": "Work",
+  "howWeWork.subtitle":
+    "A simple, transparent process from selection to installation.",
+  "howWeWork.step1.title": "Browse & Select",
+  "howWeWork.step1.desc":
+    "Explore our extensive catalog and find the perfect parts for your vehicle.",
+  "howWeWork.step2.title": "Place Your Order",
+  "howWeWork.step2.desc":
+    "Secure checkout with multiple payment options and instant confirmation.",
+  "howWeWork.step3.title": "Fast Delivery",
+  "howWeWork.step3.desc":
+    "Your parts are carefully packaged and shipped directly to your location.",
+  "howWeWork.step4.title": "Install & Enjoy",
+  "howWeWork.step4.desc":
+    "Professional installation or DIY - we support you every step of the way.",
+  "howWeWork.cta.text": "Ready to upgrade your vehicle?",
+  "howWeWork.cta.button": "Start Shopping",
+
+  // Contact Process
+  "contactProcess.badge": "Get in Touch",
+  "contactProcess.title": "Contact",
+  "contactProcess.titleHighlight": "Us",
+  "contactProcess.subtitle":
+    "Have questions? Our expert team is here to help you find the perfect solution.",
+  "contactProcess.email.title": "Email Us",
+  "contactProcess.phone.title": "Call Us",
+  "contactProcess.phone.hours": "Mon-Fri, 9am - 5pm HKT",
+  "contactProcess.address.title": "Visit Us",
+  "contactProcess.form.name": "Full Name",
+  "contactProcess.form.namePlaceholder": "Enter your name",
+  "contactProcess.form.email": "Email Address",
+  "contactProcess.form.emailPlaceholder": "your@email.com",
+  "contactProcess.form.phone": "Phone Number",
+  "contactProcess.form.phonePlaceholder": "+1 (555) 000-0000",
+  "contactProcess.form.subject": "Subject",
+  "contactProcess.form.subjectPlaceholder": "How can we help?",
+  "contactProcess.form.message": "Message",
+  "contactProcess.form.messagePlaceholder":
+    "Tell us more about your inquiry...",
+  "contactProcess.form.submit": "Send Message",
+  "contactProcess.form.submitting": "Sending...",
+  "contactProcess.success":
+    "Thank you! We've received your message and will respond shortly.",
+
+  // Reviews
+  "reviews.badge": "Testimonials",
+  "reviews.title": "What Our Customers",
+  "reviews.titleHighlight": "Say",
+  "reviews.subtitle":
+    "Real feedback from drivers who trust us with their vehicles.",
+  "reviews.review1.name": "Marcus Rodriguez",
+  "reviews.review1.car": "Porsche 911 GT3 RS",
+  "reviews.review1.feedback":
+    "The carbon-ceramic rotors completely transformed my braking performance. Incredible stopping power with zero fade on the track. OwnSilent's quality is unmatched.",
+  "reviews.review1.location": "Miami, USA",
+  "reviews.review2.name": "Sophie Laurent",
+  "reviews.review2.car": "Ferrari 488 Pista",
+  "reviews.review2.feedback":
+    "Outstanding service from start to finish. The team helped me select the perfect exhaust system, and the installation was flawless. My Ferrari sounds and performs better than ever.",
+  "reviews.review2.location": "Paris, France",
+  "reviews.review3.name": "Kenji Tanaka",
+  "reviews.review3.car": "Lamborghini Huracán",
+  "reviews.review3.feedback":
+    "Premium quality parts with exceptional customer support. The body kit fitment was perfect, and shipping to Japan was faster than expected. Highly recommended!",
+  "reviews.review3.location": "Tokyo, Japan",
+  "reviews.review4.name": "Alexander Müller",
+  "reviews.review4.car": "Audi RS6 Avant",
+  "reviews.review4.feedback":
+    "Professional expertise and genuine passion for automotive excellence. The suspension upgrade has completely changed how my RS6 handles. Worth every penny.",
+  "reviews.review4.location": "Munich, Germany",
+
+  // Footer Payment Methods
+  "footer.payment.title": "Secure Payments",
+  "footer.payment.subtitle":
+    "We accept secure payments through PayPal, major credit & debit cards, and bank transfer.",
+  "footer.payment.bank": "Bank Transfer",
+
+  // Common UI Text
+  "common.learnMore": "Learn More",
+  "common.exploreMore": "Explore premium parts",
 };
 
 // ==========================================
@@ -749,6 +905,106 @@ const esTranslations = {
   "showcase.part5.s2.v": "+120kg",
   "showcase.part5.s3.l": "Red. Peso",
   "showcase.part5.s3.v": "-15kg",
+
+  // What We Do Section
+  "whatWeDo.badge": "Nuestros Servicios",
+  "whatWeDo.title": "Lo Que",
+  "whatWeDo.titleHighlight": "Hacemos",
+  "whatWeDo.subtitle":
+    "Ofrecemos soluciones automotrices premium con ingeniería de precisión y calidad inigualable.",
+  "whatWeDo.feature1.title": "Suministro de Piezas Premium",
+  "whatWeDo.feature1.desc":
+    "Componentes de alto rendimiento de los mejores fabricantes del mundo.",
+  "whatWeDo.feature2.title": "Garantía de Calidad",
+  "whatWeDo.feature2.desc":
+    "Cada pieza se prueba rigurosamente para cumplir y superar los estándares OEM.",
+  "whatWeDo.feature3.title": "Instalación Experta",
+  "whatWeDo.feature3.desc":
+    "Servicios de instalación profesional a través de nuestra red global de socios.",
+  "whatWeDo.feature4.title": "Envío Mundial",
+  "whatWeDo.feature4.desc":
+    "Entrega rápida y confiable a clientes en todo el mundo.",
+
+  // Premium Parts Categories
+  "categories.badge": "Comprar por Categoría",
+  "categories.title": "Elige Piezas Premium Para",
+  "categories.titleHighlight": "Tu Auto",
+  "categories.subtitle":
+    "Explora nuestra selección curada de componentes automotrices de alto rendimiento.",
+  "categories.viewAll": "Ver Todas las Categorías",
+
+  // Our Gallery
+  "gallery.badge": "Nuestro Trabajo",
+  "gallery.title": "Nuestra",
+  "gallery.titleHighlight": "Galería",
+  "gallery.subtitle":
+    "Explora nuestro portafolio de construcciones e instalaciones premium.",
+  "gallery.img1.alt": "Instalación de frenos de cerámica carbono premium",
+  "gallery.img2.alt": "Ajuste de kit de carrocería personalizado",
+  "gallery.img3.alt": "Sistema de escape de alto rendimiento",
+  "gallery.img4.alt": "Mejora de interior de lujo",
+  "gallery.img5.alt": "Instalación de ruedas forjadas",
+  "gallery.img6.alt": "Componentes de fibra de carbono",
+  "gallery.img7.alt": "Transformación completa del vehículo",
+  "gallery.img8.alt": "Trabajo de detallado profesional",
+
+  // How We Work
+  "howWeWork.badge": "Nuestro Proceso",
+  "howWeWork.title": "Cómo",
+  "howWeWork.titleHighlight": "Trabajamos",
+  "howWeWork.subtitle":
+    "Un proceso simple y transparente desde la selección hasta la instalación.",
+  "howWeWork.step1.title": "Explorar y Seleccionar",
+  "howWeWork.step1.desc":
+    "Explora nuestro extenso catálogo y encuentra las piezas perfectas para tu vehículo.",
+  "howWeWork.step2.title": "Realizar Pedido",
+  "howWeWork.step2.desc":
+    "Pago seguro con múltiples opciones de pago y confirmación instantánea.",
+  "howWeWork.step3.title": "Entrega Rápida",
+  "howWeWork.step3.desc":
+    "Tus piezas se empaquetan cuidadosamente y se envían directamente a tu ubicación.",
+  "howWeWork.step4.title": "Instalar y Disfrutar",
+  "howWeWork.step4.desc":
+    "Instalación profesional o hazlo tú mismo - te apoyamos en cada paso.",
+  "howWeWork.cta.text": "¿Listo para mejorar tu vehículo?",
+  "howWeWork.cta.button": "Comenzar a Comprar",
+
+  // Reviews
+  "reviews.badge": "Testimonios",
+  "reviews.title": "Lo Que Dicen Nuestros",
+  "reviews.titleHighlight": "Clientes",
+  "reviews.subtitle":
+    "Comentarios reales de conductores que confían en nosotros con sus vehículos.",
+  "reviews.review1.name": "Marcus Rodríguez",
+  "reviews.review1.car": "Porsche 911 GT3 RS",
+  "reviews.review1.feedback":
+    "Los rotores de cerámica carbono transformaron completamente mi rendimiento de frenado. Potencia de frenado increíble sin pérdida en la pista. La calidad de OwnSilent es inigualable.",
+  "reviews.review1.location": "Miami, EE.UU.",
+  "reviews.review2.name": "Sophie Laurent",
+  "reviews.review2.car": "Ferrari 488 Pista",
+  "reviews.review2.feedback":
+    "Servicio excepcional de principio a fin. El equipo me ayudó a seleccionar el sistema de escape perfecto, y la instalación fue impecable. Mi Ferrari suena y funciona mejor que nunca.",
+  "reviews.review2.location": "París, Francia",
+  "reviews.review3.name": "Kenji Tanaka",
+  "reviews.review3.car": "Lamborghini Huracán",
+  "reviews.review3.feedback":
+    "Piezas de calidad premium con soporte al cliente excepcional. El ajuste del kit de carrocería fue perfecto, y el envío a Japón fue más rápido de lo esperado. ¡Muy recomendado!",
+  "reviews.review3.location": "Tokio, Japón",
+  "reviews.review4.name": "Alexander Müller",
+  "reviews.review4.car": "Audi RS6 Avant",
+  "reviews.review4.feedback":
+    "Experiencia profesional y pasión genuina por la excelencia automotriz. La mejora de suspensión ha cambiado completamente cómo maneja mi RS6. Vale cada centavo.",
+  "reviews.review4.location": "Múnich, Alemania",
+
+  // Footer Payment Methods
+  "footer.payment.title": "Pagos Seguros",
+  "footer.payment.subtitle":
+    "Aceptamos pagos seguros a través de PayPal, tarjetas de crédito y débito principales, y transferencia bancaria.",
+  "footer.payment.bank": "Transferencia Bancaria",
+
+  // Common UI Text
+  "common.learnMore": "Saber Más",
+  "common.exploreMore": "Explorar piezas premium",
 };
 
 // ==========================================
@@ -784,7 +1040,7 @@ const deTranslations = {
     "Maßgeschneiderte Design- und Einbaulösungen für High-End-Fahrzeuge.",
   "hero.box.t": "Globale Expertise & Präzisionsfertigung",
   "hero.box.d":
-    "Wir entwerfen, entwickeln und fertigen unsere Produkte nach OEM-Präzisionsstandards und testen sie vor dem Versand auf Qualität und Sicherheit.",
+    "Wir entwerfen, entwickeln und fertigen unsere Produkte gemäß OEM-Präzisionsstandards und testen sie vor dem Versand auf Qualität und Sicherheit.",
   "hero.list1": "Internes 3D-Design & Entwicklung",
   "hero.list2": "Globales Netzwerk von Installationspartnern",
   "hero.list3": "Weltweiter See- und Luftfrachtverkehr",
@@ -1088,6 +1344,106 @@ const deTranslations = {
   "showcase.part5.s2.v": "+120kg",
   "showcase.part5.s3.l": "Gewichtsred.",
   "showcase.part5.s3.v": "-15kg",
+
+  // What We Do Section
+  "whatWeDo.badge": "Unsere Dienstleistungen",
+  "whatWeDo.title": "Was Wir",
+  "whatWeDo.titleHighlight": "Tun",
+  "whatWeDo.subtitle":
+    "Wir liefern Premium-Automobilösungen mit Präzisionstechnik und unübertroffener Qualität.",
+  "whatWeDo.feature1.title": "Premium-Teileversorgung",
+  "whatWeDo.feature1.desc":
+    "Hochleistungskomponenten von führenden Herstellern weltweit.",
+  "whatWeDo.feature2.title": "Qualitätssicherung",
+  "whatWeDo.feature2.desc":
+    "Jedes Teil wird rigoros getestet, um OEM-Standards zu erfüllen und zu übertreffen.",
+  "whatWeDo.feature3.title": "Fachgerechte Installation",
+  "whatWeDo.feature3.desc":
+    "Professionelle Einbaudienste durch unser globales Partnernetzwerk.",
+  "whatWeDo.feature4.title": "Weltweiter Versand",
+  "whatWeDo.feature4.desc":
+    "Schnelle und zuverlässige Lieferung an Kunden weltweit.",
+
+  // Premium Parts Categories
+  "categories.badge": "Nach Kategorie Einkaufen",
+  "categories.title": "Wählen Sie Premium-Teile Für",
+  "categories.titleHighlight": "Ihr Auto",
+  "categories.subtitle":
+    "Entdecken Sie unsere kuratierte Auswahl an Hochleistungs-Automobilkomponenten.",
+  "categories.viewAll": "Alle Kategorien Anzeigen",
+
+  // Our Gallery
+  "gallery.badge": "Unsere Arbeit",
+  "gallery.title": "Unsere",
+  "gallery.titleHighlight": "Galerie",
+  "gallery.subtitle":
+    "Erkunden Sie unser Portfolio an Premium-Builds und Installationen.",
+  "gallery.img1.alt": "Premium Carbon-Keramik-Bremsinstallation",
+  "gallery.img2.alt": "Maßgeschneiderter Karosserie-Kit-Einbau",
+  "gallery.img3.alt": "Hochleistungs-Abgasanlage",
+  "gallery.img4.alt": "Luxus-Innenraum-Upgrade",
+  "gallery.img5.alt": "Geschmiedete Felgeninstallation",
+  "gallery.img6.alt": "Carbon-Komponenten",
+  "gallery.img7.alt": "Komplette Fahrzeugumwandlung",
+  "gallery.img8.alt": "Professionelle Detailarbeit",
+
+  // How We Work
+  "howWeWork.badge": "Unser Prozess",
+  "howWeWork.title": "Wie Wir",
+  "howWeWork.titleHighlight": "Arbeiten",
+  "howWeWork.subtitle":
+    "Ein einfacher, transparenter Prozess von der Auswahl bis zur Installation.",
+  "howWeWork.step1.title": "Durchsuchen & Auswählen",
+  "howWeWork.step1.desc":
+    "Erkunden Sie unseren umfangreichen Katalog und finden Sie die perfekten Teile für Ihr Fahrzeug.",
+  "howWeWork.step2.title": "Bestellung Aufgeben",
+  "howWeWork.step2.desc":
+    "Sichere Bezahlung mit mehreren Zahlungsoptionen und sofortiger Bestätigung.",
+  "howWeWork.step3.title": "Schnelle Lieferung",
+  "howWeWork.step3.desc":
+    "Ihre Teile werden sorgfältig verpackt und direkt an Ihren Standort versandt.",
+  "howWeWork.step4.title": "Installieren & Genießen",
+  "howWeWork.step4.desc":
+    "Professionelle Installation oder Selbstmontage - wir unterstützen Sie bei jedem Schritt.",
+  "howWeWork.cta.text": "Bereit, Ihr Fahrzeug aufzurüsten?",
+  "howWeWork.cta.button": "Jetzt Einkaufen",
+
+  // Reviews
+  "reviews.badge": "Erfahrungsberichte",
+  "reviews.title": "Was Unsere Kunden",
+  "reviews.titleHighlight": "Sagen",
+  "reviews.subtitle":
+    "Echtes Feedback von Fahrern, die uns mit ihren Fahrzeugen vertrauen.",
+  "reviews.review1.name": "Marcus Rodriguez",
+  "reviews.review1.car": "Porsche 911 GT3 RS",
+  "reviews.review1.feedback":
+    "Die Carbon-Keramik-Rotoren haben meine Bremsleistung komplett transformiert. Unglaubliche Bremskraft ohne Fade auf der Rennstrecke. OwnSilents Qualität ist unübertroffen.",
+  "reviews.review1.location": "Miami, USA",
+  "reviews.review2.name": "Sophie Laurent",
+  "reviews.review2.car": "Ferrari 488 Pista",
+  "reviews.review2.feedback":
+    "Hervorragender Service von Anfang bis Ende. Das Team half mir, das perfekte Abgassystem auszuwählen, und die Installation war makellos. Mein Ferrari klingt und fährt besser als je zuvor.",
+  "reviews.review2.location": "Paris, Frankreich",
+  "reviews.review3.name": "Kenji Tanaka",
+  "reviews.review3.car": "Lamborghini Huracán",
+  "reviews.review3.feedback":
+    "Premium-Qualitätsteile mit außergewöhnlichem Kundenservice. Die Karosserie-Kit-Passform war perfekt, und der Versand nach Japan war schneller als erwartet. Sehr empfehlenswert!",
+  "reviews.review3.location": "Tokio, Japan",
+  "reviews.review4.name": "Alexander Müller",
+  "reviews.review4.car": "Audi RS6 Avant",
+  "reviews.review4.feedback":
+    "Professionelle Expertise und echte Leidenschaft für automobile Exzellenz. Das Fahrwerks-Upgrade hat komplett verändert, wie mein RS6 fährt. Jeden Cent wert.",
+  "reviews.review4.location": "München, Deutschland",
+
+  // Footer Payment Methods
+  "footer.payment.title": "Sichere Zahlungen",
+  "footer.payment.subtitle":
+    "Wir akzeptieren sichere Zahlungen über PayPal, gängige Kredit- und Debitkarten sowie Banküberweisung.",
+  "footer.payment.bank": "Banküberweisung",
+
+  // Common UI Text
+  "common.learnMore": "Mehr Erfahren",
+  "common.exploreMore": "Premium-Teile erkunden",
 };
 
 // ==========================================
@@ -1331,7 +1687,7 @@ const frTranslations = {
   "shop.filter.resetAll": "Tout réinitialiser",
   "shop.filter.showResults": "Afficher les résultats",
   "shop.filter.categories": "Catégories",
-  "shop.filter.brands": "Marques",
+  "shop.filter.brands": "Marcas",
   "shop.filter.models": "Modèles",
   "shop.filter.searchPlaceholder": "Rechercher {title}...",
   "shop.filter.noCategories": "Aucune catégorie ne correspond.",
@@ -1416,7 +1772,7 @@ const frTranslations = {
   "showcase.part4.bgText": "LUMIÈRE",
   "showcase.part4.s1.l": "Portée",
   "showcase.part4.s1.v": "600m",
-  "showcase.part4.s2.l": "Techno",
+  "showcase.part4.s2.l": "Tecno",
   "showcase.part4.s2.v": "Laser Matrix",
   "showcase.part4.s3.l": "Efficacité",
   "showcase.part4.s3.v": "A+++",
@@ -1424,7 +1780,7 @@ const frTranslations = {
   "showcase.part5.name": "Kit Géo Aero en Carbone Forgé",
   "showcase.part5.headline": "L'aérodynamisme redéfini.",
   "showcase.part5.desc":
-    "Composants en fibre de carbone forgée ultra-légers conçus pour un appui maximal et une esthétique agressive.",
+    "Composants en fibre de carbone forgée ultra-légers conçus pour un appui maximal et une esthétique aggressive.",
   "showcase.part5.bgText": "AERO",
   "showcase.part5.s1.l": "Matériau",
   "showcase.part5.s1.v": "Carbone Forgé",
@@ -1432,6 +1788,106 @@ const frTranslations = {
   "showcase.part5.s2.v": "+120kg",
   "showcase.part5.s3.l": "Réd. de Poids",
   "showcase.part5.s3.v": "-15kg",
+
+  // Footer Payment Methods
+  "footer.payment.title": "Paiements Sécurisés",
+  "footer.payment.subtitle":
+    "Nous acceptons les paiements sécurisés via PayPal, les principales cartes de crédit et de débit, et le virement bancaire.",
+  "footer.payment.bank": "Virement Bancaire",
+
+  // Common UI Text
+  "common.learnMore": "En Savoir Plus",
+  "common.exploreMore": "Explorer les pièces premium",
+
+  // What We Do Section
+  "whatWeDo.badge": "Nos Services",
+  "whatWeDo.title": "Ce Que Nous",
+  "whatWeDo.titleHighlight": "Faisons",
+  "whatWeDo.subtitle":
+    "Nous fournissons des solutions automobiles premium avec une ingénierie de précision et une qualité inégalée.",
+  "whatWeDo.feature1.title": "Fourniture de Pièces Premium",
+  "whatWeDo.feature1.desc":
+    "Composants haute performance des meilleurs fabricants mondiaux.",
+  "whatWeDo.feature2.title": "Assurance Qualité",
+  "whatWeDo.feature2.desc":
+    "Chaque pièce est rigoureusement testée pour respecter et dépasser les normes OEM.",
+  "whatWeDo.feature3.title": "Installation Experte",
+  "whatWeDo.feature3.desc":
+    "Services d'installation professionnels via notre réseau mondial de partenaires.",
+  "whatWeDo.feature4.title": "Expédition Mondiale",
+  "whatWeDo.feature4.desc":
+    "Livraison rapide et fiable aux clients du monde entier.",
+
+  // Premium Parts Categories
+  "categories.badge": "Acheter par Catégorie",
+  "categories.title": "Choisissez des Pièces Premium Pour",
+  "categories.titleHighlight": "Votre Auto",
+  "categories.subtitle":
+    "Explorez notre sélection organisée de composants automobiles haute performance.",
+  "categories.viewAll": "Voir Toutes les Catégories",
+
+  // Our Gallery
+  "gallery.badge": "Notre Travail",
+  "gallery.title": "Notre",
+  "gallery.titleHighlight": "Galerie",
+  "gallery.subtitle":
+    "Explorez notre portfolio de constructions et installations premium.",
+  "gallery.img1.alt": "Installation de freins carbone-céramique premium",
+  "gallery.img2.alt": "Ajustement de kit de carrosserie personnalisé",
+  "gallery.img3.alt": "Système d'échappement haute performance",
+  "gallery.img4.alt": "Amélioration d'intérieur de luxe",
+  "gallery.img5.alt": "Installation de roues forgées",
+  "gallery.img6.alt": "Composants en fibre de carbone",
+  "gallery.img7.alt": "Transformation complète du véhicule",
+  "gallery.img8.alt": "Travail de détail professionnel",
+
+  // How We Work
+  "howWeWork.badge": "Notre Processus",
+  "howWeWork.title": "Comment Nous",
+  "howWeWork.titleHighlight": "Travaillons",
+  "howWeWork.subtitle":
+    "Un processus simple et transparent de la sélection à l'installation.",
+  "howWeWork.step1.title": "Parcourir et Sélectionner",
+  "howWeWork.step1.desc":
+    "Explorez notre vaste catalogue et trouvez les pièces parfaites pour votre véhicule.",
+  "howWeWork.step2.title": "Passer Commande",
+  "howWeWork.step2.desc":
+    "Paiement sécurisé avec plusieurs options de paiement et confirmation instantanée.",
+  "howWeWork.step3.title": "Livraison Rapide",
+  "howWeWork.step3.desc":
+    "Vos pièces sont soigneusement emballées et expédiées directement à votre emplacement.",
+  "howWeWork.step4.title": "Installer et Profiter",
+  "howWeWork.step4.desc":
+    "Installation professionnelle ou bricolage - nous vous soutenons à chaque étape.",
+  "howWeWork.cta.text": "Prêt à améliorer votre véhicule?",
+  "howWeWork.cta.button": "Commencer à Acheter",
+
+  // Reviews
+  "reviews.badge": "Témoignages",
+  "reviews.title": "Ce Que Disent Nos",
+  "reviews.titleHighlight": "Clients",
+  "reviews.subtitle":
+    "Retours réels de conducteurs qui nous font confiance avec leurs véhicules.",
+  "reviews.review1.name": "Marcus Rodriguez",
+  "reviews.review1.car": "Porsche 911 GT3 RS",
+  "reviews.review1.feedback":
+    "Les rotors carbone-céramique ont complètement transformé mes performances de freinage. Puissance de freinage incroyable sans perte sur piste. La qualité d'OwnSilent est inégalée.",
+  "reviews.review1.location": "Miami, USA",
+  "reviews.review2.name": "Sophie Laurent",
+  "reviews.review2.car": "Ferrari 488 Pista",
+  "reviews.review2.feedback":
+    "Service exceptionnel du début à la fin. L'équipe m'a aidé à sélectionner le système d'échappement parfait, et l'installation était impeccable. Ma Ferrari sonne et performe mieux que jamais.",
+  "reviews.review2.location": "Paris, France",
+  "reviews.review3.name": "Kenji Tanaka",
+  "reviews.review3.car": "Lamborghini Huracán",
+  "reviews.review3.feedback":
+    "Pièces de qualité premium avec un support client exceptionnel. L'ajustement du kit de carrosserie était parfait, et l'expédition au Japon était plus rapide que prévu. Hautement recommandé!",
+  "reviews.review3.location": "Tokyo, Japon",
+  "reviews.review4.name": "Alexander Müller",
+  "reviews.review4.car": "Audi RS6 Avant",
+  "reviews.review4.feedback":
+    "Expertise professionnelle et passion authentique pour l'excellence automobile. L'amélioration de la suspension a complètement changé la façon dont ma RS6 se comporte. Vaut chaque centime.",
+  "reviews.review4.location": "Munich, Allemagne",
 };
 
 // ==========================================
@@ -1776,6 +2232,106 @@ const itTranslations = {
   "showcase.part5.s2.v": "+120kg",
   "showcase.part5.s3.l": "Riduzione Peso",
   "showcase.part5.s3.v": "-15kg",
+
+  // Footer Payment Methods
+  "footer.payment.title": "Pagamenti Sicuri",
+  "footer.payment.subtitle":
+    "Accettiamo pagamenti sicuri tramite PayPal, le principali carte di credito e debito, e bonifico bancario.",
+  "footer.payment.bank": "Bonifico Bancario",
+
+  // Common UI Text
+  "common.learnMore": "Scopri di Più",
+  "common.exploreMore": "Esplora parti premium",
+
+  // What We Do Section
+  "whatWeDo.badge": "I Nostri Servizi",
+  "whatWeDo.title": "Cosa",
+  "whatWeDo.titleHighlight": "Facciamo",
+  "whatWeDo.subtitle":
+    "Forniamo soluzioni automobilistiche premium con ingegneria di precisione e qualità senza pari.",
+  "whatWeDo.feature1.title": "Fornitura di Parti Premium",
+  "whatWeDo.feature1.desc":
+    "Componenti ad alte prestazioni dai migliori produttori mondiali.",
+  "whatWeDo.feature2.title": "Garanzia di Qualità",
+  "whatWeDo.feature2.desc":
+    "Ogni parte è rigorosamente testata per soddisfare e superare gli standard OEM.",
+  "whatWeDo.feature3.title": "Installazione Esperta",
+  "whatWeDo.feature3.desc":
+    "Servizi di installazione professionale tramite la nostra rete globale di partner.",
+  "whatWeDo.feature4.title": "Spedizione Mondiale",
+  "whatWeDo.feature4.desc":
+    "Consegna rapida e affidabile ai clienti di tutto il mondo.",
+
+  // Premium Parts Categories
+  "categories.badge": "Acquista per Categoria",
+  "categories.title": "Scegli Parti Premium Per",
+  "categories.titleHighlight": "La Tua Auto",
+  "categories.subtitle":
+    "Esplora la nostra selezione curata di componenti automobilistici ad alte prestazioni.",
+  "categories.viewAll": "Vedi Tutte le Categorie",
+
+  // Our Gallery
+  "gallery.badge": "Il Nostro Lavoro",
+  "gallery.title": "La Nostra",
+  "gallery.titleHighlight": "Galleria",
+  "gallery.subtitle":
+    "Esplora il nostro portfolio di costruzioni e installazioni premium.",
+  "gallery.img1.alt": "Installazione freni carbonio-ceramica premium",
+  "gallery.img2.alt": "Montaggio kit carrozzeria personalizzato",
+  "gallery.img3.alt": "Sistema di scarico ad alte prestazioni",
+  "gallery.img4.alt": "Miglioramento interni di lusso",
+  "gallery.img5.alt": "Installazione cerchi forgiati",
+  "gallery.img6.alt": "Componenti in fibra di carbonio",
+  "gallery.img7.alt": "Trasformazione completa del veicolo",
+  "gallery.img8.alt": "Lavoro di dettaglio professionale",
+
+  // How We Work
+  "howWeWork.badge": "Il Nostro Processo",
+  "howWeWork.title": "Come",
+  "howWeWork.titleHighlight": "Lavoriamo",
+  "howWeWork.subtitle":
+    "Un processo semplice e trasparente dalla selezione all'installazione.",
+  "howWeWork.step1.title": "Sfoglia e Seleziona",
+  "howWeWork.step1.desc":
+    "Esplora il nostro vasto catalogo e trova le parti perfette per il tuo veicolo.",
+  "howWeWork.step2.title": "Effettua l'Ordine",
+  "howWeWork.step2.desc":
+    "Pagamento sicuro con molteplici opzioni di pagamento e conferma istantanea.",
+  "howWeWork.step3.title": "Consegna Veloce",
+  "howWeWork.step3.desc":
+    "Le tue parti vengono accuratamente imballate e spedite direttamente alla tua posizione.",
+  "howWeWork.step4.title": "Installa e Goditi",
+  "howWeWork.step4.desc":
+    "Installazione professionale o fai-da-te - ti supportiamo in ogni fase.",
+  "howWeWork.cta.text": "Pronto a migliorare il tuo veicolo?",
+  "howWeWork.cta.button": "Inizia ad Acquistare",
+
+  // Reviews
+  "reviews.badge": "Testimonianze",
+  "reviews.title": "Cosa Dicono i Nostri",
+  "reviews.titleHighlight": "Clienti",
+  "reviews.subtitle":
+    "Feedback reale da conducenti che si fidano di noi con i loro veicoli.",
+  "reviews.review1.name": "Marcus Rodriguez",
+  "reviews.review1.car": "Porsche 911 GT3 RS",
+  "reviews.review1.feedback":
+    "I rotori carbonio-ceramica hanno completamente trasformato le mie prestazioni di frenata. Potenza di arresto incredibile senza dissolvenza in pista. La qualità di OwnSilent è ineguagliabile.",
+  "reviews.review1.location": "Miami, USA",
+  "reviews.review2.name": "Sophie Laurent",
+  "reviews.review2.car": "Ferrari 488 Pista",
+  "reviews.review2.feedback":
+    "Servizio eccezionale dall'inizio alla fine. Il team mi ha aiutato a selezionare il sistema di scarico perfetto e l'installazione è stata impeccabile. La mia Ferrari suona e si comporta meglio che mai.",
+  "reviews.review2.location": "Parigi, Francia",
+  "reviews.review3.name": "Kenji Tanaka",
+  "reviews.review3.car": "Lamborghini Huracán",
+  "reviews.review3.feedback":
+    "Parti di qualità premium con un supporto clienti eccezionale. Il montaggio del kit carrozzeria era perfetto e la spedizione in Giappone è stata più veloce del previsto. Altamente raccomandato!",
+  "reviews.review3.location": "Tokyo, Giappone",
+  "reviews.review4.name": "Alexander Müller",
+  "reviews.review4.car": "Audi RS6 Avant",
+  "reviews.review4.feedback":
+    "Competenza professionale e genuina passione per l'eccellenza automobilistica. L'aggiornamento delle sospensioni ha completamente cambiato il modo in cui si comporta la mia RS6. Vale ogni centesimo.",
+  "reviews.review4.location": "Monaco, Germania",
 };
 
 // ==========================================
@@ -2100,7 +2656,99 @@ const arTranslations = {
   "showcase.part5.s2.l": "القوة السفلية",
   "showcase.part5.s2.v": "+120 كجم",
   "showcase.part5.s3.l": "تقليل الوزن",
-  "showcase.part5.s3.v": "-15 كجم",
+  "showcase.part5.s3.v": "-15كجم",
+
+  // Footer Payment Methods
+  "footer.payment.title": "مدفوعات آمنة",
+  "footer.payment.subtitle":
+    "نقبل المدفوعات الآمنة عبر PayPal وبطاقات الائتمان والخصم الرئيسية والتحويل البنكي.",
+  "footer.payment.bank": "تحويل بنكي",
+
+  // Common UI Text
+  "common.learnMore": "اعرف المزيد",
+  "common.exploreMore": "استكشف القطع المتميزة",
+
+  // What We Do Section
+  "whatWeDo.badge": "خدماتنا",
+  "whatWeDo.title": "ما",
+  "whatWeDo.titleHighlight": "نفعله",
+  "whatWeDo.subtitle":
+    "نقدم حلولاً سيارات متميزة مع هندسة دقيقة وجودة لا مثيل لها.",
+  "whatWeDo.feature1.title": "توريد قطع متميزة",
+  "whatWeDo.feature1.desc":
+    "مكونات عالية الأداء من أفضل الشركات المصنعة العالمية.",
+  "whatWeDo.feature2.title": "ضمان الجودة",
+  "whatWeDo.feature2.desc": "يتم اختبار كل قطعة بدقة لتلبية وتجاوز معايير OEM.",
+  "whatWeDo.feature3.title": "تركيب خبير",
+  "whatWeDo.feature3.desc":
+    "خدمات تركيب احترافية عبر شبكتنا العالمية من الشركاء.",
+  "whatWeDo.feature4.title": "شحن عالمي",
+  "whatWeDo.feature4.desc": "توصيل سريع وموثوق للعملاء في جميع أنحاء العالم.",
+
+  // Premium Parts Categories
+  "categories.badge": "تسوق حسب الفئة",
+  "categories.title": "اختر قطع متميزة لـ",
+  "categories.titleHighlight": "سيارتك",
+  "categories.subtitle":
+    "استكشف مجموعتنا المنسقة من مكونات السيارات عالية الأداء.",
+  "categories.viewAll": "عرض جميع الفئات",
+
+  // Our Gallery
+  "gallery.badge": "أعمالنا",
+  "gallery.title": "معرض",
+  "gallery.titleHighlight": "الصور",
+  "gallery.subtitle": "استكشف مجموعة أعمالنا من التركيبات والبناءات المتميزة.",
+  "gallery.img1.alt": "تركيب فرامل كربون-سيراميك متميزة",
+  "gallery.img2.alt": "تركيب طقم هيكل مخصص",
+  "gallery.img3.alt": "نظام عادم عالي الأداء",
+  "gallery.img4.alt": "تحسين داخلي فاخر",
+  "gallery.img5.alt": "تركيب عجلات مطروقة",
+  "gallery.img6.alt": "مكونات ألياف الكربون",
+  "gallery.img7.alt": "تحويل كامل للمركبة",
+  "gallery.img8.alt": "عمل تفصيلي احترافي",
+
+  // How We Work
+  "howWeWork.badge": "عمليتنا",
+  "howWeWork.title": "كيف",
+  "howWeWork.titleHighlight": "نعمل",
+  "howWeWork.subtitle": "عملية بسيطة وشفافة من الاختيار إلى التركيب.",
+  "howWeWork.step1.title": "تصفح واختر",
+  "howWeWork.step1.desc":
+    "استكشف كتالوجنا الواسع واعثر على القطع المثالية لسيارتك.",
+  "howWeWork.step2.title": "قدم الطلب",
+  "howWeWork.step2.desc": "دفع آمن مع خيارات دفع متعددة وتأكيد فوري.",
+  "howWeWork.step3.title": "توصيل سريع",
+  "howWeWork.step3.desc": "يتم تعبئة قطعك بعناية وشحنها مباشرة إلى موقعك.",
+  "howWeWork.step4.title": "ركب واستمتع",
+  "howWeWork.step4.desc": "تركيب احترافي أو بنفسك - ندعمك في كل خطوة.",
+  "howWeWork.cta.text": "هل أنت مستعد لترقية سيارتك؟",
+  "howWeWork.cta.button": "ابدأ التسوق",
+
+  // Reviews
+  "reviews.badge": "شهادات العملاء",
+  "reviews.title": "ما يقوله",
+  "reviews.titleHighlight": "عملاؤنا",
+  "reviews.subtitle": "تعليقات حقيقية من السائقين الذين يثقون بنا مع سياراتهم.",
+  "reviews.review1.name": "ماركوس رودريغيز",
+  "reviews.review1.car": "بورش 911 GT3 RS",
+  "reviews.review1.feedback":
+    "لقد غيرت دوارات الكربون-السيراميك أداء الفرامل تمامًا. قوة توقف مذهلة بدون تلاشي على الحلبة. جودة OwnSilent لا مثيل لها.",
+  "reviews.review1.location": "ميامي، الولايات المتحدة",
+  "reviews.review2.name": "صوفي لوران",
+  "reviews.review2.car": "فيراري 488 بيستا",
+  "reviews.review2.feedback":
+    "خدمة استثنائية من البداية إلى النهاية. ساعدني الفريق في اختيار نظام العادم المثالي، وكان التركيب لا تشوبه شائبة. فيراري الخاصة بي تبدو وتؤدي أفضل من أي وقت مضى.",
+  "reviews.review2.location": "باريس، فرنسا",
+  "reviews.review3.name": "كينجي تاناكا",
+  "reviews.review3.car": "لامبورغيني هوراكان",
+  "reviews.review3.feedback":
+    "قطع ذات جودة متميزة مع دعم عملاء استثنائي. كان تركيب طقم الهيكل مثاليًا، والشحن إلى اليابان كان أسرع من المتوقع. موصى به بشدة!",
+  "reviews.review3.location": "طوكيو، اليابان",
+  "reviews.review4.name": "ألكسندر مولر",
+  "reviews.review4.car": "أودي RS6 أفانت",
+  "reviews.review4.feedback":
+    "خبرة احترافية وشغف حقيقي بالتميز في السيارات. لقد غيّر ترقية التعليق تمامًا طريقة تعامل RS6 الخاصة بي. يستحق كل قرش.",
+  "reviews.review4.location": "ميونخ، ألمانيا",
 };
 
 // ==========================================
@@ -2408,7 +3056,94 @@ const zhTranslations = {
   "showcase.part5.s2.l": "下压力",
   "showcase.part5.s2.v": "+120kg",
   "showcase.part5.s3.l": "减重",
-  "showcase.part5.s3.v": "-15kg",
+  "showcase.part5.s3.v": "-15公斤",
+
+  // Footer Payment Methods
+  "footer.payment.title": "安全支付",
+  "footer.payment.subtitle":
+    "我们接受通过PayPal、主要信用卡和借记卡以及银行转账进行的安全支付。",
+  "footer.payment.bank": "银行转账",
+
+  // Common UI Text
+  "common.learnMore": "了解更多",
+  "common.exploreMore": "探索优质零件",
+
+  // What We Do Section
+  "whatWeDo.badge": "我们的服务",
+  "whatWeDo.title": "我们",
+  "whatWeDo.titleHighlight": "做什么",
+  "whatWeDo.subtitle": "我们提供具有精密工程和无与伦比质量的高级汽车解决方案。",
+  "whatWeDo.feature1.title": "高级零件供应",
+  "whatWeDo.feature1.desc": "来自全球顶级制造商的高性能组件。",
+  "whatWeDo.feature2.title": "质量保证",
+  "whatWeDo.feature2.desc": "每个零件都经过严格测试，以满足并超越OEM标准。",
+  "whatWeDo.feature3.title": "专业安装",
+  "whatWeDo.feature3.desc": "通过我们的全球合作伙伴网络提供专业安装服务。",
+  "whatWeDo.feature4.title": "全球运输",
+  "whatWeDo.feature4.desc": "快速可靠地向全球客户交付。",
+
+  // Premium Parts Categories
+  "categories.badge": "按类别购物",
+  "categories.title": "为您的",
+  "categories.titleHighlight": "汽车选择高级零件",
+  "categories.subtitle": "探索我们精心挑选的高性能汽车组件系列。",
+  "categories.viewAll": "查看所有类别",
+
+  // Our Gallery
+  "gallery.badge": "我们的作品",
+  "gallery.title": "我们的",
+  "gallery.titleHighlight": "画廊",
+  "gallery.subtitle": "探索我们的高级建造和安装作品集。",
+  "gallery.img1.alt": "高级碳陶瓷制动器安装",
+  "gallery.img2.alt": "定制车身套件安装",
+  "gallery.img3.alt": "高性能排气系统",
+  "gallery.img4.alt": "豪华内饰升级",
+  "gallery.img5.alt": "锻造轮毂安装",
+  "gallery.img6.alt": "碳纤维组件",
+  "gallery.img7.alt": "完整车辆改装",
+  "gallery.img8.alt": "专业细节工作",
+
+  // How We Work
+  "howWeWork.badge": "我们的流程",
+  "howWeWork.title": "我们如何",
+  "howWeWork.titleHighlight": "工作",
+  "howWeWork.subtitle": "从选择到安装的简单透明流程。",
+  "howWeWork.step1.title": "浏览和选择",
+  "howWeWork.step1.desc": "浏览我们广泛的目录，为您的车辆找到完美的零件。",
+  "howWeWork.step2.title": "下订单",
+  "howWeWork.step2.desc": "安全支付，多种支付选项，即时确认。",
+  "howWeWork.step3.title": "快速交付",
+  "howWeWork.step3.desc": "您的零件经过精心包装，直接运送到您的位置。",
+  "howWeWork.step4.title": "安装和享受",
+  "howWeWork.step4.desc": "专业安装或DIY - 我们在每一步都支持您。",
+  "howWeWork.cta.text": "准备好升级您的车辆了吗？",
+  "howWeWork.cta.button": "开始购物",
+
+  // Reviews
+  "reviews.badge": "客户评价",
+  "reviews.title": "我们的客户",
+  "reviews.titleHighlight": "怎么说",
+  "reviews.subtitle": "来自信任我们的驾驶员的真实反馈。",
+  "reviews.review1.name": "马库斯·罗德里格斯",
+  "reviews.review1.car": "保时捷 911 GT3 RS",
+  "reviews.review1.feedback":
+    "碳陶瓷转子彻底改变了我的制动性能。令人难以置信的制动力，在赛道上零衰减。OwnSilent的质量无与伦比。",
+  "reviews.review1.location": "迈阿密，美国",
+  "reviews.review2.name": "索菲·洛朗",
+  "reviews.review2.car": "法拉利 488 Pista",
+  "reviews.review2.feedback":
+    "从头到尾的卓越服务。团队帮助我选择了完美的排气系统，安装无可挑剔。我的法拉利听起来和表现都比以往任何时候都好。",
+  "reviews.review2.location": "巴黎，法国",
+  "reviews.review3.name": "田中健二",
+  "reviews.review3.car": "兰博基尼 Huracán",
+  "reviews.review3.feedback":
+    "优质零件配合卓越的客户支持。车身套件安装完美，运送到日本比预期的要快。强烈推荐！",
+  "reviews.review3.location": "东京，日本",
+  "reviews.review4.name": "亚历山大·穆勒",
+  "reviews.review4.car": "奥迪 RS6 Avant",
+  "reviews.review4.feedback":
+    "专业的专业知识和对汽车卓越的真正热情。悬挂升级完全改变了我的RS6的操控方式。物有所值。",
+  "reviews.review4.location": "慕尼黑，德国",
 };
 
 // ==========================================
@@ -2718,7 +3453,7 @@ const ptTranslations = {
   "showcase.part3.name": "Coilovers Nitro Adaptáveis",
   "showcase.part3.headline": "Precisão Perfeccionada.",
   "showcase.part3.desc":
-    "Amortecedores carregados com nitrogénio de resposta ultra-rápida com ajuste de 32 posições, oferecendo el equilíbrio perfeito entre rigidez em pista e conforto na estrada.",
+    "Amortecedores carregados com nitrogénio de resposta ultra-rápida com ajuste de 32 posições, oferecendo el equilibrio perfeito entre rigidez em pista e conforto na estrada.",
   "showcase.part3.bgText": "DESLIZE",
   "showcase.part3.s1.l": "Ajuste",
   "showcase.part3.s1.v": "32 Vias",
@@ -2750,6 +3485,106 @@ const ptTranslations = {
   "showcase.part5.s2.v": "+120kg",
   "showcase.part5.s3.l": "Redução Peso",
   "showcase.part5.s3.v": "-15kg",
+
+  // Footer Payment Methods
+  "footer.payment.title": "Pagamentos Seguros",
+  "footer.payment.subtitle":
+    "Aceitamos pagamentos seguros através de PayPal, principais cartões de crédito e débito, e transferência bancária.",
+  "footer.payment.bank": "Transferência Bancária",
+
+  // Common UI Text
+  "common.learnMore": "Saiba Mais",
+  "common.exploreMore": "Explorar peças premium",
+
+  // What We Do Section
+  "whatWeDo.badge": "Nossos Serviços",
+  "whatWeDo.title": "O Que",
+  "whatWeDo.titleHighlight": "Fazemos",
+  "whatWeDo.subtitle":
+    "Fornecemos soluções automotivas premium com engenharia de precisão e qualidade incomparável.",
+  "whatWeDo.feature1.title": "Fornecimento de Peças Premium",
+  "whatWeDo.feature1.desc":
+    "Componentes de alto desempenho dos melhores fabricantes mundiais.",
+  "whatWeDo.feature2.title": "Garantia de Qualidade",
+  "whatWeDo.feature2.desc":
+    "Cada peça é rigorosamente testada para atender e superar os padrões OEM.",
+  "whatWeDo.feature3.title": "Instalação Especializada",
+  "whatWeDo.feature3.desc":
+    "Serviços de instalação profissional através da nossa rede global de parceiros.",
+  "whatWeDo.feature4.title": "Envio Mundial",
+  "whatWeDo.feature4.desc":
+    "Entrega rápida e confiável para clientes em todo o mundo.",
+
+  // Premium Parts Categories
+  "categories.badge": "Comprar por Categoria",
+  "categories.title": "Escolha Peças Premium Para",
+  "categories.titleHighlight": "Seu Carro",
+  "categories.subtitle":
+    "Explore nossa seleção curada de componentes automotivos de alto desempenho.",
+  "categories.viewAll": "Ver Todas as Categorias",
+
+  // Our Gallery
+  "gallery.badge": "Nosso Trabalho",
+  "gallery.title": "Nossa",
+  "gallery.titleHighlight": "Galeria",
+  "gallery.subtitle":
+    "Explore nosso portfólio de construções e instalações premium.",
+  "gallery.img1.alt": "Instalação de freios carbono-cerâmica premium",
+  "gallery.img2.alt": "Montagem de kit de carroceria personalizado",
+  "gallery.img3.alt": "Sistema de escape de alto desempenho",
+  "gallery.img4.alt": "Melhoria de interior de luxo",
+  "gallery.img5.alt": "Instalação de rodas forjadas",
+  "gallery.img6.alt": "Componentes de fibra de carbono",
+  "gallery.img7.alt": "Transformação completa do veículo",
+  "gallery.img8.alt": "Trabalho de detalhamento profissional",
+
+  // How We Work
+  "howWeWork.badge": "Nosso Processo",
+  "howWeWork.title": "Como",
+  "howWeWork.titleHighlight": "Trabalhamos",
+  "howWeWork.subtitle":
+    "Um processo simples e transparente da seleção à instalação.",
+  "howWeWork.step1.title": "Navegar e Selecionar",
+  "howWeWork.step1.desc":
+    "Explore nosso vasto catálogo e encontre as peças perfeitas para seu veículo.",
+  "howWeWork.step2.title": "Fazer Pedido",
+  "howWeWork.step2.desc":
+    "Pagamento seguro com várias opções de pagamento e confirmação instantânea.",
+  "howWeWork.step3.title": "Entrega Rápida",
+  "howWeWork.step3.desc":
+    "Suas peças são cuidadosamente embaladas e enviadas diretamente para sua localização.",
+  "howWeWork.step4.title": "Instalar e Aproveitar",
+  "howWeWork.step4.desc":
+    "Instalação profissional ou faça você mesmo - apoiamos você em cada etapa.",
+  "howWeWork.cta.text": "Pronto para melhorar seu veículo?",
+  "howWeWork.cta.button": "Começar a Comprar",
+
+  // Reviews
+  "reviews.badge": "Depoimentos",
+  "reviews.title": "O Que Nossos",
+  "reviews.titleHighlight": "Clientes Dizem",
+  "reviews.subtitle":
+    "Feedback real de motoristas que confiam em nós com seus veículos.",
+  "reviews.review1.name": "Marcus Rodriguez",
+  "reviews.review1.car": "Porsche 911 GT3 RS",
+  "reviews.review1.feedback":
+    "Os rotores carbono-cerâmica transformaram completamente meu desempenho de frenagem. Poder de parada incrível sem fade na pista. A qualidade da OwnSilent é incomparável.",
+  "reviews.review1.location": "Miami, EUA",
+  "reviews.review2.name": "Sophie Laurent",
+  "reviews.review2.car": "Ferrari 488 Pista",
+  "reviews.review2.feedback":
+    "Serviço excepcional do início ao fim. A equipe me ajudou a selecionar o sistema de escape perfeito, e a instalação foi impecável. Minha Ferrari soa e performa melhor do que nunca.",
+  "reviews.review2.location": "Paris, França",
+  "reviews.review3.name": "Kenji Tanaka",
+  "reviews.review3.car": "Lamborghini Huracán",
+  "reviews.review3.feedback":
+    "Peças de qualidade premium com suporte ao cliente excepcional. O ajuste do kit de carroceria foi perfeito, e o envio para o Japão foi mais rápido do que o esperado. Altamente recomendado!",
+  "reviews.review3.location": "Tóquio, Japão",
+  "reviews.review4.name": "Alexander Müller",
+  "reviews.review4.car": "Audi RS6 Avant",
+  "reviews.review4.feedback":
+    "Expertise profissional e paixão genuína pela excelência automotiva. A atualização da suspensão mudou completamente a forma como minha RS6 se comporta. Vale cada centavo.",
+  "reviews.review4.location": "Munique, Alemanha",
 };
 
 // ==========================================
@@ -3087,8 +3922,106 @@ const ruTranslations = {
   "showcase.part5.s1.v": "Кованый карбон",
   "showcase.part5.s2.l": "Прижим. сила",
   "showcase.part5.s2.v": "+120кг",
-  "showcase.part5.s3.l": "Сниж. веса",
+  "showcase.part5.s3.l": "Снижение веса",
   "showcase.part5.s3.v": "-15кг",
+
+  // Footer Payment Methods
+  "footer.payment.title": "Безопасные Платежи",
+  "footer.payment.subtitle":
+    "Мы принимаем безопасные платежи через PayPal, основные кредитные и дебетовые карты, а также банковский перевод.",
+  "footer.payment.bank": "Банковский Перевод",
+
+  // Common UI Text
+  "common.learnMore": "Узнать Больше",
+  "common.exploreMore": "Изучить премиум детали",
+
+  // What We Do Section
+  "whatWeDo.badge": "Наши Услуги",
+  "whatWeDo.title": "Что Мы",
+  "whatWeDo.titleHighlight": "Делаем",
+  "whatWeDo.subtitle":
+    "Мы предоставляем премиальные автомобильные решения с точной инженерией и непревзойденным качеством.",
+  "whatWeDo.feature1.title": "Поставка Премиальных Деталей",
+  "whatWeDo.feature1.desc":
+    "Высокопроизводительные компоненты от лучших мировых производителей.",
+  "whatWeDo.feature2.title": "Гарантия Качества",
+  "whatWeDo.feature2.desc":
+    "Каждая деталь тщательно тестируется для соответствия и превышения стандартов OEM.",
+  "whatWeDo.feature3.title": "Экспертная Установка",
+  "whatWeDo.feature3.desc":
+    "Профессиональные услуги по установке через нашу глобальную сеть партнеров.",
+  "whatWeDo.feature4.title": "Мировая Доставка",
+  "whatWeDo.feature4.desc":
+    "Быстрая и надежная доставка клиентам по всему миру.",
+
+  // Premium Parts Categories
+  "categories.badge": "Покупка по Категориям",
+  "categories.title": "Выберите Премиальные Детали Для",
+  "categories.titleHighlight": "Вашего Авто",
+  "categories.subtitle":
+    "Изучите нашу подборку высокопроизводительных автомобильных компонентов.",
+  "categories.viewAll": "Посмотреть Все Категории",
+
+  // Our Gallery
+  "gallery.badge": "Наши Работы",
+  "gallery.title": "Наша",
+  "gallery.titleHighlight": "Галерея",
+  "gallery.subtitle": "Изучите наше портфолио премиальных сборок и установок.",
+  "gallery.img1.alt": "Установка премиальных карбон-керамических тормозов",
+  "gallery.img2.alt": "Установка индивидуального обвеса",
+  "gallery.img3.alt": "Высокопроизводительная выхлопная система",
+  "gallery.img4.alt": "Роскошная модернизация интерьера",
+  "gallery.img5.alt": "Установка кованых дисков",
+  "gallery.img6.alt": "Компоненты из углеродного волокна",
+  "gallery.img7.alt": "Полная трансформация автомобиля",
+  "gallery.img8.alt": "Профессиональная детализация",
+
+  // How We Work
+  "howWeWork.badge": "Наш Процесс",
+  "howWeWork.title": "Как Мы",
+  "howWeWork.titleHighlight": "Работаем",
+  "howWeWork.subtitle": "Простой и прозрачный процесс от выбора до установки.",
+  "howWeWork.step1.title": "Просмотр и Выбор",
+  "howWeWork.step1.desc":
+    "Изучите наш обширный каталог и найдите идеальные детали для вашего автомобиля.",
+  "howWeWork.step2.title": "Оформление Заказа",
+  "howWeWork.step2.desc":
+    "Безопасная оплата с несколькими вариантами оплаты и мгновенным подтверждением.",
+  "howWeWork.step3.title": "Быстрая Доставка",
+  "howWeWork.step3.desc":
+    "Ваши детали тщательно упаковываются и отправляются прямо к вам.",
+  "howWeWork.step4.title": "Установка и Наслаждение",
+  "howWeWork.step4.desc":
+    "Профессиональная установка или самостоятельно - мы поддерживаем вас на каждом этапе.",
+  "howWeWork.cta.text": "Готовы улучшить свой автомобиль?",
+  "howWeWork.cta.button": "Начать Покупки",
+
+  // Reviews
+  "reviews.badge": "Отзывы",
+  "reviews.title": "Что Говорят Наши",
+  "reviews.titleHighlight": "Клиенты",
+  "reviews.subtitle":
+    "Реальные отзывы от водителей, которые доверяют нам свои автомобили.",
+  "reviews.review1.name": "Маркус Родригес",
+  "reviews.review1.car": "Porsche 911 GT3 RS",
+  "reviews.review1.feedback":
+    "Карбон-керамические роторы полностью изменили мои тормозные характеристики. Невероятная тормозная мощность без потери эффективности на треке. Качество OwnSilent не имеет себе равных.",
+  "reviews.review1.location": "Майами, США",
+  "reviews.review2.name": "Софи Лоран",
+  "reviews.review2.car": "Ferrari 488 Pista",
+  "reviews.review2.feedback":
+    "Исключительный сервис от начала до конца. Команда помогла мне выбрать идеальную выхлопную систему, а установка была безупречной. Моя Ferrari звучит и работает лучше, чем когда-либо.",
+  "reviews.review2.location": "Париж, Франция",
+  "reviews.review3.name": "Кендзи Танака",
+  "reviews.review3.car": "Lamborghini Huracán",
+  "reviews.review3.feedback":
+    "Премиальные детали с исключительной поддержкой клиентов. Установка обвеса была идеальной, а доставка в Японию была быстрее, чем ожидалось. Настоятельно рекомендую!",
+  "reviews.review3.location": "Токио, Япония",
+  "reviews.review4.name": "Александр Мюллер",
+  "reviews.review4.car": "Audi RS6 Avant",
+  "reviews.review4.feedback":
+    "Профессиональная экспертиза и искренняя страсть к автомобильному совершенству. Обновление подвески полностью изменило управляемость моей RS6. Стоит каждого цента.",
+  "reviews.review4.location": "Мюнхен, Германия",
 };
 
 // ==========================================
@@ -3421,8 +4354,105 @@ const jaTranslations = {
   "showcase.part5.s1.v": "フォージドカーボン",
   "showcase.part5.s2.l": "ダウンフォース",
   "showcase.part5.s2.v": "+120kg",
-  "showcase.part5.s3.l": "軽量化",
+  "showcase.part5.s3.l": "重量削減",
   "showcase.part5.s3.v": "-15kg",
+
+  // Footer Payment Methods
+  "footer.payment.title": "安全な支払い",
+  "footer.payment.subtitle":
+    "PayPal、主要なクレジットカードとデビットカード、銀行振込による安全な支払いを受け付けています。",
+  "footer.payment.bank": "銀行振込",
+
+  // Common UI Text
+  "common.learnMore": "もっと詳しく",
+  "common.exploreMore": "プレミアムパーツを探す",
+
+  // What We Do Section
+  "whatWeDo.badge": "私たちのサービス",
+  "whatWeDo.title": "私たちが",
+  "whatWeDo.titleHighlight": "すること",
+  "whatWeDo.subtitle":
+    "精密なエンジニアリングと比類のない品質で、プレミアムな自動車ソリューションを提供します。",
+  "whatWeDo.feature1.title": "プレミアムパーツの供給",
+  "whatWeDo.feature1.desc": "世界トップメーカーからの高性能コンポーネント。",
+  "whatWeDo.feature2.title": "品質保証",
+  "whatWeDo.feature2.desc":
+    "すべてのパーツは、OEM基準を満たし、それを超えるように厳格にテストされています。",
+  "whatWeDo.feature3.title": "エキスパート設置",
+  "whatWeDo.feature3.desc":
+    "グローバルパートナーネットワークを通じたプロフェッショナルな設置サービス。",
+  "whatWeDo.feature4.title": "世界配送",
+  "whatWeDo.feature4.desc": "世界中のお客様への迅速で信頼性の高い配送。",
+
+  // Premium Parts Categories
+  "categories.badge": "カテゴリー別に購入",
+  "categories.title": "あなたの",
+  "categories.titleHighlight": "車のためのプレミアムパーツを選ぶ",
+  "categories.subtitle":
+    "厳選された高性能自動車コンポーネントのコレクションをご覧ください。",
+  "categories.viewAll": "すべてのカテゴリーを見る",
+
+  // Our Gallery
+  "gallery.badge": "私たちの仕事",
+  "gallery.title": "私たちの",
+  "gallery.titleHighlight": "ギャラリー",
+  "gallery.subtitle":
+    "プレミアムビルドとインストールのポートフォリオをご覧ください。",
+  "gallery.img1.alt": "プレミアムカーボンセラミックブレーキの設置",
+  "gallery.img2.alt": "カスタムボディキットの取り付け",
+  "gallery.img3.alt": "高性能エキゾーストシステム",
+  "gallery.img4.alt": "高級インテリアアップグレード",
+  "gallery.img5.alt": "鍛造ホイールの設置",
+  "gallery.img6.alt": "カーボンファイバーコンポーネント",
+  "gallery.img7.alt": "完全な車両変換",
+  "gallery.img8.alt": "プロフェッショナルディテーリング作業",
+
+  // How We Work
+  "howWeWork.badge": "私たちのプロセス",
+  "howWeWork.title": "私たちの",
+  "howWeWork.titleHighlight": "働き方",
+  "howWeWork.subtitle": "選択から設置までのシンプルで透明なプロセス。",
+  "howWeWork.step1.title": "閲覧と選択",
+  "howWeWork.step1.desc":
+    "広範なカタログを閲覧し、あなたの車に最適なパーツを見つけてください。",
+  "howWeWork.step2.title": "注文する",
+  "howWeWork.step2.desc":
+    "複数の支払いオプションと即時確認による安全な支払い。",
+  "howWeWork.step3.title": "迅速な配送",
+  "howWeWork.step3.desc":
+    "パーツは丁寧に梱包され、あなたの場所に直接発送されます。",
+  "howWeWork.step4.title": "設置して楽しむ",
+  "howWeWork.step4.desc":
+    "プロフェッショナルな設置またはDIY - すべてのステップでサポートします。",
+  "howWeWork.cta.text": "車をアップグレードする準備はできましたか？",
+  "howWeWork.cta.button": "ショッピングを始める",
+
+  // Reviews
+  "reviews.badge": "お客様の声",
+  "reviews.title": "お客様が",
+  "reviews.titleHighlight": "語ること",
+  "reviews.subtitle":
+    "私たちを信頼してくれるドライバーからの本物のフィードバック。",
+  "reviews.review1.name": "マーカス・ロドリゲス",
+  "reviews.review1.car": "ポルシェ 911 GT3 RS",
+  "reviews.review1.feedback":
+    "カーボンセラミックローターは私のブレーキ性能を完全に変えました。トラックでのフェードゼロで信じられないほどの制動力。OwnSilentの品質は比類がありません。",
+  "reviews.review1.location": "マイアミ、アメリカ",
+  "reviews.review2.name": "ソフィー・ローラン",
+  "reviews.review2.car": "フェラーリ 488 ピスタ",
+  "reviews.review2.feedback":
+    "最初から最後まで素晴らしいサービス。チームは完璧なエキゾーストシステムを選ぶのを手伝ってくれ、設置は完璧でした。私のフェラーリはこれまで以上に良い音と性能を発揮しています。",
+  "reviews.review2.location": "パリ、フランス",
+  "reviews.review3.name": "田中健二",
+  "reviews.review3.car": "ランボルギーニ ウラカン",
+  "reviews.review3.feedback":
+    "優れた顧客サポートを備えたプレミアム品質のパーツ。ボディキットの取り付けは完璧で、日本への配送は予想よりも速かったです。強くお勧めします！",
+  "reviews.review3.location": "東京、日本",
+  "reviews.review4.name": "アレクサンダー・ミュラー",
+  "reviews.review4.car": "アウディ RS6 アバント",
+  "reviews.review4.feedback":
+    "プロフェッショナルな専門知識と自動車の卓越性への真の情熱。サスペンションのアップグレードは、私のRS6のハンドリングを完全に変えました。すべてのペニーの価値があります。",
+  "reviews.review4.location": "ミュンヘン、ドイツ",
 };
 
 // ==========================================
