@@ -201,6 +201,17 @@ export default function DynamicCategoryPage() {
 
     return (
         <main className="bg-white text-slate-800 mt-16">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "CollectionPage",
+                        name: currentCategory?.name || "Category",
+                        url: `https://ownsilent.international/category/${categorySlug}`,
+                    }),
+                }}
+            />
             <CategoryHeader slug={categorySlug} categoryName={currentCategory?.name || ''} />
 
             <section id="collection" className="py-12 bg-slate-50 scroll-mt-16 border-t border-slate-200">

@@ -139,12 +139,12 @@ export default function BlogSection() {
           </div>
         </div>
 
-        {status === "loading" && posts.length === 0 ? (
+        {status === "loading" && (posts ?? []).length === 0 ? (
           <SkeletonLoader />
         ) : (
           <div className="overflow-hidden -mx-3" ref={emblaRef}>
             <div className="flex">
-              {posts.map((article) => (
+              {(posts ?? []).map((article) => (
                 <div
                   key={article._id}
                   className="flex-shrink-0 flex-grow-0 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4 p-3"

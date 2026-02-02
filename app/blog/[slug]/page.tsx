@@ -49,7 +49,7 @@ export default function BlogDetailPage() {
   useEffect(() => {
     if (slug) {
       dispatch(fetchPublicBlogPostBySlug(slug));
-      if (posts.length === 0) {
+      if ((posts ?? []).length === 0) {
         dispatch(fetchPublicBlogPosts({ limit: 4 }));
       }
     }
@@ -82,6 +82,22 @@ export default function BlogDetailPage() {
 
   return (
     <main className="bg-slate-50 min-h-screen mt-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.title,
+            image: post.featuredImage,
+            datePublished: post.createdAt,
+            author: {
+              "@type": "Person",
+              name: post.author.fullName,
+            },
+          }),
+        }}
+      />
       <div className="bg-white border-b border-slate-200">
         <div className="container mx-auto px-4 py-8">
           <Link

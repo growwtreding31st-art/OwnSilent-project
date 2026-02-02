@@ -237,6 +237,11 @@ const enTranslations = {
   "aboutPage.careers.cat4": "Marketing & Communications",
   "aboutPage.careers.cat5": "Operations & Logistics",
   "aboutPage.careers.cat6": "Customer & Technical Support",
+
+  "home.banner.title": "Experience Peak Performance",
+  "home.banner.desc":
+    "Elevate your vehicle with our world-class carbon components and precision engineering.",
+  "home.banner.btn": "View Collection",
   // News Page
   "newsPage.loading": "Loading Articles...",
   "newsPage.title": "News & Insights",
@@ -261,7 +266,7 @@ const enTranslations = {
   "contact.info.email.title": "Email Us",
   "contact.info.email.sub": "For general inquiries & sales",
   "contact.info.phone.title": "Call Us",
-  "contact.info.phone.sub": "Mon-Fri from 9am to 6pm",
+  "contact.info.phone.sub": "Mon-Fri from 9am to 5pm",
   "contact.info.addr.title": "Visit Us",
   "contact.help.title": "Need Instant Help?",
   "contact.help.sub": "Check our frequently asked questions for quick answers.",
@@ -320,12 +325,243 @@ const enTranslations = {
   "shop.cart.addError": "Could not add to cart.",
   "shop.cart.loginError": "Please login to add items to your cart.",
   // ENGLISH (en)//disclamer
-  "footer.disclaimer.p1": "All brand names, logos, and trademarks displayed on this website are for reference only. Own Silent International Limited is not affiliated, endorsed, or authorized by any vehicle manufacturers. All product names, numbers, and images are for identification and compatibility purposes only.",
-  "footer.disclaimer.p2": "We manufacture and trade aftermarket, genuine, and custom automotive parts worldwide. Customers are responsible for ensuring legal compliance, safe installation, and proper use of all products. Own Silent International Limited is not liable for damages, vehicle modifications, or warranty impacts resulting from use of our products.",
-  "footer.disclaimer.p3": "Use of this website and purchase of products constitutes acceptance of our full disclaimer. For complete legal terms, see our",
+  "footer.disclaimer.p1":
+    "All brand names, logos, and trademarks displayed on this website are for reference only. Own Silent International Limited is not affiliated, endorsed, or authorized by any vehicle manufacturers. All product names, numbers, and images are for identification and compatibility purposes only.",
+  "footer.disclaimer.p2":
+    "We manufacture and trade aftermarket, genuine, and custom automotive parts worldwide. Customers are responsible for ensuring legal compliance, safe installation, and proper use of all products. Own Silent International Limited is not liable for damages, vehicle modifications, or warranty impacts resulting from use of our products.",
+  "footer.disclaimer.p3":
+    "Use of this website and purchase of products constitutes acceptance of our full disclaimer. For complete legal terms, see our",
   "footer.disclaimer.link": "Full Disclaimer Page",
-  "footer.copyright.short": "All brands, logos, and trademarks are for reference only; we are not affiliated or endorsed by any manufacturer. Products are aftermarket, genuine, or custom; use at your own risk. See our {link} for details.",
+  "footer.copyright.short":
+    "All brands, logos, and trademarks are for reference only; we are not affiliated or endorsed by any manufacturer. Products are aftermarket, genuine, or custom; use at your own risk. See our {link} for details.",
   "footer.copyright.link": "Full Disclaimer",
+
+  // Showcase
+  "showcase.series": "High Performance Series",
+  "showcase.stats": "Engineering Stats",
+  "showcase.status": "Showcase",
+  "showcase.paused": "Paused",
+  "showcase.auto": "Auto",
+  "showcase.osPerformance": "OS PERFORMANCE",
+  "showcase.est": "EST. 1998",
+  "showcase.aerospace": "AEROSPACE GRADE",
+  "showcase.discover": "DISCOVER UNLIMITED POWER",
+
+  "showcase.part1.name": "Carbon Matrix Rotors",
+  "showcase.part1.headline": "Thermal Mastery in Every Stop.",
+  "showcase.part1.desc":
+    "Our carbon ceramic matrix rotors provide unmatched heat dissipation and zero brake fade, even under extreme track conditions.",
+  "showcase.part1.bgText": "POWER",
+  "showcase.part1.s1.l": "Material",
+  "showcase.part1.s1.v": "Carbon-Silicon",
+  "showcase.part1.s2.l": "Heat Limit",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "Weight Red.",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Forged Aero-S Wheels",
+  "showcase.part2.headline": "Lightweight. Forged. Unstoppable.",
+  "showcase.part2.desc":
+    "Precision engineered from aerospace-grade 6061-T6 aluminum, the Aero-S series significantly reduces unsprung mass for superior handling.",
+  "showcase.part2.bgText": "LIGHT",
+  "showcase.part2.s1.l": "Process",
+  "showcase.part2.s1.v": "8000T Forged",
+  "showcase.part2.s2.l": "Load Rating",
+  "showcase.part2.s2.v": "950kg",
+  "showcase.part2.s3.l": "Wheel Weight",
+  "showcase.part2.s3.v": "8.2kg",
+
+  "showcase.part3.name": "Adaptive Nitro Coilovers",
+  "showcase.part3.headline": "Precision Perfected.",
+  "showcase.part3.desc":
+    "Ultra-fast response nitrogen-charged dampers with 32-way adjustment, offering the perfect balance between track rigidity and road comfort.",
+  "showcase.part3.bgText": "GLIDE",
+  "showcase.part3.s1.l": "Adjustment",
+  "showcase.part3.s1.v": "32-Way Click",
+  "showcase.part3.s2.l": "Gas Type",
+  "showcase.part3.s2.v": "High-Purity N2",
+  "showcase.part3.s3.l": "Stroke",
+  "showcase.part3.s3.v": "110mm",
+
+  "showcase.part4.name": "Matrix LASER Headlights",
+  "showcase.part4.headline": "Illuminating the Path Ahead.",
+  "showcase.part4.desc":
+    "High-definition laser projection system with adaptive beam technology, providing up to 600m of crystal clear visibility.",
+  "showcase.part4.bgText": "LIGHT",
+  "showcase.part4.s1.l": "Range",
+  "showcase.part4.s1.v": "600m",
+  "showcase.part4.s2.l": "Tech",
+  "showcase.part4.s2.v": "Laser Matrix",
+  "showcase.part4.s3.l": "Efficiency",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "Forged Carbon Aero Kit",
+  "showcase.part5.headline": "Aerodynamics Redefined.",
+  "showcase.part5.desc":
+    "Ultra-lightweight forged carbon fiber components designed for maximum downforce and aggressive aesthetics.",
+  "showcase.part5.bgText": "AERO",
+  "showcase.part5.s1.l": "Material",
+  "showcase.part5.s1.v": "Forged Carbon",
+  "showcase.part5.s2.l": "Downforce",
+  "showcase.part5.s2.v": "+120kg",
+  "showcase.part5.s3.l": "Weight Red.",
+  "showcase.part5.s3.v": "-15kg",
+
+  // What We Do Section
+  "whatWeDo.badge": "Our Services",
+  "whatWeDo.title": "What We",
+  "whatWeDo.titleHighlight": "Do",
+  "whatWeDo.subtitle":
+    "We deliver premium automotive solutions with precision engineering and unmatched quality.",
+  "whatWeDo.feature1.title": "Premium Parts Supply",
+  "whatWeDo.feature1.desc":
+    "High-performance components sourced from top manufacturers worldwide.",
+  "whatWeDo.feature2.title": "Quality Assurance",
+  "whatWeDo.feature2.desc":
+    "Every part is rigorously tested to meet OEM standards and beyond.",
+  "whatWeDo.feature3.title": "Expert Installation",
+  "whatWeDo.feature3.desc":
+    "Professional fitting services through our global partner network.",
+  "whatWeDo.feature4.title": "Worldwide Shipping",
+  "whatWeDo.feature4.desc":
+    "Fast and reliable delivery to customers across the globe.",
+
+  // Premium Parts Categories
+  "categories.badge": "Shop by Category",
+  "categories.title": "Choose From Premium Parts For",
+  "categories.titleHighlight": "Your Car",
+  "categories.subtitle":
+    "Explore our curated selection of high-performance automotive components.",
+  "categories.brakes.title": "Brakes & Rotors",
+  "categories.engine.title": "Engine Parts",
+  "categories.suspension.title": "Suspension",
+  "categories.exhaust.title": "Exhaust Systems",
+  "categories.body.title": "Body Kits",
+  "categories.lighting.title": "Lighting",
+  "categories.viewAll": "View All Categories",
+
+  // Our Gallery
+  "gallery.badge": "Our Work",
+  "gallery.title": "Our",
+  "gallery.titleHighlight": "Gallery",
+  "gallery.subtitle":
+    "Explore our portfolio of premium builds and installations.",
+  "gallery.img1.alt": "Premium carbon ceramic brake installation",
+  "gallery.img2.alt": "Custom body kit fitment",
+  "gallery.img3.alt": "High-performance exhaust system",
+  "gallery.img4.alt": "Luxury interior upgrade",
+  "gallery.img5.alt": "Forged wheel installation",
+  "gallery.img6.alt": "Carbon fiber components",
+  "gallery.img7.alt": "Complete vehicle transformation",
+  "gallery.img8.alt": "Professional detailing work",
+
+  // Latest Articles
+  "articles.badge": "Insights & Updates",
+  "articles.title": "Latest",
+  "articles.titleHighlight": "Articles",
+  "articles.subtitle":
+    "Stay informed with the latest trends and technologies in automotive performance.",
+  "articles.article1.title": "The Future of Carbon-Ceramic Braking Technology",
+  "articles.article1.excerpt":
+    "Discover how carbon-ceramic rotors are revolutionizing high-performance braking systems with superior heat management and durability.",
+  "articles.article1.author": "James Chen",
+  "articles.article1.date": "Jan 28, 2026",
+  "articles.article2.title": "Choosing the Right Suspension for Your Vehicle",
+  "articles.article2.excerpt":
+    "A comprehensive guide to selecting suspension components that match your driving style and performance goals.",
+  "articles.article2.author": "Sarah Williams",
+  "articles.article2.date": "Jan 25, 2026",
+  "articles.article3.title": "Aerodynamics: How Body Kits Improve Performance",
+  "articles.article3.excerpt":
+    "Learn how properly designed body kits can enhance downforce, reduce drag, and improve overall vehicle dynamics.",
+  "articles.article3.author": "Michael Torres",
+  "articles.article3.date": "Jan 22, 2026",
+  "articles.readMore": "Read More",
+  "articles.viewAll": "View All Articles",
+
+  // How We Work
+  "howWeWork.badge": "Our Process",
+  "howWeWork.title": "How We",
+  "howWeWork.titleHighlight": "Work",
+  "howWeWork.subtitle":
+    "A simple, transparent process from selection to installation.",
+  "howWeWork.step1.title": "Browse & Select",
+  "howWeWork.step1.desc":
+    "Explore our extensive catalog and find the perfect parts for your vehicle.",
+  "howWeWork.step2.title": "Place Your Order",
+  "howWeWork.step2.desc":
+    "Secure checkout with multiple payment options and instant confirmation.",
+  "howWeWork.step3.title": "Fast Delivery",
+  "howWeWork.step3.desc":
+    "Your parts are carefully packaged and shipped directly to your location.",
+  "howWeWork.step4.title": "Install & Enjoy",
+  "howWeWork.step4.desc":
+    "Professional installation or DIY - we support you every step of the way.",
+  "howWeWork.cta.text": "Ready to upgrade your vehicle?",
+  "howWeWork.cta.button": "Start Shopping",
+
+  // Contact Process
+  "contactProcess.badge": "Get in Touch",
+  "contactProcess.title": "Contact",
+  "contactProcess.titleHighlight": "Us",
+  "contactProcess.subtitle":
+    "Have questions? Our expert team is here to help you find the perfect solution.",
+  "contactProcess.email.title": "Email Us",
+  "contactProcess.phone.title": "Call Us",
+  "contactProcess.phone.hours": "Mon-Fri, 9am - 5pm HKT",
+  "contactProcess.address.title": "Visit Us",
+  "contactProcess.form.name": "Full Name",
+  "contactProcess.form.namePlaceholder": "Enter your name",
+  "contactProcess.form.email": "Email Address",
+  "contactProcess.form.emailPlaceholder": "your@email.com",
+  "contactProcess.form.phone": "Phone Number",
+  "contactProcess.form.phonePlaceholder": "+1 (555) 000-0000",
+  "contactProcess.form.subject": "Subject",
+  "contactProcess.form.subjectPlaceholder": "How can we help?",
+  "contactProcess.form.message": "Message",
+  "contactProcess.form.messagePlaceholder":
+    "Tell us more about your inquiry...",
+  "contactProcess.form.submit": "Send Message",
+  "contactProcess.form.submitting": "Sending...",
+  "contactProcess.success":
+    "Thank you! We've received your message and will respond shortly.",
+
+  // Reviews
+  "reviews.badge": "Testimonials",
+  "reviews.title": "What Our Customers",
+  "reviews.titleHighlight": "Say",
+  "reviews.subtitle":
+    "Real feedback from drivers who trust us with their vehicles.",
+  "reviews.review1.name": "Marcus Rodriguez",
+  "reviews.review1.car": "Porsche 911 GT3 RS",
+  "reviews.review1.feedback":
+    "The carbon-ceramic rotors completely transformed my braking performance. Incredible stopping power with zero fade on the track. OwnSilent's quality is unmatched.",
+  "reviews.review1.location": "Miami, USA",
+  "reviews.review2.name": "Sophie Laurent",
+  "reviews.review2.car": "Ferrari 488 Pista",
+  "reviews.review2.feedback":
+    "Outstanding service from start to finish. The team helped me select the perfect exhaust system, and the installation was flawless. My Ferrari sounds and performs better than ever.",
+  "reviews.review2.location": "Paris, France",
+  "reviews.review3.name": "Kenji Tanaka",
+  "reviews.review3.car": "Lamborghini Huracán",
+  "reviews.review3.feedback":
+    "Premium quality parts with exceptional customer support. The body kit fitment was perfect, and shipping to Japan was faster than expected. Highly recommended!",
+  "reviews.review3.location": "Tokyo, Japan",
+  "reviews.review4.name": "Alexander Müller",
+  "reviews.review4.car": "Audi RS6 Avant",
+  "reviews.review4.feedback":
+    "Professional expertise and genuine passion for automotive excellence. The suspension upgrade has completely changed how my RS6 handles. Worth every penny.",
+  "reviews.review4.location": "Munich, Germany",
+
+  // Footer Payment Methods
+  "footer.payment.title": "Secure Payments",
+  "footer.payment.subtitle":
+    "We accept secure payments through PayPal, major credit & debit cards, and bank transfer.",
+  "footer.payment.bank": "Bank Transfer",
+
+  // Common UI Text
+  "common.learnMore": "Learn More",
+  "common.exploreMore": "Explore premium parts",
 };
 
 // ==========================================
@@ -525,7 +761,7 @@ const esTranslations = {
   "aboutPage.careers.why.l3":
     "Acceda a oportunidades de formación, desarrollo de habilidades y promoción profesional.",
   "aboutPage.careers.why.l4":
-    "Contribuya a crear soluciones premium para coches de lujo, SUV y superdeportivos.",
+    "Contribuya a crear soluciones premium para autos de lujo, SUV y superdeportivos.",
   "aboutPage.careers.open.t": "Áreas Abiertas de Especialización",
   "aboutPage.careers.open.sub":
     "Aceptamos solicitudes en múltiples áreas de negocio. Si tiene las habilidades y la pasión, queremos saber de usted.",
@@ -535,6 +771,11 @@ const esTranslations = {
   "aboutPage.careers.cat4": "Marketing y Comunicaciones",
   "aboutPage.careers.cat5": "Operaciones y Logística",
   "aboutPage.careers.cat6": "Soporte Técnico y al Cliente",
+
+  "home.banner.title": "Experimenta el Máximo Rendimiento",
+  "home.banner.desc":
+    "Eleva tu vehículo con nuestros componentes de carbono de clase mundial y tecnología de precisión.",
+  "home.banner.btn": "Ver Colección",
   // new page // ===================================
   "newsPage.loading": "Cargando Artículos...",
   "newsPage.title": "Noticias y Perspectivas",
@@ -564,7 +805,7 @@ const esTranslations = {
   "shop.filter.showResults": "Mostrar Resultados",
   "shop.filter.categories": "Categorías",
   "shop.filter.brands": "Marcas",
-  "shop.filter.models": "Modelos",
+  "shop.filter.models": "Modulos",
   "shop.filter.searchPlaceholder": "Buscar {title}...",
   "shop.filter.noCategories": "No hay categorías que coincidan.",
   "shop.filter.noBrands": "No hay marcas que coincidan.",
@@ -581,14 +822,189 @@ const esTranslations = {
   "shop.cart.addError": "No se pudo añadir al carrito.",
   "shop.cart.loginError":
     "Por favor, inicie sesión para añadir artículos a su carrito.",
-    //dislaimer
-    // SPANISH (es)
-  "footer.disclaimer.p1": "Todos los nombres de marcas, logotipos y marcas comerciales que se muestran en este sitio web son solo de referencia. Own Silent International Limited no está afiliada, respaldada ni autorizada por ningún fabricante de vehículos.",
-  "footer.disclaimer.p2": "Fabricamos y comercializamos piezas de automoción de posventa, originales y personalizadas en todo el mundo. Los clientes son responsables de garantizar el cumplimiento legal y el uso adecuado de todos los productos.",
-  "footer.disclaimer.p3": "El uso de este sitio web y la compra de productos constituye la aceptación de nuestro descargo de responsabilidad completo. Para los términos legales completos, consulte nuestra",
+  //dislaimer
+  // SPANISH (es)
+  "footer.disclaimer.p1":
+    "Todos los nombres de marcas, logotipos y marcas comerciales que se muestran en este sitio web son solo de referencia. Own Silent International Limited no está afiliada, respaldada ni autorizada por ningún fabricante de vehículos. Todos los nombres de productos, números y imágenes son solo para fines de identificación y compatibilidad.",
+  "footer.disclaimer.p2":
+    "Fabricamos y comercializamos piezas de automoción de posventa, originales y personalizadas en todo el mundo. Los clientes son responsables de garantizar el cumplimiento legal y el uso adecuado de todos los productos. Own Silent International Limited no es responsable de daños, modificaciones de vehículos o impactos en la garantía resultantes del uso de nuestros productos.",
+  "footer.disclaimer.p3":
+    "El uso de este sitio web y la compra de productos constituye la aceptación de nuestro descargo de responsabilidad completo. Para los términos legales completos, consulte nuestra",
   "footer.disclaimer.link": "Página de descargo de responsabilidad completo",
-  "footer.copyright.short": "Todas las marcas son solo de referencia; no estamos afiliados a ningún fabricante. El uso de los productos es bajo su propio riesgo. Consulte nuestro {link} para más detalles.",
+  "footer.copyright.short":
+    "Todas las marcas son solo de referencia; no estamos afiliados a ningún fabricante. El uso de los productos es bajo su propio riesgo. Consulte nuestro {link} para más detalles.",
   "footer.copyright.link": "Descargo de responsabilidad completo",
+
+  // Showcase
+  "showcase.series": "Serie de Alto Rendimiento",
+  "showcase.stats": "Estadísticas de Ingeniería",
+  "showcase.status": "Escaparate",
+  "showcase.paused": "Pausado",
+  "showcase.auto": "Auto",
+  "showcase.osPerformance": "RENDIMIENTO OS",
+  "showcase.est": "EST. 1998",
+  "showcase.aerospace": "GRADO AEROESPACIAL",
+  "showcase.discover": "DESCUBRE EL PODER ILIMITADO",
+
+  "showcase.part1.name": "Rotores de Matriz de Carbono",
+  "showcase.part1.headline": "Maestría Térmica en Cada Parada.",
+  "showcase.part1.desc":
+    "Nuestros rotores de matriz cerámica de carbono proporcionan una disipación de calor inigualable y cero fatiga de frenos, incluso en condiciones extremas de pista.",
+  "showcase.part1.bgText": "PODER",
+  "showcase.part1.s1.l": "Material",
+  "showcase.part1.s1.v": "Carbono-Silicio",
+  "showcase.part1.s2.l": "Límite de Calor",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "Red. de Peso",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Llantas Forjadas Aero-S",
+  "showcase.part2.headline": "Ligero. Forjado. Imparable.",
+  "showcase.part2.desc":
+    "Diseñadas con precisión a partir de aluminio 6061-T6 de grado aeroespacial, la serie Aero-S reduce significativamente la masa no suspendida para un manejo superior.",
+  "showcase.part2.bgText": "LIGERO",
+  "showcase.part2.s1.l": "Proceso",
+  "showcase.part2.s1.v": "8000T Forjado",
+  "showcase.part2.s2.l": "Capacidad de Carga",
+  "showcase.part2.s2.v": "950kg",
+  "showcase.part2.s3.l": "Peso de Llanta",
+  "showcase.part2.s3.v": "8.2kg",
+
+  "showcase.part3.name": "Coilovers de Nitro Adaptativos",
+  "showcase.part3.headline": "Precisión Perfeccionada.",
+  "showcase.part3.desc":
+    "Amortiguadores cargados con nitrógeno de respuesta ultra rápida con ajuste de 32 vías, ofreciendo el equilibrio perfecto entre rigidez de pista y comodidad en carretera.",
+  "showcase.part3.bgText": "DESLICE",
+  "showcase.part3.s1.l": "Ajuste",
+  "showcase.part3.s1.v": "32 vías",
+  "showcase.part3.s2.l": "Tipo de Gas",
+  "showcase.part3.s2.v": "N2 de alta pureza",
+  "showcase.part3.s3.l": "Carrera",
+  "showcase.part3.s3.v": "110mm",
+
+  "showcase.part4.name": "Faros LASER de Matriz",
+  "showcase.part4.headline": "Iluminando el camino por delante.",
+  "showcase.part4.desc":
+    "Sistema de proyección láser de alta definición con tecnología de haz adaptativo, que proporciona hasta 600 m de visibilidad clara.",
+  "showcase.part4.bgText": "LUZ",
+  "showcase.part4.s1.l": "Alcance",
+  "showcase.part4.s1.v": "600m",
+  "showcase.part4.s2.l": "Tecnología",
+  "showcase.part4.s2.v": "Matriz Láser",
+  "showcase.part4.s3.l": "Eficiencia",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "Kit Aero de Carbono Forjado",
+  "showcase.part5.headline": "Aerodinámica Redefinida.",
+  "showcase.part5.desc":
+    "Componentes de fibra de carbono forjada ultraligeros diseñados para una carga aerodinámica máxima y una estética agresiva.",
+  "showcase.part5.bgText": "AERO",
+  "showcase.part5.s1.l": "Material",
+  "showcase.part5.s1.v": "Carbono Forjado",
+  "showcase.part5.s2.l": "Carga Aerod.",
+  "showcase.part5.s2.v": "+120kg",
+  "showcase.part5.s3.l": "Red. Peso",
+  "showcase.part5.s3.v": "-15kg",
+
+  // What We Do Section
+  "whatWeDo.badge": "Nuestros Servicios",
+  "whatWeDo.title": "Lo Que",
+  "whatWeDo.titleHighlight": "Hacemos",
+  "whatWeDo.subtitle":
+    "Ofrecemos soluciones automotrices premium con ingeniería de precisión y calidad inigualable.",
+  "whatWeDo.feature1.title": "Suministro de Piezas Premium",
+  "whatWeDo.feature1.desc":
+    "Componentes de alto rendimiento de los mejores fabricantes del mundo.",
+  "whatWeDo.feature2.title": "Garantía de Calidad",
+  "whatWeDo.feature2.desc":
+    "Cada pieza se prueba rigurosamente para cumplir y superar los estándares OEM.",
+  "whatWeDo.feature3.title": "Instalación Experta",
+  "whatWeDo.feature3.desc":
+    "Servicios de instalación profesional a través de nuestra red global de socios.",
+  "whatWeDo.feature4.title": "Envío Mundial",
+  "whatWeDo.feature4.desc":
+    "Entrega rápida y confiable a clientes en todo el mundo.",
+
+  // Premium Parts Categories
+  "categories.badge": "Comprar por Categoría",
+  "categories.title": "Elige Piezas Premium Para",
+  "categories.titleHighlight": "Tu Auto",
+  "categories.subtitle":
+    "Explora nuestra selección curada de componentes automotrices de alto rendimiento.",
+  "categories.viewAll": "Ver Todas las Categorías",
+
+  // Our Gallery
+  "gallery.badge": "Nuestro Trabajo",
+  "gallery.title": "Nuestra",
+  "gallery.titleHighlight": "Galería",
+  "gallery.subtitle":
+    "Explora nuestro portafolio de construcciones e instalaciones premium.",
+  "gallery.img1.alt": "Instalación de frenos de cerámica carbono premium",
+  "gallery.img2.alt": "Ajuste de kit de carrocería personalizado",
+  "gallery.img3.alt": "Sistema de escape de alto rendimiento",
+  "gallery.img4.alt": "Mejora de interior de lujo",
+  "gallery.img5.alt": "Instalación de ruedas forjadas",
+  "gallery.img6.alt": "Componentes de fibra de carbono",
+  "gallery.img7.alt": "Transformación completa del vehículo",
+  "gallery.img8.alt": "Trabajo de detallado profesional",
+
+  // How We Work
+  "howWeWork.badge": "Nuestro Proceso",
+  "howWeWork.title": "Cómo",
+  "howWeWork.titleHighlight": "Trabajamos",
+  "howWeWork.subtitle":
+    "Un proceso simple y transparente desde la selección hasta la instalación.",
+  "howWeWork.step1.title": "Explorar y Seleccionar",
+  "howWeWork.step1.desc":
+    "Explora nuestro extenso catálogo y encuentra las piezas perfectas para tu vehículo.",
+  "howWeWork.step2.title": "Realizar Pedido",
+  "howWeWork.step2.desc":
+    "Pago seguro con múltiples opciones de pago y confirmación instantánea.",
+  "howWeWork.step3.title": "Entrega Rápida",
+  "howWeWork.step3.desc":
+    "Tus piezas se empaquetan cuidadosamente y se envían directamente a tu ubicación.",
+  "howWeWork.step4.title": "Instalar y Disfrutar",
+  "howWeWork.step4.desc":
+    "Instalación profesional o hazlo tú mismo - te apoyamos en cada paso.",
+  "howWeWork.cta.text": "¿Listo para mejorar tu vehículo?",
+  "howWeWork.cta.button": "Comenzar a Comprar",
+
+  // Reviews
+  "reviews.badge": "Testimonios",
+  "reviews.title": "Lo Que Dicen Nuestros",
+  "reviews.titleHighlight": "Clientes",
+  "reviews.subtitle":
+    "Comentarios reales de conductores que confían en nosotros con sus vehículos.",
+  "reviews.review1.name": "Marcus Rodríguez",
+  "reviews.review1.car": "Porsche 911 GT3 RS",
+  "reviews.review1.feedback":
+    "Los rotores de cerámica carbono transformaron completamente mi rendimiento de frenado. Potencia de frenado increíble sin pérdida en la pista. La calidad de OwnSilent es inigualable.",
+  "reviews.review1.location": "Miami, EE.UU.",
+  "reviews.review2.name": "Sophie Laurent",
+  "reviews.review2.car": "Ferrari 488 Pista",
+  "reviews.review2.feedback":
+    "Servicio excepcional de principio a fin. El equipo me ayudó a seleccionar el sistema de escape perfecto, y la instalación fue impecable. Mi Ferrari suena y funciona mejor que nunca.",
+  "reviews.review2.location": "París, Francia",
+  "reviews.review3.name": "Kenji Tanaka",
+  "reviews.review3.car": "Lamborghini Huracán",
+  "reviews.review3.feedback":
+    "Piezas de calidad premium con soporte al cliente excepcional. El ajuste del kit de carrocería fue perfecto, y el envío a Japón fue más rápido de lo esperado. ¡Muy recomendado!",
+  "reviews.review3.location": "Tokio, Japón",
+  "reviews.review4.name": "Alexander Müller",
+  "reviews.review4.car": "Audi RS6 Avant",
+  "reviews.review4.feedback":
+    "Experiencia profesional y pasión genuina por la excelencia automotriz. La mejora de suspensión ha cambiado completamente cómo maneja mi RS6. Vale cada centavo.",
+  "reviews.review4.location": "Múnich, Alemania",
+
+  // Footer Payment Methods
+  "footer.payment.title": "Pagos Seguros",
+  "footer.payment.subtitle":
+    "Aceptamos pagos seguros a través de PayPal, tarjetas de crédito y débito principales, y transferencia bancaria.",
+  "footer.payment.bank": "Transferencia Bancaria",
+
+  // Common UI Text
+  "common.learnMore": "Saber Más",
+  "common.exploreMore": "Explorar piezas premium",
 };
 
 // ==========================================
@@ -624,7 +1040,7 @@ const deTranslations = {
     "Maßgeschneiderte Design- und Einbaulösungen für High-End-Fahrzeuge.",
   "hero.box.t": "Globale Expertise & Präzisionsfertigung",
   "hero.box.d":
-    "Wir entwerfen, entwickeln und fertigen unsere Produkte nach OEM-Präzisionsstandards und testen sie vor dem Versand auf Qualität und Sicherheit.",
+    "Wir entwerfen, entwickeln und fertigen unsere Produkte gemäß OEM-Präzisionsstandards und testen sie vor dem Versand auf Qualität und Sicherheit.",
   "hero.list1": "Internes 3D-Design & Entwicklung",
   "hero.list2": "Globales Netzwerk von Installationspartnern",
   "hero.list3": "Weltweiter See- und Luftfrachtverkehr",
@@ -714,54 +1130,58 @@ const deTranslations = {
   "ccr.faq3.a":
     "Die Wartung ist minimal - sie produzieren fast keinen Bremsstaub und halten deutlich länger.",
   // GERMAN (de) - For About Us Page
-  "aboutPage.meta.de": "Über OwnSilent",
-  "aboutPage.title.de": "Die Zukunft der automobilen Leistung gestalten",
-  "aboutPage.subtitle.de":
+  "aboutPage.meta": "Über OwnSilent",
+  "aboutPage.title": "Die Zukunft der automobilen Leistung gestalten",
+  "aboutPage.subtitle":
     "Seit 2015 sind wir der globale Maßstab für Qualität und Vertrauen bei Hochleistungs-Autoteilen und maßgeschneiderten Fahrzeuganpassungen.",
-  "aboutPage.exploreBtn.de": "Unsere Produkte entdecken",
-  "aboutPage.story.meta.de": "Unsere Geschichte",
-  "aboutPage.story.title.de":
-    "Angetrieben von Leidenschaft, gebaut auf Vertrauen",
-  "aboutPage.story.p1.de":
+  "aboutPage.exploreBtn": "Unsere Produkte entdecken",
+  "aboutPage.story.meta": "Unsere Geschichte",
+  "aboutPage.story.title": "Angetrieben von Leidenschaft, gebaut auf Vertrauen",
+  "aboutPage.story.p1":
     "OwnSilent entstand aus einer einfachen Leidenschaft: das Finden des perfekten Bauteils zu einem einfachen, transparenten und zufriedenstellenden Erlebnis für jeden Enthusiasten zu machen.",
-  "aboutPage.story.p2.de":
+  "aboutPage.story.p2":
     "Jeder Kauf bei uns ist mehr als eine Transaktion; es ist ein Schritt zur Wartung und Aufrüstung Ihres Fahrzeugs mit vollem Vertrauen und Weltklasse-Qualität.",
-  "aboutPage.principles.meta.de": "Unsere Prinzipien",
-  "aboutPage.principles.title.de": "Unser Versprechen an Sie",
-  "aboutPage.principles.sub.de":
+  "aboutPage.principles.meta": "Unsere Prinzipien",
+  "aboutPage.principles.title": "Unser Versprechen an Sie",
+  "aboutPage.principles.sub":
     "Wir bauen auf Grundwerten, die jede unserer Entscheidungen und Interaktionen mit unserer globalen Gemeinschaft leiten.",
-  "aboutPage.value1.t.de": "Kompromisslose Qualität",
-  "aboutPage.value1.d.de":
+  "aboutPage.value1.t": "Kompromisslose Qualität",
+  "aboutPage.value1.d":
     "Wir sind bestrebt, Ihnen die besten Teile zu liefern und sicherzustellen, dass jede Komponente unseren strengen Qualitätsstandards entspricht.",
-  "aboutPage.value2.t.de": "Expertise & Leidenschaft",
-  "aboutPage.value2.d.de":
+  "aboutPage.value2.t": "Expertise & Leidenschaft",
+  "aboutPage.value2.d":
     "Unser Team besteht aus Auto-Enthusiasten und Experten, die bereit sind, Sie auf Ihrer Reise zu begleiten.",
-  "aboutPage.value3.t.de": "Vertrauen & Transparenz",
-  "aboutPage.value3.d.de":
+  "aboutPage.value3.t": "Vertrauen & Transparenz",
+  "aboutPage.value3.d":
     "Die Zufriedenheit unserer Kunden hat für uns Priorität. Wir handeln integer, um dauerhafte Beziehungen aufzubauen.",
-  "aboutPage.careers.meta.de": "Karriere",
-  "aboutPage.careers.title.de":
+  "aboutPage.careers.meta": "Karriere",
+  "aboutPage.careers.title":
     "Werden Sie Teil eines globalen Führers für automobile Innovation",
-  "aboutPage.careers.sub.de":
+  "aboutPage.careers.sub":
     "Wir sind immer auf der Suche nach talentierten Personen, die sich unserer Mission anschließen möchten.",
-  "aboutPage.careers.why.t.de": "Warum bei uns arbeiten?",
-  "aboutPage.careers.why.l1.de":
+  "aboutPage.careers.why.t": "Warum bei uns arbeiten?",
+  "aboutPage.careers.why.l1":
     "Arbeiten Sie mit modernster Technologie und innovativen Automobilprozessen.",
-  "aboutPage.careers.why.l2.de":
-    "Werden Sie Teil eines Unternehmens, das weltweit mit Partnern zusammenarbeitet.",
-  "aboutPage.careers.why.l3.de":
+  "aboutPage.careers.why.l2":
+    "Werden Sie Teil eines Unternehmens, das weltweit liefert und mit Partnern zusammenarbeitet.",
+  "aboutPage.careers.why.l3":
     "Nutzen Sie Möglichkeiten für Schulungen, Kompetenzentwicklung und Karriereaufstieg.",
-  "aboutPage.careers.why.l4.de":
+  "aboutPage.careers.why.l4":
     "Tragen Sie zur Entwicklung von Premium-Lösungen für Luxusautos bei.",
-  "aboutPage.careers.open.t.de": "Offene Fachbereiche",
-  "aboutPage.careers.open.sub.de":
+  "aboutPage.careers.open.t": "Offene Fachbereiche",
+  "aboutPage.careers.open.sub":
     "Wir freuen uns über Bewerbungen in verschiedenen Geschäftsbereichen. Wenn Sie die Fähigkeiten und die Leidenschaft haben, möchten wir von Ihnen hören.",
-  "aboutPage.careers.cat1.de": "Ingenieurwesen & Fertigung",
-  "aboutPage.careers.cat2.de": "Forschung & Entwicklung",
-  "aboutPage.careers.cat3.de": "Vertrieb & Händlerbeziehungen",
-  "aboutPage.careers.cat4.de": "Marketing & Kommunikation",
-  "aboutPage.careers.cat5.de": "Betrieb & Logistik",
-  "aboutPage.careers.cat6.de": "Kunden- & technischer Support",
+  "aboutPage.careers.cat1": "Ingenieurwesen & Fertigung",
+  "aboutPage.careers.cat2": "Forschung & Entwicklung",
+  "aboutPage.careers.cat3": "Vertrieb & Händlerbeziehungen",
+  "aboutPage.careers.cat4": "Marketing & Kommunikation",
+  "aboutPage.careers.cat5": "Betrieb & Logistik",
+  "aboutPage.careers.cat6": "Kunden- & technischer Support",
+
+  "home.banner.title": "Erleben Sie Höchstleistung",
+  "home.banner.desc":
+    "Verbessern Sie Ihr Fahrzeug mit unseren erstklassigen Carbon-Komponenten und Präzisionstechnik.",
+  "home.banner.btn": "Kollektion ansehen",
   //news page // ===================================
   "newsPage.loading": "Artikel werden geladen...",
   "newsPage.title": "Nachrichten & Einblicke",
@@ -841,15 +1261,189 @@ const deTranslations = {
   "shop.cart.addError": "Konnte nicht zum Warenkorb hinzugefügt werden.",
   "shop.cart.loginError":
     "Bitte melden Sie sich an, um Artikel in Ihren Warenkorb zu legen.",
-    // GERMAN (de) - For Footer Disclaimer
-// ===================================
-  "footer.disclaimer.p1": "Alle auf dieser Website angezeigten Markennamen, Logos und Warenzeichen dienen nur als Referenz. Own Silent International Limited ist nicht mit Fahrzeugherstellern verbunden, von diesen unterstützt oder autorisiert. Alle Produktnamen, Nummern und Bilder dienen nur zu Identifikations- und Kompatibilitätszwecken.",
-  "footer.disclaimer.p2": "Wir produzieren und handeln weltweit mit Aftermarket-, Original- und kundenspezifischen Autoteilen. Die Kunden sind für die Einhaltung der gesetzlichen Bestimmungen, die sichere Installation und die ordnungsgemäße Verwendung aller Produkte verantwortlich. Own Silent International Limited haftet nicht für Schäden, Fahrzeugmodifikationen oder Garantieauswirkungen, die aus der Verwendung unserer Produkte resultieren.",
-  "footer.disclaimer.p3": "Die Nutzung dieser Website und der Kauf von Produkten stellen die Annahme unseres vollständigen Haftungsausschlusses dar. Die vollständigen rechtlichen Bedingungen finden Sie auf unserer",
+  // GERMAN (de) - For Footer Disclaimer
+  // ===================================
+  "footer.disclaimer.p1":
+    "Alle auf dieser Website angezeigten Markennamen, Logos und Warenzeichen dienen nur als Referenz. Own Silent International Limited ist nicht mit Fahrzeugherstellern verbunden, von diesen unterstützt oder autorisiert. Alle Produktnamen, Nummern und Bilder dienen nur zu Identifikations- und Kompatibilitätszwecken.",
+  "footer.disclaimer.p2":
+    "Wir produzieren und handeln weltweit mit Aftermarket-, Original- und kundenspezifischen Autoteilen. Die Kunden sind für die Einhaltung der gesetzlichen Bestimmungen, die sichere Installation und die ordnungsgemäße Verwendung aller Produkte. Own Silent International Limited haftet nicht für Schäden, Fahrzeugmodifikationen oder Garantieauswirkungen, die aus der Verwendung unserer Produkte resultieren.",
+  "footer.disclaimer.p3":
+    "Die Nutzung dieser Website und der Kauf von Produkten stellen die Annahme unseres vollständigen Haftungsausschlusses dar. Die vollständigen rechtlichen Bedingungen finden Sie auf unserer",
   "footer.disclaimer.link": "Vollständige Haftungsausschluss-Seite",
-  "footer.copyright.short": "Alle Marken, Logos und Warenzeichen dienen nur als Referenz; wir sind nicht mit einem Hersteller verbunden oder von diesem unterstützt. Produkte sind Aftermarket, Original oder kundenspezifisch; Verwendung auf eigene Gefahr. Siehe unseren {link} für Details.",
+  "footer.copyright.short":
+    "Alle Marken, Logos und Warenzeichen dienen nur als Referenz; wir sind nicht mit einem Hersteller verbunden oder von diesem unterstützt. Produkte sind Aftermarket, Original oder kundenspezifisch; Verwendung auf eigene Gefahr. Siehe unseren {link} für Details.",
   "footer.copyright.link": "Vollständigen Haftungsausschluss",
-    
+
+  // Showcase
+  "showcase.series": "Hochleistungsserie",
+  "showcase.stats": "Technische Daten",
+  "showcase.status": "Showcase",
+  "showcase.paused": "Pausiert",
+  "showcase.auto": "Auto",
+  "showcase.osPerformance": "OS PERFORMANCE",
+  "showcase.est": "SEIT 1998",
+  "showcase.aerospace": "AEROSPACE GRADE",
+  "showcase.discover": "ENTDECKE GRENZENLOSE POWER",
+
+  "showcase.part1.name": "Carbon-Matrix-Rotoren",
+  "showcase.part1.headline": "Thermische Meisterschaft bei jedem Stopp.",
+  "showcase.part1.desc":
+    "Unsere Carbon-Keramik-Matrix-Rotoren bieten eine unerreichte Wärmeableitung und null Bremsfading, sogar unter extremen Rennstreckenbedingungen.",
+  "showcase.part1.bgText": "POWER",
+  "showcase.part1.s1.l": "Material",
+  "showcase.part1.s1.v": "Carbon-Silizium",
+  "showcase.part1.s2.l": "Hitzewert",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "Gewichtsred.",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Geschmiedete Aero-S Räder",
+  "showcase.part2.headline": "Leichtgewicht. Geschmiedet. Unaufhaltsam.",
+  "showcase.part2.desc":
+    "Präzisionsgefertigt aus 6061-T6 Aluminium in Luftfahrtqualität, reduziert die Aero-S Serie die ungefederten Massen für überlegenes Handling erheblich.",
+  "showcase.part2.bgText": "LEICHT",
+  "showcase.part2.s1.l": "Verfahren",
+  "showcase.part2.s1.v": "8000T Geschmiedet",
+  "showcase.part2.s2.l": "Tragfähigkeit",
+  "showcase.part2.s2.v": "950kg",
+  "showcase.part2.s3.l": "Radgewicht",
+  "showcase.part2.s3.v": "8.2kg",
+
+  "showcase.part3.name": "Adaptive Nitro Gewindefahrwerke",
+  "showcase.part3.headline": "Perfektionierte Präzision.",
+  "showcase.part3.desc":
+    "Ultraschnell ansprechende stickstoffgefüllte Dämpfer mit 32-facher Verstellung, die die perfekte Balance zwischen Steifigkeit auf der Rennstrecke und Komfort auf der Straße bieten.",
+  "showcase.part3.bgText": "GLEITEN",
+  "showcase.part3.s1.l": "Einstellung",
+  "showcase.part3.s1.v": "32-fach Klick",
+  "showcase.part3.s2.l": "Gastype",
+  "showcase.part3.s2.v": "Hochreines N2",
+  "showcase.part3.s3.l": "Hub",
+  "showcase.part3.s3.v": "110mm",
+
+  "showcase.part4.name": "Matrix LASER Scheinwerfer",
+  "showcase.part4.headline": "Den Weg nach vorne beleuchten.",
+  "showcase.part4.desc":
+    "Hochauflösendes Laserprojektionssystem mit adaptiver Strahltechnologie, das bis zu 600 m kristallklare Sicht bietet.",
+  "showcase.part4.bgText": "LICHT",
+  "showcase.part4.s1.l": "Reichweite",
+  "showcase.part4.s1.v": "600m",
+  "showcase.part4.s2.l": "Technik",
+  "showcase.part4.s2.v": "Laser Matrix",
+  "showcase.part4.s3.l": "Effizienz",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "Geschmiedetes Carbon Aero Kit",
+  "showcase.part5.headline": "Aerodynamik neu definiert.",
+  "showcase.part5.desc":
+    "Ultraleichte Komponenten aus geschmiedeter Kohlefaser, entwickelt für maximalen Abtrieb und aggressive Ästhetik.",
+  "showcase.part5.bgText": "AERO",
+  "showcase.part5.s1.l": "Material",
+  "showcase.part5.s1.v": "Schmiede-Carbon",
+  "showcase.part5.s2.l": "Abtrieb",
+  "showcase.part5.s2.v": "+120kg",
+  "showcase.part5.s3.l": "Gewichtsred.",
+  "showcase.part5.s3.v": "-15kg",
+
+  // What We Do Section
+  "whatWeDo.badge": "Unsere Dienstleistungen",
+  "whatWeDo.title": "Was Wir",
+  "whatWeDo.titleHighlight": "Tun",
+  "whatWeDo.subtitle":
+    "Wir liefern Premium-Automobilösungen mit Präzisionstechnik und unübertroffener Qualität.",
+  "whatWeDo.feature1.title": "Premium-Teileversorgung",
+  "whatWeDo.feature1.desc":
+    "Hochleistungskomponenten von führenden Herstellern weltweit.",
+  "whatWeDo.feature2.title": "Qualitätssicherung",
+  "whatWeDo.feature2.desc":
+    "Jedes Teil wird rigoros getestet, um OEM-Standards zu erfüllen und zu übertreffen.",
+  "whatWeDo.feature3.title": "Fachgerechte Installation",
+  "whatWeDo.feature3.desc":
+    "Professionelle Einbaudienste durch unser globales Partnernetzwerk.",
+  "whatWeDo.feature4.title": "Weltweiter Versand",
+  "whatWeDo.feature4.desc":
+    "Schnelle und zuverlässige Lieferung an Kunden weltweit.",
+
+  // Premium Parts Categories
+  "categories.badge": "Nach Kategorie Einkaufen",
+  "categories.title": "Wählen Sie Premium-Teile Für",
+  "categories.titleHighlight": "Ihr Auto",
+  "categories.subtitle":
+    "Entdecken Sie unsere kuratierte Auswahl an Hochleistungs-Automobilkomponenten.",
+  "categories.viewAll": "Alle Kategorien Anzeigen",
+
+  // Our Gallery
+  "gallery.badge": "Unsere Arbeit",
+  "gallery.title": "Unsere",
+  "gallery.titleHighlight": "Galerie",
+  "gallery.subtitle":
+    "Erkunden Sie unser Portfolio an Premium-Builds und Installationen.",
+  "gallery.img1.alt": "Premium Carbon-Keramik-Bremsinstallation",
+  "gallery.img2.alt": "Maßgeschneiderter Karosserie-Kit-Einbau",
+  "gallery.img3.alt": "Hochleistungs-Abgasanlage",
+  "gallery.img4.alt": "Luxus-Innenraum-Upgrade",
+  "gallery.img5.alt": "Geschmiedete Felgeninstallation",
+  "gallery.img6.alt": "Carbon-Komponenten",
+  "gallery.img7.alt": "Komplette Fahrzeugumwandlung",
+  "gallery.img8.alt": "Professionelle Detailarbeit",
+
+  // How We Work
+  "howWeWork.badge": "Unser Prozess",
+  "howWeWork.title": "Wie Wir",
+  "howWeWork.titleHighlight": "Arbeiten",
+  "howWeWork.subtitle":
+    "Ein einfacher, transparenter Prozess von der Auswahl bis zur Installation.",
+  "howWeWork.step1.title": "Durchsuchen & Auswählen",
+  "howWeWork.step1.desc":
+    "Erkunden Sie unseren umfangreichen Katalog und finden Sie die perfekten Teile für Ihr Fahrzeug.",
+  "howWeWork.step2.title": "Bestellung Aufgeben",
+  "howWeWork.step2.desc":
+    "Sichere Bezahlung mit mehreren Zahlungsoptionen und sofortiger Bestätigung.",
+  "howWeWork.step3.title": "Schnelle Lieferung",
+  "howWeWork.step3.desc":
+    "Ihre Teile werden sorgfältig verpackt und direkt an Ihren Standort versandt.",
+  "howWeWork.step4.title": "Installieren & Genießen",
+  "howWeWork.step4.desc":
+    "Professionelle Installation oder Selbstmontage - wir unterstützen Sie bei jedem Schritt.",
+  "howWeWork.cta.text": "Bereit, Ihr Fahrzeug aufzurüsten?",
+  "howWeWork.cta.button": "Jetzt Einkaufen",
+
+  // Reviews
+  "reviews.badge": "Erfahrungsberichte",
+  "reviews.title": "Was Unsere Kunden",
+  "reviews.titleHighlight": "Sagen",
+  "reviews.subtitle":
+    "Echtes Feedback von Fahrern, die uns mit ihren Fahrzeugen vertrauen.",
+  "reviews.review1.name": "Marcus Rodriguez",
+  "reviews.review1.car": "Porsche 911 GT3 RS",
+  "reviews.review1.feedback":
+    "Die Carbon-Keramik-Rotoren haben meine Bremsleistung komplett transformiert. Unglaubliche Bremskraft ohne Fade auf der Rennstrecke. OwnSilents Qualität ist unübertroffen.",
+  "reviews.review1.location": "Miami, USA",
+  "reviews.review2.name": "Sophie Laurent",
+  "reviews.review2.car": "Ferrari 488 Pista",
+  "reviews.review2.feedback":
+    "Hervorragender Service von Anfang bis Ende. Das Team half mir, das perfekte Abgassystem auszuwählen, und die Installation war makellos. Mein Ferrari klingt und fährt besser als je zuvor.",
+  "reviews.review2.location": "Paris, Frankreich",
+  "reviews.review3.name": "Kenji Tanaka",
+  "reviews.review3.car": "Lamborghini Huracán",
+  "reviews.review3.feedback":
+    "Premium-Qualitätsteile mit außergewöhnlichem Kundenservice. Die Karosserie-Kit-Passform war perfekt, und der Versand nach Japan war schneller als erwartet. Sehr empfehlenswert!",
+  "reviews.review3.location": "Tokio, Japan",
+  "reviews.review4.name": "Alexander Müller",
+  "reviews.review4.car": "Audi RS6 Avant",
+  "reviews.review4.feedback":
+    "Professionelle Expertise und echte Leidenschaft für automobile Exzellenz. Das Fahrwerks-Upgrade hat komplett verändert, wie mein RS6 fährt. Jeden Cent wert.",
+  "reviews.review4.location": "München, Deutschland",
+
+  // Footer Payment Methods
+  "footer.payment.title": "Sichere Zahlungen",
+  "footer.payment.subtitle":
+    "Wir akzeptieren sichere Zahlungen über PayPal, gängige Kredit- und Debitkarten sowie Banküberweisung.",
+  "footer.payment.bank": "Banküberweisung",
+
+  // Common UI Text
+  "common.learnMore": "Mehr Erfahren",
+  "common.exploreMore": "Premium-Teile erkunden",
 };
 
 // ==========================================
@@ -1025,6 +1619,11 @@ const frTranslations = {
   "aboutPage.careers.cat4": "Marketing et communications",
   "aboutPage.careers.cat5": "Opérations et logistique",
   "aboutPage.careers.cat6": "Support client et technique",
+
+  "home.banner.title": "Découvrez des performances de pointe",
+  "home.banner.desc":
+    "Sublimez votre véhicule avec nos composants en carbone de classe mondiale et notre ingénierie de précision.",
+  "home.banner.btn": "Voir la collection",
   //news// ===================================
   "newsPage.loading": "Chargement des articles...",
   "newsPage.title": "Actualités et Analyses",
@@ -1088,7 +1687,7 @@ const frTranslations = {
   "shop.filter.resetAll": "Tout réinitialiser",
   "shop.filter.showResults": "Afficher les résultats",
   "shop.filter.categories": "Catégories",
-  "shop.filter.brands": "Marques",
+  "shop.filter.brands": "Marcas",
   "shop.filter.models": "Modèles",
   "shop.filter.searchPlaceholder": "Rechercher {title}...",
   "shop.filter.noCategories": "Aucune catégorie ne correspond.",
@@ -1106,14 +1705,189 @@ const frTranslations = {
   "shop.cart.addError": "Impossible d'ajouter au panier.",
   "shop.cart.loginError":
     "Veuillez vous connecter pour ajouter des articles à votre panier.",
-    // FRENCH (fr) - For Footer Disclaimer
-// ===================================
-  "footer.disclaimer.p1": "Tous les noms de marque, logos et marques de commerce affichés sur ce site Web sont à titre de référence uniquement. Own Silent International Limited n'est affilié, approuvé ou autorisé par aucun constructeur de véhicules. Tous les noms de produits, numéros et images sont à des fins d'identification et de compatibilité uniquement.",
-  "footer.disclaimer.p2": "Nous fabriquons et commercialisons des pièces automobiles de rechange, d'origine et personnalisées dans le monde entier. Les clients sont responsables de garantir la conformité légale, l'installation sûre et l'utilisation correcte de tous les produits. Own Silent International Limited n'est pas responsable des dommages, des modifications de véhicules ou des impacts sur la garantie résultant de l'utilisation de nos produits.",
-  "footer.disclaimer.p3": "L'utilisation de ce site Web et l'achat de produits constituent l'acceptation de notre dénégation de responsabilité complète. Pour les termes légaux complets, consultez notre",
+  // FRENCH (fr) - For Footer Disclaimer
+  // ===================================
+  "footer.disclaimer.p1":
+    "Tous les noms de marque, logos et marques de commerce affichés sur ce site Web sont à titre de référence uniquement. Own Silent International Limited n'est affilié, approuvé ou autorisé par aucun constructeur de véhicules. Tous les noms de produits, numéros et images sont à des fins d'identification et de compatibilité uniquement.",
+  "footer.disclaimer.p2":
+    "Nous fabriquons et commercialisons des pièces automobiles de rechange, d'origine et personnalisées dans le monde entier. Les clients sont responsables de garantir la conformité légale, l'installation sûre et l'utilisation correcte de tous les produits. Own Silent International Limited n'est pas responsable des dommages, des modifications de véhicules ou des impacts sur la garantie résultant de l'utilisation de nos produits.",
+  "footer.disclaimer.p3":
+    "L'utilisation de ce site Web et l'achat de produits constituent l'acceptation de notre dénégation de responsabilité complète. Pour les termes légaux complets, consultez notre",
   "footer.disclaimer.link": "Page de dénégation de responsabilité complète",
-  "footer.copyright.short": "Toutes les marques, logos et marques de commerce sont à titre de référence uniquement ; nous ne sommes affiliés ou approuvés par aucun fabricant. Les produits sont des pièces de rechange, d'origine ou personnalisées ; utilisez à vos propres risques. Consultez notre {link} pour plus de détails.",
+  "footer.copyright.short":
+    "Toutes les marques, logos et marques de commerce sont à titre de référence uniquement ; nous ne sommes affiliés ou approuvés par aucun fabricant. Les produits sont des pièces de rechange, d'origine ou personnalisées ; utilisez à vos propres risques. Consultez notre {link} pour plus de détails.",
   "footer.copyright.link": "Dénégation de responsabilité complète",
+
+  // Showcase
+  "showcase.series": "Série Haute Performance",
+  "showcase.stats": "Stats d'Ingénierie",
+  "showcase.status": "Présentation",
+  "showcase.paused": "En pause",
+  "showcase.auto": "Auto",
+  "showcase.osPerformance": "PERFORMANCE OS",
+  "showcase.est": "EST. 1998",
+  "showcase.aerospace": "QUALITÉ AÉROSPATIALE",
+  "showcase.discover": "DÉCOUVREZ UNE PUISSANCE ILLIMITÉE",
+
+  "showcase.part1.name": "Rotors à Matrice en Carbone",
+  "showcase.part1.headline": "Maîtrise Thermique à Chaque Arrêt.",
+  "showcase.part1.desc":
+    "Nos rotors à matrice carbone-céramique offrent une dissipation thermique inégalée et un évanouissement des freins nul, même dans des conditions de piste extrêmes.",
+  "showcase.part1.bgText": "PUISSANCE",
+  "showcase.part1.s1.l": "Matériau",
+  "showcase.part1.s1.v": "Carbone-Silicium",
+  "showcase.part1.s2.l": "Limite Therm.",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "Réd. de Poids",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Jantes Forgées Aero-S",
+  "showcase.part2.headline": "Léger. Forgé. Inarrêtable.",
+  "showcase.part2.desc":
+    "Conçue avec précision à partir d'aluminium 6061-T6 de qualité aérospatiale, la série Aero-S réduit considérablement la masse non suspendue pour une maniabilité supérieure.",
+  "showcase.part2.bgText": "LÉGER",
+  "showcase.part2.s1.l": "Procédé",
+  "showcase.part2.s1.v": "Forgé 8000T",
+  "showcase.part2.s2.l": "Capacité Charge",
+  "showcase.part2.s2.v": "950kg",
+  "showcase.part2.s3.l": "Poids de Jante",
+  "showcase.part2.s3.v": "8.2kg",
+
+  "showcase.part3.name": "Combinés Adaptive Nitro",
+  "showcase.part3.headline": "Précision Perfectionnée.",
+  "showcase.part3.desc":
+    "Amortisseurs à azote à réponse ultra-rapide avec réglage à 32 positions, offrant l'équilibre parfait entre rigidité sur piste et confort sur route.",
+  "showcase.part3.bgText": "GLISSE",
+  "showcase.part3.s1.l": "Réglage",
+  "showcase.part3.s1.v": "32 positions",
+  "showcase.part3.s2.l": "Type de Gaz",
+  "showcase.part3.s2.v": "N2 Haute Pureté",
+  "showcase.part3.s3.l": "Course",
+  "showcase.part3.s3.v": "110mm",
+
+  "showcase.part4.name": "Phares LASER à Matrice",
+  "showcase.part4.headline": "Illuminer la route devant vous.",
+  "showcase.part4.desc":
+    "Système de projection laser haute définition avec technologie de faisceau adaptatif, offrant jusqu'à 600 m de visibilité cristalline.",
+  "showcase.part4.bgText": "LUMIÈRE",
+  "showcase.part4.s1.l": "Portée",
+  "showcase.part4.s1.v": "600m",
+  "showcase.part4.s2.l": "Tecno",
+  "showcase.part4.s2.v": "Laser Matrix",
+  "showcase.part4.s3.l": "Efficacité",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "Kit Géo Aero en Carbone Forgé",
+  "showcase.part5.headline": "L'aérodynamisme redéfini.",
+  "showcase.part5.desc":
+    "Composants en fibre de carbone forgée ultra-légers conçus pour un appui maximal et une esthétique aggressive.",
+  "showcase.part5.bgText": "AERO",
+  "showcase.part5.s1.l": "Matériau",
+  "showcase.part5.s1.v": "Carbone Forgé",
+  "showcase.part5.s2.l": "Appui",
+  "showcase.part5.s2.v": "+120kg",
+  "showcase.part5.s3.l": "Réd. de Poids",
+  "showcase.part5.s3.v": "-15kg",
+
+  // Footer Payment Methods
+  "footer.payment.title": "Paiements Sécurisés",
+  "footer.payment.subtitle":
+    "Nous acceptons les paiements sécurisés via PayPal, les principales cartes de crédit et de débit, et le virement bancaire.",
+  "footer.payment.bank": "Virement Bancaire",
+
+  // Common UI Text
+  "common.learnMore": "En Savoir Plus",
+  "common.exploreMore": "Explorer les pièces premium",
+
+  // What We Do Section
+  "whatWeDo.badge": "Nos Services",
+  "whatWeDo.title": "Ce Que Nous",
+  "whatWeDo.titleHighlight": "Faisons",
+  "whatWeDo.subtitle":
+    "Nous fournissons des solutions automobiles premium avec une ingénierie de précision et une qualité inégalée.",
+  "whatWeDo.feature1.title": "Fourniture de Pièces Premium",
+  "whatWeDo.feature1.desc":
+    "Composants haute performance des meilleurs fabricants mondiaux.",
+  "whatWeDo.feature2.title": "Assurance Qualité",
+  "whatWeDo.feature2.desc":
+    "Chaque pièce est rigoureusement testée pour respecter et dépasser les normes OEM.",
+  "whatWeDo.feature3.title": "Installation Experte",
+  "whatWeDo.feature3.desc":
+    "Services d'installation professionnels via notre réseau mondial de partenaires.",
+  "whatWeDo.feature4.title": "Expédition Mondiale",
+  "whatWeDo.feature4.desc":
+    "Livraison rapide et fiable aux clients du monde entier.",
+
+  // Premium Parts Categories
+  "categories.badge": "Acheter par Catégorie",
+  "categories.title": "Choisissez des Pièces Premium Pour",
+  "categories.titleHighlight": "Votre Auto",
+  "categories.subtitle":
+    "Explorez notre sélection organisée de composants automobiles haute performance.",
+  "categories.viewAll": "Voir Toutes les Catégories",
+
+  // Our Gallery
+  "gallery.badge": "Notre Travail",
+  "gallery.title": "Notre",
+  "gallery.titleHighlight": "Galerie",
+  "gallery.subtitle":
+    "Explorez notre portfolio de constructions et installations premium.",
+  "gallery.img1.alt": "Installation de freins carbone-céramique premium",
+  "gallery.img2.alt": "Ajustement de kit de carrosserie personnalisé",
+  "gallery.img3.alt": "Système d'échappement haute performance",
+  "gallery.img4.alt": "Amélioration d'intérieur de luxe",
+  "gallery.img5.alt": "Installation de roues forgées",
+  "gallery.img6.alt": "Composants en fibre de carbone",
+  "gallery.img7.alt": "Transformation complète du véhicule",
+  "gallery.img8.alt": "Travail de détail professionnel",
+
+  // How We Work
+  "howWeWork.badge": "Notre Processus",
+  "howWeWork.title": "Comment Nous",
+  "howWeWork.titleHighlight": "Travaillons",
+  "howWeWork.subtitle":
+    "Un processus simple et transparent de la sélection à l'installation.",
+  "howWeWork.step1.title": "Parcourir et Sélectionner",
+  "howWeWork.step1.desc":
+    "Explorez notre vaste catalogue et trouvez les pièces parfaites pour votre véhicule.",
+  "howWeWork.step2.title": "Passer Commande",
+  "howWeWork.step2.desc":
+    "Paiement sécurisé avec plusieurs options de paiement et confirmation instantanée.",
+  "howWeWork.step3.title": "Livraison Rapide",
+  "howWeWork.step3.desc":
+    "Vos pièces sont soigneusement emballées et expédiées directement à votre emplacement.",
+  "howWeWork.step4.title": "Installer et Profiter",
+  "howWeWork.step4.desc":
+    "Installation professionnelle ou bricolage - nous vous soutenons à chaque étape.",
+  "howWeWork.cta.text": "Prêt à améliorer votre véhicule?",
+  "howWeWork.cta.button": "Commencer à Acheter",
+
+  // Reviews
+  "reviews.badge": "Témoignages",
+  "reviews.title": "Ce Que Disent Nos",
+  "reviews.titleHighlight": "Clients",
+  "reviews.subtitle":
+    "Retours réels de conducteurs qui nous font confiance avec leurs véhicules.",
+  "reviews.review1.name": "Marcus Rodriguez",
+  "reviews.review1.car": "Porsche 911 GT3 RS",
+  "reviews.review1.feedback":
+    "Les rotors carbone-céramique ont complètement transformé mes performances de freinage. Puissance de freinage incroyable sans perte sur piste. La qualité d'OwnSilent est inégalée.",
+  "reviews.review1.location": "Miami, USA",
+  "reviews.review2.name": "Sophie Laurent",
+  "reviews.review2.car": "Ferrari 488 Pista",
+  "reviews.review2.feedback":
+    "Service exceptionnel du début à la fin. L'équipe m'a aidé à sélectionner le système d'échappement parfait, et l'installation était impeccable. Ma Ferrari sonne et performe mieux que jamais.",
+  "reviews.review2.location": "Paris, France",
+  "reviews.review3.name": "Kenji Tanaka",
+  "reviews.review3.car": "Lamborghini Huracán",
+  "reviews.review3.feedback":
+    "Pièces de qualité premium avec un support client exceptionnel. L'ajustement du kit de carrosserie était parfait, et l'expédition au Japon était plus rapide que prévu. Hautement recommandé!",
+  "reviews.review3.location": "Tokyo, Japon",
+  "reviews.review4.name": "Alexander Müller",
+  "reviews.review4.car": "Audi RS6 Avant",
+  "reviews.review4.feedback":
+    "Expertise professionnelle et passion authentique pour l'excellence automobile. L'amélioration de la suspension a complètement changé la façon dont ma RS6 se comporte. Vaut chaque centime.",
+  "reviews.review4.location": "Munich, Allemagne",
 };
 
 // ==========================================
@@ -1289,6 +2063,11 @@ const itTranslations = {
   "aboutPage.careers.cat4": "Marketing e comunicazioni",
   "aboutPage.careers.cat5": "Operazioni e logistica",
   "aboutPage.careers.cat6": "Assistenza clienti e tecnica",
+
+  "home.banner.title": "Sperimenta Prestazioni al Top",
+  "home.banner.desc":
+    "Migliora il tuo veicolo con i nostri componenti in carbonio di classe mondiale e ingegneria di precisione.",
+  "home.banner.btn": "Vedi Collezione",
   //news page
   "newsPage.loading": "Caricamento articoli...",
   "newsPage.title": "Notizie e Approfondimenti",
@@ -1370,15 +2149,189 @@ const itTranslations = {
   "shop.cart.addError": "Impossibile aggiungere al carrello.",
   "shop.cart.loginError":
     "Effettua il login per aggiungere articoli al carrello.",
-    // ITALIAN (it) - For Footer Disclaimer
-// ===================================
-  "footer.disclaimer.p1": "Tutti i nomi di marchi, loghi e marchi di fabbrica visualizzati su questo sito Web sono solo di riferimento. Own Silent International Limited non è affiliata, approvata o autorizzata da alcun produttore di veicoli. Tutti i nomi, i numeri e le immagini dei prodotti sono solo a scopo di identificazione e compatibilità.",
-  "footer.disclaimer.p2": "Produciamo e commercializziamo parti automobilistiche aftermarket, originali e personalizzate in tutto il mondo. I clienti sono responsabili di garantire la conformità legale, l'installazione sicura e l'uso corretto di tutti i prodotti. Own Silent International Limited non è responsabile per danni, modifiche al veicolo o impatti sulla garanzia derivanti dall'uso dei nostri prodotti.",
-  "footer.disclaimer.p3": "L'uso di questo sito Web e l'acquisto di prodotti costituiscono l'accettazione del nostro disclaimer completo. Per i termini legali completi, consultare la nostra",
+  // ITALIAN (it) - For Footer Disclaimer
+  // ===================================
+  "footer.disclaimer.p1":
+    "Tutti i nomi di marchi, loghi e marchi di fabbrica visualizzati su questo sito Web sono solo di riferimento. Own Silent International Limited non è affiliata, approvata o autorizzata da alcun produttore di veicoli. Tutti i nomi, i numeri e le immagini dei prodotti sono solo a scopo di identificazione e compatibilità.",
+  "footer.disclaimer.p2":
+    "Produciamo e commercializziamo parti automobilistiche aftermarket, originali e personalizzate in tutto il mondo. I clienti sono responsabili di garantire la conformità legale, l'installazione sicura e l'uso corretto di tutti i prodotti. Own Silent International Limited non è responsabile per danni, modifiche al veicolo o impatti sulla garanzia derivanti dall'uso dei nostri prodotti.",
+  "footer.disclaimer.p3":
+    "L'uso di questo sito Web e l'acquisto di prodotti costituiscono l'accettazione del nostro disclaimer completo. Per i termini legali completi, consultare la nostra",
   "footer.disclaimer.link": "Pagina del disclaimer completo",
-  "footer.copyright.short": "Tutti i marchi, loghi e marchi di fabbrica sono solo di riferimento; non siamo affiliati o approvati da alcun produttore. I prodotti sono aftermarket, originali o personalizzati; utilizzare a proprio rischio. Consultare il nostro {link} per i dettagli.",
+  "footer.copyright.short":
+    "Tutti i marchi, loghi e marchi di fabbrica sono solo di riferimento; non siamo affiliati o approvati da alcun produttore. I prodotti sono aftermarket, originali o personalizzati; utilizzare a proprio rischio. Consultare il nostro {link} per i dettagli.",
   "footer.copyright.link": "Disclaimer completo",
 
+  // Showcase
+  "showcase.series": "Serie Alte Prestazioni",
+  "showcase.stats": "Statistiche Ingegneria",
+  "showcase.status": "Showcase",
+  "showcase.paused": "In pausa",
+  "showcase.auto": "Auto",
+  "showcase.osPerformance": "PERFORMANCE OS",
+  "showcase.est": "EST. 1998",
+  "showcase.aerospace": "GRADO AEROSPAZIALE",
+  "showcase.discover": "SCOPRI LA POTENZA ILLIMITATA",
+
+  "showcase.part1.name": "Rotori a Matrice di Carbonio",
+  "showcase.part1.headline": "Maestria Termica in Ogni Frenata.",
+  "showcase.part1.desc":
+    "I nostri rotori a matrice carboceramica offrono una dissipazione del calore senza pari e zero 'brake fade', anche in condizioni estreme in pista.",
+  "showcase.part1.bgText": "POTENZA",
+  "showcase.part1.s1.l": "Materiale",
+  "showcase.part1.s1.v": "Carbonio-Silicio",
+  "showcase.part1.s2.l": "Limite Calore",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "Ridiz. Peso",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Cerchi Forgiati Aero-S",
+  "showcase.part2.headline": "Leggeri. Forgiati. Inarrestabili.",
+  "showcase.part2.desc":
+    "Progettati con precisione in alluminio aeronautico 6061-T6, i cerchi della serie Aero-S riducono significativamente le masse non sospese per una maneggevolezza superiore.",
+  "showcase.part2.bgText": "LEGGERO",
+  "showcase.part2.s1.l": "Processo",
+  "showcase.part2.s1.v": "Forgiato 8000T",
+  "showcase.part2.s2.l": "Carico Massimo",
+  "showcase.part2.s2.v": "950kg",
+  "showcase.part2.s3.l": "Peso Cerchio",
+  "showcase.part2.s3.v": "8.2kg",
+
+  "showcase.part3.name": "Assetto Adaptive Nitro",
+  "showcase.part3.headline": "Precisione Perfezionata.",
+  "showcase.part3.desc":
+    "Ammortizzatori all'azoto a risposta ultra-rapida con regolazione a 32 vie, offrono il perfetto equilibrio tra rigidità in pista e comfort su strada.",
+  "showcase.part3.bgText": "FLUIDO",
+  "showcase.part3.s1.l": "Regolazione",
+  "showcase.part3.s1.v": "32 Vie",
+  "showcase.part3.s2.l": "Tipo Gas",
+  "showcase.part3.s2.v": "N2 Alta Purezza",
+  "showcase.part3.s3.l": "Corsa",
+  "showcase.part3.s3.v": "110mm",
+
+  "showcase.part4.name": "Fari LASER a Matrice",
+  "showcase.part4.headline": "Illuminare la strada davanti a sé.",
+  "showcase.part4.desc":
+    "Sistema di proiezione laser ad alta definizione con tecnologia a fascio adattivo, che fornisce fino a 600 m di visibilità cristallina.",
+  "showcase.part4.bgText": "LUCE",
+  "showcase.part4.s1.l": "Portata",
+  "showcase.part4.s1.v": "600m",
+  "showcase.part4.s2.l": "Tecno",
+  "showcase.part4.s2.v": "Laser Matrix",
+  "showcase.part4.s3.l": "Efficienza",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "Kit Aero in Carbonio Forgiato",
+  "showcase.part5.headline": "Aerodinamica ridefinita.",
+  "showcase.part5.desc":
+    "Componenti in fibra di carbonio forgiata ultra-leggeri progettati per la massima deportanza e un'estetica aggressiva.",
+  "showcase.part5.bgText": "AERO",
+  "showcase.part5.s1.l": "Materiale",
+  "showcase.part5.s1.v": "Carbonio Forgiato",
+  "showcase.part5.s2.l": "Deportanza",
+  "showcase.part5.s2.v": "+120kg",
+  "showcase.part5.s3.l": "Riduzione Peso",
+  "showcase.part5.s3.v": "-15kg",
+
+  // Footer Payment Methods
+  "footer.payment.title": "Pagamenti Sicuri",
+  "footer.payment.subtitle":
+    "Accettiamo pagamenti sicuri tramite PayPal, le principali carte di credito e debito, e bonifico bancario.",
+  "footer.payment.bank": "Bonifico Bancario",
+
+  // Common UI Text
+  "common.learnMore": "Scopri di Più",
+  "common.exploreMore": "Esplora parti premium",
+
+  // What We Do Section
+  "whatWeDo.badge": "I Nostri Servizi",
+  "whatWeDo.title": "Cosa",
+  "whatWeDo.titleHighlight": "Facciamo",
+  "whatWeDo.subtitle":
+    "Forniamo soluzioni automobilistiche premium con ingegneria di precisione e qualità senza pari.",
+  "whatWeDo.feature1.title": "Fornitura di Parti Premium",
+  "whatWeDo.feature1.desc":
+    "Componenti ad alte prestazioni dai migliori produttori mondiali.",
+  "whatWeDo.feature2.title": "Garanzia di Qualità",
+  "whatWeDo.feature2.desc":
+    "Ogni parte è rigorosamente testata per soddisfare e superare gli standard OEM.",
+  "whatWeDo.feature3.title": "Installazione Esperta",
+  "whatWeDo.feature3.desc":
+    "Servizi di installazione professionale tramite la nostra rete globale di partner.",
+  "whatWeDo.feature4.title": "Spedizione Mondiale",
+  "whatWeDo.feature4.desc":
+    "Consegna rapida e affidabile ai clienti di tutto il mondo.",
+
+  // Premium Parts Categories
+  "categories.badge": "Acquista per Categoria",
+  "categories.title": "Scegli Parti Premium Per",
+  "categories.titleHighlight": "La Tua Auto",
+  "categories.subtitle":
+    "Esplora la nostra selezione curata di componenti automobilistici ad alte prestazioni.",
+  "categories.viewAll": "Vedi Tutte le Categorie",
+
+  // Our Gallery
+  "gallery.badge": "Il Nostro Lavoro",
+  "gallery.title": "La Nostra",
+  "gallery.titleHighlight": "Galleria",
+  "gallery.subtitle":
+    "Esplora il nostro portfolio di costruzioni e installazioni premium.",
+  "gallery.img1.alt": "Installazione freni carbonio-ceramica premium",
+  "gallery.img2.alt": "Montaggio kit carrozzeria personalizzato",
+  "gallery.img3.alt": "Sistema di scarico ad alte prestazioni",
+  "gallery.img4.alt": "Miglioramento interni di lusso",
+  "gallery.img5.alt": "Installazione cerchi forgiati",
+  "gallery.img6.alt": "Componenti in fibra di carbonio",
+  "gallery.img7.alt": "Trasformazione completa del veicolo",
+  "gallery.img8.alt": "Lavoro di dettaglio professionale",
+
+  // How We Work
+  "howWeWork.badge": "Il Nostro Processo",
+  "howWeWork.title": "Come",
+  "howWeWork.titleHighlight": "Lavoriamo",
+  "howWeWork.subtitle":
+    "Un processo semplice e trasparente dalla selezione all'installazione.",
+  "howWeWork.step1.title": "Sfoglia e Seleziona",
+  "howWeWork.step1.desc":
+    "Esplora il nostro vasto catalogo e trova le parti perfette per il tuo veicolo.",
+  "howWeWork.step2.title": "Effettua l'Ordine",
+  "howWeWork.step2.desc":
+    "Pagamento sicuro con molteplici opzioni di pagamento e conferma istantanea.",
+  "howWeWork.step3.title": "Consegna Veloce",
+  "howWeWork.step3.desc":
+    "Le tue parti vengono accuratamente imballate e spedite direttamente alla tua posizione.",
+  "howWeWork.step4.title": "Installa e Goditi",
+  "howWeWork.step4.desc":
+    "Installazione professionale o fai-da-te - ti supportiamo in ogni fase.",
+  "howWeWork.cta.text": "Pronto a migliorare il tuo veicolo?",
+  "howWeWork.cta.button": "Inizia ad Acquistare",
+
+  // Reviews
+  "reviews.badge": "Testimonianze",
+  "reviews.title": "Cosa Dicono i Nostri",
+  "reviews.titleHighlight": "Clienti",
+  "reviews.subtitle":
+    "Feedback reale da conducenti che si fidano di noi con i loro veicoli.",
+  "reviews.review1.name": "Marcus Rodriguez",
+  "reviews.review1.car": "Porsche 911 GT3 RS",
+  "reviews.review1.feedback":
+    "I rotori carbonio-ceramica hanno completamente trasformato le mie prestazioni di frenata. Potenza di arresto incredibile senza dissolvenza in pista. La qualità di OwnSilent è ineguagliabile.",
+  "reviews.review1.location": "Miami, USA",
+  "reviews.review2.name": "Sophie Laurent",
+  "reviews.review2.car": "Ferrari 488 Pista",
+  "reviews.review2.feedback":
+    "Servizio eccezionale dall'inizio alla fine. Il team mi ha aiutato a selezionare il sistema di scarico perfetto e l'installazione è stata impeccabile. La mia Ferrari suona e si comporta meglio che mai.",
+  "reviews.review2.location": "Parigi, Francia",
+  "reviews.review3.name": "Kenji Tanaka",
+  "reviews.review3.car": "Lamborghini Huracán",
+  "reviews.review3.feedback":
+    "Parti di qualità premium con un supporto clienti eccezionale. Il montaggio del kit carrozzeria era perfetto e la spedizione in Giappone è stata più veloce del previsto. Altamente raccomandato!",
+  "reviews.review3.location": "Tokyo, Giappone",
+  "reviews.review4.name": "Alexander Müller",
+  "reviews.review4.car": "Audi RS6 Avant",
+  "reviews.review4.feedback":
+    "Competenza professionale e genuina passione per l'eccellenza automobilistica. L'aggiornamento delle sospensioni ha completamente cambiato il modo in cui si comporta la mia RS6. Vale ogni centesimo.",
+  "reviews.review4.location": "Monaco, Germania",
 };
 
 // ==========================================
@@ -1539,6 +2492,11 @@ const arTranslations = {
   "aboutPage.careers.cat4": "التسويق والاتصالات",
   "aboutPage.careers.cat5": "العمليات والخدمات اللوجستية",
   "aboutPage.careers.cat6": "دعم العملاء والدعم الفني",
+
+  "home.banner.title": "جرب قمة الأداء",
+  "home.banner.desc":
+    "ارتقِ بمركبتك من خلال مكونات الكربون ذات المستوى العالمي والهندسة الدقيقة.",
+  "home.banner.btn": "عرض المجموعة",
   //news page
   "newsPage.loading": "جار تحميل المقالات...",
   "newsPage.title": "الأخبار والرؤى",
@@ -1617,13 +2575,180 @@ const arTranslations = {
   "shop.cart.addError": "لا يمكن الإضافة إلى السلة.",
   "shop.cart.loginError": "يرجى تسجيل الدخول لإضافة عناصر إلى سلتك.",
   // ARABIC (ar) - For Footer Disclaimer
-// ===================================
-  "footer.disclaimer.p1": "جميع أسماء العلامات التجارية والشعارات والعلامات التجارية المعروضة على هذا الموقع هي للإشارة فقط. شركة Own Silent International Limited ليست تابعة أو معتمدة أو مصرح بها من قبل أي من مصنعي المركبات. جميع أسماء المنتجات وأرقامها وصورها هي لأغراض التعريف والتوافق فقط.",
-  "footer.disclaimer.p2": "نقوم بتصنيع وتجارة قطع غيار السيارات ما بعد البيع والأصلية والمخصصة في جميع أنحاء العالم. العملاء مسؤولون عن ضمان الامتثال القانوني والتركيب الآمن والاستخدام السليم لجميع المنتجات. لا تتحمل شركة Own Silent International Limited المسؤولية عن الأضرار أو تعديلات المركبات أو التأثيرات على الضمان الناتجة عن استخدام منتجاتنا.",
-  "footer.disclaimer.p3": "يشكل استخدام هذا الموقع وشراء المنتجات قبولًا لإخلاء المسؤولية الكامل الخاص بنا. للاطلاع على الشروط القانونية الكاملة، راجع موقعنا",
+  // ===================================
+  "footer.disclaimer.p1":
+    "جميع أسماء العلامات التجارية والشعارات والعلامات التجارية المعروضة على هذا الموقع هي للإشارة فقط. شركة Own Silent International Limited ليست تابعة أو معتمدة أو مصرح بها من قبل أي من مصنعي المركبات. جميع أسماء المنتجات وأرقامها وصورها هي لأغراض التعريف والتوافق فقط.",
+  "footer.disclaimer.p2":
+    "نقوم بتصنيع وتجارة قطع غيار السيارات ما بعد البيع والأصلية والمخصصة في جميع أنحاء العالم. العملاء مسؤولون عن ضمان الامتثال القانوني والتركيب الآمن والاستخدام السليم لجميع المنتجات. لا تتحمل شركة Own Silent International Limited المسؤولية عن الأضرار أو تعديلات المركبات أو التأثيرات على الضمان الناتجة عن استخدام منتجاتنا.",
+  "footer.disclaimer.p3":
+    "يشكل استخدام هذا الموقع وشراء المنتجات قبولًا لإخلاء المسؤولية الكامل الخاص بنا. للاطلاع على الشروط القانونية الكاملة، راجع موقعنا",
   "footer.disclaimer.link": "صفحة إخلاء المسؤولية الكاملة",
-  "footer.copyright.short": "جميع العلامات التجارية والشعارات والعلامات التجارية هي للإشارة فقط؛ نحن لسنا تابعين أو معتمدين من قبل أي مصنع. المنتجات هي ما بعد البيع أو أصلية أو مخصصة؛ استخدمها على مسؤوليتك الخاصة. راجع {link} الخاص بنا للحصول على التفاصيل.",
+  "footer.copyright.short":
+    "جميع العلامات التجارية والشعارات والعلامات التجارية هي للإشارة فقط؛ نحن لسنا تابعين أو معتمدين من قبل أي مصنع. المنتجات هي ما بعد البيع أو أصلية أو مخصصة؛ استخدمها على مسؤوليتك الخاصة. راجع {link} الخاص بنا للحصول على التفاصيل.",
   "footer.copyright.link": "إخلاء المسؤولية الكامل",
+
+  // Showcase
+  "showcase.series": "سلسلة الأداء العالي",
+  "showcase.stats": "إحصائيات الهندسة",
+  "showcase.status": "العرض",
+  "showcase.paused": "متوقف",
+  "showcase.auto": "تلقائي",
+  "showcase.osPerformance": "أداء OS",
+  "showcase.est": "تأسست عام 1998",
+  "showcase.aerospace": "درجة الطيران والفضاء",
+  "showcase.discover": "اكتشف القوة غير المحدودة",
+
+  "showcase.part1.name": "دوارات مصفوفة الكربون",
+  "showcase.part1.headline": "إتقان حراري في كل توقف.",
+  "showcase.part1.desc":
+    "توفر دوارات مصفوفة الكربون والسيراميك الخاصة بنا تبديدًا لا مثيل له للحرارة وتلاشي الصفر للفرامل ، حتى في ظروف الحلبة القاسية.",
+  "showcase.part1.bgText": "قوة",
+  "showcase.part1.s1.l": "المادة",
+  "showcase.part1.s1.v": "كربون-سيليكون",
+  "showcase.part1.s2.l": "حد الحرارة",
+  "showcase.part1.s2.v": "1200 درجة مئوية",
+  "showcase.part1.s3.l": "تقليل الوزن",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "عجلات Aero-S المطروقة",
+  "showcase.part2.headline": "خفيفة. مطروقة. لا يمكن إيقافها.",
+  "showcase.part2.desc":
+    "تم تصميم سلسلة Aero-S بدقة من ألومنيوم 6061-T6 المستخدم في صناعة الطيران ، وهي تقلل بشكل كبير من الكتلة غير المعلقة للتعامل الفائق.",
+  "showcase.part2.bgText": "خفيف",
+  "showcase.part2.s1.l": "العملية",
+  "showcase.part2.s1.v": "طرق 8000 طن",
+  "showcase.part2.s2.l": "تصنيف الحمل",
+  "showcase.part2.s2.v": "950 كجم",
+  "showcase.part2.s3.l": "وزن العجلة",
+  "showcase.part2.s3.v": "8.2 كجم",
+
+  "showcase.part3.name": "نظام التعليق Adaptive Nitro",
+  "showcase.part3.headline": "دقة مثالية.",
+  "showcase.part3.desc":
+    "مخمدات مشحونة بالنيتروجين فائقة الاستجابة مع تعديل بـ 32 اتجاهاً ، مما يوفر التوازن المثالي بين صلابة المسار وراحة الطريق.",
+  "showcase.part3.bgText": "انزلاق",
+  "showcase.part3.s1.l": "التعديل",
+  "showcase.part3.s1.v": "32 اتجاهًا",
+  "showcase.part3.s2.l": "نوع الغاز",
+  "showcase.part3.s2.v": "N2 عالي النقاء",
+  "showcase.part3.s3.l": "الشوط",
+  "showcase.part3.s3.v": "110 ملم",
+
+  "showcase.part4.name": "مصابيح ليزر مصفوفة",
+  "showcase.part4.headline": "إضاءة الطريق أمامك.",
+  "showcase.part4.desc":
+    "نظام إسقاط ليزر عالي الدقة مع تقنية الشعاع التكيفي ، مما يوفر رؤية بلورية واضحة تصل إلى 600 متر.",
+  "showcase.part4.bgText": "ضوء",
+  "showcase.part4.s1.l": "المدى",
+  "showcase.part4.s1.v": "600 متر",
+  "showcase.part4.s2.l": "التقنية",
+  "showcase.part4.s2.v": "مصفوفة ليزر",
+  "showcase.part4.s3.l": "الكفاءة",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "طقم ايرو من الكربون المطروق",
+  "showcase.part5.headline": "إعادة تعريف الديناميكا الهوائية.",
+  "showcase.part5.desc":
+    "مكونات ألياف كربونية مطروقة خفيفة الوزن للغاية مصممة لتوفير أقصى قوة سفلية وجماليات هجومية.",
+  "showcase.part5.bgText": "ايرو",
+  "showcase.part5.s1.l": "المادة",
+  "showcase.part5.s1.v": "كربون مطروق",
+  "showcase.part5.s2.l": "القوة السفلية",
+  "showcase.part5.s2.v": "+120 كجم",
+  "showcase.part5.s3.l": "تقليل الوزن",
+  "showcase.part5.s3.v": "-15كجم",
+
+  // Footer Payment Methods
+  "footer.payment.title": "مدفوعات آمنة",
+  "footer.payment.subtitle":
+    "نقبل المدفوعات الآمنة عبر PayPal وبطاقات الائتمان والخصم الرئيسية والتحويل البنكي.",
+  "footer.payment.bank": "تحويل بنكي",
+
+  // Common UI Text
+  "common.learnMore": "اعرف المزيد",
+  "common.exploreMore": "استكشف القطع المتميزة",
+
+  // What We Do Section
+  "whatWeDo.badge": "خدماتنا",
+  "whatWeDo.title": "ما",
+  "whatWeDo.titleHighlight": "نفعله",
+  "whatWeDo.subtitle":
+    "نقدم حلولاً سيارات متميزة مع هندسة دقيقة وجودة لا مثيل لها.",
+  "whatWeDo.feature1.title": "توريد قطع متميزة",
+  "whatWeDo.feature1.desc":
+    "مكونات عالية الأداء من أفضل الشركات المصنعة العالمية.",
+  "whatWeDo.feature2.title": "ضمان الجودة",
+  "whatWeDo.feature2.desc": "يتم اختبار كل قطعة بدقة لتلبية وتجاوز معايير OEM.",
+  "whatWeDo.feature3.title": "تركيب خبير",
+  "whatWeDo.feature3.desc":
+    "خدمات تركيب احترافية عبر شبكتنا العالمية من الشركاء.",
+  "whatWeDo.feature4.title": "شحن عالمي",
+  "whatWeDo.feature4.desc": "توصيل سريع وموثوق للعملاء في جميع أنحاء العالم.",
+
+  // Premium Parts Categories
+  "categories.badge": "تسوق حسب الفئة",
+  "categories.title": "اختر قطع متميزة لـ",
+  "categories.titleHighlight": "سيارتك",
+  "categories.subtitle":
+    "استكشف مجموعتنا المنسقة من مكونات السيارات عالية الأداء.",
+  "categories.viewAll": "عرض جميع الفئات",
+
+  // Our Gallery
+  "gallery.badge": "أعمالنا",
+  "gallery.title": "معرض",
+  "gallery.titleHighlight": "الصور",
+  "gallery.subtitle": "استكشف مجموعة أعمالنا من التركيبات والبناءات المتميزة.",
+  "gallery.img1.alt": "تركيب فرامل كربون-سيراميك متميزة",
+  "gallery.img2.alt": "تركيب طقم هيكل مخصص",
+  "gallery.img3.alt": "نظام عادم عالي الأداء",
+  "gallery.img4.alt": "تحسين داخلي فاخر",
+  "gallery.img5.alt": "تركيب عجلات مطروقة",
+  "gallery.img6.alt": "مكونات ألياف الكربون",
+  "gallery.img7.alt": "تحويل كامل للمركبة",
+  "gallery.img8.alt": "عمل تفصيلي احترافي",
+
+  // How We Work
+  "howWeWork.badge": "عمليتنا",
+  "howWeWork.title": "كيف",
+  "howWeWork.titleHighlight": "نعمل",
+  "howWeWork.subtitle": "عملية بسيطة وشفافة من الاختيار إلى التركيب.",
+  "howWeWork.step1.title": "تصفح واختر",
+  "howWeWork.step1.desc":
+    "استكشف كتالوجنا الواسع واعثر على القطع المثالية لسيارتك.",
+  "howWeWork.step2.title": "قدم الطلب",
+  "howWeWork.step2.desc": "دفع آمن مع خيارات دفع متعددة وتأكيد فوري.",
+  "howWeWork.step3.title": "توصيل سريع",
+  "howWeWork.step3.desc": "يتم تعبئة قطعك بعناية وشحنها مباشرة إلى موقعك.",
+  "howWeWork.step4.title": "ركب واستمتع",
+  "howWeWork.step4.desc": "تركيب احترافي أو بنفسك - ندعمك في كل خطوة.",
+  "howWeWork.cta.text": "هل أنت مستعد لترقية سيارتك؟",
+  "howWeWork.cta.button": "ابدأ التسوق",
+
+  // Reviews
+  "reviews.badge": "شهادات العملاء",
+  "reviews.title": "ما يقوله",
+  "reviews.titleHighlight": "عملاؤنا",
+  "reviews.subtitle": "تعليقات حقيقية من السائقين الذين يثقون بنا مع سياراتهم.",
+  "reviews.review1.name": "ماركوس رودريغيز",
+  "reviews.review1.car": "بورش 911 GT3 RS",
+  "reviews.review1.feedback":
+    "لقد غيرت دوارات الكربون-السيراميك أداء الفرامل تمامًا. قوة توقف مذهلة بدون تلاشي على الحلبة. جودة OwnSilent لا مثيل لها.",
+  "reviews.review1.location": "ميامي، الولايات المتحدة",
+  "reviews.review2.name": "صوفي لوران",
+  "reviews.review2.car": "فيراري 488 بيستا",
+  "reviews.review2.feedback":
+    "خدمة استثنائية من البداية إلى النهاية. ساعدني الفريق في اختيار نظام العادم المثالي، وكان التركيب لا تشوبه شائبة. فيراري الخاصة بي تبدو وتؤدي أفضل من أي وقت مضى.",
+  "reviews.review2.location": "باريس، فرنسا",
+  "reviews.review3.name": "كينجي تاناكا",
+  "reviews.review3.car": "لامبورغيني هوراكان",
+  "reviews.review3.feedback":
+    "قطع ذات جودة متميزة مع دعم عملاء استثنائي. كان تركيب طقم الهيكل مثاليًا، والشحن إلى اليابان كان أسرع من المتوقع. موصى به بشدة!",
+  "reviews.review3.location": "طوكيو، اليابان",
+  "reviews.review4.name": "ألكسندر مولر",
+  "reviews.review4.car": "أودي RS6 أفانت",
+  "reviews.review4.feedback":
+    "خبرة احترافية وشغف حقيقي بالتميز في السيارات. لقد غيّر ترقية التعليق تمامًا طريقة تعامل RS6 الخاصة بي. يستحق كل قرش.",
+  "reviews.review4.location": "ميونخ، ألمانيا",
 };
 
 // ==========================================
@@ -1769,6 +2894,10 @@ const zhTranslations = {
   "aboutPage.careers.cat4": "市场营销与传播",
   "aboutPage.careers.cat5": "运营与物流",
   "aboutPage.careers.cat6": "客户与技术支持",
+
+  "home.banner.title": "体验极致性能",
+  "home.banner.desc": "通过我们的世界级碳组件和精密工程提升您的座驾。",
+  "home.banner.btn": "查看系列",
   //news page
   // ===================================
   "newsPage.loading": "正在加载文章...",
@@ -1846,14 +2975,175 @@ const zhTranslations = {
   "shop.cart.addError": "无法添加到购物车。",
   "shop.cart.loginError": "请登录以将商品添加到您的购物车。",
   // CHINESE (zh) - For Footer Disclaimer
-// ===================================
-  "footer.disclaimer.p1": "本网站上显示的所有品牌名称、徽标和商标仅供参考。Own Silent International Limited与任何汽车制造商均无附属、认可或授权关系。所有产品名称、编号和图像仅用于识别和兼容性目的。",
-  "footer.disclaimer.p2": "我们在全球范围内制造和交易售后、原厂和定制汽车零件。客户有责任确保所有产品的合法合规、安全安装和正确使用。Own Silent International Limited对因使用我们的产品而造成的损害、车辆改装或保修影响不承担任何责任。",
-  "footer.disclaimer.p3": "使用本网站和购买产品即表示接受我们的完整免责声明。有关完整的法律条款，请参阅我们的",
+  // ===================================
+  "footer.disclaimer.p1":
+    "本网站上显示的所有品牌名称、徽标和商标仅供参考。Own Silent International Limited与任何汽车制造商均无附属、认可或授权关系。所有产品名称、编号和图像仅用于识别和兼容性目的。",
+  "footer.disclaimer.p2":
+    "我们在全球范围内制造和交易售后、原厂和定制汽车零件。客户有责任确保所有产品的合法合规、安全安装和正确使用。Own Silent International Limited对因使用我们的产品而造成的损害、车辆改装或保修影响不承担任何责任。",
+  "footer.disclaimer.p3":
+    "使用本网站和购买产品即表示接受我们的完整免责声明。有关完整的法律条款，请参阅我们的",
   "footer.disclaimer.link": "完整免责声明页面",
-  "footer.copyright.short": "所有品牌、徽标和商标仅供参考；我们与任何制造商均无附属或认可关系。产品为售后、原厂或定制件；使用风险自负。有关详细信息，请参阅我们的{link}。",
+  "footer.copyright.short":
+    "所有品牌、徽标和商标仅供参考；我们与任何制造商均无附属或认可关系。产品为售后、原厂或定制件；使用风险自负。有关详细信息，请参阅我们的{link}。",
   "footer.copyright.link": "完整免责声明",
 
+  // Showcase
+  "showcase.series": "高性能系列",
+  "showcase.stats": "工程数据",
+  "showcase.status": "展示",
+  "showcase.paused": "已暂停",
+  "showcase.auto": "自动",
+  "showcase.osPerformance": "OS 性能",
+  "showcase.est": "始于 1998",
+  "showcase.aerospace": "航空航天级",
+  "showcase.discover": "探索无限动力",
+
+  "showcase.part1.name": "碳基矩阵制动盘",
+  "showcase.part1.headline": "每一次制动，皆是热能主宰。",
+  "showcase.part1.desc":
+    "我们的碳陶瓷矩阵制动盘提供无与伦比的散热性能，即使在极端赛道条件下也能确保零热衰退。",
+  "showcase.part1.bgText": "动力",
+  "showcase.part1.s1.l": "材质",
+  "showcase.part1.s1.v": "碳硅复合材料",
+  "showcase.part1.s2.l": "热极限",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "减重",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Aero-S 锻造轮毂",
+  "showcase.part2.headline": "轻量。锻造。势不可挡。",
+  "showcase.part2.desc":
+    "采用航空级 6061-T6 铝材精密制造，Aero-S 系列显著降低簧下质量，提供卓越的操控感。",
+  "showcase.part2.bgText": "轻盈",
+  "showcase.part2.s1.l": "工艺",
+  "showcase.part2.s1.v": "8000吨锻造",
+  "showcase.part2.s2.l": "载重指数",
+  "showcase.part2.s2.v": "950kg",
+  "showcase.part2.s3.l": "轮毂重量",
+  "showcase.part2.s3.v": "8.2kg",
+
+  "showcase.part3.name": "Adaptive Nitro 氮气避震",
+  "showcase.part3.headline": "精准无暇。",
+  "showcase.part3.desc":
+    "超快响应的充氮减震器，具有 32 段阻尼调节，在赛道刚性与街道舒适度之间取得完美平衡。",
+  "showcase.part3.bgText": "丝滑",
+  "showcase.part3.s1.l": "调节",
+  "showcase.part3.s1.v": "32 段可调",
+  "showcase.part3.s2.l": "气体类型",
+  "showcase.part3.s2.v": "高纯度氮气",
+  "showcase.part3.s3.l": "行程",
+  "showcase.part3.s3.v": "110mm",
+
+  "showcase.part4.name": "激光矩阵大灯",
+  "showcase.part4.headline": "照亮前行之路。",
+  "showcase.part4.desc":
+    "高清激光投影系统，采用自适应光束技术，可提供长达 600 米的清晰视野。",
+  "showcase.part4.bgText": "光芒",
+  "showcase.part4.s1.l": "照射范围",
+  "showcase.part4.s1.v": "600米",
+  "showcase.part4.s2.l": "技术",
+  "showcase.part4.s2.v": "激光矩阵",
+  "showcase.part4.s3.l": "效率",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "锻造碳纤维气动组件",
+  "showcase.part5.headline": "空气动力学新篇章。",
+  "showcase.part5.desc":
+    "超轻量锻造碳纤维组件，专为最大下压力和激进美学而设计。",
+  "showcase.part5.bgText": "气动",
+  "showcase.part5.s1.l": "材质",
+  "showcase.part5.s1.v": "锻造碳纤维",
+  "showcase.part5.s2.l": "下压力",
+  "showcase.part5.s2.v": "+120kg",
+  "showcase.part5.s3.l": "减重",
+  "showcase.part5.s3.v": "-15公斤",
+
+  // Footer Payment Methods
+  "footer.payment.title": "安全支付",
+  "footer.payment.subtitle":
+    "我们接受通过PayPal、主要信用卡和借记卡以及银行转账进行的安全支付。",
+  "footer.payment.bank": "银行转账",
+
+  // Common UI Text
+  "common.learnMore": "了解更多",
+  "common.exploreMore": "探索优质零件",
+
+  // What We Do Section
+  "whatWeDo.badge": "我们的服务",
+  "whatWeDo.title": "我们",
+  "whatWeDo.titleHighlight": "做什么",
+  "whatWeDo.subtitle": "我们提供具有精密工程和无与伦比质量的高级汽车解决方案。",
+  "whatWeDo.feature1.title": "高级零件供应",
+  "whatWeDo.feature1.desc": "来自全球顶级制造商的高性能组件。",
+  "whatWeDo.feature2.title": "质量保证",
+  "whatWeDo.feature2.desc": "每个零件都经过严格测试，以满足并超越OEM标准。",
+  "whatWeDo.feature3.title": "专业安装",
+  "whatWeDo.feature3.desc": "通过我们的全球合作伙伴网络提供专业安装服务。",
+  "whatWeDo.feature4.title": "全球运输",
+  "whatWeDo.feature4.desc": "快速可靠地向全球客户交付。",
+
+  // Premium Parts Categories
+  "categories.badge": "按类别购物",
+  "categories.title": "为您的",
+  "categories.titleHighlight": "汽车选择高级零件",
+  "categories.subtitle": "探索我们精心挑选的高性能汽车组件系列。",
+  "categories.viewAll": "查看所有类别",
+
+  // Our Gallery
+  "gallery.badge": "我们的作品",
+  "gallery.title": "我们的",
+  "gallery.titleHighlight": "画廊",
+  "gallery.subtitle": "探索我们的高级建造和安装作品集。",
+  "gallery.img1.alt": "高级碳陶瓷制动器安装",
+  "gallery.img2.alt": "定制车身套件安装",
+  "gallery.img3.alt": "高性能排气系统",
+  "gallery.img4.alt": "豪华内饰升级",
+  "gallery.img5.alt": "锻造轮毂安装",
+  "gallery.img6.alt": "碳纤维组件",
+  "gallery.img7.alt": "完整车辆改装",
+  "gallery.img8.alt": "专业细节工作",
+
+  // How We Work
+  "howWeWork.badge": "我们的流程",
+  "howWeWork.title": "我们如何",
+  "howWeWork.titleHighlight": "工作",
+  "howWeWork.subtitle": "从选择到安装的简单透明流程。",
+  "howWeWork.step1.title": "浏览和选择",
+  "howWeWork.step1.desc": "浏览我们广泛的目录，为您的车辆找到完美的零件。",
+  "howWeWork.step2.title": "下订单",
+  "howWeWork.step2.desc": "安全支付，多种支付选项，即时确认。",
+  "howWeWork.step3.title": "快速交付",
+  "howWeWork.step3.desc": "您的零件经过精心包装，直接运送到您的位置。",
+  "howWeWork.step4.title": "安装和享受",
+  "howWeWork.step4.desc": "专业安装或DIY - 我们在每一步都支持您。",
+  "howWeWork.cta.text": "准备好升级您的车辆了吗？",
+  "howWeWork.cta.button": "开始购物",
+
+  // Reviews
+  "reviews.badge": "客户评价",
+  "reviews.title": "我们的客户",
+  "reviews.titleHighlight": "怎么说",
+  "reviews.subtitle": "来自信任我们的驾驶员的真实反馈。",
+  "reviews.review1.name": "马库斯·罗德里格斯",
+  "reviews.review1.car": "保时捷 911 GT3 RS",
+  "reviews.review1.feedback":
+    "碳陶瓷转子彻底改变了我的制动性能。令人难以置信的制动力，在赛道上零衰减。OwnSilent的质量无与伦比。",
+  "reviews.review1.location": "迈阿密，美国",
+  "reviews.review2.name": "索菲·洛朗",
+  "reviews.review2.car": "法拉利 488 Pista",
+  "reviews.review2.feedback":
+    "从头到尾的卓越服务。团队帮助我选择了完美的排气系统，安装无可挑剔。我的法拉利听起来和表现都比以往任何时候都好。",
+  "reviews.review2.location": "巴黎，法国",
+  "reviews.review3.name": "田中健二",
+  "reviews.review3.car": "兰博基尼 Huracán",
+  "reviews.review3.feedback":
+    "优质零件配合卓越的客户支持。车身套件安装完美，运送到日本比预期的要快。强烈推荐！",
+  "reviews.review3.location": "东京，日本",
+  "reviews.review4.name": "亚历山大·穆勒",
+  "reviews.review4.car": "奥迪 RS6 Avant",
+  "reviews.review4.feedback":
+    "专业的专业知识和对汽车卓越的真正热情。悬挂升级完全改变了我的RS6的操控方式。物有所值。",
+  "reviews.review4.location": "慕尼黑，德国",
 };
 
 // ==========================================
@@ -2027,6 +3317,11 @@ const ptTranslations = {
   "aboutPage.careers.cat4": "Marketing e Comunicações",
   "aboutPage.careers.cat5": "Operações e Logística",
   "aboutPage.careers.cat6": "Suporte ao Cliente e Técnico",
+
+  "home.banner.title": "Experimente a Performance Máxima",
+  "home.banner.desc":
+    "Eleve o seu veículo com os nossos componentes de carbono de classe mundial e engenharia de precisão.",
+  "home.banner.btn": "Ver Coleção",
   //news page
   "newsPage.loading": "Carregando artigos...",
   "newsPage.title": "Notícias e Insights",
@@ -2108,13 +3403,188 @@ const ptTranslations = {
   "shop.cart.addError": "Não foi possível adicionar ao carrinho.",
   "shop.cart.loginError": "Faça login para adicionar itens ao seu carrinho.",
   // PORTUGUESE (pt) - For Footer Disclaimer
-// ===================================
-  "footer.disclaimer.p1": "Todos os nomes de marcas, logotipos e marcas registradas exibidos neste site são apenas para referência. A Own Silent International Limited não é afiliada, endossada ou autorizada por nenhum fabricante de veículos. Todos os nomes, números e imagens de produtos são apenas para fins de identificação e compatibilidade.",
-  "footer.disclaimer.p2": "Fabricamos e comercializamos peças automotivas de reposição, genuínas e personalizadas em todo o mundo. Os clientes são responsáveis por garantir a conformidade legal, a instalação segura e o uso adequado de todos os produtos. A Own Silent International Limited não se responsabiliza por danos, modificações no veículo ou impactos na garantia resultantes do uso de nossos produtos.",
-  "footer.disclaimer.p3": "O uso deste site e a compra de produtos constituem a aceitação de nosso aviso legal completo. Para os termos legais completos, consulte nossa",
+  // ===================================
+  "footer.disclaimer.p1":
+    "Todos os nomes de marcas, logotipos e marcas registradas exibidos neste site são apenas para referência. A Own Silent International Limited não é afiliada, endossada ou autorizada por nenhum fabricante de veículos. Todos os nomes, números e imagens de produtos são apenas para fins de identificação e compatibilidade.",
+  "footer.disclaimer.p2":
+    "Fabricamos e comercializamos peças automotivas de reposição, genuínas e personalizadas em todo o mundo. Os clientes são responsáveis por garantir a conformidade legal, a instalação segura e o uso adequado de todos os produtos. A Own Silent International Limited não se responsabiliza por danos, modificações no veículo ou impactos na garantia resultantes do uso de nossos produtos.",
+  "footer.disclaimer.p3":
+    "O uso deste site e a compra de produtos constituem a aceitação de nosso aviso legal completo. Para os termos legais completos, consulte nossa",
   "footer.disclaimer.link": "Página de Aviso Legal Completo",
-  "footer.copyright.short": "Todas as marcas, logotipos e marcas registradas são apenas para referência; não somos afiliados ou endossados por nenhum fabricante. Os produtos são de reposição, genuínos ou personalizados; use por sua conta e risco. Consulte nosso {link} para obter detalhes.",
+  "footer.copyright.short":
+    "Todas as marcas, logotipos e marcas registradas são apenas para referência; não somos afiliados ou endossados por nenhum fabricante. Os produtos são de reposição, genuínos ou personalizados; use por sua conta e risco. Consulte nosso {link} para obter detalhes.",
   "footer.copyright.link": "Aviso Legal Completo",
+
+  // Showcase
+  "showcase.series": "Série de Alta Performance",
+  "showcase.stats": "Estatísticas de Engenharia",
+  "showcase.status": "Vitrine",
+  "showcase.paused": "Pausado",
+  "showcase.auto": "Auto",
+  "showcase.osPerformance": "PERFORMANCE OS",
+  "showcase.est": "EST. 1998",
+  "showcase.aerospace": "GRAU AEROESPACIAL",
+  "showcase.discover": "DESCUBRA O PODER ILIMITADO",
+
+  "showcase.part1.name": "Rotores de Matriz de Carbono",
+  "showcase.part1.headline": "Maestria Térmica em Cada Parada.",
+  "showcase.part1.desc":
+    "Os nossos rotores de matriz de carbono-cerâmica proporcionam uma dissipação de calor inigualável e zero fadiga de travagem, mesmo em condições extremas de pista.",
+  "showcase.part1.bgText": "PODER",
+  "showcase.part1.s1.l": "Material",
+  "showcase.part1.s1.v": "Carbono-Silício",
+  "showcase.part1.s2.l": "Limite Calor",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "Red. Peso",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Jantes Forjadas Aero-S",
+  "showcase.part2.headline": "Leve. Forjado. Imparável.",
+  "showcase.part2.desc":
+    "Concebida com precisão a partir de alumínio 6061-T6 de qualidade aeroespacial, a série Aero-S reduz significativamente a massa não suspensa para uma manobrabilidade superior.",
+  "showcase.part2.bgText": "LEVE",
+  "showcase.part2.s1.l": "Processo",
+  "showcase.part2.s1.v": "8000T Forjado",
+  "showcase.part2.s2.l": "Capacidade Carga",
+  "showcase.part2.s2.v": "950kg",
+  "showcase.part2.s3.l": "Peso Jante",
+  "showcase.part2.s3.v": "8.2kg",
+
+  "showcase.part3.name": "Coilovers Nitro Adaptáveis",
+  "showcase.part3.headline": "Precisão Perfeccionada.",
+  "showcase.part3.desc":
+    "Amortecedores carregados com nitrogénio de resposta ultra-rápida com ajuste de 32 posições, oferecendo el equilibrio perfeito entre rigidez em pista e conforto na estrada.",
+  "showcase.part3.bgText": "DESLIZE",
+  "showcase.part3.s1.l": "Ajuste",
+  "showcase.part3.s1.v": "32 Vias",
+  "showcase.part3.s2.l": "Tipo Gás",
+  "showcase.part3.s2.v": "N2 Alta Purezza",
+  "showcase.part3.s3.l": "Curso",
+  "showcase.part3.s3.v": "110mm",
+
+  "showcase.part4.name": "Faróis LASER de Matriz",
+  "showcase.part4.headline": "Iluminando o caminho à frente.",
+  "showcase.part4.desc":
+    "Sistema de projeção laser de alta definição com tecnologia de feixe adaptativo, proporcionando até 600 m de visibilidade cristalina.",
+  "showcase.part4.bgText": "LUZ",
+  "showcase.part4.s1.l": "Alcance",
+  "showcase.part4.s1.v": "600m",
+  "showcase.part4.s2.l": "Tecnologia",
+  "showcase.part4.s2.v": "Matriz Laser",
+  "showcase.part4.s3.l": "Eficiência",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "Kit Aero de Carbono Forjado",
+  "showcase.part5.headline": "Aerodinâmica redefinida.",
+  "showcase.part5.desc":
+    "Componentes de fibra de carbono forjada ultra-leves projetados para máxima força descendente e estética agressiva.",
+  "showcase.part5.bgText": "AERO",
+  "showcase.part5.s1.l": "Material",
+  "showcase.part5.s1.v": "Carbono Forjado",
+  "showcase.part5.s2.l": "Downforce",
+  "showcase.part5.s2.v": "+120kg",
+  "showcase.part5.s3.l": "Redução Peso",
+  "showcase.part5.s3.v": "-15kg",
+
+  // Footer Payment Methods
+  "footer.payment.title": "Pagamentos Seguros",
+  "footer.payment.subtitle":
+    "Aceitamos pagamentos seguros através de PayPal, principais cartões de crédito e débito, e transferência bancária.",
+  "footer.payment.bank": "Transferência Bancária",
+
+  // Common UI Text
+  "common.learnMore": "Saiba Mais",
+  "common.exploreMore": "Explorar peças premium",
+
+  // What We Do Section
+  "whatWeDo.badge": "Nossos Serviços",
+  "whatWeDo.title": "O Que",
+  "whatWeDo.titleHighlight": "Fazemos",
+  "whatWeDo.subtitle":
+    "Fornecemos soluções automotivas premium com engenharia de precisão e qualidade incomparável.",
+  "whatWeDo.feature1.title": "Fornecimento de Peças Premium",
+  "whatWeDo.feature1.desc":
+    "Componentes de alto desempenho dos melhores fabricantes mundiais.",
+  "whatWeDo.feature2.title": "Garantia de Qualidade",
+  "whatWeDo.feature2.desc":
+    "Cada peça é rigorosamente testada para atender e superar os padrões OEM.",
+  "whatWeDo.feature3.title": "Instalação Especializada",
+  "whatWeDo.feature3.desc":
+    "Serviços de instalação profissional através da nossa rede global de parceiros.",
+  "whatWeDo.feature4.title": "Envio Mundial",
+  "whatWeDo.feature4.desc":
+    "Entrega rápida e confiável para clientes em todo o mundo.",
+
+  // Premium Parts Categories
+  "categories.badge": "Comprar por Categoria",
+  "categories.title": "Escolha Peças Premium Para",
+  "categories.titleHighlight": "Seu Carro",
+  "categories.subtitle":
+    "Explore nossa seleção curada de componentes automotivos de alto desempenho.",
+  "categories.viewAll": "Ver Todas as Categorias",
+
+  // Our Gallery
+  "gallery.badge": "Nosso Trabalho",
+  "gallery.title": "Nossa",
+  "gallery.titleHighlight": "Galeria",
+  "gallery.subtitle":
+    "Explore nosso portfólio de construções e instalações premium.",
+  "gallery.img1.alt": "Instalação de freios carbono-cerâmica premium",
+  "gallery.img2.alt": "Montagem de kit de carroceria personalizado",
+  "gallery.img3.alt": "Sistema de escape de alto desempenho",
+  "gallery.img4.alt": "Melhoria de interior de luxo",
+  "gallery.img5.alt": "Instalação de rodas forjadas",
+  "gallery.img6.alt": "Componentes de fibra de carbono",
+  "gallery.img7.alt": "Transformação completa do veículo",
+  "gallery.img8.alt": "Trabalho de detalhamento profissional",
+
+  // How We Work
+  "howWeWork.badge": "Nosso Processo",
+  "howWeWork.title": "Como",
+  "howWeWork.titleHighlight": "Trabalhamos",
+  "howWeWork.subtitle":
+    "Um processo simples e transparente da seleção à instalação.",
+  "howWeWork.step1.title": "Navegar e Selecionar",
+  "howWeWork.step1.desc":
+    "Explore nosso vasto catálogo e encontre as peças perfeitas para seu veículo.",
+  "howWeWork.step2.title": "Fazer Pedido",
+  "howWeWork.step2.desc":
+    "Pagamento seguro com várias opções de pagamento e confirmação instantânea.",
+  "howWeWork.step3.title": "Entrega Rápida",
+  "howWeWork.step3.desc":
+    "Suas peças são cuidadosamente embaladas e enviadas diretamente para sua localização.",
+  "howWeWork.step4.title": "Instalar e Aproveitar",
+  "howWeWork.step4.desc":
+    "Instalação profissional ou faça você mesmo - apoiamos você em cada etapa.",
+  "howWeWork.cta.text": "Pronto para melhorar seu veículo?",
+  "howWeWork.cta.button": "Começar a Comprar",
+
+  // Reviews
+  "reviews.badge": "Depoimentos",
+  "reviews.title": "O Que Nossos",
+  "reviews.titleHighlight": "Clientes Dizem",
+  "reviews.subtitle":
+    "Feedback real de motoristas que confiam em nós com seus veículos.",
+  "reviews.review1.name": "Marcus Rodriguez",
+  "reviews.review1.car": "Porsche 911 GT3 RS",
+  "reviews.review1.feedback":
+    "Os rotores carbono-cerâmica transformaram completamente meu desempenho de frenagem. Poder de parada incrível sem fade na pista. A qualidade da OwnSilent é incomparável.",
+  "reviews.review1.location": "Miami, EUA",
+  "reviews.review2.name": "Sophie Laurent",
+  "reviews.review2.car": "Ferrari 488 Pista",
+  "reviews.review2.feedback":
+    "Serviço excepcional do início ao fim. A equipe me ajudou a selecionar o sistema de escape perfeito, e a instalação foi impecável. Minha Ferrari soa e performa melhor do que nunca.",
+  "reviews.review2.location": "Paris, França",
+  "reviews.review3.name": "Kenji Tanaka",
+  "reviews.review3.car": "Lamborghini Huracán",
+  "reviews.review3.feedback":
+    "Peças de qualidade premium com suporte ao cliente excepcional. O ajuste do kit de carroceria foi perfeito, e o envio para o Japão foi mais rápido do que o esperado. Altamente recomendado!",
+  "reviews.review3.location": "Tóquio, Japão",
+  "reviews.review4.name": "Alexander Müller",
+  "reviews.review4.car": "Audi RS6 Avant",
+  "reviews.review4.feedback":
+    "Expertise profissional e paixão genuína pela excelência automotiva. A atualização da suspensão mudou completamente a forma como minha RS6 se comporta. Vale cada centavo.",
+  "reviews.review4.location": "Munique, Alemanha",
 };
 
 // ==========================================
@@ -2286,6 +3756,11 @@ const ruTranslations = {
   "aboutPage.careers.cat4": "Маркетинг и коммуникации",
   "aboutPage.careers.cat5": "Операции и логистика",
   "aboutPage.careers.cat6": "Клиентская и техническая поддержка",
+
+  "home.banner.title": "Испытайте пиковую производительность",
+  "home.banner.desc":
+    "Усовершенствуйте свой автомобиль с помощью наших углеродных компонентов мирового класса и точного инжиниринга.",
+  "home.banner.btn": "Посмотреть коллекцию",
   //news page
   "newsPage.loading": "Загрузка статей...",
   "newsPage.title": "Новости и Аналитика",
@@ -2366,15 +3841,187 @@ const ruTranslations = {
   "shop.cart.addError": "Не удалось добавить в корзину.",
   "shop.cart.loginError":
     "Пожалуйста, войдите, чтобы добавлять товары в корзину.",
-    // RUSSIAN (ru) - For Footer Disclaimer
-// ===================================
-  "footer.disclaimer.p1": "Все названия брендов, логотипы и товарные знаки, отображаемые на этом веб-сайте, предназначены только для справки. Own Silent International Limited не является аффилированным лицом, не поддерживается и не авторизована ни одним из производителей транспортных средств. Все названия, номера и изображения продуктов предназначены только для целей идентификации и совместимости.",
-  "footer.disclaimer.p2": "Мы производим и продаем послепродажные, оригинальные и заказные автомобильные запчасти по всему миру. Клиенты несут ответственность за обеспечение соблюдения законодательства, безопасную установку и правильное использование всех продуктов. Own Silent International Limited не несет ответственности за ущерб, модификации транспортных средств или влияние на гарантию в результате использования нашей продукции.",
-  "footer.disclaimer.p3": "Использование этого веб-сайта и покупка продуктов означает принятие нашего полного отказа от ответственности. Полные юридические условия см. на нашей",
+  // RUSSIAN (ru) - For Footer Disclaimer
+  // ===================================
+  "footer.disclaimer.p1":
+    "Все названия брендов, логотипы и товарные знаки, отображаемые на этом веб-сайте, предназначены только для справки. Own Silent International Limited не является аффилированным лицом, не поддерживается и не авторизована ни одним из производителей транспортных средств. Все названия, номера и изображения продуктов предназначены только для целей идентификации и совместимости.",
+  "footer.disclaimer.p2":
+    "Мы производим и продаем послепродажные, оригинальные и заказные автомобильные запчасти по всему миру. Клиенты несут ответственность за обеспечение соблюдения законодательства, безопасную установку и правильное использование всех продуктов. Own Silent International Limited не несет ответственности за ущерб, модификации транспортных средств или влияние на гарантию в результате использования нашей продукции.",
+  "footer.disclaimer.p3":
+    "Использование этого веб-сайта и покупка продуктов означает принятие нашего полного отказа от ответственности. Полные юридические условия см. на нашей",
   "footer.disclaimer.link": "Странице полного отказа от ответственности",
-  "footer.copyright.short": "Все бренды, логотипы и товарные знаки предназначены только для справки; мы не являемся аффилированными лицами и не поддерживаемся ни одним производителем. Продукты являются послепродажными, оригинальными или заказными; используйте на свой страх и риск. Подробности см. в нашем {link}.",
+  "footer.copyright.short":
+    "Все бренды, логотипы и товарные знаки предназначены только для справки; мы не являемся аффилированными лицами и не поддерживаемся ни одним производителем. Продукты являются послепродажными, оригинальными или заказными; используйте на свой страх и риск. Подробности см. в нашем {link}.",
   "footer.copyright.link": "Полном отказе от ответственности",
 
+  // Showcase
+  "showcase.series": "Высокопроизводительная серия",
+  "showcase.stats": "Инженерные данные",
+  "showcase.status": "Шоукейс",
+  "showcase.paused": "Пауза",
+  "showcase.auto": "Авто",
+  "showcase.osPerformance": "PERFORMANCE OS",
+  "showcase.est": "ОСН. В 1998",
+  "showcase.aerospace": "АЭРОКОСМИЧЕСКИЙ КЛАСС",
+  "showcase.discover": "ОТКРОЙТЕ БЕЗГРАНИЧНУЮ МОЩЬ",
+
+  "showcase.part1.name": "Углеродно-матричные роторы",
+  "showcase.part1.headline": "Термическое мастерство при каждой остановке.",
+  "showcase.part1.desc":
+    "Наши карбон-керамические матричные роторы обеспечивают непревзойденный отвод тепла и полное отсутствие потери эффективности тормозов даже в экстремальных трековых условиях.",
+  "showcase.part1.bgText": "МОЩЬ",
+  "showcase.part1.s1.l": "Материал",
+  "showcase.part1.s1.v": "Углерод-кремний",
+  "showcase.part1.s2.l": "Темп. лимит",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "Сниж. веса",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Кованые диски Aero-S",
+  "showcase.part2.headline": "Легкость. Прочность. Скорость.",
+  "showcase.part2.desc":
+    "Прецизионно изготовленные из аэрокосмического алюминия 6061-T6, диски серии Aero-S значительно снижают неподрессоренную массу для превосходной управляемости.",
+  "showcase.part2.bgText": "ЛЕГКОСТЬ",
+  "showcase.part2.s1.l": "Процесс",
+  "showcase.part2.s1.v": "Ковка 8000T",
+  "showcase.part2.s2.l": "Нагрузка",
+  "showcase.part2.s2.v": "950 кг",
+  "showcase.part2.s3.l": "Вес диска",
+  "showcase.part2.s3.v": "8.2 кг",
+
+  "showcase.part3.name": "Адаптивные койловеры Nitro",
+  "showcase.part3.headline": "Совершенная точность.",
+  "showcase.part3.desc":
+    "Сверхбыстрые азотонаполненные амортизаторы с 32-ступенчатой регулировкой обеспечивают идеальный баланс между жесткостью на треке и комфортом на дороге.",
+  "showcase.part3.bgText": "ГЛАДКОСТЬ",
+  "showcase.part3.s1.l": "Регулировка",
+  "showcase.part3.s1.v": "32 клика",
+  "showcase.part3.s2.l": "Тип газа",
+  "showcase.part3.s2.v": "Азот N2",
+  "showcase.part3.s3.l": "Ход",
+  "showcase.part3.s3.v": "110 мм",
+
+  "showcase.part4.name": "Матричные ЛАЗЕРНЫЕ фары",
+  "showcase.part4.headline": "Освещая путь вперед.",
+  "showcase.part4.desc":
+    "Лазерная проекционная система высокого разрешения с технологией адаптивного луча, обеспечивающая кристально чистую видимость на расстоянии до 600 м.",
+  "showcase.part4.bgText": "СВЕТ",
+  "showcase.part4.s1.l": "Дальность",
+  "showcase.part4.s1.v": "600м",
+  "showcase.part4.s2.l": "Техно",
+  "showcase.part4.s2.v": "Laser Matrix",
+  "showcase.part4.s3.l": "Эффективность",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "Аэро-кит из кованого карбона",
+  "showcase.part5.headline": "Аэродинамика в новом прочтении.",
+  "showcase.part5.desc":
+    "Ультралегкие компоненты из кованого углеродного волокна, разработанные для максимальной прижимной силы и агрессивной эстетики.",
+  "showcase.part5.bgText": "АЭРО",
+  "showcase.part5.s1.l": "Материал",
+  "showcase.part5.s1.v": "Кованый карбон",
+  "showcase.part5.s2.l": "Прижим. сила",
+  "showcase.part5.s2.v": "+120кг",
+  "showcase.part5.s3.l": "Снижение веса",
+  "showcase.part5.s3.v": "-15кг",
+
+  // Footer Payment Methods
+  "footer.payment.title": "Безопасные Платежи",
+  "footer.payment.subtitle":
+    "Мы принимаем безопасные платежи через PayPal, основные кредитные и дебетовые карты, а также банковский перевод.",
+  "footer.payment.bank": "Банковский Перевод",
+
+  // Common UI Text
+  "common.learnMore": "Узнать Больше",
+  "common.exploreMore": "Изучить премиум детали",
+
+  // What We Do Section
+  "whatWeDo.badge": "Наши Услуги",
+  "whatWeDo.title": "Что Мы",
+  "whatWeDo.titleHighlight": "Делаем",
+  "whatWeDo.subtitle":
+    "Мы предоставляем премиальные автомобильные решения с точной инженерией и непревзойденным качеством.",
+  "whatWeDo.feature1.title": "Поставка Премиальных Деталей",
+  "whatWeDo.feature1.desc":
+    "Высокопроизводительные компоненты от лучших мировых производителей.",
+  "whatWeDo.feature2.title": "Гарантия Качества",
+  "whatWeDo.feature2.desc":
+    "Каждая деталь тщательно тестируется для соответствия и превышения стандартов OEM.",
+  "whatWeDo.feature3.title": "Экспертная Установка",
+  "whatWeDo.feature3.desc":
+    "Профессиональные услуги по установке через нашу глобальную сеть партнеров.",
+  "whatWeDo.feature4.title": "Мировая Доставка",
+  "whatWeDo.feature4.desc":
+    "Быстрая и надежная доставка клиентам по всему миру.",
+
+  // Premium Parts Categories
+  "categories.badge": "Покупка по Категориям",
+  "categories.title": "Выберите Премиальные Детали Для",
+  "categories.titleHighlight": "Вашего Авто",
+  "categories.subtitle":
+    "Изучите нашу подборку высокопроизводительных автомобильных компонентов.",
+  "categories.viewAll": "Посмотреть Все Категории",
+
+  // Our Gallery
+  "gallery.badge": "Наши Работы",
+  "gallery.title": "Наша",
+  "gallery.titleHighlight": "Галерея",
+  "gallery.subtitle": "Изучите наше портфолио премиальных сборок и установок.",
+  "gallery.img1.alt": "Установка премиальных карбон-керамических тормозов",
+  "gallery.img2.alt": "Установка индивидуального обвеса",
+  "gallery.img3.alt": "Высокопроизводительная выхлопная система",
+  "gallery.img4.alt": "Роскошная модернизация интерьера",
+  "gallery.img5.alt": "Установка кованых дисков",
+  "gallery.img6.alt": "Компоненты из углеродного волокна",
+  "gallery.img7.alt": "Полная трансформация автомобиля",
+  "gallery.img8.alt": "Профессиональная детализация",
+
+  // How We Work
+  "howWeWork.badge": "Наш Процесс",
+  "howWeWork.title": "Как Мы",
+  "howWeWork.titleHighlight": "Работаем",
+  "howWeWork.subtitle": "Простой и прозрачный процесс от выбора до установки.",
+  "howWeWork.step1.title": "Просмотр и Выбор",
+  "howWeWork.step1.desc":
+    "Изучите наш обширный каталог и найдите идеальные детали для вашего автомобиля.",
+  "howWeWork.step2.title": "Оформление Заказа",
+  "howWeWork.step2.desc":
+    "Безопасная оплата с несколькими вариантами оплаты и мгновенным подтверждением.",
+  "howWeWork.step3.title": "Быстрая Доставка",
+  "howWeWork.step3.desc":
+    "Ваши детали тщательно упаковываются и отправляются прямо к вам.",
+  "howWeWork.step4.title": "Установка и Наслаждение",
+  "howWeWork.step4.desc":
+    "Профессиональная установка или самостоятельно - мы поддерживаем вас на каждом этапе.",
+  "howWeWork.cta.text": "Готовы улучшить свой автомобиль?",
+  "howWeWork.cta.button": "Начать Покупки",
+
+  // Reviews
+  "reviews.badge": "Отзывы",
+  "reviews.title": "Что Говорят Наши",
+  "reviews.titleHighlight": "Клиенты",
+  "reviews.subtitle":
+    "Реальные отзывы от водителей, которые доверяют нам свои автомобили.",
+  "reviews.review1.name": "Маркус Родригес",
+  "reviews.review1.car": "Porsche 911 GT3 RS",
+  "reviews.review1.feedback":
+    "Карбон-керамические роторы полностью изменили мои тормозные характеристики. Невероятная тормозная мощность без потери эффективности на треке. Качество OwnSilent не имеет себе равных.",
+  "reviews.review1.location": "Майами, США",
+  "reviews.review2.name": "Софи Лоран",
+  "reviews.review2.car": "Ferrari 488 Pista",
+  "reviews.review2.feedback":
+    "Исключительный сервис от начала до конца. Команда помогла мне выбрать идеальную выхлопную систему, а установка была безупречной. Моя Ferrari звучит и работает лучше, чем когда-либо.",
+  "reviews.review2.location": "Париж, Франция",
+  "reviews.review3.name": "Кендзи Танака",
+  "reviews.review3.car": "Lamborghini Huracán",
+  "reviews.review3.feedback":
+    "Премиальные детали с исключительной поддержкой клиентов. Установка обвеса была идеальной, а доставка в Японию была быстрее, чем ожидалось. Настоятельно рекомендую!",
+  "reviews.review3.location": "Токио, Япония",
+  "reviews.review4.name": "Александр Мюллер",
+  "reviews.review4.car": "Audi RS6 Avant",
+  "reviews.review4.feedback":
+    "Профессиональная экспертиза и искренняя страсть к автомобильному совершенству. Обновление подвески полностью изменило управляемость моей RS6. Стоит каждого цента.",
+  "reviews.review4.location": "Мюнхен, Германия",
 };
 
 // ==========================================
@@ -2545,6 +4192,11 @@ const jaTranslations = {
   "aboutPage.careers.cat4": "マーケティングとコミュニケーション",
   "aboutPage.careers.cat5": "運営とロジスティクス",
   "aboutPage.careers.cat6": "顧客および技術サポート",
+
+  "home.banner.title": "最高のパフォーマンスを体験",
+  "home.banner.desc":
+    "当社のワールドクラスのカーボンコンポーネントと精密エンジニアリングであなたの車をアップグレードしましょう。",
+  "home.banner.btn": "コレクションを見る",
   //mews page
   "newsPage.loading": "記事を読み込んでいます...",
   "newsPage.title": "ニュースと洞察",
@@ -2622,13 +4274,185 @@ const jaTranslations = {
   "shop.cart.addError": "カートに追加できませんでした。",
   "shop.cart.loginError": "カートに商品を追加するにはログインしてください。",
   // JAPANESE (ja) - For Footer Disclaimer
-// ===================================
-  "footer.disclaimer.p1": "このウェブサイトに表示されているすべてのブランド名、ロゴ、および商標は参照用です。Own Silent International Limitedは、いかなる自動車メーカーとも提携、承認、または認可されていません。すべての製品名、番号、および画像は、識別および互換性の目的でのみ使用されます。",
-  "footer.disclaimer.p2": "当社は、アフターマーケット、純正、およびカスタムの自動車部品を世界中で製造および取引しています。お客様は、すべての製品の法的遵守、安全な設置、および適切な使用を保証する責任があります。Own Silent International Limitedは、当社製品の使用に起因する損害、車両の改造、または保証への影響について責任を負いません。",
-  "footer.disclaimer.p3": "このウェブサイトの使用および製品の購入は、当社の完全な免責事項への同意を構成します。完全な法的条件については、当社の",
+  // ===================================
+  "footer.disclaimer.p1":
+    "このウェブサイトに表示されているすべてのブランド名、ロゴ、および商標は参照用です。Own Silent International Limitedは、いかなる自動車メーカーとも提携、承認、または認可されていません。すべての製品名、番号、および画像は、識別および互換性の目的でのみ使用されます。",
+  "footer.disclaimer.p2":
+    "当社は、アフターマーケット、純正、およびカスタムの自動車部品を世界中で製造および取引しています。お客様は、すべての製品の法的遵守、安全な設置、および適切な使用を保証する責任があります。Own Silent International Limitedは、当社製品の使用に起因する損害、車両の改造、または保証への影響について責任を負いません。",
+  "footer.disclaimer.p3":
+    "このウェブサイトの使用および製品の購入は、当社の完全な免責事項への同意を構成します。完全な法的条件については、当社の",
   "footer.disclaimer.link": "完全な免責事項ページ",
-  "footer.copyright.short": "すべてのブランド、ロゴ、商標は参照用です。当社はいかなるメーカーとも提携または承認されていません。製品はアフターマーケット品、純正品、またはカスタム品です。自己責任で使用してください。詳細については、{link}をご覧ください。",
+  "footer.copyright.short":
+    "すべてのブランド、ロゴ、商標は参照用です。当社はいかなるメーカーとも提携または承認されていません。製品はアフターマーケット品、純正品、またはカスタム品です。自己責任で使用してください。詳細については、{link}をご覧ください。",
   "footer.copyright.link": "完全な免責事項",
+
+  // Showcase
+  "showcase.series": "ハイパフォーマンスシリーズ",
+  "showcase.stats": "エンジニアリング統計",
+  "showcase.status": "ショーケース",
+  "showcase.paused": "一時停止",
+  "showcase.auto": "オート",
+  "showcase.osPerformance": "OS パフォーマンス",
+  "showcase.est": "EST. 1998",
+  "showcase.aerospace": "航空宇宙グレード",
+  "showcase.discover": "無限のパワーを解き放つ",
+
+  "showcase.part1.name": "カーボンマトリックスローター",
+  "showcase.part1.headline": "すべての停止に熱制御の極意を。",
+  "showcase.part1.desc":
+    "当社のカーボンセラミックマトリックスローターは、極限のトラック条件下でも、比類のない放熱性とブレーキフェードゼロを実現します。",
+  "showcase.part1.bgText": "POWER",
+  "showcase.part1.s1.l": "素材",
+  "showcase.part1.s1.v": "カーボンシリコン",
+  "showcase.part1.s2.l": "耐熱限界",
+  "showcase.part1.s2.v": "1200°C",
+  "showcase.part1.s3.l": "軽量化",
+  "showcase.part1.s3.v": "45%",
+
+  "showcase.part2.name": "Aero-S 鍛造ホイール",
+  "showcase.part2.headline": "軽量。鍛造。無双。",
+  "showcase.part2.desc":
+    "航空宇宙グレードの6061-T6アルミニウムから精密に設計されたAero-Sシリーズは、バネ下重量を大幅に削減し、優れたハンドリングを実現します。",
+  "showcase.part2.bgText": "LIGHT",
+  "showcase.part2.s1.l": "製法",
+  "showcase.part2.s1.v": "8000T鍛造",
+  "showcase.part2.s2.l": "耐荷重",
+  "showcase.part2.s2.v": "950kg",
+  "showcase.part2.s3.l": "ホイール重量",
+  "showcase.part2.s3.v": "8.2kg",
+
+  "showcase.part3.name": "アダプティブ Nitro 車高調",
+  "showcase.part3.headline": "究極の精度。",
+  "showcase.part3.desc":
+    "32段階調整が可能な超高速レスポンス窒素充填ダンパー。サーキットでの剛性と公道での快適性を完璧なバランスで両立します。",
+  "showcase.part3.bgText": "GLIDE",
+  "showcase.part3.s1.l": "調整",
+  "showcase.part3.s1.v": "32段階",
+  "showcase.part3.s2.l": "ガスタイプ",
+  "showcase.part3.s2.v": "高純度窒素",
+  "showcase.part3.s3.l": "ストローク",
+  "showcase.part3.s3.v": "110mm",
+
+  "showcase.part4.name": "マトリックス LASER ヘッドライト",
+  "showcase.part4.headline": "進むべき道を照らす。",
+  "showcase.part4.desc":
+    "アダプティブビームテクノロジーを搭載した高精細レーザープロジェクションシステム。最大600m先までクリアな視界を提供します。",
+  "showcase.part4.bgText": "LIGHT",
+  "showcase.part4.s1.l": "照射範囲",
+  "showcase.part4.s1.v": "600m",
+  "showcase.part4.s2.l": "テクノロジー",
+  "showcase.part4.s2.v": "レーザーマトリックス",
+  "showcase.part4.s3.l": "効率",
+  "showcase.part4.s3.v": "A+++",
+
+  "showcase.part5.name": "フォージドカーボン エアロキット",
+  "showcase.part5.headline": "空力特性の再定義。",
+  "showcase.part5.desc":
+    "最大ダウンフォースとアグレッシブな美学を追求して設計された、超軽量なフォージドカーボンファイバー製コンポーネント。",
+  "showcase.part5.bgText": "AERO",
+  "showcase.part5.s1.l": "素材",
+  "showcase.part5.s1.v": "フォージドカーボン",
+  "showcase.part5.s2.l": "ダウンフォース",
+  "showcase.part5.s2.v": "+120kg",
+  "showcase.part5.s3.l": "重量削減",
+  "showcase.part5.s3.v": "-15kg",
+
+  // Footer Payment Methods
+  "footer.payment.title": "安全な支払い",
+  "footer.payment.subtitle":
+    "PayPal、主要なクレジットカードとデビットカード、銀行振込による安全な支払いを受け付けています。",
+  "footer.payment.bank": "銀行振込",
+
+  // Common UI Text
+  "common.learnMore": "もっと詳しく",
+  "common.exploreMore": "プレミアムパーツを探す",
+
+  // What We Do Section
+  "whatWeDo.badge": "私たちのサービス",
+  "whatWeDo.title": "私たちが",
+  "whatWeDo.titleHighlight": "すること",
+  "whatWeDo.subtitle":
+    "精密なエンジニアリングと比類のない品質で、プレミアムな自動車ソリューションを提供します。",
+  "whatWeDo.feature1.title": "プレミアムパーツの供給",
+  "whatWeDo.feature1.desc": "世界トップメーカーからの高性能コンポーネント。",
+  "whatWeDo.feature2.title": "品質保証",
+  "whatWeDo.feature2.desc":
+    "すべてのパーツは、OEM基準を満たし、それを超えるように厳格にテストされています。",
+  "whatWeDo.feature3.title": "エキスパート設置",
+  "whatWeDo.feature3.desc":
+    "グローバルパートナーネットワークを通じたプロフェッショナルな設置サービス。",
+  "whatWeDo.feature4.title": "世界配送",
+  "whatWeDo.feature4.desc": "世界中のお客様への迅速で信頼性の高い配送。",
+
+  // Premium Parts Categories
+  "categories.badge": "カテゴリー別に購入",
+  "categories.title": "あなたの",
+  "categories.titleHighlight": "車のためのプレミアムパーツを選ぶ",
+  "categories.subtitle":
+    "厳選された高性能自動車コンポーネントのコレクションをご覧ください。",
+  "categories.viewAll": "すべてのカテゴリーを見る",
+
+  // Our Gallery
+  "gallery.badge": "私たちの仕事",
+  "gallery.title": "私たちの",
+  "gallery.titleHighlight": "ギャラリー",
+  "gallery.subtitle":
+    "プレミアムビルドとインストールのポートフォリオをご覧ください。",
+  "gallery.img1.alt": "プレミアムカーボンセラミックブレーキの設置",
+  "gallery.img2.alt": "カスタムボディキットの取り付け",
+  "gallery.img3.alt": "高性能エキゾーストシステム",
+  "gallery.img4.alt": "高級インテリアアップグレード",
+  "gallery.img5.alt": "鍛造ホイールの設置",
+  "gallery.img6.alt": "カーボンファイバーコンポーネント",
+  "gallery.img7.alt": "完全な車両変換",
+  "gallery.img8.alt": "プロフェッショナルディテーリング作業",
+
+  // How We Work
+  "howWeWork.badge": "私たちのプロセス",
+  "howWeWork.title": "私たちの",
+  "howWeWork.titleHighlight": "働き方",
+  "howWeWork.subtitle": "選択から設置までのシンプルで透明なプロセス。",
+  "howWeWork.step1.title": "閲覧と選択",
+  "howWeWork.step1.desc":
+    "広範なカタログを閲覧し、あなたの車に最適なパーツを見つけてください。",
+  "howWeWork.step2.title": "注文する",
+  "howWeWork.step2.desc":
+    "複数の支払いオプションと即時確認による安全な支払い。",
+  "howWeWork.step3.title": "迅速な配送",
+  "howWeWork.step3.desc":
+    "パーツは丁寧に梱包され、あなたの場所に直接発送されます。",
+  "howWeWork.step4.title": "設置して楽しむ",
+  "howWeWork.step4.desc":
+    "プロフェッショナルな設置またはDIY - すべてのステップでサポートします。",
+  "howWeWork.cta.text": "車をアップグレードする準備はできましたか？",
+  "howWeWork.cta.button": "ショッピングを始める",
+
+  // Reviews
+  "reviews.badge": "お客様の声",
+  "reviews.title": "お客様が",
+  "reviews.titleHighlight": "語ること",
+  "reviews.subtitle":
+    "私たちを信頼してくれるドライバーからの本物のフィードバック。",
+  "reviews.review1.name": "マーカス・ロドリゲス",
+  "reviews.review1.car": "ポルシェ 911 GT3 RS",
+  "reviews.review1.feedback":
+    "カーボンセラミックローターは私のブレーキ性能を完全に変えました。トラックでのフェードゼロで信じられないほどの制動力。OwnSilentの品質は比類がありません。",
+  "reviews.review1.location": "マイアミ、アメリカ",
+  "reviews.review2.name": "ソフィー・ローラン",
+  "reviews.review2.car": "フェラーリ 488 ピスタ",
+  "reviews.review2.feedback":
+    "最初から最後まで素晴らしいサービス。チームは完璧なエキゾーストシステムを選ぶのを手伝ってくれ、設置は完璧でした。私のフェラーリはこれまで以上に良い音と性能を発揮しています。",
+  "reviews.review2.location": "パリ、フランス",
+  "reviews.review3.name": "田中健二",
+  "reviews.review3.car": "ランボルギーニ ウラカン",
+  "reviews.review3.feedback":
+    "優れた顧客サポートを備えたプレミアム品質のパーツ。ボディキットの取り付けは完璧で、日本への配送は予想よりも速かったです。強くお勧めします！",
+  "reviews.review3.location": "東京、日本",
+  "reviews.review4.name": "アレクサンダー・ミュラー",
+  "reviews.review4.car": "アウディ RS6 アバント",
+  "reviews.review4.feedback":
+    "プロフェッショナルな専門知識と自動車の卓越性への真の情熱。サスペンションのアップグレードは、私のRS6のハンドリングを完全に変えました。すべてのペニーの価値があります。",
+  "reviews.review4.location": "ミュンヘン、ドイツ",
 };
 
 // ==========================================
@@ -2656,7 +4480,7 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
-  undefined
+  undefined,
 );
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
@@ -2681,7 +4505,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   // UPDATED 't' FUNCTION
   const t = (
     key: string,
-    replacements?: { [key: string]: string | number }
+    replacements?: { [key: string]: string | number },
   ): string => {
     let translation =
       translations[language]?.[key] || translations["en"]?.[key] || key;
