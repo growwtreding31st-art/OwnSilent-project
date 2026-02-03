@@ -21,6 +21,7 @@ import {
   Phone
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import Hero from "@/components/Hero";
 
 interface ValueCardProps {
   icon: React.ElementType<LucideProps>;
@@ -92,6 +93,7 @@ export default function AboutUsPage() {
 
   return (
     <main className="bg-white font-sans text-slate-900 selection:bg-[#176FC0] selection:text-white">
+      <Hero />
       <section className="relative pt-24 pb-12 lg:pt-32 lg:pb-20 overflow-hidden bg-white">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#f8fafc_1px,transparent_1px),linear-gradient(to_bottom,#f8fafc_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50 rounded-sm blur-[120px] opacity-60 translate-x-1/3 -translate-y-1/4"></div>

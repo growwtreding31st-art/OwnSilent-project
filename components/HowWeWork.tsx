@@ -240,45 +240,6 @@ export default function HowWeWork() {
             </motion.div>
           ))}
         </div>
-
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center bg-gradient-to-br from-slate-50 to-blue-50/50 rounded-3xl p-8 lg:p-10 border border-blue-100/50 shadow-xl"
-        >
-          <motion.h3
-            className="text-xl sm:text-2xl font-black text-slate-900 mb-5"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            {t("howWeWork.cta.text")}
-          </motion.h3>
-
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              href="/shop"
-              className="group inline-flex items-center gap-3 bg-gradient-to-r from-[#176FC0] to-[#0F4C85] text-white px-8 py-4 rounded-2xl font-bold text-sm uppercase tracking-widest shadow-2xl shadow-blue-500/30 hover:shadow-3xl hover:shadow-blue-500/40 transition-all duration-300 overflow-hidden relative"
-            >
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-[#0F4C85] to-[#176FC0]"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: 0 }}
-                transition={{ duration: 0.3 }}
-              />
-              <span className="relative z-10">{t("howWeWork.cta.button")}</span>
-              <motion.div
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="relative z-10"
-              >
-                <ArrowRight className="w-5 h-5" />
-              </motion.div>
-            </Link>
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

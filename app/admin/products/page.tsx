@@ -13,6 +13,7 @@ import { Wrench, Plus, Search, UploadCloud, Pencil, Trash2, Loader2, X, PlusCirc
 import Image from 'next/image';
 import toast from 'react-hot-toast';
 import RichTextEditor from '@/components/RichTextEditor';
+import { useRouter } from 'next/navigation';
 
 const getStockClass = (quantity: number) => {
     if (quantity === 0) return 'bg-red-50 text-red-700 border border-red-200';
@@ -84,6 +85,7 @@ function debounce<T extends (...args: any[]) => void>(func: T, delay: number) {
 }
 
 export default function ProductsPage() {
+    const router = useRouter();
     const [activeTab, setActiveTab] = useState('all');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalType, setModalType] = useState('');
@@ -435,7 +437,7 @@ export default function ProductsPage() {
                                                 <div className="w-12 h-12 rounded-lg border border-slate-200 bg-slate-50 overflow-hidden shrink-0">
                                                     <Image src={part.images[0] || '/placeholder.png'} alt={part.name} width={48} height={48} className="w-full h-full object-cover" />
                                                 </div>
-                                                <div>
+                                                <div className="cursor-pointer" onClick={() => router.push(`/product/${part.slug}`)}>
                                                     <p className="font-semibold text-slate-900 text-sm">{part.name}</p>
                                                     <p className="text-xs text-slate-500 mt-0.5">{part.sku || 'No SKU'}</p>
                                                 </div>

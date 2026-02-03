@@ -119,8 +119,8 @@ export default function PremiumCarShowcase() {
         image: "/images/showcase/image2.png",
         bgText: t("showcase.part2.bgText") || "LIGHT",
         bgColor: "bg-[#f1f5f9]",
-        accentColor: "#e825eb",
-        glowColor: "rgba(232, 37, 235, 0.15)",
+        accentColor: "#3b82f6",
+        glowColor: "rgba(59, 130, 246, 0.15)",
         specs: [
           {
             label: t("showcase.part2.s1.l"),
@@ -149,8 +149,8 @@ export default function PremiumCarShowcase() {
         image: "/images/showcase/image3.png",
         bgText: t("showcase.part3.bgText") || "GLIDE",
         bgColor: "bg-[#e2e8f0]",
-        accentColor: "#ff0000ff",
-        glowColor: "rgba(175, 30, 30, 0.15)",
+        accentColor: "#3b82f6",
+        glowColor: "rgba(59, 130, 246, 0.15)",
         specs: [
           {
             label: t("showcase.part3.s1.l"),
@@ -180,8 +180,8 @@ export default function PremiumCarShowcase() {
         image: "/images/showcase/image4.png",
         bgText: t("showcase.part4.bgText") || "LIGHT",
         bgColor: "bg-[#f8fafc]",
-        accentColor: "#1eaf31",
-        glowColor: "rgba(30, 175, 49, 0.15)",
+        accentColor: "#3b82f6",
+        glowColor: "rgba(59, 130, 246, 0.15)",
         specs: [
           {
             label: t("showcase.part4.s1.l"),
@@ -210,8 +210,8 @@ export default function PremiumCarShowcase() {
         image: "/images/showcase/image5.png",
         bgText: t("showcase.part5.bgText") || "AERO",
         bgColor: "bg-[#f1f5f9]",
-        accentColor: "#e47010ff",
-        glowColor: "rgba(175, 168, 30, 0.15)",
+        accentColor: "#3b82f6",
+        glowColor: "rgba(59, 130, 246, 0.15)",
         specs: [
           {
             label: t("showcase.part5.s1.l"),

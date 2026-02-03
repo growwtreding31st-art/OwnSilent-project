@@ -7,6 +7,7 @@ import { fetchParts } from '@/lib/redux/productSlice';
 import { Layers, Plus, Pencil, Trash2, UploadCloud, Loader2, Search, X, Check, ArrowRight, ArrowLeft } from 'lucide-react';
 import Image from 'next/image';
 import toast from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 
 const TabButton = ({ active, onClick, children }: { active: boolean, onClick: () => void, children: React.ReactNode }) => (
     <button 
@@ -20,7 +21,7 @@ const TabButton = ({ active, onClick, children }: { active: boolean, onClick: ()
 export default function CollectionsPage() {
     const [activeTab, setActiveTab] = useState('all');
     const [editingCollection, setEditingCollection] = useState<any>(null);
-    
+    const router = useRouter();
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [status, setStatus] = useState('Draft');
@@ -175,9 +176,9 @@ export default function CollectionsPage() {
                                                         <div className="w-full h-full flex items-center justify-center text-slate-400"><Layers size={20}/></div>
                                                     )}
                                                 </div>
-                                                <div>
+                                                <div onClick={() => router.push(`/collections/${col.slug}`)}>
                                                     <p className="font-bold text-slate-800 text-sm sm:text-base">{col.name}</p>
-                                                    <p className="text-xs text-slate-400 font-mono mt-0.5 max-w-[150px] sm:max-w-xs truncate">{col.slug}</p>
+                                                    <p className="text-xs text-slate-400 font-mono mt-0.5 max-w-[150px] sm:max-w-xs truncate" >{col.slug}</p>
                                                 </div>
                                             </div>
                                         </td>

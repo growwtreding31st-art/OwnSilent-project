@@ -192,7 +192,7 @@ export default function FeaturesBanner() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 sm:mb-16 lg:mb-20 gap-6 lg:gap-10">
+        {/* <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-12 sm:mb-16 lg:mb-20 gap-6 lg:gap-10">
           <div className="max-w-3xl w-full lg:w-auto">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -231,10 +231,10 @@ export default function FeaturesBanner() {
             We merge cutting-edge technology with artisanal craftsmanship to
             create automotive components that are unparalleled.
           </motion.p>
-        </div>
+        </div> */}
 
         {/* Premium Value Strip */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -257,14 +257,14 @@ export default function FeaturesBanner() {
               </span>
             </div>
           ))}
-        </motion.div>
+        </motion.div> */}
 
         {/* Interactive Highlight Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8 mb-20 sm:mb-28 lg:mb-32">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8 mb-20 sm:mb-28 lg:mb-32">
           {engineeringFeatures.map((feature, index) => (
             <FeatureCard key={index} feature={feature} index={index} />
           ))}
-        </div>
+        </div> */}
 
         {/* LIGHT MODE CORPORATE SECTION */}
         <div className="relative rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3.5rem] bg-gradient-to-br from-indigo-50/50 via-white to-blue-50/50 p-6 sm:p-10 lg:p-24 overflow-hidden border border-white shadow-[0_20px_60px_rgba(0,0,0,0.04)] sm:shadow-[0_40px_100px_rgba(0,0,0,0.05)]">

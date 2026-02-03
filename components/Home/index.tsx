@@ -19,9 +19,9 @@ import WelcomeScreen from "./WelcomeScreen";
 export default function HomePageContent() {
   return (
     <div className="min-h-screen overflow-x-hidden">
-      <WelcomeScreen />
+      {/* <WelcomeScreen /> */}
       <PremiumCarShowcase />
-      <Hero />
+      {/* <Hero /> */}
       <CarsSection />
       {/* <BrandProductsSection /> */}
       {/* <CollectionsSection /> */}
@@ -32,7 +32,7 @@ export default function HomePageContent() {
       <Reviews />
       <AboutUs />
       <BlogSection />
-      <BannerSegment />
+      {/* <BannerSegment /> */}
       <FeaturesBanner />
     </div>
   );

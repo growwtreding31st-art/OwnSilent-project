@@ -76,19 +76,19 @@ export default function AboutUs() {
   return (
     <section
       id="about"
-      className="relative bg-white py-16 sm:py-20 lg:py-28 overflow-hidden"
+      className="relative bg-white py-12 sm:py-16 lg:py-20 overflow-hidden"
     >
       {/* Background Decor */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 right-[5%] w-[500px] h-[500px] bg-blue-50/40 rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-blue-50/40 rounded-full blur-[120px]" />
         <div className="absolute bottom-1/4 left-[-5%] w-[450px] h-[450px] bg-indigo-50/30 rounded-full blur-[120px]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* ADVANCED VIDEO INTERFACE */}
-          <div className="lg:col-span-6 relative order-2 lg:order-1 flex justify-center items-center">
+          <div className="lg:col-span-5 relative order-2 lg:order-1 flex items-center">
             <motion.div
               ref={containerRef}
               onMouseMove={handleMouseMove}
@@ -98,7 +98,7 @@ export default function AboutUs() {
                 rotateY,
                 transformStyle: "preserve-3d",
               }}
-              className="relative w-full aspect-[4/3] max-w-2xl cursor-pointer"
+              className="relative w-full aspect-[4/3] cursor-pointer"
             >
               {/* Backglow Effect */}
               <div className="absolute -inset-10 bg-gradient-to-tr from-[#176FC0]/20 to-indigo-500/10 rounded-full blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -229,7 +229,7 @@ export default function AboutUs() {
           </div>
 
           {/* CONTENT COLUMN */}
-          <div className="lg:col-span-6 flex flex-col justify-center order-1 lg:order-2">
+          <div className="lg:col-span-7 flex flex-col justify-center order-1 lg:order-2">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -247,7 +247,7 @@ export default function AboutUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mb-8 leading-[1.05]"
+              className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight mb-6 leading-[1.05]"
             >
               {t("about.title")}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#176FC0] via-[#1461A8] to-[#0F4C85] block mt-2">
@@ -260,7 +260,7 @@ export default function AboutUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-base sm:text-lg text-slate-600 leading-relaxed mb-10 font-medium"
+              className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6 font-medium"
             >
               {t("about.intro")}
             </motion.p>
@@ -270,14 +270,14 @@ export default function AboutUs() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="relative bg-gradient-to-br from-slate-50 to-white border-l-4 border-[#176FC0] p-8 rounded-r-[2rem] mb-12 shadow-[0_10px_30px_rgba(0,0,0,0.03)]"
+              className="relative bg-gradient-to-br from-slate-50 to-white border-l-4 border-[#176FC0] p-6 rounded-r-[2rem] mb-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)]"
             >
-              <p className="text-xl font-bold text-slate-800 italic leading-relaxed">
+              <p className="text-lg font-bold text-slate-800 italic leading-relaxed">
                 "{t("about.mission")}"
               </p>
             </motion.div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
               {features.map((feature, idx) => (
                 <motion.div
                   key={idx}
@@ -285,16 +285,16 @@ export default function AboutUs() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 + idx * 0.1 }}
-                  className="group flex items-start gap-6 p-5 rounded-2xl bg-white border border-slate-100 hover:border-[#176FC0]/30 hover:shadow-xl hover:shadow-[#176FC0]/5 transition-all duration-500"
+                  className="group flex items-start gap-6 p-4 rounded-2xl bg-white border border-slate-100 hover:border-[#176FC0]/30 hover:shadow-xl hover:shadow-[#176FC0]/5 transition-all duration-500"
                 >
                   <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-xl bg-slate-50 text-slate-400 group-hover:bg-[#176FC0] group-hover:text-white group-hover:rotate-6 transition-all duration-500">
                     <feature.icon size={22} strokeWidth={2} />
                   </div>
                   <div>
-                    <h4 className="text-base font-black text-slate-900 mb-1 tracking-tight group-hover:text-[#176FC0] transition-colors">
+                    <h4 className="text-sm font-black text-slate-900 mb-1 tracking-tight group-hover:text-[#176FC0] transition-colors">
                       {feature.title}
                     </h4>
-                    <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                    <p className="text-[11px] text-slate-500 leading-relaxed font-medium">
                       {feature.description}
                     </p>
                   </div>
@@ -307,16 +307,16 @@ export default function AboutUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.8 }}
-              className="mt-14"
+              className="mt-10"
             >
               <a
                 href="/about-us"
-                className="group relative inline-flex items-center gap-6 text-[13px] font-black text-slate-950 uppercase tracking-[0.2em] overflow-hidden"
+                className="group relative inline-flex items-center gap-4 text-[13px] font-black text-slate-950 uppercase tracking-[0.2em] overflow-hidden"
               >
                 <span className="relative z-10 transition-transform group-hover:translate-x-2">
                   Discover Our Story
                 </span>
-                <div className="w-12 h-12 rounded-full bg-[#176FC0] flex items-center justify-center text-white shadow-lg shadow-[#176FC0]/20 transform group-hover:scale-110 transition-transform">
+                <div className="w-10 h-10 rounded-full bg-[#176FC0] flex items-center justify-center text-white shadow-lg shadow-[#176FC0]/20 transform group-hover:scale-110 transition-transform">
                   <ArrowRight
                     size={18}
                     className="group-hover:translate-x-1 transition-transform"
