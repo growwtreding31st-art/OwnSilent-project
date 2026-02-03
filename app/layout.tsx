@@ -15,54 +15,65 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ownsilent.international"),
-  title: {
-    default: "OwnSilent - Premium Auto Parts & Accessories",
-    template: "%s | OwnSilent",
-  },
+  title: "Luxury Car Tuning Parts",
   description:
-    "Worldwide wholesale & retail of premium auto parts. OwnSilent offers high-quality car accessories, components, and custom solutions for enthusiasts and professionals.",
+    "Own Silent International Limited is a leading OEM manufacturer of luxury car tuning parts, carbon fiber components, carbon ceramic brakes, custom interiors, conversion body kits, and high-performance OEM parts for global luxury vehicles.",
   keywords: [
-    "auto parts",
-    "car accessories",
-    "premium car parts",
-    "OwnSilent international",
-    "car components",
-    "wholesale auto parts",
+    "Own Silent International Limited",
+    "OwnSilent luxury car tuning parts",
+    "OwnSilent carbon ceramic brakes",
+    "OwnSilent carbon fiber components",
+    "OwnSilent conversion body kits",
+    "OwnSilent OEM parts",
+    "OwnSilent forged wheels",
+    "OwnSilent carbon fiber body kits",
+    "OwnSilent carbon fiber interiors",
+    "OwnSilent custom luxury interiors",
+    "OwnSilent bespoke steering wheels",
+    "OwnSilent high-performance tuning parts",
+    "OwnSilent diagnostics parts",
+    "OwnSilent genuine car parts",
+    "OwnSilent new and used auto parts",
+    "OwnSilent Alcantara and leather interiors",
+    "OwnSilent supercar tuning parts",
+    "OwnSilent premium automotive components",
+    "OwnSilent carbon ceramic brake pads",
+    "OwnSilent carbon ceramic brake rotors"
   ],
   authors: [{ name: "OwnSilent Team" }],
-  creator: "OwnSilent",
-  publisher: "OwnSilent",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  creator: "Own Silent International Limited",
+  publisher: "Own Silent International Limited",
+  formatDetection: { email: false, address: false, telephone: false },
+
+  // === Open Graph ===
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://ownsilent.international",
-    siteName: "OwnSilent",
-    title: "OwnSilent - Premium Auto Parts & Accessories",
+    siteName: "Own Silent International Limited",
+    title: "Luxury Car Tuning Parts",
     description:
-      "Worldwide premium auto parts marketplace. Quality guaranteed.",
+      "Own Silent International Limited is a leading OEM manufacturer of luxury car tuning parts, carbon fiber components, carbon ceramic brakes, custom interiors, conversion body kits, and high-performance OEM parts for global luxury vehicles.",
     images: [
       {
-        url: "/og-image.jpg", // Need to ensure this exists or use a default
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "OwnSilent - Premium Auto Parts",
+        alt: "Own Silent International Limited - Luxury Car Tuning Parts",
       },
     ],
   },
+
+  // === Twitter Card ===
   twitter: {
     card: "summary_large_image",
-    title: "OwnSilent - Premium Auto Parts & Accessories",
+    title: "Luxury Car Tuning Parts",
     description:
-      "Worldwide premium auto parts marketplace. Quality guaranteed.",
+      "Own Silent International Limited is a leading OEM manufacturer of luxury car tuning parts, carbon fiber components, carbon ceramic brakes, custom interiors, conversion body kits, and high-performance OEM parts.",
     images: ["/og-image.jpg"],
-    creator: "@ownsilent",
+    creator: "@ownsilentintern",
   },
+
   robots: {
     index: true,
     follow: true,
@@ -74,12 +85,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "5w-CgaXCySEQhYiSv5c6ylMOLtOt7UC-75zVu5dbTX8",
-  },
-  alternates: {
-    canonical: "/",
-  },
+
+  verification: { google: "5w-CgaXCySEQhYiSv5c6ylMOLtOt7UC-75zVu5dbTX8" },
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({
@@ -90,17 +98,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} overflow-x-hidden`}>
-        {/* 1. Redux Provider (Sabse Bahar) */}
         <ReduxProvider>
-          {/* 2. Language Provider */}
           <LanguageProvider>
-            {/* 3. Currency Provider */}
             <CurrencyProvider>
               <Toaster position="top-center" reverseOrder={false} />
-
-              {/* 4. Aapka Layout Logic (Header/Footer control) */}
               <ConditionalLayout>{children}</ConditionalLayout>
 
+              {/* === JSON-LD Schema === */}
               <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
@@ -108,7 +112,7 @@ export default function RootLayout({
                     {
                       "@context": "https://schema.org",
                       "@type": "Organization",
-                      name: "OwnSilent",
+                      name: "Own Silent International Limited",
                       url: "https://ownsilent.international",
                       logo: "https://ownsilent.international/logo.png",
                       contactPoint: {
@@ -118,14 +122,17 @@ export default function RootLayout({
                       },
                       sameAs: [
                         "https://www.facebook.com/ownsilent",
-                        "https://www.instagram.com/ownsilent",
-                        "https://twitter.com/ownsilent",
+                        "https://www.instagram.com/ownsilent.international/",
+                        "https://x.com/ownsilentintern",
+                        "https://www.threads.com/@ownsilent.international",
+                        "https://hk.linkedin.com/company/own-silent-international-limited",
+                        "https://www.youtube.com/channel/UCVLc73Mcd89bmyFG5-Ye91g"
                       ],
                     },
                     {
                       "@context": "https://schema.org",
                       "@type": "WebSite",
-                      name: "OwnSilent",
+                      name: "Own Silent International Limited",
                       url: "https://ownsilent.international",
                       potentialAction: {
                         "@type": "SearchAction",
