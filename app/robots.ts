@@ -7,9 +7,9 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         allow: '/',
         disallow: [
-          '/admin',
-          '/account',
-          '/checkout',
+          '/admin/',
+          '/account/',
+          '/checkout/',
           '/api/',
           '/_next/',
           '/static/',
@@ -21,6 +21,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: 'https://ownsilent.international/sitemap.xml',
-    host: 'https://ownsilent.international',
   }
 }
