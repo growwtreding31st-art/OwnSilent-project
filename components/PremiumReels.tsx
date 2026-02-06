@@ -2,13 +2,21 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Instagram, Youtube, Play, ArrowRight, Video } from "lucide-react";
+import { Instagram, Play, ArrowRight, Video } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import useEmblaCarousel from "embla-carousel-react";
 
 const REELS = ["DRCP2ZoEuyg", "DRBa_DYEl6t", "DQ9dLmiEgrt"];
 
 export default function PremiumReels() {
   const { t } = useLanguage();
+  const [emblaRef] = useEmblaCarousel({
+    align: "start",
+    containScroll: "trimSnaps",
+    breakpoints: {
+      "(min-width: 640px)": { active: false }, // Disable carousel on tablet/desktop to keep grid
+    },
+  });
 
   return (
     <section className="relative py-20 sm:py-28 bg-white overflow-hidden">
@@ -65,26 +73,28 @@ export default function PremiumReels() {
           </motion.a>
         </div>
 
-        {/* Reels Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {REELS.map((id, index) => (
-            <motion.div
-              key={id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
-              className="relative group aspect-[9/16] bg-slate-50 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-slate-100"
-            >
-              <iframe
-                src={`https://www.instagram.com/reel/${id}/embed`}
-                className="absolute inset-0 w-full h-full border-0"
-              ></iframe>
+        {/* Reels Container - Slider on Mobile, Grid on Desktop */}
+        <div className="overflow-hidden sm:overflow-visible" ref={emblaRef}>
+          <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {REELS.map((id, index) => (
+              <motion.div
+                key={id}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15 }}
+                className="relative flex-none w-[85%] sm:w-auto group aspect-[9/16] bg-slate-50 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-slate-100"
+              >
+                <iframe
+                  src={`https://www.instagram.com/reel/${id}/embed`}
+                  className="absolute inset-0 w-full h-full border-0"
+                ></iframe>
 
-              {/* Decorative Frame Overlays */}
-              <div className="absolute inset-0 pointer-events-none border-[8px] border-white rounded-3xl z-20 shadow-inner" />
-            </motion.div>
-          ))}
+                {/* Decorative Frame Overlays */}
+                <div className="absolute inset-0 pointer-events-none border-[8px] border-white rounded-3xl z-20 shadow-inner" />
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Help Tip */}
