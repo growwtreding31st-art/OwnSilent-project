@@ -18,12 +18,20 @@ import {
   Hash,
   Youtube,
   Pin,
-  Gamepad2, // Using as a proxy for Threads or similar if needed, or I'll just use AtSign
+  Gamepad2,
   AtSign,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import useEmblaCarousel from "embla-carousel-react";
 export default function Footer() {
   const { t } = useLanguage();
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    loop: true,
+    dragFree: true,
+  });
   const companyLinks = [
     { href: "/carbon-ceramic-rotors", label: t("footer.link.rotors") },
     { href: "/shop", label: t("footer.link.shop") },
@@ -225,41 +233,45 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Infinite Brand Slider - Positioned below the main company info grid */}
-              <div className="w-full py-12 border-y border-slate-50 overflow-hidden mb-12 relative">
-                <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
-                <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
+              {/* Manual Brand Slider */}
+              <div className="w-full py-12 border-y border-slate-50 mb-12 relative group/slider">
+                <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-                <motion.div
-                  className="flex items-center gap-20 whitespace-nowrap"
-                  animate={{
-                    x: [0, -1920],
-                  }}
-                  transition={{
-                    x: {
-                      repeat: Infinity,
-                      repeatType: "loop",
-                      duration: 40,
-                      ease: "linear",
-                    },
-                  }}
+                <div className="overflow-hidden" ref={emblaRef}>
+                  <div className="flex items-center">
+                    {brands.map((brand, idx) => (
+                      <div key={idx} className="flex-[0_0_auto] px-10">
+                        <Link
+                          href={`/collections/${brand.name.toLowerCase().replace(/\s+/g, "-")}`}
+                          className="flex-shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer block"
+                        >
+                          <Image
+                            src={brand.image}
+                            alt={brand.name}
+                            width={110}
+                            height={45}
+                            className="h-9 sm:h-11 w-auto object-contain"
+                          />
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Navigation Buttons */}
+                <button
+                  onClick={() => emblaApi?.scrollPrev()}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center text-slate-400 hover:text-slate-900 opacity-0 group-hover/slider:opacity-100 transition-opacity border border-slate-100"
                 >
-                  {[...brands, ...brands].map((brand, idx) => (
-                    <Link
-                      key={idx}
-                      href={`/collections/${brand.name.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="flex-shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer"
-                    >
-                      <Image
-                        src={brand.image}
-                        alt={brand.name}
-                        width={110}
-                        height={45}
-                        className="h-9 sm:h-11 w-auto object-contain"
-                      />
-                    </Link>
-                  ))}
-                </motion.div>
+                  <ChevronLeft size={20} />
+                </button>
+                <button
+                  onClick={() => emblaApi?.scrollNext()}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center text-slate-400 hover:text-slate-900 opacity-0 group-hover/slider:opacity-100 transition-opacity border border-slate-100"
+                >
+                  <ChevronRight size={20} />
+                </button>
               </div>
             </div>
           </div>
