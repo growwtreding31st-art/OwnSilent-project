@@ -1,19 +1,23 @@
-"use client"
-import React from 'react';
-import Link from 'next/link';
+"use client";
+import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 
 const brands = [
-  { name: "BMW", image: "/images/Blogs/BMW.jpeg" },
-  { name: "Mercedes-Benz", image: "/images/Blogs/mercedes.jpg" },
-  { name: "Audi", image: "/images/Blogs/audi.webp" },
-  { name: "Porsche", image: "/images/Blogs/porsche.png" },
-  { name: "Lamborghini", image: "/images/Blogs/lamborghini.png" },
+  { name: "BMW", image: "/carlogos/1200px-BMW_PNG.avif" },
+  { name: "Mercedes-Benz", image: "/carlogos/Mercedes-Benz-Logo.avif" },
+  { name: "Audi", image: "/carlogos/Audi-logo-1999-1920x1080.avif" },
+  { name: "Porsche", image: "/carlogos/Porsche_PNG.avif" },
+  { name: "Lamborghini", image: "/carlogos/Lambo_PNG.avif" },
   { name: "Ferrari", image: "/images/Blogs/ferrari.avif" },
+  { name: "Land Rover", image: "/carlogos/1200px-LandRover.avif" },
+  { name: "Jaguar", image: "/carlogos/Jaguar_PNG.avif" },
+  { name: "Rolls-Royce", image: "/carlogos/RR_PNG.avif" },
+  { name: "Mini", image: "/carlogos/Mini_PNG.avif" },
+  { name: "Bentley", image: "/carlogos/cd3619f9e171f176bf0774017147170d.avif" },
   { name: "Toyota", image: "/images/Blogs/toyota.png" },
   { name: "Ford", image: "/images/Blogs/ford.webp" },
   { name: "Nissan", image: "/images/Blogs/nissan.jpeg" },
-  { name: "Honda", image: "/images/Blogs/honda.svg" },
   { name: "Volkswagen", image: "/images/Blogs/vw.jpeg" },
 ];
 

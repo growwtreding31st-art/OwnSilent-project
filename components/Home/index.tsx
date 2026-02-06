@@ -56,6 +56,11 @@ const InstagramFeedSection = dynamic(() => import("../InstagramFeedSection"), {
   ssr: true,
 });
 
+const PremiumReels = dynamic(() => import("../PremiumReels"), {
+  loading: () => <SectionLoader />,
+  ssr: true,
+});
+
 // Lightweight loading component
 function SectionLoader() {
   return (
@@ -113,6 +118,10 @@ export default function HomePageContent() {
 
       <Suspense fallback={<SectionLoader />}>
         <InstagramFeedSection />
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <PremiumReels />
       </Suspense>
     </div>
   );

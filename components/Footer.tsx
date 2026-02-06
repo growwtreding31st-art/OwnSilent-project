@@ -12,6 +12,10 @@ import {
   ArrowRight,
   ShieldCheck,
   CheckCircle,
+  Mail,
+  Globe,
+  Building2,
+  Hash,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 export default function Footer() {
@@ -51,6 +55,25 @@ export default function Footer() {
     { href: "#", icon: Instagram, label: "Instagram" },
     { href: "#", icon: Linkedin, label: "LinkedIn" },
   ];
+
+  const brands = [
+    { name: "BMW", image: "/images/Blogs/BMW.jpeg" },
+    { name: "Mercedes-Benz", image: "/images/Blogs/mercedes.jpg" },
+    { name: "Audi", image: "/images/Blogs/audi.webp" },
+    { name: "Porsche", image: "/images/Blogs/porsche.png" },
+    { name: "Lamborghini", image: "/images/Blogs/lamborghini.png" },
+    { name: "Ferrari", image: "/images/Blogs/ferrari.avif" },
+    { name: "Toyota", image: "/images/Blogs/toyota.png" },
+    { name: "Ford", image: "/images/Blogs/ford.webp" },
+    { name: "Nissan", image: "/images/Blogs/nissan.jpeg" },
+    { name: "Honda", image: "/images/Blogs/honda.svg" },
+    { name: "Volkswagen", image: "/images/Blogs/vw.jpeg" },
+    { name: "Bentley", image: "/images/Blogs/BMW.jpeg" }, // Placeholders
+    { name: "Rolls-Royce", image: "/images/Blogs/mercedes.jpg" },
+    { name: "McLaren", image: "/images/Blogs/porsche.png" },
+    { name: "Aston Martin", image: "/images/Blogs/audi.webp" },
+  ];
+
   return (
     <footer className="bg-white border-t border-slate-100 font-sans">
       <div className="container mx-auto px-5 sm:px-6 lg:px-8 py-16">
@@ -65,42 +88,128 @@ export default function Footer() {
                 className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
               />
             </Link>
-            <div className="text-slate-500 text-sm leading-relaxed space-y-5 max-w-sm">
-              <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                <strong className="text-slate-900 block mb-1 text-xs uppercase tracking-wide">
-                  Headquarters
-                </strong>
-                <p>
-                  2/F, Tower 1, Tern Centre, 237 Queen’s Road Central, Sheung
-                  Wan, Hong Kong
-                </p>
-              </div>
-              <div className="space-y-3 pl-1">
-                <div className="flex flex-col">
-                  <span className="font-bold text-slate-900 text-[10px] uppercase tracking-wider mb-0.5">
-                    {t("footer.email")}
-                  </span>
-                  <a
-                    href="mailto:sales@ownsilent.international"
-                    className="text-slate-600 hover:text-[#176FC0] transition-colors font-medium break-all"
-                  >
-                    sales@ownsilent.international
-                  </a>
+            <div className="mt-8 relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#176FC0]/20 to-indigo-500/10 rounded-2xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative bg-white border border-slate-100 rounded-2xl p-5 shadow-sm space-y-5">
+                {/* Company Title */}
+                <div className="flex items-start gap-3">
+                  <div className="p-2 bg-blue-50 rounded-lg text-[#176FC0]">
+                    <Building2 size={18} />
+                  </div>
+                  <div>
+                    <h4 className="text-[13px] font-black text-slate-900 uppercase tracking-tight">
+                      Own Silent International Limited
+                    </h4>
+                    <div className="flex items-center gap-1.5 mt-1 text-slate-400">
+                      <Hash size={10} />
+                      <span className="text-[10px] font-bold uppercase tracking-widest">
+                        Reg: 76215481
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-slate-900 text-[10px] uppercase tracking-wider mb-0.5">
-                    {t("footer.website")}
+
+                {/* Address */}
+                <div className="space-y-2">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">
+                    Office Address
                   </span>
-                  <a
-                    href="https://www.ownsilent.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-slate-600 hover:text-[#176FC0] transition-colors font-medium"
-                  >
-                    www.ownsilent.com
-                  </a>
+                  <p className="text-xs text-slate-600 leading-relaxed font-medium">
+                    2/F, Tower 1, Tern Centre, 237 Queen’s Road Central, Sheung
+                    Wan, Hong Kong
+                  </p>
+                </div>
+
+                {/* Emails */}
+                <div className="space-y-2">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">
+                    Direct Contact
+                  </span>
+                  <div className="space-y-1.5 text-xs">
+                    <a
+                      href="mailto:sales@ownsilent.international"
+                      className="flex items-center gap-2 text-slate-600 hover:text-[#176FC0] transition-colors font-semibold"
+                    >
+                      <Mail size={12} className="text-[#176FC0]" />{" "}
+                      sales@ownsilent.international
+                    </a>
+                    <a
+                      href="mailto:Help@ownsilent.com"
+                      className="flex items-center gap-2 text-slate-600 hover:text-[#176FC0] transition-colors font-semibold"
+                    >
+                      <Mail size={12} className="text-[#176FC0]" />{" "}
+                      Help@ownsilent.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* Websites Grid */}
+                <div className="space-y-2 pt-2 border-t border-slate-50">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-2">
+                    Regional Domains
+                  </span>
+                  <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+                    {[
+                      { url: "www.ownsilent.international", flag: "🌐" },
+                      { url: "www.ownsilent.com", flag: "🇺🇸" },
+                      { url: "www.ownsilent.in", flag: "🇮🇳" },
+                      { url: "www.ownsilent.uk", flag: "🇬🇧" },
+                      { url: "www.ownsilent.us", flag: "🇺🇸" },
+                      { url: "www.ownsilent.ae", flag: "🇦🇪" },
+                      { url: "www.ownsilent.eu", flag: "🇪🇺" },
+                    ].map((site) => (
+                      <a
+                        key={site.url}
+                        href={`https://${site.url}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-[10px] font-bold text-slate-500 hover:text-[#176FC0] transition-colors"
+                      >
+                        <Globe size={10} className="text-slate-300" />
+                        <span className="truncate">
+                          {site.url.replace("www.", "")}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
+
+               {/* Infinite Brand Slider - Positioned below the main company info grid */}
+        <div className="w-full py-12 border-y border-slate-50 overflow-hidden mb-12 relative">
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
+
+          <motion.div
+            className="flex items-center gap-20 whitespace-nowrap"
+            animate={{
+              x: [0, -1920],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 40,
+                ease: "linear",
+              },
+            }}
+          >
+            {[...brands, ...brands].map((brand, idx) => (
+              <div
+                key={idx}
+                className="flex-shrink-0  hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
+              >
+                <Image
+                  src={brand.image}
+                  alt={brand.name}
+                  width={110}
+                  height={45}
+                  className="h-9 sm:h-11 w-auto object-contain"
+                />
+              </div>
+            ))}
+          </motion.div>
+        </div>
             </div>
           </div>
           <div className="col-span-1 md:col-span-3 lg:col-span-2">
@@ -139,7 +248,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="col-span-1 md:col-span-3 lg:col-span-2">
+          {/* <div className="col-span-1 md:col-span-3 lg:col-span-2">
             <h3 className="font-bold text-slate-900 mb-5 text-sm uppercase tracking-wider">
               {t("footer.categories")}
             </h3>
@@ -155,10 +264,10 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           <div className="col-span-2 md:col-span-3 lg:col-span-3 space-y-10">
-            <div>
+            {/* <div>
               <h3 className="font-bold text-slate-900 mb-5 text-sm uppercase tracking-wider">
                 Vehicle Brands
               </h3>
@@ -174,7 +283,7 @@ export default function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
             <div>
               <h3 className="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wider">
                 Exclusive Launches & Builds
@@ -197,6 +306,8 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
+       
 
         <div className="border-t border-slate-100 pt-10 pb-10">
           <div className="w-full mb-10">
