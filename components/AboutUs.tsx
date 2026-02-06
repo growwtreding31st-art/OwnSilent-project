@@ -270,7 +270,7 @@ export default function AboutUs() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="relative bg-gradient-to-br from-slate-50 to-white border-l-4 border-[#176FC0] p-6 rounded-r-[2rem] mb-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)]"
+              className="hidden md:block relative bg-gradient-to-br from-slate-50 to-white border-l-4 border-[#176FC0] p-6 rounded-r-[2rem] mb-8 shadow-[0_10px_30px_rgba(0,0,0,0.03)]"
             >
               <p className="text-lg font-bold text-slate-800 italic leading-relaxed">
                 "{t("about.mission")}"
