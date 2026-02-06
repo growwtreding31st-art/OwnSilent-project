@@ -88,12 +88,11 @@ export default function Footer() {
                 className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
               />
             </Link>
-            <div className="mt-8 relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#176FC0]/20 to-indigo-500/10 rounded-2xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+            <div className="mt-8 relative">
               <div className="relative bg-white border border-slate-100 rounded-2xl p-5 shadow-sm space-y-5">
                 {/* Company Title */}
                 <div className="flex items-start gap-3">
-                  <div className="p-2 bg-blue-50 rounded-lg text-[#176FC0]">
+                  <div className="p-2 bg-slate-50 rounded-xl text-slate-900 border border-slate-100">
                     <Building2 size={18} />
                   </div>
                   <div>
