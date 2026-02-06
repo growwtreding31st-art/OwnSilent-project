@@ -302,7 +302,7 @@ export default function AboutUs() {
               ))}
             </div>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -329,7 +329,7 @@ export default function AboutUs() {
                   className="absolute bottom-0 left-0 h-[1px] bg-[#176FC0] z-0"
                 />
               </a>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </div>

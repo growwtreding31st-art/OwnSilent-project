@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -27,6 +27,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import useEmblaCarousel from "embla-carousel-react";
 export default function Footer() {
   const { t } = useLanguage();
+  const [isExpanded, setIsExpanded] = useState(false);
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     loop: true,
@@ -232,47 +233,6 @@ export default function Footer() {
                   </div>
                 </div>
               </div>
-
-              {/* Manual Brand Slider */}
-              <div className="w-full py-12 border-y border-slate-50 mb-12 relative group/slider">
-                <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-                <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
-                <div className="overflow-hidden" ref={emblaRef}>
-                  <div className="flex items-center">
-                    {brands.map((brand, idx) => (
-                      <div key={idx} className="flex-[0_0_auto] px-10">
-                        <Link
-                          href={`/collections/${brand.name.toLowerCase().replace(/\s+/g, "-")}`}
-                          className="flex-shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer block"
-                        >
-                          <Image
-                            src={brand.image}
-                            alt={brand.name}
-                            width={110}
-                            height={45}
-                            className="h-9 sm:h-11 w-auto object-contain"
-                          />
-                        </Link>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Navigation Buttons */}
-                <button
-                  onClick={() => emblaApi?.scrollPrev()}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center text-slate-400 hover:text-slate-900 opacity-0 group-hover/slider:opacity-100 transition-opacity border border-slate-100"
-                >
-                  <ChevronLeft size={20} />
-                </button>
-                <button
-                  onClick={() => emblaApi?.scrollNext()}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white shadow-lg rounded-full flex items-center justify-center text-slate-400 hover:text-slate-900 opacity-0 group-hover/slider:opacity-100 transition-opacity border border-slate-100"
-                >
-                  <ChevronRight size={20} />
-                </button>
-              </div>
             </div>
           </div>
           <div className="col-span-1 md:col-span-3 lg:col-span-2">
@@ -370,23 +330,74 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Manual Brand Slider - Moved to full width with blue outer line */}
+        <div className="w-full py-10 border border-[#176FC0]/30 rounded-3xl mb-16 relative group/slider bg-slate-50/30 overflow-hidden">
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-slate-50/80 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-slate-50/80 to-transparent z-10 pointer-events-none" />
+
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex items-center">
+              {brands.map((brand, idx) => (
+                <div key={idx} className="flex-[0_0_auto] px-12">
+                  <Link
+                    href={`/collections/${brand.name.toLowerCase().replace(/\s+/g, "-")}`}
+                    className="flex-shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer block"
+                  >
+                    <Image
+                      src={brand.image}
+                      alt={brand.name}
+                      width={120}
+                      height={50}
+                      className="h-10 sm:h-12 w-auto object-contain hover:grayscale-0 transition-opacity"
+                    />
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigation Buttons */}
+          <button
+            onClick={() => emblaApi?.scrollPrev()}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white shadow-xl rounded-full flex items-center justify-center text-slate-400 hover:text-[#176FC0] opacity-0 group-hover/slider:opacity-100 transition-all border border-blue-100"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button
+            onClick={() => emblaApi?.scrollNext()}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white shadow-xl rounded-full flex items-center justify-center text-slate-400 hover:text-[#176FC0] opacity-0 group-hover/slider:opacity-100 transition-all border border-blue-100"
+          >
+            <ChevronRight size={24} />
+          </button>
+        </div>
+
         <div className="border-t border-slate-100 pt-10 pb-10">
           <div className="w-full mb-10">
             <h3 className="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wide">
               {t("footer.disclaimer")}
             </h3>
-            <div className="text-xs text-slate-500 leading-relaxed text-justify lg:text-left space-y-3 bg-slate-50/50 p-6 rounded-2xl border border-slate-100/50">
-              <p>{t("footer.disclaimer.p1")}</p>
-              <p>{t("footer.disclaimer.p2")}</p>
-              <p>
-                {t("footer.disclaimer.p3")}{" "}
-                <Link
-                  href="/full-desclaimer"
-                  className="font-bold text-slate-700 underline decoration-slate-300 underline-offset-2 hover:text-[#176FC0] hover:decoration-blue-400 transition-all"
-                >
-                  {t("footer.disclaimer.link")}
-                </Link>
-              </p>
+            <div className="text-[10px] text-slate-400 leading-relaxed text-justify lg:text-left space-y-2 bg-slate-50/30 p-4 rounded-xl border border-slate-100/30">
+              <div
+                className={`transition-all duration-500 overflow-hidden ${isExpanded ? "max-h-[1000px] opacity-100" : "max-h-12 opacity-90"}`}
+              >
+                <p>{t("footer.disclaimer.p1")}</p>
+                {isExpanded && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="space-y-2 mt-2"
+                  >
+                    <p>{t("footer.disclaimer.p2")}</p>
+                    <p>{t("footer.disclaimer.p3")}</p>
+                  </motion.div>
+                )}
+              </div>
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="font-bold text-[#176FC0] hover:underline mt-1 block"
+              >
+                {isExpanded ? "Show less" : "See more"}
+              </button>
             </div>
           </div>
 

@@ -116,9 +116,9 @@ export default function HomePageContent() {
         <FeaturesBanner />
       </Suspense>
 
-      <Suspense fallback={<SectionLoader />}>
+      {/* <Suspense fallback={<SectionLoader />}>
         <InstagramFeedSection />
-      </Suspense>
+      </Suspense> */}
 
       <Suspense fallback={<SectionLoader />}>
         <PremiumReels />
