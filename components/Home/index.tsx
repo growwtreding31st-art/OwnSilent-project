@@ -15,6 +15,7 @@ import OurGallery from "@/components/OurGallery";
 import HowWeWork from "@/components/HowWeWork";
 import Reviews from "@/components/Reviews";
 import WelcomeScreen from "./WelcomeScreen";
+import InstagramFeedSection from "../InstagramFeedSection";
 
 export default function HomePageContent() {
   return (
@@ -34,6 +35,7 @@ export default function HomePageContent() {
       <BlogSection />
       {/* <BannerSegment /> */}
       <FeaturesBanner />
+      <InstagramFeedSection/>
     </div>
   );
 }

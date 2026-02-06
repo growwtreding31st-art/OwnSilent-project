@@ -537,11 +537,69 @@ export default function CategoryShowcaseSection() {
           {status === "loading" ? (
             <MobileSkeletonLoader />
           ) : (
-            <div className="max-w-md mx-auto space-y-8">
-              {validCategorySlides.map((slide) => (
-                <MobileCategoryCard key={slide._id} slide={slide} />
-              ))}
-            </div>
+            <>
+              {/* Mobile Category Slides */}
+              <div className="max-w-md mx-auto space-y-8">
+                {filteredSlides.map((slide) => (
+                  <MobileCategoryCard key={slide._id} slide={slide} />
+                ))}
+              </div>
+
+              {/* Mobile Category Navigation */}
+              {categoriesWithContent.length > 1 && (
+                <div className="flex items-center justify-center gap-3 mt-8 px-4">
+                  <button
+                    onClick={() => {
+                      const currentIndex = categoriesWithContent.findIndex(
+                        (cat) => cat._id === activeCategoryId,
+                      );
+                      const prevIndex =
+                        currentIndex > 0
+                          ? currentIndex - 1
+                          : categoriesWithContent.length - 1;
+                      setActiveCategoryId(categoriesWithContent[prevIndex]._id);
+                    }}
+                    className="flex-shrink-0 h-10 w-10 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all text-slate-700 hover:text-[#176FC0] border border-slate-200 active:scale-95"
+                    aria-label="Previous category"
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </button>
+
+                  <div className="flex-1 text-center px-2">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm">
+                      <span className="text-xs font-bold text-slate-900 truncate max-w-[200px]">
+                        {categoriesWithContent.find(
+                          (cat) => cat._id === activeCategoryId,
+                        )?.name || ""}
+                      </span>
+                      <span className="text-[10px] text-slate-400 font-medium">
+                        {categoriesWithContent.findIndex(
+                          (cat) => cat._id === activeCategoryId,
+                        ) + 1}
+                        /{categoriesWithContent.length}
+                      </span>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={() => {
+                      const currentIndex = categoriesWithContent.findIndex(
+                        (cat) => cat._id === activeCategoryId,
+                      );
+                      const nextIndex =
+                        currentIndex < categoriesWithContent.length - 1
+                          ? currentIndex + 1
+                          : 0;
+                      setActiveCategoryId(categoriesWithContent[nextIndex]._id);
+                    }}
+                    className="flex-shrink-0 h-10 w-10 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all text-slate-700 hover:text-[#176FC0] border border-slate-200 active:scale-95"
+                    aria-label="Next category"
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </button>
+                </div>
+              )}
+            </>
           )}
         </div>
 

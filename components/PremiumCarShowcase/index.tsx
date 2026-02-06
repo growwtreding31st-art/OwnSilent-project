@@ -270,15 +270,13 @@ export default function PremiumCarShowcase() {
         />
       </AnimatePresence>
 
-      {/* Interactive Spotlight */}
+      {/* Interactive Spotlight - GPU Optimized */}
       <motion.div
-        className="absolute inset-0 pointer-events-none z-0"
+        className="absolute w-[800px] h-[800px] rounded-full pointer-events-none z-0 top-[-400px] left-[-400px]"
         style={{
-          background: useTransform(
-            [spotlightX, spotlightY],
-            ([x, y]) =>
-              `radial-gradient(circle 400px at ${x}px ${y}px, ${currentPart.glowColor}, transparent)`,
-          ),
+          x: spotlightX,
+          y: spotlightY,
+          background: `radial-gradient(circle, ${currentPart.glowColor}, transparent 70%)`,
         }}
       />
 
@@ -306,11 +304,11 @@ export default function PremiumCarShowcase() {
         <AnimatePresence mode="wait">
           <motion.h1
             key={currentPart.bgText}
-            initial={{ opacity: 0, scale: 1.5, filter: "blur(20px)" }}
-            animate={{ opacity: 0.04, scale: 1, filter: "blur(0px)" }}
-            exit={{ opacity: 0, scale: 0.5, filter: "blur(30px)" }}
+            initial={{ opacity: 0, scale: 1.5 }}
+            animate={{ opacity: 0.04, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.5 }}
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[25vw] font-black tracking-tighter text-slate-900 leading-none"
+            className="text-[25vw] font-black tracking-tighter text-slate-900 leading-none will-change-transform"
           >
             {currentPart.bgText}
           </motion.h1>
@@ -452,18 +450,17 @@ export default function PremiumCarShowcase() {
                     <Image
                       src={currentPart.image}
                       alt={currentPart.name}
-                      width={900}
-                      height={900}
-                      className="object-contain drop-shadow-[0_40px_40px_rgba(0,0,0,0.15)] md:drop-shadow-[0_80px_80px_rgba(0,0,0,0.2)] pointer-events-none p-4 transition-all duration-700"
+                      width={600}
+                      height={600}
+                      className="object-contain drop-shadow-2xl pointer-events-none p-4 transition-all duration-700"
                       priority
+                      quality={80}
                     />
                   </div>
 
-                  {/* Dynamic Glow */}
-                  <motion.div
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
-                    transition={{ duration: 4, repeat: Infinity }}
-                    className="absolute inset-0 blur-[60px] md:blur-[120px] z-[-1] rounded-full"
+                  {/* Dynamic Glow - Optimized */}
+                  <div
+                    className="absolute inset-0 blur-[50px] z-[-1] rounded-full opacity-30 transition-colors duration-500"
                     style={{ backgroundColor: currentPart.accentColor }}
                   />
                 </motion.div>

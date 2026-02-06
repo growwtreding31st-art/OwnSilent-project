@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Wrench, Shield, Zap, Globe2, Sparkles } from "lucide-react";
+import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function WhatWeDo() {
@@ -16,6 +17,7 @@ export default function WhatWeDo() {
       gradient: "from-blue-500/10 via-cyan-500/10 to-blue-500/10",
       iconBg: "from-blue-500 to-cyan-500",
       glowColor: "rgba(59, 130, 246, 0.3)",
+      href: "/features/maintenance",
     },
     {
       icon: Shield,
@@ -24,6 +26,7 @@ export default function WhatWeDo() {
       gradient: "from-indigo-500/10 via-blue-500/10 to-indigo-500/10",
       iconBg: "from-indigo-500 to-blue-500",
       glowColor: "rgba(99, 102, 241, 0.3)",
+      href: "/features/warranty",
     },
     {
       icon: Zap,
@@ -32,6 +35,7 @@ export default function WhatWeDo() {
       gradient: "from-sky-500/10 via-indigo-500/10 to-sky-500/10",
       iconBg: "from-sky-500 to-indigo-500",
       glowColor: "rgba(14, 165, 233, 0.3)",
+      href: "/features/performance",
     },
     {
       icon: Globe2,
@@ -40,6 +44,7 @@ export default function WhatWeDo() {
       gradient: "from-cyan-500/10 via-blue-500/10 to-cyan-500/10",
       iconBg: "from-cyan-500 to-blue-500",
       glowColor: "rgba(6, 182, 212, 0.3)",
+      href: "/features/global-support",
     },
   ];
 
@@ -129,72 +134,73 @@ export default function WhatWeDo() {
         {/* Enhanced Features Grid - 2 cols mobile, 4 cols desktop */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
           {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: index * 0.1,
-                type: "spring",
-                stiffness: 100,
-              }}
-              whileHover={{ y: -8, scale: 1.02 }}
-              className="group relative"
-            >
-              {/* Glow Effect */}
+            <Link key={index} href={feature.href} className="block">
               <motion.div
-                className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-500"
-                style={{
-                  background: `radial-gradient(circle at center, ${feature.glowColor}, transparent 70%)`,
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 100,
                 }}
-              />
-
-              {/* Card - Compact */}
-              <div className="relative h-full bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-slate-200/50 shadow-sm hover:shadow-lg transition-all duration-500 overflow-hidden">
-                {/* Animated Gradient Background */}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group relative h-full"
+              >
+                {/* Glow Effect */}
                 <motion.div
-                  className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                  animate={{
-                    backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "linear",
+                  className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-500"
+                  style={{
+                    background: `radial-gradient(circle at center, ${feature.glowColor}, transparent 70%)`,
                   }}
                 />
 
-                {/* Content */}
-                <div className="relative z-10 flex flex-col items-center text-center">
-                  {/* Enhanced Icon - Compact */}
+                {/* Card - Compact */}
+                <div className="relative h-full bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-slate-200/50 shadow-sm hover:shadow-lg transition-all duration-500 overflow-hidden">
+                  {/* Animated Gradient Background */}
                   <motion.div
-                    className="mb-3"
-                    whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <div
-                      className={`inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${feature.iconBg} text-white shadow-lg shadow-blue-500/30 group-hover:shadow-xl group-hover:shadow-blue-500/40 transition-all duration-500`}
+                    className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                    animate={{
+                      backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+                    }}
+                    transition={{
+                      duration: 5,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                  />
+
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col items-center text-center">
+                    {/* Enhanced Icon - Compact */}
+                    <motion.div
+                      className="mb-3"
+                      whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                      transition={{ duration: 0.5 }}
                     >
-                      <feature.icon
-                        className="w-5 h-5 sm:w-6 sm:h-6"
-                        strokeWidth={2}
-                      />
-                    </div>
-                  </motion.div>
+                      <div
+                        className={`inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${feature.iconBg} text-white shadow-lg shadow-blue-500/30 group-hover:shadow-xl group-hover:shadow-blue-500/40 transition-all duration-500`}
+                      >
+                        <feature.icon
+                          className="w-5 h-5 sm:w-6 sm:h-6"
+                          strokeWidth={2}
+                        />
+                      </div>
+                    </motion.div>
 
-                  {/* Title */}
-                  <h3 className="text-sm sm:text-base font-black text-slate-900 mb-2 tracking-tight group-hover:text-[#176FC0] transition-colors duration-300">
-                    {feature.title}
-                  </h3>
+                    {/* Title */}
+                    <h3 className="text-sm sm:text-base font-black text-slate-900 mb-2 tracking-tight group-hover:text-[#176FC0] transition-colors duration-300">
+                      {feature.title}
+                    </h3>
 
-                  {/* Description - Hidden on very small screens if needed, or small text */}
-                  <p className="text-[10px] sm:text-xs text-slate-600 leading-relaxed font-medium line-clamp-3">
-                    {feature.description}
-                  </p>
+                    {/* Description - Hidden on very small screens if needed, or small text */}
+                    <p className="text-[10px] sm:text-xs text-slate-600 leading-relaxed font-medium line-clamp-3">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>

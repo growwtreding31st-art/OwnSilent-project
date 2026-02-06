@@ -98,7 +98,7 @@ export default function Header() {
   return (
     <>
       <header
-        className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-40 border-b border-slate-100 hidden lg:block transition-all duration-300"
+        className="fixed top-0 left-0 w-full bg-white/60 backdrop-blur-2xl z-40 border-b border-slate-100/50 hidden lg:block transition-all duration-300"
         dir={dir}
       >
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,7 +106,7 @@ export default function Header() {
             <div className="flex items-center gap-x-10">
               <Link href="/" aria-label="Home" className="shrink-0 group">
                 <Image
-                  src="/images/home/logo.png"
+                  src="/images/home/logo2.png"
                   alt="Logo"
                   width={140}
                   height={38}
@@ -286,7 +286,7 @@ export default function Header() {
         </div>
       </header>
 
-      <header className="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-md z-40 border-b border-slate-100 lg:hidden transition-all">
+      <header className="fixed top-0 left-0 w-full bg-white z-40 border-b border-slate-100 lg:hidden transition-all">
         <div className="px-4 py-3 flex justify-between items-center">
           <Link href="/" aria-label="Home" className="relative z-10">
             <Image
@@ -332,7 +332,7 @@ export default function Header() {
         </div>
       </header>
 
-      <nav className="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-lg z-50 border-t border-slate-200 pb-safe lg:hidden">
+      <nav className="fixed bottom-0 left-0 w-full bg-white z-50 border-t border-slate-200 pb-safe lg:hidden">
         <div className="grid grid-cols-4 px-1 pb-1 pt-1">
           {mobileBottomNavLinks.map((link) => {
             const isActive = pathname === link.href;

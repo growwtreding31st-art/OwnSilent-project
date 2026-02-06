@@ -1,53 +1,39 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowRight, Sparkles, TrendingUp } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "@/lib/redux/store";
+import { fetchPublicParts } from "@/lib/redux/productSlice";
 
 export default function PremiumPartsCategories() {
   const { t } = useLanguage();
+  const dispatch = useDispatch<AppDispatch>();
+  const { parts, status } = useSelector((state: RootState) => state.products);
 
-  // Using the same category structure as Footer
-  const categories = [
-    {
-      title: t("footer.cat.engine"),
-      image: "/images/home/Parts-2.jpg",
-      link: "/shop?category=engine",
-      accent: "from-blue-500 to-cyan-500",
-    },
-    {
-      title: t("footer.cat.suspension"),
-      image: "/images/home/Parts-3.jpg",
-      link: "/shop?category=suspension",
-      accent: "from-indigo-500 to-blue-500",
-    },
-    {
-      title: t("footer.cat.brakes"),
-      image: "/images/home/Part-4.jpg",
-      link: "/shop?category=brakes",
-      accent: "from-sky-500 to-indigo-500",
-    },
-    {
-      title: t("footer.cat.exhaust"),
-      image: "/images/home/Parts-5.jpg",
-      link: "/shop?category=exhaust",
-      accent: "from-cyan-500 to-blue-500",
-    },
-    {
-      title: t("footer.cat.body"),
-      image: "/images/home/Parts-6.jpg",
-      link: "/shop?category=body-kits",
-      accent: "from-blue-600 to-indigo-600",
-    },
-    {
-      title: t("footer.cat.lighting"),
-      image: "/images/home/Parts-7.jpg",
-      link: "/shop?category=lighting",
-      accent: "from-indigo-600 to-purple-600",
-    },
-  ];
+  useEffect(() => {
+    dispatch(fetchPublicParts({ limit: 10 }));
+  }, [dispatch]);
+
+  // Get first 10 products
+  const displayProducts = parts.slice(0, 10);
+
+  if (status === "loading") {
+    return (
+      <section className="relative bg-gradient-to-b from-white via-slate-50/50 to-white py-8 sm:py-10 lg:py-12">
+        <div className="container mx-auto px-2 sm:px-4 lg:px-6">
+          <div className="text-center text-slate-600">Loading products...</div>
+        </div>
+      </section>
+    );
+  }
+
+  if (displayProducts.length === 0) {
+    return null;
+  }
 
   return (
     <section className="relative bg-gradient-to-b from-white via-slate-50/50 to-white py-8 sm:py-10 lg:py-12 overflow-hidden">
@@ -123,10 +109,14 @@ export default function PremiumPartsCategories() {
           </p>
         </motion.div>
 
-        {/* Enhanced Categories Grid - 3 cols mobile (2 rows), 6 cols desktop (1 row) */}
-        <div className="grid grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 lg:gap-4">
-          {categories.map((category, index) => (
-            <CategoryCard key={index} category={category} index={index} />
+        {/* Products Grid - Responsive */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 lg:gap-4">
+          {displayProducts.map((product: any, index: number) => (
+            <ProductCard
+              key={product._id || index}
+              product={product}
+              index={index}
+            />
           ))}
         </div>
 
@@ -166,8 +156,8 @@ export default function PremiumPartsCategories() {
   );
 }
 
-// Separate component for 3D tilt effect - Compact Version
-function CategoryCard({ category, index }: { category: any; index: number }) {
+// Product Card Component with 3D tilt effect
+function ProductCard({ product, index }: { product: any; index: number }) {
   const { t } = useLanguage();
   const ref = useRef<HTMLAnchorElement>(null);
   const x = useMotionValue(0);
@@ -200,7 +190,7 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
   return (
     <motion.a
       ref={ref}
-      href={category.link}
+      href={`/product/${product.slug || product._id}`}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -232,11 +222,11 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
         style={{ transform: "translateZ(20px)" }}
       >
         <Image
-          src={category.image}
-          alt={category.title}
+          src={product.images?.[0] || "/images/placeholder.jpg"}
+          alt={product.title || "Product"}
           fill
-          quality={60}
-          sizes="(max-width: 768px) 33vw, 16vw"
+          quality={40}
+          sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
           className="object-cover group-hover:scale-110 transition-transform duration-700"
         />
 
@@ -250,7 +240,7 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
 
         {/* Animated Accent Line */}
         <motion.div
-          className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${category.accent}`}
+          className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-500`}
           initial={{ scaleX: 0 }}
           whileHover={{ scaleX: 1 }}
           transition={{ duration: 0.5 }}
@@ -265,18 +255,18 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
       >
         <div className="flex flex-col items-start gap-2">
           <motion.h3
-            className="text-xs sm:text-sm font-black text-white tracking-tight uppercase leading-tight"
+            className="text-xs sm:text-sm font-black text-white tracking-tight uppercase leading-tight line-clamp-2"
             whileHover={{ x: 2 }}
             transition={{ duration: 0.2 }}
           >
-            {category.title}
+            {product.title || product.name || "Product"}
           </motion.h3>
 
           {/* Enhanced CTA Icon - Smaller */}
           <motion.div
             whileHover={{ scale: 1.1, rotate: 45 }}
             transition={{ type: "spring", stiffness: 400 }}
-            className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br ${category.accent} backdrop-blur-sm flex items-center justify-center shadow-lg`}
+            className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 backdrop-blur-sm flex items-center justify-center shadow-lg`}
           >
             <ArrowRight
               className="w-3 h-3 sm:w-4 sm:h-4 text-white"
