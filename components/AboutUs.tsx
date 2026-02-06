@@ -88,7 +88,7 @@ export default function AboutUs() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* ADVANCED VIDEO INTERFACE */}
-          <div className="lg:col-span-5 relative order-2 lg:order-1 flex items-center">
+          <div className="hidden lg:flex lg:col-span-5 relative order-2 lg:order-1 items-center">
             <motion.div
               ref={containerRef}
               onMouseMove={handleMouseMove}
