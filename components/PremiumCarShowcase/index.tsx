@@ -8,11 +8,13 @@ import React, {
   useRef,
 } from "react";
 import {
-  motion,
+  m,
   AnimatePresence,
   useMotionValue,
   useSpring,
   useTransform,
+  LazyMotion,
+  domAnimation,
 } from "framer-motion";
 import Image from "next/image";
 import {
@@ -28,26 +30,40 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
-const AUTO_PLAY_INTERVAL = 4000;
+const AUTO_PLAY_INTERVAL = 7000;
+
+// Optimized animation variants
+const fadeVariants = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
+
+const slideVariants = {
+  initial: { opacity: 0, x: -60 },
+  animate: { opacity: 1, x: 0 },
+  exit: { opacity: 0, x: 60 },
+};
 
 export default function PremiumCarShowcase() {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
-  // Mouse tracking for 3D tilt and spotlight
+  // Mouse tracking for 3D tilt - only on desktop
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Smooth springs for tilt
-  const springConfig = { stiffness: 150, damping: 20 };
+  // Smooth springs for tilt - reduced stiffness for better performance
+  const springConfig = { stiffness: 100, damping: 25 };
   const rotateX = useSpring(
-    useTransform(mouseY, [-300, 300], [10, -10]),
+    useTransform(mouseY, [-300, 300], [5, -5]),
     springConfig,
   );
   const rotateY = useSpring(
-    useTransform(mouseX, [-300, 300], [-10, 10]),
+    useTransform(mouseX, [-300, 300], [-5, 5]),
     springConfig,
   );
 
@@ -55,24 +71,31 @@ export default function PremiumCarShowcase() {
   const spotlightX = useSpring(useMotionValue(0), springConfig);
   const spotlightY = useSpring(useMotionValue(0), springConfig);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!sectionRef.current) return;
-    const rect = sectionRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
-    mouseX.set(e.clientX - centerX);
-    mouseY.set(e.clientY - centerY);
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent) => {
+      if (!sectionRef.current || window.innerWidth < 768) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
 
-    spotlightX.set(e.clientX - rect.left);
-    spotlightY.set(e.clientY - rect.top);
-  };
+      mouseX.set(e.clientX - centerX);
+      mouseY.set(e.clientY - centerY);
 
-  const handleMouseLeave = () => {
+      spotlightX.set(e.clientX - rect.left);
+      spotlightY.set(e.clientY - rect.top);
+    },
+    [mouseX, mouseY, spotlightX, spotlightY],
+  );
+
+  const handleMouseLeave = useCallback(() => {
     setIsHovered(false);
     mouseX.set(0);
     mouseY.set(0);
-  };
+  }, [mouseX, mouseY]);
 
   // Memoize parts array
   const parts = useMemo(
@@ -234,15 +257,15 @@ export default function PremiumCarShowcase() {
     [t],
   );
 
-  const currentPart = parts[currentIndex];
+  const currentPart = useMemo(() => parts[currentIndex], [parts, currentIndex]);
 
   const nextPart = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % parts.length);
   }, [parts.length]);
 
-  const prevPart = () => {
+  const prevPart = useCallback(() => {
     setCurrentIndex((prev) => (prev - 1 + parts.length) % parts.length);
-  };
+  }, [parts.length]);
 
   useEffect(() => {
     if (isHovered) return;
@@ -250,398 +273,399 @@ export default function PremiumCarShowcase() {
     return () => clearInterval(timer);
   }, [nextPart, isHovered]);
 
+  if (!isMounted) {
+    return (
+      <section className="relative min-h-screen md:h-screen w-full overflow-hidden flex items-center justify-center py-12 md:py-0 bg-[#f8fafc]">
+        <div className="animate-pulse text-slate-400">Loading...</div>
+      </section>
+    );
+  }
+
   return (
-    <section
-      ref={sectionRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={handleMouseLeave}
-      className="relative min-h-screen md:h-screen w-full overflow-hidden flex items-center justify-center py-12 md:py-0 cursor-crosshair group"
-    >
-      {/* Background System */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentPart.id}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.5 }}
-          className={`absolute inset-0 ${currentPart.bgColor}`}
-        />
-      </AnimatePresence>
-
-      {/* Interactive Spotlight - GPU Optimized */}
-      <motion.div
-        className="absolute w-[800px] h-[800px] rounded-full pointer-events-none z-0 top-[-400px] left-[-400px]"
-        style={{
-          x: spotlightX,
-          y: spotlightY,
-          background: `radial-gradient(circle, ${currentPart.glowColor}, transparent 70%)`,
-        }}
-      />
-
-      {/* Noise Texture Overlay */}
-      <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none z-[1] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-
-      {/* Modern HUD Elements */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden z-[2]">
-        {/* Corner Brackets */}
-        <div className="absolute top-10 left-10 w-20 h-20 border-t border-l border-slate-900/10" />
-        <div className="absolute top-10 right-10 w-20 h-20 border-t border-r border-slate-900/10" />
-        <div className="absolute bottom-10 left-10 w-20 h-20 border-b border-l border-slate-900/10" />
-        <div className="absolute bottom-10 right-10 w-20 h-20 border-b border-r border-slate-900/10" />
-
-        {/* Moving Scan Line */}
-        <motion.div
-          animate={{ y: ["0%", "100%", "0%"] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-          className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-900/5 to-transparent z-[2]"
-        />
-      </div>
-
-      {/* Hero Background Text (Kinetic) */}
-      <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none overflow-hidden z-[1]">
+    <LazyMotion features={domAnimation} strict>
+      <section
+        ref={sectionRef}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={handleMouseLeave}
+        className="relative min-h-screen md:h-screen w-full overflow-hidden flex items-center justify-center py-12 md:py-0 cursor-crosshair group"
+      >
+        {/* Background System */}
         <AnimatePresence mode="wait">
-          <motion.h1
-            key={currentPart.bgText}
-            initial={{ opacity: 0, scale: 1.5 }}
-            animate={{ opacity: 0.04, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.5 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[25vw] font-black tracking-tighter text-slate-900 leading-none will-change-transform"
-          >
-            {currentPart.bgText}
-          </motion.h1>
+          <m.div
+            key={currentPart.id}
+            variants={fadeVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 1 }}
+            className={`absolute inset-0 ${currentPart.bgColor}`}
+          />
         </AnimatePresence>
-      </div>
 
-      <div className="relative z-10 w-full max-w-[1300px] px-6 sm:px-12 flex flex-col md:grid md:grid-cols-12 md:gap-10 items-center">
-        {/* Information Panel */}
-        <div className="col-span-12 md:col-span-5 order-2 md:order-1 text-center md:text-left">
+        {/* Interactive Spotlight - GPU Optimized - Desktop Only */}
+        {typeof window !== "undefined" && window.innerWidth >= 768 && (
+          <m.div
+            className="absolute w-[800px] h-[800px] rounded-full pointer-events-none z-0 top-[-400px] left-[-400px] will-change-transform"
+            style={{
+              x: spotlightX,
+              y: spotlightY,
+              background: `radial-gradient(circle, ${currentPart.glowColor}, transparent 70%)`,
+            }}
+          />
+        )}
+
+        {/* Noise Texture Overlay - Reduced opacity for performance */}
+        <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay pointer-events-none z-[1] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+
+        {/* Modern HUD Elements - Simplified */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden z-[2] hidden md:block">
+          <div className="absolute top-10 left-10 w-20 h-20 border-t border-l border-slate-900/10" />
+          <div className="absolute top-10 right-10 w-20 h-20 border-t border-r border-slate-900/10" />
+          <div className="absolute bottom-10 left-10 w-20 h-20 border-b border-l border-slate-900/10" />
+          <div className="absolute bottom-10 right-10 w-20 h-20 border-b border-r border-slate-900/10" />
+        </div>
+
+        {/* Hero Background Text (Kinetic) */}
+        <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none overflow-hidden z-[1]">
           <AnimatePresence mode="wait">
-            <motion.div
-              key={currentPart.id}
-              initial={{ opacity: 0, x: -60 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 60 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            <m.h1
+              key={currentPart.bgText}
+              initial={{ opacity: 0, scale: 1.3 }}
+              animate={{ opacity: 0.04, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.7 }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              className="text-[25vw] font-black tracking-tighter text-slate-900 leading-none"
             >
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="inline-flex items-center gap-3 backdrop-blur-md bg-white/40 px-3 py-1 rounded-full border border-white/60 mb-6"
-              >
-                <div className="relative flex h-1.5 w-1.5">
-                  <span
-                    className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-                    style={{ backgroundColor: currentPart.accentColor }}
-                  />
-                  <span
-                    className="relative inline-flex rounded-full h-1.5 w-1.5"
-                    style={{ backgroundColor: currentPart.accentColor }}
-                  />
-                </div>
-                <span className="font-bold tracking-[0.25em] uppercase text-[8px] text-slate-600">
-                  {t("showcase.series")}
-                </span>
-              </motion.div>
-
-              <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-[0.95] mb-4 sm:mb-6 overflow-hidden">
-                <motion.span
-                  className="block"
-                  initial={{ y: "100%" }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  {currentPart.name.split(" ").slice(0, 2).join(" ")}
-                </motion.span>
-                <motion.span
-                  className="block text-transparent bg-clip-text"
-                  style={{
-                    backgroundImage: `linear-gradient(135deg, ${currentPart.accentColor}, #64748b)`,
-                  }}
-                  initial={{ y: "100%" }}
-                  animate={{ y: 0 }}
-                  transition={{
-                    duration: 0.8,
-                    delay: 0.1,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                >
-                  {currentPart.name.split(" ").slice(2).join(" ")}
-                </motion.span>
-              </h2>
-
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 1 }}
-                className="text-slate-500 text-sm md:text-base font-medium leading-relaxed mb-6 md:mb-8 max-w-sm mx-auto md:mx-0 border-l-2 pl-4"
-                style={{ borderColor: currentPart.accentColor }}
-              >
-                {currentPart.description}
-              </motion.p>
-            </motion.div>
+              {currentPart.bgText}
+            </m.h1>
           </AnimatePresence>
         </div>
 
-        {/* 3D Visual Hub */}
-        <div className="col-span-12 md:col-span-4 order-1 md:order-2 flex items-center justify-center py-10 md:py-0">
-          <div className="relative w-full max-w-[280px] sm:max-w-[400px] md:max-w-[550px] aspect-square flex items-center justify-center">
-            {/* Dynamic Interactive Platform */}
-            <motion.div
-              style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-              className="relative w-full h-full flex items-center justify-center"
-            >
-              {/* Rotating Tech Rings */}
-              {[...Array(3)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  animate={{ rotate: 360 }}
-                  transition={{
-                    duration: 15 + i * 10,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="absolute rounded-full border border-dashed pointer-events-none"
-                  style={{
-                    width: `${85 + i * 20}%`,
-                    height: `${85 + i * 20}%`,
-                    borderColor: currentPart.accentColor,
-                    opacity: 0.1 - i * 0.03,
-                  }}
-                />
-              ))}
-
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={currentPart.id}
-                  initial={{
-                    opacity: 0,
-                    scale: 0.8,
-                    rotateY: -90,
-                    filter: "brightness(0)",
-                  }}
-                  animate={{
-                    opacity: 1,
-                    scale:
-                      typeof window !== "undefined" && window.innerWidth < 768
-                        ? 1
-                        : 1.3,
-                    rotateY: 0,
-                    filter: "brightness(1)",
-                  }}
-                  exit={{
-                    opacity: 0,
-                    scale: 0.8,
-                    rotateY: 90,
-                    filter: "brightness(2)",
-                  }}
-                  transition={{ type: "spring", stiffness: 45, damping: 15 }}
-                  className="relative z-10 w-full"
-                  style={{ transformStyle: "preserve-3d" }}
+        <div className="relative z-10 w-full max-w-[1300px] px-6 sm:px-12 flex flex-col md:grid md:grid-cols-12 md:gap-10 items-center">
+          {/* Information Panel */}
+          <div className="col-span-12 md:col-span-5 order-2 md:order-1 text-center md:text-left">
+            <AnimatePresence mode="wait">
+              <m.div
+                key={currentPart.id}
+                variants={slideVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <m.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="inline-flex items-center gap-3 backdrop-blur-md bg-white/40 px-3 py-1 rounded-full border border-white/60 mb-6"
                 >
-                  <div
-                    style={{
-                      transform: "translateZ(80px) md:translateZ(120px)",
-                    }}
-                  >
-                    <Image
-                      src={currentPart.image}
-                      alt={currentPart.name}
-                      width={600}
-                      height={600}
-                      className="object-contain drop-shadow-2xl pointer-events-none p-4 transition-all duration-700"
-                      priority
-                      quality={80}
+                  <div className="relative flex h-1.5 w-1.5">
+                    <span
+                      className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+                      style={{ backgroundColor: currentPart.accentColor }}
+                    />
+                    <span
+                      className="relative inline-flex rounded-full h-1.5 w-1.5"
+                      style={{ backgroundColor: currentPart.accentColor }}
                     />
                   </div>
+                  <span className="font-bold tracking-[0.25em] uppercase text-[8px] text-slate-600">
+                    {t("showcase.series")}
+                  </span>
+                </m.div>
 
-                  {/* Dynamic Glow - Optimized */}
-                  <div
-                    className="absolute inset-0 blur-[50px] z-[-1] rounded-full opacity-30 transition-colors duration-500"
-                    style={{ backgroundColor: currentPart.accentColor }}
+                <h2 className="text-3xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-[0.95] mb-4 sm:mb-6">
+                  <span className="block">
+                    {currentPart.name.split(" ").slice(0, 2).join(" ")}
+                  </span>
+                  <span
+                    className="block text-transparent bg-clip-text"
+                    style={{
+                      backgroundImage: `linear-gradient(135deg, ${currentPart.accentColor}, #64748b)`,
+                    }}
+                  >
+                    {currentPart.name.split(" ").slice(2).join(" ")}
+                  </span>
+                </h2>
+
+                <m.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.4, duration: 0.8 }}
+                  className="text-slate-500 text-sm md:text-base font-medium leading-relaxed mb-6 md:mb-8 max-w-sm mx-auto md:mx-0 border-l-2 pl-4"
+                  style={{ borderColor: currentPart.accentColor }}
+                >
+                  {currentPart.description}
+                </m.p>
+              </m.div>
+            </AnimatePresence>
+          </div>
+
+          {/* 3D Visual Hub */}
+          <div className="col-span-12 md:col-span-4 order-1 md:order-2 flex items-center justify-center py-10 md:py-0">
+            <div className="relative w-full max-w-[280px] sm:max-w-[400px] md:max-w-[550px] aspect-square flex items-center justify-center">
+              {/* Dynamic Interactive Platform */}
+              <m.div
+                style={{
+                  rotateX:
+                    typeof window !== "undefined" && window.innerWidth >= 768
+                      ? rotateX
+                      : 0,
+                  rotateY:
+                    typeof window !== "undefined" && window.innerWidth >= 768
+                      ? rotateY
+                      : 0,
+                  transformStyle: "preserve-3d",
+                }}
+                className="relative w-full h-full flex items-center justify-center"
+              >
+                {/* Rotating Tech Rings - Reduced to 2 for performance */}
+                {[...Array(2)].map((_, i) => (
+                  <m.div
+                    key={i}
+                    animate={{ rotate: 360 }}
+                    transition={{
+                      duration: 20 + i * 15,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="absolute rounded-full border border-dashed pointer-events-none"
+                    style={{
+                      width: `${85 + i * 25}%`,
+                      height: `${85 + i * 25}%`,
+                      borderColor: currentPart.accentColor,
+                      opacity: 0.08 - i * 0.03,
+                    }}
                   />
-                </motion.div>
-              </AnimatePresence>
-            </motion.div>
+                ))}
+
+                <AnimatePresence mode="wait">
+                  <m.div
+                    key={currentPart.id}
+                    initial={{
+                      opacity: 0,
+                      scale: 0.85,
+                      filter: "brightness(0.5)",
+                    }}
+                    animate={{
+                      opacity: 1,
+                      scale:
+                        typeof window !== "undefined" && window.innerWidth < 768
+                          ? 1
+                          : 1.2,
+                      filter: "brightness(1)",
+                    }}
+                    exit={{
+                      opacity: 0,
+                      scale: 0.85,
+                      filter: "brightness(1.5)",
+                    }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative z-10 w-full will-change-transform"
+                  >
+                    <div className="relative">
+                      <Image
+                        src={currentPart.image}
+                        alt={currentPart.name}
+                        width={600}
+                        height={600}
+                        className="object-contain drop-shadow-2xl pointer-events-none p-4"
+                        priority={currentIndex === 0}
+                        quality={75}
+                        loading={currentIndex === 0 ? "eager" : "lazy"}
+                        sizes="(max-width: 768px) 280px, (max-width: 1024px) 400px, 550px"
+                      />
+                    </div>
+
+                    {/* Dynamic Glow - Optimized */}
+                    <div
+                      className="absolute inset-0 blur-[40px] z-[-1] rounded-full opacity-25 transition-colors duration-500"
+                      style={{ backgroundColor: currentPart.accentColor }}
+                    />
+                  </m.div>
+                </AnimatePresence>
+              </m.div>
+            </div>
+          </div>
+
+          {/* Control & Specs Panel */}
+          <div className="col-span-12 md:col-span-3 order-3 flex flex-col items-center md:items-end w-full">
+            <div className="space-y-12 w-full max-w-sm md:max-w-none">
+              {/* Spec Cluster */}
+              <div className="space-y-6">
+                <div className="flex items-center justify-center md:justify-end gap-3 text-slate-400">
+                  <span className="text-[8px] font-black uppercase tracking-[0.3em]">
+                    {t("showcase.stats")}
+                  </span>
+                  <div className="w-8 h-[1px] bg-slate-200" />
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-1 gap-4">
+                  {currentPart.specs.map((spec, idx) => (
+                    <m.div
+                      key={`${currentPart.id}-${spec.label}`}
+                      initial={{ opacity: 0, x: 30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.5 + idx * 0.1 }}
+                      className="group/spec relative flex items-center justify-between md:justify-end gap-4 p-3 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-slate-200/40"
+                    >
+                      <div className="text-right">
+                        <p className="text-[8px] font-black uppercase tracking-tighter text-slate-400 mb-0.5">
+                          {spec.label}
+                        </p>
+                        <p className="text-xl font-black text-slate-900 tracking-tight">
+                          {spec.value}
+                        </p>
+                      </div>
+                      <div
+                        className="w-10 h-10 rounded-lg flex items-center justify-center transition-all group-hover/spec:scale-110 shadow-md shadow-slate-100 bg-slate-50"
+                        style={{ color: currentPart.accentColor }}
+                      >
+                        {spec.icon}
+                      </div>
+                    </m.div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Intelligent Navigation */}
+              <div className="pt-10 border-t border-slate-200/60 w-full space-y-6">
+                <div className="flex items-center justify-between">
+                  <div className="flex gap-3">
+                    {parts.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCurrentIndex(idx)}
+                        className="group/dot relative h-4 flex items-center"
+                        aria-label={`Go to slide ${idx + 1}`}
+                      >
+                        <div
+                          className={`h-1.5 rounded-full transition-all duration-500 ${
+                            currentIndex === idx
+                              ? "w-10"
+                              : "w-3 bg-slate-200 group-hover/dot:bg-slate-300"
+                          }`}
+                          style={
+                            currentIndex === idx
+                              ? { backgroundColor: currentPart.accentColor }
+                              : {}
+                          }
+                        />
+                      </button>
+                    ))}
+                  </div>
+
+                  <div className="flex gap-2">
+                    {[
+                      {
+                        icon: <ChevronLeft size={20} />,
+                        onClick: prevPart,
+                        label: "Previous",
+                      },
+                      {
+                        icon: <ChevronRight size={20} />,
+                        onClick: nextPart,
+                        label: "Next",
+                      },
+                    ].map((btn, i) => (
+                      <m.button
+                        key={i}
+                        whileHover={{
+                          scale: 1.05,
+                          backgroundColor: "#0f172a",
+                          color: "#fff",
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={btn.onClick}
+                        className="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center bg-white transition-shadow hover:shadow-xl"
+                        aria-label={btn.label}
+                      >
+                        {btn.icon}
+                      </m.button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Enhanced Progress System */}
+                <div className="space-y-3">
+                  <div className="h-[2px] w-full bg-slate-200/40 rounded-full overflow-hidden">
+                    <m.div
+                      key={currentIndex}
+                      initial={{ width: "0%" }}
+                      animate={{ width: isHovered ? "0%" : "100%" }}
+                      transition={{
+                        duration: AUTO_PLAY_INTERVAL / 1000,
+                        ease: "linear",
+                      }}
+                      className="h-full"
+                      style={{ backgroundColor: currentPart.accentColor }}
+                    />
+                  </div>
+                  <div className="flex justify-between items-center text-[9px] font-black uppercase tracking-[0.3em] text-slate-400">
+                    <div className="flex items-center gap-2">
+                      <MousePointer2
+                        size={10}
+                        className={isHovered ? "text-slate-900" : ""}
+                      />
+                      <span>
+                        {t("showcase.status")} :{" "}
+                        {isHovered ? t("showcase.paused") : t("showcase.auto")}
+                      </span>
+                    </div>
+                    <span className="text-slate-900">
+                      SYSTEM_0{currentIndex + 1} / 0{parts.length}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Control & Specs Panel */}
-        <div className="col-span-12 md:col-span-3 order-3 flex flex-col items-center md:items-end w-full">
-          <div className="space-y-12 w-full max-w-sm md:max-w-none">
-            {/* Spec Cluster */}
-            <div className="space-y-6">
-              <div className="flex items-center justify-center md:justify-end gap-3 text-slate-400">
-                <span className="text-[8px] font-black uppercase tracking-[0.3em]">
-                  {t("showcase.stats")}
-                </span>
-                <div className="w-8 h-[1px] bg-slate-200" />
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-1 gap-4">
-                {currentPart.specs.map((spec, idx) => (
-                  <motion.div
-                    key={`${currentPart.id}-${spec.label}`}
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.6 + idx * 0.1 }}
-                    whileHover={{ x: -5, scale: 1.02 }}
-                    className="group/spec relative flex items-center justify-between md:justify-end gap-4 p-3 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-xl hover:shadow-slate-200/40"
-                  >
-                    <div className="text-right">
-                      <p className="text-[8px] font-black uppercase tracking-tighter text-slate-400 mb-0.5">
-                        {spec.label}
-                      </p>
-                      <p className="text-xl font-black text-slate-900 tracking-tight">
-                        {spec.value}
-                      </p>
-                    </div>
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center transition-all group-hover/spec:scale-110 shadow-md shadow-slate-100 bg-slate-50"
-                      style={{ color: currentPart.accentColor }}
-                    >
-                      {spec.icon}
-                    </div>
-                  </motion.div>
+        {/* Extreme Bottom Bar (Data Flow) - Desktop Only */}
+        <div className="absolute bottom-8 left-12 right-12 hidden md:flex items-center justify-between pointer-events-none z-[5]">
+          <div className="flex items-center gap-10">
+            <div className="flex items-center gap-4">
+              <span className="text-[10px] font-black tracking-[0.3em] text-slate-900">
+                {t("showcase.osPerformance")}
+              </span>
+              <div className="flex gap-1">
+                {[...Array(4)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="w-1 h-3 bg-slate-950"
+                    style={{ opacity: 1 - i * 0.2 }}
+                  />
                 ))}
               </div>
             </div>
-
-            {/* Intelligent Navigation */}
-            <div className="pt-10 border-t border-slate-200/60 w-full space-y-6">
-              <div className="flex items-center justify-between">
-                <div className="flex gap-3">
-                  {parts.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentIndex(idx)}
-                      className="group/dot relative h-4 flex items-center"
-                    >
-                      <div
-                        className={`h-1.5 rounded-full transition-all duration-500 ${
-                          currentIndex === idx
-                            ? "w-10"
-                            : "w-3 bg-slate-200 group-hover/dot:bg-slate-300"
-                        }`}
-                        style={
-                          currentIndex === idx
-                            ? { backgroundColor: currentPart.accentColor }
-                            : {}
-                        }
-                      />
-                    </button>
-                  ))}
-                </div>
-
-                <div className="flex gap-2">
-                  {[
-                    { icon: <ChevronLeft size={20} />, onClick: prevPart },
-                    { icon: <ChevronRight size={20} />, onClick: nextPart },
-                  ].map((btn, i) => (
-                    <motion.button
-                      key={i}
-                      whileHover={{
-                        scale: 1.1,
-                        backgroundColor: "#0f172a",
-                        color: "#fff",
-                      }}
-                      whileTap={{ scale: 0.9 }}
-                      onClick={btn.onClick}
-                      className="w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center bg-white transition-shadow hover:shadow-xl"
-                    >
-                      {btn.icon}
-                    </motion.button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Enhanced Progress System */}
-              <div className="space-y-3">
-                <div className="h-[2px] w-full bg-slate-200/40 rounded-full overflow-hidden">
-                  <motion.div
-                    key={currentIndex}
-                    initial={{ width: "0%" }}
-                    animate={{ width: isHovered ? "0%" : "100%" }}
-                    transition={{
-                      duration: AUTO_PLAY_INTERVAL / 1000,
-                      ease: "linear",
-                    }}
-                    className="h-full"
-                    style={{ backgroundColor: currentPart.accentColor }}
-                  />
-                </div>
-                <div className="flex justify-between items-center text-[9px] font-black uppercase tracking-[0.3em] text-slate-400">
-                  <div className="flex items-center gap-2">
-                    <MousePointer2
-                      size={10}
-                      className={isHovered ? "text-slate-900" : ""}
-                    />
-                    <span>
-                      {t("showcase.status")} :{" "}
-                      {isHovered ? t("showcase.paused") : t("showcase.auto")}
-                    </span>
-                  </div>
-                  <span className="text-slate-900">
-                    SYSTEM_0{currentIndex + 1} / 0{parts.length}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Extreme Bottom Bar (Data Flow) */}
-      <div className="absolute bottom-8 left-12 right-12 hidden md:flex items-center justify-between pointer-events-none z-[5]">
-        <div className="flex items-center gap-10">
-          <div className="flex items-center gap-4">
-            <span className="text-[10px] font-black tracking-[0.3em] text-slate-900">
-              {t("showcase.osPerformance")}
-            </span>
-            <div className="flex gap-1">
-              {[...Array(4)].map((_, i) => (
+            <div className="flex gap-10 text-[9px] font-black tracking-[0.2em] text-slate-400 uppercase">
+              <span>{t("showcase.est")}</span>
+              <span className="flex items-center gap-2">
                 <div
-                  key={i}
-                  className="w-1 h-3 bg-slate-950"
-                  style={{ opacity: 1 - i * 0.2 }}
+                  className="w-1.5 h-1.5 rounded-full"
+                  style={{ backgroundColor: currentPart.accentColor }}
                 />
-              ))}
+                {t("showcase.aerospace")}
+              </span>
             </div>
           </div>
-          <div className="flex gap-10 text-[9px] font-black tracking-[0.2em] text-slate-400 uppercase">
-            <span>{t("showcase.est")}</span>
-            <span className="flex items-center gap-2">
-              <div
-                className="w-1.5 h-1.5 rounded-full"
-                style={{ backgroundColor: currentPart.accentColor }}
-              />
-              {t("showcase.aerospace")}
+          <m.div
+            animate={{ opacity: [1, 0.5, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="flex items-center gap-4 group/discover cursor-pointer pointer-events-auto"
+          >
+            <span className="text-[10px] font-black tracking-widest text-slate-900">
+              {t("showcase.discover")}
             </span>
-          </div>
+            <ChevronRight
+              size={14}
+              className="text-slate-900 transition-transform group-hover/discover:translate-x-1"
+            />
+          </m.div>
         </div>
-        <motion.div
-          animate={{ opacity: [1, 0.5, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="flex items-center gap-4 group/discover cursor-pointer pointer-events-auto"
-        >
-          <span className="text-[10px] font-black tracking-widest text-slate-900">
-            {t("showcase.discover")}
-          </span>
-          <ChevronRight
-            size={14}
-            className="text-slate-900 transition-transform group-hover/discover:translate-x-1"
-          />
-        </motion.div>
-      </div>
-
-      <style jsx global>{`
-        .cursor-crosshair {
-          cursor: crosshair;
-        }
-      `}</style>
-    </section>
+      </section>
+    </LazyMotion>
   );
 }
