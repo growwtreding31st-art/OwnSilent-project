@@ -6,6 +6,7 @@ import React, {
   useCallback,
   useMemo,
 } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
@@ -235,7 +236,7 @@ const CategoryHeroCard = ({
 
 const MobileCategoryCard = ({ slide }: { slide: any }) => {
   const { t } = useLanguage();
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, axis: "x" }, [
     Autoplay({ delay: 4000, stopOnInteraction: false }),
   ]);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -289,7 +290,7 @@ const MobileCategoryCard = ({ slide }: { slide: any }) => {
     <div className="mb-8 last:mb-0 px-2">
       <div className="group relative block bg-white rounded-sm shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 overflow-hidden transition-all duration-300">
         <div className="relative w-full aspect-[4/5] bg-slate-50 overflow-hidden">
-          <div className="h-full w-full" ref={emblaRef}>
+          <div className="h-full w-full touch-pan-y" ref={emblaRef}>
             <div className="flex h-full">
               {slide.images &&
                 slide.images.map((img: string, index: number) => (
@@ -385,9 +386,9 @@ const MobileCategoryCard = ({ slide }: { slide: any }) => {
         <Link href={categoryLink} className="block p-5 bg-white relative">
           <div className="flex flex-col items-center text-center">
             <div className="mb-3">
-              <span className="inline-block text-[10px] font-bold tracking-widest text-[#176FC0] uppercase mb-1.5">
+              {/* <span className="inline-block text-[10px] font-bold tracking-widest text-[#176FC0] uppercase mb-1.5">
                 {slide.category?.name || "Collection"}
-              </span>
+              </span> */}
               <h3 className="text-xl font-extrabold text-slate-900 leading-tight">
                 {slide.title}
               </h3>
@@ -512,7 +513,7 @@ export default function CategoryShowcaseSection() {
   if (status !== "loading" && categoriesWithContent.length === 0) return null;
 
   return (
-    <section className="py-10 sm:py-12 bg-slate-50 overflow-hidden">
+    <section className="py-10 sm:py-12 bg-slate-50 overflow-x-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm bg-white border border-slate-200 shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-5 hover:scale-105 transition-transform cursor-default">
@@ -528,7 +529,7 @@ export default function CategoryShowcaseSection() {
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-3 sm:mb-6">
             {t("cat.featured")}
           </h2>
-          <p className="max-w-2xl mx-auto text-sm sm:text-lg text-slate-500 leading-relaxed px-4">
+          <p className="hidden sm:block max-w-2xl mx-auto text-sm sm:text-lg text-slate-500 leading-relaxed px-4">
             {t("cat.subtitle")}
           </p>
         </div>
@@ -539,66 +540,43 @@ export default function CategoryShowcaseSection() {
           ) : (
             <>
               {/* Mobile Category Slides */}
+              {/* Mobile Category Navigation - Horizontal Scrollable Tabs */}
+              {categoriesWithContent.length > 1 && (
+                <div className="mb-8 border-b border-slate-200">
+                  <div className="flex items-center overflow-x-auto scrollbar-hide gap-8 px-4 pb-3 scroll-smooth">
+                    {categoriesWithContent.map((cat) => (
+                      <button
+                        key={cat._id}
+                        onClick={() => setActiveCategoryId(cat._id)}
+                        className={`text-sm whitespace-nowrap transition-all relative py-1 ${
+                          activeCategoryId === cat._id
+                            ? "font-bold text-slate-900"
+                            : "font-medium text-slate-500 hover:text-slate-900"
+                        }`}
+                      >
+                        {cat.name}
+                        {activeCategoryId === cat._id && (
+                          <motion.div
+                            layoutId="activeCategoryMobile"
+                            className="absolute -bottom-3 left-0 right-0 h-0.5 bg-[#176FC0]"
+                            transition={{
+                              type: "spring",
+                              bounce: 0.2,
+                              duration: 0.6,
+                            }}
+                          />
+                        )}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               <div className="max-w-md mx-auto space-y-8">
                 {filteredSlides.map((slide) => (
                   <MobileCategoryCard key={slide._id} slide={slide} />
                 ))}
               </div>
-
-              {/* Mobile Category Navigation */}
-              {categoriesWithContent.length > 1 && (
-                <div className="flex items-center justify-center gap-3 mt-8 px-4">
-                  <button
-                    onClick={() => {
-                      const currentIndex = categoriesWithContent.findIndex(
-                        (cat) => cat._id === activeCategoryId,
-                      );
-                      const prevIndex =
-                        currentIndex > 0
-                          ? currentIndex - 1
-                          : categoriesWithContent.length - 1;
-                      setActiveCategoryId(categoriesWithContent[prevIndex]._id);
-                    }}
-                    className="flex-shrink-0 h-10 w-10 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all text-slate-700 hover:text-[#176FC0] border border-slate-200 active:scale-95"
-                    aria-label="Previous category"
-                  >
-                    <ChevronLeft className="h-5 w-5" />
-                  </button>
-
-                  <div className="flex-1 text-center px-2">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm">
-                      <span className="text-xs font-bold text-slate-900 truncate max-w-[200px]">
-                        {categoriesWithContent.find(
-                          (cat) => cat._id === activeCategoryId,
-                        )?.name || ""}
-                      </span>
-                      <span className="text-[10px] text-slate-400 font-medium">
-                        {categoriesWithContent.findIndex(
-                          (cat) => cat._id === activeCategoryId,
-                        ) + 1}
-                        /{categoriesWithContent.length}
-                      </span>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={() => {
-                      const currentIndex = categoriesWithContent.findIndex(
-                        (cat) => cat._id === activeCategoryId,
-                      );
-                      const nextIndex =
-                        currentIndex < categoriesWithContent.length - 1
-                          ? currentIndex + 1
-                          : 0;
-                      setActiveCategoryId(categoriesWithContent[nextIndex]._id);
-                    }}
-                    className="flex-shrink-0 h-10 w-10 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-all text-slate-700 hover:text-[#176FC0] border border-slate-200 active:scale-95"
-                    aria-label="Next category"
-                  >
-                    <ChevronRight className="h-5 w-5" />
-                  </button>
-                </div>
-              )}
             </>
           )}
         </div>

@@ -75,7 +75,7 @@ export default function HomePageContent() {
   return (
     <div className="min-h-screen overflow-x-hidden">
       {/* Critical above-the-fold content - loads immediately */}
-      <PremiumCarShowcase />
+      {/* <PremiumCarShowcase /> */}
       <CarsSection />
 
       {/* Below-the-fold sections - lazy loaded */}
