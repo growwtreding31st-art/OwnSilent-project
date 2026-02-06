@@ -49,7 +49,7 @@ export default function WhatWeDo() {
   ];
 
   return (
-    <section className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-8 sm:py-10 lg:py-12 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-0 sm:py-10 lg:py-12 overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div

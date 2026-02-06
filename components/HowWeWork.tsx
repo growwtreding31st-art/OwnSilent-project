@@ -52,7 +52,7 @@ export default function HowWeWork() {
   ];
 
   return (
-    <section className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-8 sm:py-10 lg:py-12 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-2 sm:py-2 lg:py-2 overflow-hidden">
       {/* Enhanced Background */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
@@ -89,7 +89,7 @@ export default function HowWeWork() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-8 lg:mb-10"
+          className="text-center max-w-3xl mx-auto mb-2 lg:mb-8"
         >
           <motion.div
             initial={{ scale: 0.9 }}
@@ -125,7 +125,7 @@ export default function HowWeWork() {
         </motion.div>
 
         {/* Steps Grid - 2 col mobile, 4 col desktop */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 mb-8 lg:mb-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 mb-0 lg:mb-8">
           {steps.map((step, index) => (
             <motion.div
               key={index}

@@ -513,9 +513,9 @@ export default function CategoryShowcaseSection() {
   if (status !== "loading" && categoriesWithContent.length === 0) return null;
 
   return (
-    <section className="py-10 sm:py-12 bg-slate-50 overflow-x-hidden">
+    <section className="py-4 sm:py-12 bg-slate-50 overflow-x-hidden mt-10">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center mb-8 sm:mb-20">
+        <div className="text-center mb-4 sm:mb-20">
           {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm bg-white border border-slate-200 shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-5 hover:scale-105 transition-transform cursor-default">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-sm bg-[#176FC0] opacity-75"></span>
@@ -526,7 +526,7 @@ export default function CategoryShowcaseSection() {
             </span>
           </div> */}
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-3 sm:mb-6 mt-8">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-3 sm:mb-6 mt-2 sm:mt-8">
             {t("cat.featured")}
           </h2>
           <p className="hidden sm:block max-w-2xl mx-auto text-sm sm:text-lg text-slate-500 leading-relaxed px-4">

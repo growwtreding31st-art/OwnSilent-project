@@ -115,7 +115,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-white border-t border-slate-100 font-sans">
-      <div className="container mx-auto px-5 sm:px-6 lg:px-8 py-16">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-8 pt-8 pb-16">
         <div className="grid grid-cols-2 md:grid-cols-12 gap-y-12 gap-x-8 mb-16">
           <div className="col-span-2 md:col-span-12 lg:col-span-3 space-y-6">
             <Link href="/" className="inline-block">

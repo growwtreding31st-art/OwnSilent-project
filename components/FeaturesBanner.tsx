@@ -45,7 +45,7 @@ export default function FeaturesBanner() {
   ];
 
   return (
-    <section className="relative bg-white py-8 sm:py-10 lg:py-12 overflow-hidden">
+    <section className="relative bg-white py-2 sm:py-4 overflow-hidden">
       {/* Dynamic Background System */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Gradient Overlay for depth */}
@@ -60,7 +60,7 @@ export default function FeaturesBanner() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* LIGHT MODE CORPORATE SECTION */}
-        <div className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-br from-indigo-50/50 via-white to-blue-50/50 p-6 sm:p-8 lg:p-12 overflow-hidden border border-white shadow-[0_10px_30px_rgba(0,0,0,0.03)] sm:shadow-[0_20px_50px_rgba(0,0,0,0.04)]">
+        <div className="relative rounded-2xl sm:rounded-3xl bg-gradient-to-br from-indigo-50/50 via-white to-blue-50/50 p-4 sm:p-6 lg:p-10 overflow-hidden border border-white shadow-[0_10px_30px_rgba(0,0,0,0.03)] sm:shadow-[0_20px_50px_rgba(0,0,0,0.04)]">
           {/* Animated Float Elements */}
           <div className="absolute inset-0 pointer-events-none">
             <motion.div
@@ -75,7 +75,7 @@ export default function FeaturesBanner() {
             />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10 relative z-10">
             {/* Header Content */}
             <div className="lg:col-span-4 flex flex-col justify-center">
               <motion.div
@@ -83,19 +83,19 @@ export default function FeaturesBanner() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#176FC0]/5 border border-[#176FC0]/10 text-[#176FC0] mb-4">
+                <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#176FC0]/5 border border-[#176FC0]/10 text-[#176FC0] mb-2">
                   <Shield size={10} className="sm:w-3 sm:h-3" />
                   <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-widest leading-none">
                     Global Network
                   </span>
                 </div>
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight leading-tight mb-3">
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight leading-tight mb-2">
                   {t("feat.work.t")}{" "}
                   <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#176FC0] to-[#0F4C85] mt-1">
                     {t("feat.work.h")}
                   </span>
                 </h2>
-                <p className="text-sm text-slate-600 font-medium leading-relaxed mb-6">
+                <p className="text-sm text-slate-600 font-medium leading-relaxed mb-4">
                   {t("feat.work.d")}
                 </p>
 
@@ -118,7 +118,7 @@ export default function FeaturesBanner() {
 
             {/* Features Grid - 2 cols mobile, fits in one line visually if packed well */}
             <div className="lg:col-span-8">
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
                 {workFeatures.map((feature, index) => (
                   <motion.div
                     key={index}

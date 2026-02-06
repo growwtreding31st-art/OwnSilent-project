@@ -60,7 +60,7 @@ export default function Reviews() {
   };
 
   return (
-    <section className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-8 sm:py-10 lg:py-12 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-2 sm:py-0 lg:py-2 overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
@@ -97,7 +97,7 @@ export default function Reviews() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-8 lg:mb-10"
+          className="text-center max-w-3xl mx-auto mb-6 lg:mb-8"
         >
           <motion.div
             initial={{ scale: 0.9 }}

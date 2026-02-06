@@ -76,7 +76,7 @@ export default function AboutUs() {
   return (
     <section
       id="about"
-      className="relative bg-white py-12 sm:py-16 lg:py-20 overflow-hidden"
+      className="relative bg-white py-8 sm:py-10 lg:py-12 overflow-hidden"
     >
       {/* Background Decor */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

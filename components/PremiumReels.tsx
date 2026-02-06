@@ -19,7 +19,7 @@ export default function PremiumReels() {
   });
 
   return (
-    <section className="relative py-20 sm:py-28 bg-white overflow-hidden">
+    <section className="relative pt-2 pb-12 sm:pt-4 sm:pb-16 bg-white overflow-hidden">
       {/* Background Cinematic Effects */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-100 rounded-full blur-[120px]" />
@@ -27,7 +27,7 @@ export default function PremiumReels() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-6 gap-4">
           <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -44,7 +44,7 @@ export default function PremiumReels() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4"
+              className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-2"
             >
               Watch Our <span className="text-[#176FC0]">Latest Reels</span>
             </motion.h2>
@@ -75,7 +75,7 @@ export default function PremiumReels() {
 
         {/* Reels Container - Slider on Mobile, Grid on Desktop */}
         <div className="overflow-hidden sm:overflow-visible" ref={emblaRef}>
-          <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {REELS.map((id, index) => (
               <motion.div
                 key={id}
@@ -103,7 +103,7 @@ export default function PremiumReels() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 1 }}
-          className="mt-12 p-4 bg-slate-50 border border-dashed border-slate-200 rounded-2xl text-center"
+          className="mt-6 p-4 bg-slate-50 border border-dashed border-slate-200 rounded-2xl text-center"
         >
           <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-loose">
             💡 To add your reels: Replace the codes in{" "}
