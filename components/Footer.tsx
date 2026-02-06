@@ -175,41 +175,42 @@ export default function Footer() {
                 </div>
               </div>
 
-               {/* Infinite Brand Slider - Positioned below the main company info grid */}
-        <div className="w-full py-12 border-y border-slate-50 overflow-hidden mb-12 relative">
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
+              {/* Infinite Brand Slider - Positioned below the main company info grid */}
+              <div className="w-full py-12 border-y border-slate-50 overflow-hidden mb-12 relative">
+                <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
+                <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
 
-          <motion.div
-            className="flex items-center gap-20 whitespace-nowrap"
-            animate={{
-              x: [0, -1920],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 40,
-                ease: "linear",
-              },
-            }}
-          >
-            {[...brands, ...brands].map((brand, idx) => (
-              <div
-                key={idx}
-                className="flex-shrink-0  hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-pointer"
-              >
-                <Image
-                  src={brand.image}
-                  alt={brand.name}
-                  width={110}
-                  height={45}
-                  className="h-9 sm:h-11 w-auto object-contain"
-                />
+                <motion.div
+                  className="flex items-center gap-20 whitespace-nowrap"
+                  animate={{
+                    x: [0, -1920],
+                  }}
+                  transition={{
+                    x: {
+                      repeat: Infinity,
+                      repeatType: "loop",
+                      duration: 40,
+                      ease: "linear",
+                    },
+                  }}
+                >
+                  {[...brands, ...brands].map((brand, idx) => (
+                    <Link
+                      key={idx}
+                      href={`/collections/${brand.name.toLowerCase().replace(/\s+/g, "-")}`}
+                      className="flex-shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer"
+                    >
+                      <Image
+                        src={brand.image}
+                        alt={brand.name}
+                        width={110}
+                        height={45}
+                        className="h-9 sm:h-11 w-auto object-contain"
+                      />
+                    </Link>
+                  ))}
+                </motion.div>
               </div>
-            ))}
-          </motion.div>
-        </div>
             </div>
           </div>
           <div className="col-span-1 md:col-span-3 lg:col-span-2">
@@ -306,8 +307,6 @@ export default function Footer() {
             </div>
           </div>
         </div>
-
-       
 
         <div className="border-t border-slate-100 pt-10 pb-10">
           <div className="w-full mb-10">
