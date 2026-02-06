@@ -87,9 +87,9 @@ export default function HomePageContent() {
         <PremiumPartsCategories />
       </Suspense>
 
-      <Suspense fallback={<SectionLoader />}>
+      {/* <Suspense fallback={<SectionLoader />}>
         <OurGallery />
-      </Suspense>
+      </Suspense> */}
 
       <Suspense fallback={<SectionLoader />}>
         <HowWeWork />
