@@ -286,9 +286,18 @@ export default function Footer() {
                     transition={{ type: "spring", stiffness: 400 }}
                     className="group relative px-5 py-3 bg-white/90 backdrop-blur-sm rounded-xl border-2 border-slate-200 hover:border-[#0070BA] shadow-lg hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300"
                   >
-                    <span className="text-sm font-black text-[#0070BA] group-hover:scale-110 inline-block transition-transform">
-                      PayPal
-                    </span>
+                    <div className="flex flex-col items-center gap-1.5">
+                      <Image
+                        src="/images/banking/paypal.png"
+                        alt="PayPal"
+                        width={80}
+                        height={24}
+                        className="h-6 w-auto group-hover:scale-110 transition-transform object-contain"
+                      />
+                      <span className="text-xs font-black text-[#0070BA] group-hover:scale-110 inline-block transition-transform">
+                        PayPal
+                      </span>
+                    </div>
                     <motion.div
                       className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#0070BA]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
                       initial={false}
@@ -301,9 +310,18 @@ export default function Footer() {
                     transition={{ type: "spring", stiffness: 400 }}
                     className="group relative px-5 py-3 bg-white/90 backdrop-blur-sm rounded-xl border-2 border-slate-200 hover:border-blue-500 shadow-lg hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300"
                   >
-                    <span className="text-sm font-black text-slate-700 group-hover:text-blue-600 transition-colors">
-                      Visa
-                    </span>
+                    <div className="flex flex-col items-center gap-1.5">
+                      <Image
+                        src="/images/banking/visa.png"
+                        alt="Visa"
+                        width={60}
+                        height={24}
+                        className="h-6 w-auto object-contain"
+                      />
+                      <span className="text-xs font-black text-slate-700 group-hover:text-blue-600 transition-colors">
+                        Visa
+                      </span>
+                    </div>
                     <motion.div
                       className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
                       initial={false}
@@ -316,9 +334,18 @@ export default function Footer() {
                     transition={{ type: "spring", stiffness: 400 }}
                     className="group relative px-5 py-3 bg-white/90 backdrop-blur-sm rounded-xl border-2 border-slate-200 hover:border-orange-500 shadow-lg hover:shadow-xl hover:shadow-orange-500/20 transition-all duration-300"
                   >
-                    <span className="text-sm font-black text-slate-700 group-hover:text-orange-600 transition-colors">
-                      Mastercard
-                    </span>
+                    <div className="flex flex-col items-center gap-1.5">
+                      <Image
+                        src="/images/banking/mastercard.svg.png"
+                        alt="Mastercard"
+                        width={60}
+                        height={24}
+                        className="h-6 w-auto object-contain"
+                      />
+                      <span className="text-xs font-black text-slate-700 group-hover:text-orange-600 transition-colors">
+                        Mastercard
+                      </span>
+                    </div>
                     <motion.div
                       className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
                       initial={false}
@@ -331,9 +358,18 @@ export default function Footer() {
                     transition={{ type: "spring", stiffness: 400 }}
                     className="group relative px-5 py-3 bg-white/90 backdrop-blur-sm rounded-xl border-2 border-slate-200 hover:border-indigo-500 shadow-lg hover:shadow-xl hover:shadow-indigo-500/20 transition-all duration-300"
                   >
-                    <span className="text-sm font-black text-slate-700 group-hover:text-indigo-600 transition-colors">
-                      Amex
-                    </span>
+                    <div className="flex flex-col items-center gap-1.5">
+                      <Image
+                        src="/images/banking/american-express.png"
+                        alt="American Express"
+                        width={60}
+                        height={24}
+                        className="h-6 w-auto object-contain"
+                      />
+                      <span className="text-xs font-black text-slate-700 group-hover:text-indigo-600 transition-colors">
+                        Amex
+                      </span>
+                    </div>
                     <motion.div
                       className="absolute inset-0 rounded-xl bg-gradient-to-r from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
                       initial={false}
@@ -346,9 +382,18 @@ export default function Footer() {
                     transition={{ type: "spring", stiffness: 400 }}
                     className="group relative px-5 py-3 bg-white/90 backdrop-blur-sm rounded-xl border-2 border-slate-200 hover:border-green-500 shadow-lg hover:shadow-xl hover:shadow-green-500/20 transition-all duration-300"
                   >
-                    <span className="text-sm font-black text-slate-700 group-hover:text-green-600 transition-colors">
-                      {t("footer.payment.bank")}
-                    </span>
+                    <div className="flex flex-col items-center gap-1.5">
+                      <Image
+                        src="/images/banking/banktransfer.png"
+                        alt="Bank Transfer"
+                        width={60}
+                        height={24}
+                        className="h-6 w-auto object-contain"
+                      />
+                      <span className="text-xs font-black text-slate-700 group-hover:text-green-600 transition-colors">
+                        {t("footer.payment.bank")}
+                      </span>
+                    </div>
                     <motion.div
                       className="absolute inset-0 rounded-xl bg-gradient-to-r from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
                       initial={false}

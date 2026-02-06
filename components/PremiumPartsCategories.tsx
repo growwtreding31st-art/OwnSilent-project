@@ -50,7 +50,7 @@ export default function PremiumPartsCategories() {
   ];
 
   return (
-    <section className="relative bg-gradient-to-b from-white via-slate-50/50 to-white py-12 sm:py-16 lg:py-20 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-white via-slate-50/50 to-white py-8 sm:py-10 lg:py-12 overflow-hidden">
       {/* Enhanced Background */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
@@ -81,35 +81,35 @@ export default function PremiumPartsCategories() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
         {/* Enhanced Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-10 lg:mb-12"
+          className="text-center max-w-3xl mx-auto mb-6 lg:mb-8"
         >
           <motion.div
             initial={{ scale: 0.9 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-slate-50 to-blue-50 border border-blue-200/50 shadow-lg shadow-blue-500/10 mb-4"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-slate-50 to-blue-50 border border-blue-200/50 shadow-lg shadow-blue-500/10 mb-3"
           >
-            <TrendingUp className="w-3.5 h-3.5 text-[#176FC0]" />
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#176FC0]">
+            <TrendingUp className="w-3 h-3 text-[#176FC0]" />
+            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#176FC0]">
               {t("categories.badge")}
             </span>
-            <Sparkles className="w-3.5 h-3.5 text-[#176FC0]" />
+            <Sparkles className="w-3 h-3 text-[#176FC0]" />
           </motion.div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight mb-4 leading-tight">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight mb-3 leading-tight">
             {t("categories.title")}{" "}
             <span className="relative inline-block">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#176FC0] via-[#1461A8] to-[#0F4C85]">
                 {t("categories.titleHighlight")}
               </span>
               <motion.div
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#176FC0] via-[#1461A8] to-[#0F4C85] rounded-full"
+                className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-gradient-to-r from-[#176FC0] via-[#1461A8] to-[#0F4C85] rounded-full"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
@@ -118,30 +118,30 @@ export default function PremiumPartsCategories() {
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
             {t("categories.subtitle")}
           </p>
         </motion.div>
 
-        {/* Enhanced Categories Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Enhanced Categories Grid - 3 cols mobile (2 rows), 6 cols desktop (1 row) */}
+        <div className="grid grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 lg:gap-4">
           {categories.map((category, index) => (
             <CategoryCard key={index} category={category} index={index} />
           ))}
         </div>
 
-        {/* Enhanced View All Button */}
+        {/* Enhanced View All Button - Compact */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="text-center mt-8 sm:mt-10"
         >
           <motion.a
             href="/shop"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-slate-900 to-slate-800 text-white px-10 py-5 rounded-2xl font-bold text-sm uppercase tracking-widest overflow-hidden shadow-2xl shadow-slate-900/30"
+            className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-slate-900 to-slate-800 text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-widest overflow-hidden shadow-xl shadow-slate-900/30"
           >
             {/* Animated Background */}
             <motion.div
@@ -157,7 +157,7 @@ export default function PremiumPartsCategories() {
               transition={{ duration: 1.5, repeat: Infinity }}
               className="relative z-10"
             >
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4" />
             </motion.div>
           </motion.a>
         </motion.div>
@@ -166,7 +166,7 @@ export default function PremiumPartsCategories() {
   );
 }
 
-// Separate component for 3D tilt effect
+// Separate component for 3D tilt effect - Compact Version
 function CategoryCard({ category, index }: { category: any; index: number }) {
   const { t } = useLanguage();
   const ref = useRef<HTMLAnchorElement>(null);
@@ -216,31 +216,33 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
         rotateY,
         transformStyle: "preserve-3d",
       }}
-      className="group relative block overflow-hidden rounded-3xl bg-white/50 backdrop-blur-sm border border-slate-200/50 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_80px_rgba(23,111,192,0.2)] transition-shadow duration-700"
+      className="group relative block overflow-hidden rounded-2xl bg-white/50 backdrop-blur-sm border border-slate-200/50 shadow-sm hover:shadow-xl transition-all duration-700"
     >
       {/* Glow Effect */}
       <motion.div
-        className="absolute -inset-1 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-700"
+        className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-700"
         style={{
           background: `linear-gradient(135deg, rgba(23,111,192,0.3), rgba(14,97,168,0.2))`,
         }}
       />
 
-      {/* Image Container with 3D depth */}
+      {/* Image Container with 3D depth - Square Aspect Ratio for Compactness */}
       <div
-        className="relative aspect-[2/1] overflow-hidden bg-slate-100"
-        style={{ transform: "translateZ(50px)" }}
+        className="relative aspect-square overflow-hidden bg-slate-100"
+        style={{ transform: "translateZ(20px)" }}
       >
         <Image
           src={category.image}
           alt={category.title}
           fill
+          quality={60}
+          sizes="(max-width: 768px) 33vw, 16vw"
           className="object-cover group-hover:scale-110 transition-transform duration-700"
         />
 
         {/* Animated Gradient Overlay */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"
+          className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent"
           initial={{ opacity: 0.6 }}
           whileHover={{ opacity: 0.8 }}
           transition={{ duration: 0.3 }}
@@ -248,91 +250,41 @@ function CategoryCard({ category, index }: { category: any; index: number }) {
 
         {/* Animated Accent Line */}
         <motion.div
-          className={`absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r ${category.accent}`}
+          className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${category.accent}`}
           initial={{ scaleX: 0 }}
           whileHover={{ scaleX: 1 }}
           transition={{ duration: 0.5 }}
           style={{ transformOrigin: "left" }}
         />
-
-        {/* Particle Effect */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-          {[...Array(3)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-white rounded-full"
-              initial={{ x: "50%", y: "50%", opacity: 0 }}
-              animate={{
-                x: `${Math.random() * 100}%`,
-                y: `${Math.random() * 100}%`,
-                opacity: [0, 1, 0],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                delay: i * 0.3,
-              }}
-            />
-          ))}
-        </div>
       </div>
 
-      {/* Content with 3D depth */}
+      {/* Content with 3D depth - Compact Overlay */}
       <div
-        className="absolute bottom-0 left-0 right-0 p-6"
-        style={{ transform: "translateZ(75px)" }}
+        className="absolute bottom-0 left-0 right-0 p-3 sm:p-4"
+        style={{ transform: "translateZ(30px)" }}
       >
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col items-start gap-2">
           <motion.h3
-            className="text-xl font-black text-white tracking-tight"
-            whileHover={{ x: 5 }}
+            className="text-xs sm:text-sm font-black text-white tracking-tight uppercase leading-tight"
+            whileHover={{ x: 2 }}
             transition={{ duration: 0.2 }}
           >
             {category.title}
           </motion.h3>
 
-          {/* Enhanced CTA Icon */}
+          {/* Enhanced CTA Icon - Smaller */}
           <motion.div
             whileHover={{ scale: 1.1, rotate: 45 }}
             transition={{ type: "spring", stiffness: 400 }}
-            className={`flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br ${category.accent} backdrop-blur-sm flex items-center justify-center shadow-lg`}
+            className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br ${category.accent} backdrop-blur-sm flex items-center justify-center shadow-lg`}
           >
-            <ArrowRight className="w-5 h-5 text-white" strokeWidth={2.5} />
+            <ArrowRight
+              className="w-3 h-3 sm:w-4 sm:h-4 text-white"
+              strokeWidth={2.5}
+            />
           </motion.div>
         </div>
-
-        {/* Subtitle */}
-        <motion.p
-          className="text-sm text-white/80 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          initial={{ y: 10 }}
-          whileHover={{ y: 0 }}
-        >
-          {t("common.exploreMore")} →
-        </motion.p>
       </div>
-
-      {/* Corner Decoration */}
-      <motion.div
-        className="absolute top-4 right-4 w-16 h-16 border-t-2 border-r-2 border-white/30 rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{ transform: "translateZ(100px)" }}
-      />
-
-      {/* Shimmer Effect */}
-      <motion.div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100"
-        animate={{
-          background: [
-            "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
-            "linear-gradient(90deg, transparent, transparent, transparent)",
-          ],
-          backgroundPosition: ["-200%", "200%"],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          repeatDelay: 1,
-        }}
-      />
     </motion.a>
   );
 }

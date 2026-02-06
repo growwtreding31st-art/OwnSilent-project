@@ -60,7 +60,7 @@ export default function Reviews() {
   };
 
   return (
-    <section className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-12 sm:py-16 lg:py-20 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-8 sm:py-10 lg:py-12 overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
@@ -97,28 +97,28 @@ export default function Reviews() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-10 lg:mb-12"
+          className="text-center max-w-3xl mx-auto mb-8 lg:mb-10"
         >
           <motion.div
             initial={{ scale: 0.9 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 shadow-lg shadow-blue-500/10 mb-4"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 shadow-lg shadow-blue-500/10 mb-3"
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#176FC0]" />
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#176FC0]">
+            <Sparkles className="w-3 h-3 text-[#176FC0]" />
+            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#176FC0]">
               {t("reviews.badge")}
             </span>
           </motion.div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight mb-4 leading-tight">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight mb-3 leading-tight">
             {t("reviews.title")}{" "}
             <span className="relative inline-block">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#176FC0] via-[#1461A8] to-[#0F4C85]">
                 {t("reviews.titleHighlight")}
               </span>
               <motion.div
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#176FC0] via-[#1461A8] to-[#0F4C85] rounded-full"
+                className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-gradient-to-r from-[#176FC0] via-[#1461A8] to-[#0F4C85] rounded-full"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
@@ -133,21 +133,21 @@ export default function Reviews() {
         </motion.div>
 
         {/* Reviews Slider */}
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="relative">
-            {/* Main Review Card */}
+            {/* Main Review Card - Compact */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
-                initial={{ opacity: 0, x: 100, scale: 0.95 }}
+                initial={{ opacity: 0, x: 50, scale: 0.95 }}
                 animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: -100, scale: 0.95 }}
+                exit={{ opacity: 0, x: -50, scale: 0.95 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-200/50 shadow-[0_20px_60px_rgba(23,111,192,0.12)] overflow-hidden"
+                className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-5 sm:p-6 lg:p-8 border border-slate-200/50 shadow-lg overflow-hidden"
               >
                 {/* Glow Effect */}
                 <motion.div
-                  className="absolute -inset-1 rounded-3xl opacity-50 blur-2xl"
+                  className="absolute -inset-1 rounded-2xl opacity-50 blur-xl"
                   style={{
                     background: `radial-gradient(circle at center, rgba(23,111,192,0.2), transparent 70%)`,
                   }}
@@ -155,123 +155,126 @@ export default function Reviews() {
 
                 {/* Decorative Background Gradient */}
                 <div
-                  className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${reviews[currentIndex].gradient} opacity-5 rounded-full blur-3xl`}
+                  className={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-br ${reviews[currentIndex].gradient} opacity-5 rounded-full blur-2xl`}
                 />
 
                 {/* Content */}
                 <div className="relative z-10">
-                  {/* Quote Icon */}
-                  <motion.div
-                    className="mb-6"
-                    initial={{ scale: 0, rotate: -180 }}
-                    animate={{ scale: 1, rotate: 0 }}
-                    transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                  >
-                    <div
-                      className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${reviews[currentIndex].gradient} shadow-lg shadow-blue-500/30`}
-                    >
-                      <Quote
-                        className="w-10 h-10 text-white"
-                        fill="currentColor"
-                      />
-                    </div>
-                  </motion.div>
-
-                  {/* Star Rating */}
-                  <motion.div
-                    className="flex gap-1.5 mb-6"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                  >
-                    {[...Array(reviews[currentIndex].rating)].map((_, i) => (
+                  <div className="flex bg-transparent flex-col md:flex-row md:items-start gap-4 sm:gap-6">
+                    {/* Left: Quote Icon & Rating */}
+                    <div className="flex flex-row md:flex-col items-center md:items-center gap-4 shrink-0">
+                      {/* Quote Icon - Compact */}
                       <motion.div
-                        key={i}
                         initial={{ scale: 0, rotate: -180 }}
                         animate={{ scale: 1, rotate: 0 }}
                         transition={{
-                          delay: 0.4 + i * 0.1,
+                          delay: 0.2,
                           type: "spring",
                           stiffness: 200,
                         }}
                       >
-                        <Star className="w-6 h-6 text-[#176FC0] fill-[#176FC0]" />
+                        <div
+                          className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${reviews[currentIndex].gradient} shadow-lg shadow-blue-500/30`}
+                        >
+                          <Quote
+                            className="w-6 h-6 text-white"
+                            fill="currentColor"
+                          />
+                        </div>
                       </motion.div>
-                    ))}
-                  </motion.div>
 
-                  {/* Feedback */}
-                  <motion.p
-                    className="text-base sm:text-lg text-slate-700 leading-relaxed mb-6 font-medium italic"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 }}
-                  >
-                    "{reviews[currentIndex].feedback}"
-                  </motion.p>
-
-                  {/* Divider */}
-                  <motion.div
-                    className={`h-1 bg-gradient-to-r ${reviews[currentIndex].gradient} rounded-full mb-6`}
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ delay: 0.6, duration: 0.8 }}
-                    style={{ transformOrigin: "left" }}
-                  />
-
-                  {/* Customer Info */}
-                  <motion.div
-                    className="flex items-center justify-between flex-wrap gap-4"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7 }}
-                  >
-                    <div>
-                      <h4 className="text-xl font-black text-slate-900 mb-1">
-                        {reviews[currentIndex].name}
-                      </h4>
-                      <p className="text-sm text-slate-500 font-medium">
-                        {reviews[currentIndex].carModel}
-                      </p>
+                      {/* Star Rating - Compact */}
+                      <motion.div
+                        className="flex gap-1"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3 }}
+                      >
+                        {[...Array(reviews[currentIndex].rating)].map(
+                          (_, i) => (
+                            <motion.div
+                              key={i}
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              transition={{
+                                delay: 0.4 + i * 0.1,
+                                type: "spring",
+                                stiffness: 200,
+                              }}
+                            >
+                              <Star className="w-4 h-4 text-[#176FC0] fill-[#176FC0]" />
+                            </motion.div>
+                          ),
+                        )}
+                      </motion.div>
                     </div>
-                    <div className="flex items-center gap-2 text-slate-400">
-                      <MapPin className="w-4 h-4" />
-                      <p className="text-xs uppercase tracking-wider font-bold">
-                        {reviews[currentIndex].location}
-                      </p>
+
+                    {/* Right: Feedback & Info */}
+                    <div className="flex-1 text-center md:text-left">
+                      {/* Feedback - Compact */}
+                      <motion.p
+                        className="text-sm sm:text-base text-slate-700 leading-relaxed mb-4 font-medium italic"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5 }}
+                      >
+                        "{reviews[currentIndex].feedback}"
+                      </motion.p>
+
+                      {/* Customer Info - Compact */}
+                      <motion.div
+                        className="flex flex-col md:flex-row items-center md:items-end justify-between gap-3 border-t border-slate-100 pt-4"
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6 }}
+                      >
+                        <div>
+                          <h4 className="text-base sm:text-lg font-black text-slate-900 leading-none mb-1">
+                            {reviews[currentIndex].name}
+                          </h4>
+                          <p className="text-xs text-slate-500 font-medium">
+                            {reviews[currentIndex].carModel}
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-1.5 text-slate-400">
+                          <MapPin className="w-3.5 h-3.5" />
+                          <p className="text-[10px] uppercase tracking-wider font-bold">
+                            {reviews[currentIndex].location}
+                          </p>
+                        </div>
+                      </motion.div>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Decorative Corner */}
-                <div className="absolute top-6 right-6 w-20 h-20 border-t-2 border-r-2 border-blue-200/50 rounded-tr-3xl" />
+                <div className="absolute top-4 right-4 w-12 h-12 border-t-2 border-r-2 border-blue-200/50 rounded-tr-2xl" />
               </motion.div>
             </AnimatePresence>
 
-            {/* Navigation Buttons */}
-            <div className="flex items-center justify-center gap-4 mt-6">
+            {/* Navigation Buttons - Compact */}
+            <div className="flex items-center justify-center gap-3 mt-6">
               <motion.button
                 onClick={prevReview}
-                whileHover={{ scale: 1.1, x: -5 }}
+                whileHover={{ scale: 1.1, x: -3 }}
                 whileTap={{ scale: 0.9 }}
-                className="group w-14 h-14 rounded-full bg-white border-2 border-slate-200 flex items-center justify-center text-slate-600 hover:border-[#176FC0] hover:text-[#176FC0] hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:border-[#176FC0] hover:text-[#176FC0] hover:bg-blue-50 transition-all duration-300 shadow-md"
                 aria-label="Previous review"
               >
-                <ChevronLeft className="w-6 h-6" strokeWidth={2.5} />
+                <ChevronLeft className="w-5 h-5" strokeWidth={2.5} />
               </motion.button>
 
-              {/* Dots Indicator */}
-              <div className="flex gap-2.5">
+              {/* Dots Indicator - Compact */}
+              <div className="flex gap-2">
                 {reviews.map((_, index) => (
                   <motion.button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
                     whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
-                    className={`h-2.5 rounded-full transition-all duration-500 ${
+                    className={`h-2 rounded-full transition-all duration-500 ${
                       index === currentIndex
-                        ? "w-10 bg-gradient-to-r from-[#176FC0] to-[#0F4C85] shadow-lg shadow-blue-500/50"
-                        : "w-2.5 bg-slate-300 hover:bg-slate-400"
+                        ? "w-8 bg-gradient-to-r from-[#176FC0] to-[#0F4C85]"
+                        : "w-2 bg-slate-200 hover:bg-slate-300"
                     }`}
                     aria-label={`Go to review ${index + 1}`}
                   />
@@ -280,17 +283,17 @@ export default function Reviews() {
 
               <motion.button
                 onClick={nextReview}
-                whileHover={{ scale: 1.1, x: 5 }}
+                whileHover={{ scale: 1.1, x: 3 }}
                 whileTap={{ scale: 0.9 }}
-                className="group w-14 h-14 rounded-full bg-white border-2 border-slate-200 flex items-center justify-center text-slate-600 hover:border-[#176FC0] hover:text-[#176FC0] hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:border-[#176FC0] hover:text-[#176FC0] hover:bg-blue-50 transition-all duration-300 shadow-md"
                 aria-label="Next review"
               >
-                <ChevronRight className="w-6 h-6" strokeWidth={2.5} />
+                <ChevronRight className="w-5 h-5" strokeWidth={2.5} />
               </motion.button>
             </div>
 
-            {/* Thumbnail Reviews - Desktop Only */}
-            <div className="hidden lg:grid grid-cols-4 gap-4 mt-8">
+            {/* Thumbnail Reviews - Compact Grid Hidden on Mobile */}
+            <div className="hidden lg:grid grid-cols-4 gap-3 mt-6">
               {reviews.map((review, index) => (
                 <motion.button
                   key={index}
@@ -299,38 +302,27 @@ export default function Reviews() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  className={`text-left p-4 rounded-2xl border-2 transition-all duration-300 ${
+                  whileHover={{ y: -3, scale: 1.02 }}
+                  className={`text-left p-3 rounded-xl border transition-all duration-300 ${
                     index === currentIndex
-                      ? "border-[#176FC0] bg-gradient-to-br from-blue-50 to-indigo-50 shadow-xl shadow-blue-500/20"
-                      : "border-slate-100 bg-white hover:border-slate-200 hover:shadow-lg"
+                      ? "border-[#176FC0] bg-gradient-to-br from-blue-50 to-indigo-50 shadow-md"
+                      : "border-slate-100 bg-white hover:border-slate-200 hover:shadow-sm"
                   }`}
                 >
-                  <div className="flex gap-1 mb-3">
+                  <div className="flex gap-0.5 mb-2">
                     {[...Array(review.rating)].map((_, i) => (
                       <Star
                         key={i}
-                        className="w-3.5 h-3.5 text-[#176FC0] fill-[#176FC0]"
+                        className="w-3 h-3 text-[#176FC0] fill-[#176FC0]"
                       />
                     ))}
                   </div>
-                  <h5 className="text-sm font-black text-slate-900 mb-1">
+                  <h5 className="text-xs font-black text-slate-900 mb-0.5 truncate">
                     {review.name}
                   </h5>
-                  <p className="text-xs text-slate-500 font-medium">
+                  <p className="text-[10px] text-slate-500 font-medium truncate">
                     {review.carModel}
                   </p>
-                  {index === currentIndex && (
-                    <motion.div
-                      layoutId="activeReview"
-                      className={`mt-3 h-1 bg-gradient-to-r ${review.gradient} rounded-full`}
-                      transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 30,
-                      }}
-                    />
-                  )}
                 </motion.button>
               ))}
             </div>

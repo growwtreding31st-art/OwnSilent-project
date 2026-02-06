@@ -44,7 +44,7 @@ export default function WhatWeDo() {
   ];
 
   return (
-    <section className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-12 sm:py-16 lg:py-20 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-8 sm:py-10 lg:py-12 overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
@@ -83,13 +83,13 @@ export default function WhatWeDo() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-10 lg:mb-12"
+          className="text-center max-w-3xl mx-auto mb-8 lg:mb-10"
         >
           <motion.div
             initial={{ scale: 0.9 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 shadow-lg shadow-blue-500/10 mb-4"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 shadow-lg shadow-blue-500/10 mb-3"
           >
             <motion.span
               animate={{ rotate: 360 }}
@@ -105,14 +105,14 @@ export default function WhatWeDo() {
             <Sparkles className="w-3.5 h-3.5 text-[#176FC0]" />
           </motion.div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight mb-4 leading-tight">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight mb-3 leading-tight">
             {t("whatWeDo.title")}{" "}
             <span className="relative inline-block">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#176FC0] via-[#1461A8] to-[#0F4C85]">
                 {t("whatWeDo.titleHighlight")}
               </span>
               <motion.div
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#176FC0] via-[#1461A8] to-[#0F4C85] rounded-full"
+                className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-gradient-to-r from-[#176FC0] via-[#1461A8] to-[#0F4C85] rounded-full"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
@@ -126,8 +126,8 @@ export default function WhatWeDo() {
           </p>
         </motion.div>
 
-        {/* Enhanced Features Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+        {/* Enhanced Features Grid - 2 cols mobile, 4 cols desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -135,23 +135,23 @@ export default function WhatWeDo() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                delay: index * 0.15,
+                delay: index * 0.1,
                 type: "spring",
                 stiffness: 100,
               }}
-              whileHover={{ y: -12, scale: 1.02 }}
+              whileHover={{ y: -8, scale: 1.02 }}
               className="group relative"
             >
               {/* Glow Effect */}
               <motion.div
-                className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500"
+                className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-500"
                 style={{
                   background: `radial-gradient(circle at center, ${feature.glowColor}, transparent 70%)`,
                 }}
               />
 
-              {/* Card */}
-              <div className="relative h-full bg-white/80 backdrop-blur-sm rounded-2xl p-5 sm:p-6 lg:p-8 border border-slate-200/50 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_60px_rgba(23,111,192,0.15)] transition-all duration-500 overflow-hidden">
+              {/* Card - Compact */}
+              <div className="relative h-full bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-slate-200/50 shadow-sm hover:shadow-lg transition-all duration-500 overflow-hidden">
                 {/* Animated Gradient Background */}
                 <motion.div
                   className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
@@ -165,80 +165,34 @@ export default function WhatWeDo() {
                   }}
                 />
 
-                {/* Decorative Elements */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/5 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-indigo-500/5 to-transparent rounded-tr-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
                 {/* Content */}
-                <div className="relative z-10">
-                  {/* Enhanced Icon */}
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  {/* Enhanced Icon - Compact */}
                   <motion.div
-                    className="mb-4 sm:mb-5 lg:mb-6"
+                    className="mb-3"
                     whileHover={{ rotate: [0, -10, 10, -10, 0] }}
                     transition={{ duration: 0.5 }}
                   >
                     <div
-                      className={`inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl bg-gradient-to-br ${feature.iconBg} text-white shadow-lg shadow-blue-500/30 group-hover:shadow-2xl group-hover:shadow-blue-500/40 transition-all duration-500`}
+                      className={`inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${feature.iconBg} text-white shadow-lg shadow-blue-500/30 group-hover:shadow-xl group-hover:shadow-blue-500/40 transition-all duration-500`}
                     >
                       <feature.icon
-                        className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8"
+                        className="w-5 h-5 sm:w-6 sm:h-6"
                         strokeWidth={2}
                       />
                     </div>
                   </motion.div>
 
                   {/* Title */}
-                  <h3 className="text-base sm:text-lg lg:text-xl font-black text-slate-900 mb-3 sm:mb-4 tracking-tight group-hover:text-[#176FC0] transition-colors duration-300">
+                  <h3 className="text-sm sm:text-base font-black text-slate-900 mb-2 tracking-tight group-hover:text-[#176FC0] transition-colors duration-300">
                     {feature.title}
                   </h3>
 
-                  {/* Description */}
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                  {/* Description - Hidden on very small screens if needed, or small text */}
+                  <p className="text-[10px] sm:text-xs text-slate-600 leading-relaxed font-medium line-clamp-3">
                     {feature.description}
                   </p>
-
-                  {/* Animated Arrow */}
-                  <motion.div
-                    className="mt-4 sm:mt-6 flex items-center gap-2 text-[#176FC0] font-bold text-xs sm:text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    initial={{ x: -10 }}
-                    whileHover={{ x: 0 }}
-                  >
-                    <span>{t("common.learnMore")}</span>
-                    <motion.svg
-                      className="w-3 h-3 sm:w-4 sm:h-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{ duration: 1.5, repeat: Infinity }}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </motion.svg>
-                  </motion.div>
                 </div>
-
-                {/* Shimmer Effect */}
-                <motion.div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100"
-                  initial={false}
-                  animate={{
-                    background: [
-                      "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)",
-                      "linear-gradient(90deg, transparent, transparent, transparent)",
-                    ],
-                    backgroundPosition: ["-200%", "200%"],
-                  }}
-                  transition={{
-                    duration: 1.5,
-                    repeat: Infinity,
-                    repeatDelay: 2,
-                  }}
-                />
               </div>
             </motion.div>
           ))}
