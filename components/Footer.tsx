@@ -16,6 +16,10 @@ import {
   Globe,
   Building2,
   Hash,
+  Youtube,
+  Pin,
+  Gamepad2, // Using as a proxy for Threads or similar if needed, or I'll just use AtSign
+  AtSign,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 export default function Footer() {
@@ -50,10 +54,36 @@ export default function Footer() {
     { href: "/shop?brand=audi-rs", label: "Audi RS" },
   ];
   const socialLinks = [
-    { href: "#", icon: Facebook, label: "Facebook" },
-    { href: "#", icon: Twitter, label: "Twitter" },
-    { href: "#", icon: Instagram, label: "Instagram" },
-    { href: "#", icon: Linkedin, label: "LinkedIn" },
+    {
+      href: "https://www.facebook.com/ownsilentin/",
+      icon: Facebook,
+      label: "Facebook",
+    },
+    {
+      href: "https://www.instagram.com/ownsilent.international",
+      icon: Instagram,
+      label: "Instagram",
+    },
+    {
+      href: "https://www.linkedin.com/company/own-silent-international-limited/",
+      icon: Linkedin,
+      label: "LinkedIn",
+    },
+    {
+      href: "https://youtube.com/@ownsilent.international",
+      icon: Youtube,
+      label: "YouTube",
+    },
+    {
+      href: "https://in.pinterest.com/ownsilentinternational/",
+      icon: Pin,
+      label: "Pinterest",
+    },
+    {
+      href: "https://www.threads.net/@ownsilent.international",
+      icon: AtSign,
+      label: "Threads",
+    },
   ];
 
   const brands = [
@@ -120,17 +150,24 @@ export default function Footer() {
                 </div>
 
                 {/* Emails */}
-                <div className="space-y-2">
+                <div className="space-y-3">
                   <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">
                     Direct Contact
                   </span>
-                  <div className="space-y-1.5 text-xs">
+                  <div className="space-y-2 text-xs">
                     <a
-                      href="mailto:sales@ownsilent.international"
+                      href="mailto:Sales@ownsilent.international"
                       className="flex items-center gap-2 text-slate-600 hover:text-[#176FC0] transition-colors font-semibold"
                     >
                       <Mail size={12} className="text-[#176FC0]" />{" "}
-                      sales@ownsilent.international
+                      Sales@ownsilent.international
+                    </a>
+                    <a
+                      href="mailto:Support@ownsilent.com"
+                      className="flex items-center gap-2 text-slate-600 hover:text-[#176FC0] transition-colors font-semibold"
+                    >
+                      <Mail size={12} className="text-[#176FC0]" />{" "}
+                      Support@ownsilent.com
                     </a>
                     <a
                       href="mailto:Help@ownsilent.com"
@@ -138,6 +175,20 @@ export default function Footer() {
                     >
                       <Mail size={12} className="text-[#176FC0]" />{" "}
                       Help@ownsilent.com
+                    </a>
+                    <a
+                      href="mailto:Help@ownsilent.in"
+                      className="flex items-center gap-2 text-slate-600 hover:text-[#176FC0] transition-colors font-semibold"
+                    >
+                      <Mail size={12} className="text-[#176FC0]" />{" "}
+                      Help@ownsilent.in
+                    </a>
+                    <a
+                      href="mailto:Help@ownsilent.eu"
+                      className="flex items-center gap-2 text-slate-600 hover:text-[#176FC0] transition-colors font-semibold"
+                    >
+                      <Mail size={12} className="text-[#176FC0]" />{" "}
+                      Help@ownsilent.eu
                     </a>
                   </div>
                 </div>
