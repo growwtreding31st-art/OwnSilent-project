@@ -115,8 +115,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-white border-t border-slate-100 font-sans">
-      <div className="container mx-auto px-5 sm:px-6 lg:px-8 pt-8 pb-16">
-        <div className="grid grid-cols-2 md:grid-cols-12 gap-y-12 gap-x-8 mb-16">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-8 sm:pb-16">
+        <div className="grid grid-cols-2 md:grid-cols-12 gap-y-2 md:gap-y-12 gap-x-8 mb-2 sm:mb-16">
           <div className="col-span-2 md:col-span-12 lg:col-span-3 space-y-6">
             <Link href="/" className="inline-block">
               <Image
@@ -127,7 +127,7 @@ export default function Footer() {
                 className="h-10 w-auto opacity-90 hover:opacity-100 transition-opacity"
               />
             </Link>
-            <div className="mt-8 relative">
+            <div className="mt-4 sm:mt-8 relative">
               <div className="relative bg-white border border-slate-100 rounded-2xl p-5 shadow-sm space-y-5">
                 {/* Company Title */}
                 <div className="flex items-start gap-3">
@@ -289,7 +289,7 @@ export default function Footer() {
             </ul>
           </div> */}
 
-          <div className="col-span-2 md:col-span-3 lg:col-span-3 space-y-10">
+          <div className="col-span-2 md:col-span-3 lg:col-span-3 space-y-2 md:space-y-10">
             {/* <div>
               <h3 className="font-bold text-slate-900 mb-5 text-sm uppercase tracking-wider">
                 Vehicle Brands
@@ -308,7 +308,7 @@ export default function Footer() {
               </ul>
             </div> */}
             <div>
-              <h3 className="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wider">
+              <h3 className="font-bold text-slate-900 mb-2 sm:mb-4 text-sm uppercase tracking-wider">
                 Exclusive Launches & Builds
               </h3>
               <form className="flex items-center">
@@ -331,7 +331,7 @@ export default function Footer() {
         </div>
 
         {/* Manual Brand Slider - Moved to full width with blue outer line */}
-        <div className="w-full py-10 border border-[#176FC0]/30 rounded-3xl mb-16 relative group/slider bg-slate-50/30 overflow-hidden">
+        <div className="w-full py-2 sm:py-10 border border-[#176FC0]/30 rounded-3xl mb-2 sm:mb-16 relative group/slider bg-slate-50/30 overflow-hidden">
           <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-slate-50/80 to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-slate-50/80 to-transparent z-10 pointer-events-none" />
 
@@ -371,8 +371,8 @@ export default function Footer() {
           </button>
         </div>
 
-        <div className="border-t border-slate-100 pt-10 pb-10">
-          <div className="w-full mb-10">
+        <div className="border-t border-slate-100 pt-2 sm:pt-10 pb-10">
+          <div className="w-full mb-2 sm:mb-10">
             <h3 className="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wide">
               {t("footer.disclaimer")}
             </h3>
@@ -407,7 +407,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="w-full mb-10"
+            className="w-full mb-2 sm:mb-10"
           >
             <div className="relative bg-gradient-to-br from-blue-50/70 via-indigo-50/50 to-blue-50/70 p-8 sm:p-10 rounded-3xl border border-blue-200/50 shadow-xl shadow-blue-500/5 overflow-hidden">
               {/* Animated Background Elements */}
