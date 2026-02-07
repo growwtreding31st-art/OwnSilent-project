@@ -1,8 +1,21 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowRight, Sparkles, TrendingUp } from "lucide-react";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+import {
+  ArrowRight,
+  Sparkles,
+  TrendingUp,
+  ChevronLeft,
+  ChevronRight,
+  Check,
+} from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,11 +28,39 @@ export default function PremiumPartsCategories() {
   const { parts, status } = useSelector((state: RootState) => state.products);
 
   useEffect(() => {
-    dispatch(fetchPublicParts({ limit: 10 }));
+    dispatch(fetchPublicParts({ limit: 5 }));
   }, [dispatch]);
 
   // Get first 10 products
-  const displayProducts = parts.slice(0, 10);
+  const displayProducts = parts.slice(0, 5);
+
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [direction, setDirection] = React.useState(0);
+
+  const paginate = React.useCallback(
+    (newDirection: number) => {
+      setDirection(newDirection);
+      setActiveIndex((prev) => {
+        let next = prev + newDirection;
+        if (next < 0) next = displayProducts.length - 1;
+        if (next >= displayProducts.length) next = 0;
+        return next;
+      });
+    },
+    [displayProducts.length],
+  );
+
+  const scrollTo = React.useCallback(
+    (index: number) => {
+      setDirection(index > activeIndex ? 1 : -1);
+      setActiveIndex(index);
+    },
+    [activeIndex],
+  );
+
+  const activeProduct = displayProducts[activeIndex];
+
+  if (!activeProduct && status !== "loading") return null;
 
   if (status === "loading") {
     return (
@@ -36,7 +77,7 @@ export default function PremiumPartsCategories() {
   }
 
   return (
-    <section className="relative bg-gradient-to-b from-white via-slate-50/50 to-white py-8 sm:py-10 lg:py-12 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-white via-slate-50/50 to-white py-4 sm:py-10 lg:py-12 overflow-hidden">
       {/* Enhanced Background */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
@@ -73,9 +114,9 @@ export default function PremiumPartsCategories() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-6 lg:mb-8"
+          className="text-center max-w-3xl mx-auto mb-8 lg:mb-8"
         >
-          <motion.div
+          {/* <motion.div
             initial={{ scale: 0.9 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
@@ -86,7 +127,7 @@ export default function PremiumPartsCategories() {
               {t("categories.badge")}
             </span>
             <Sparkles className="w-3 h-3 text-[#176FC0]" />
-          </motion.div>
+          </motion.div> */}
 
           <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight mb-3 leading-tight">
             {t("categories.title")}{" "}
@@ -104,13 +145,136 @@ export default function PremiumPartsCategories() {
             </span>
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
+          {/* <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
             {t("categories.subtitle")}
-          </p>
+          </p> */}
         </motion.div>
 
-        {/* Products Grid - Responsive */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 lg:gap-4">
+        {/* Mobile View: 3D Paginated Deck */}
+        <div className="lg:hidden mt-0">
+          <div className="relative h-[440px] overflow-visible perspective-[1200px]">
+            {/* Static Background Stack - Chunks at the back */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+              {displayProducts.length > 1 && (
+                <div
+                  className="absolute inset-0 h-[410px] transition-all duration-700 ease-out pointer-events-none"
+                  style={{
+                    transform: `translateY(-20px) scale(0.96)`,
+                    opacity: 0.4,
+                    zIndex: 10,
+                    filter: "blur(1px)",
+                  }}
+                >
+                  <MobileProductStackCard
+                    product={
+                      displayProducts[
+                        (activeIndex + 1) % displayProducts.length
+                      ]
+                    }
+                    isActive={false}
+                  />
+                </div>
+              )}
+              {displayProducts.length > 2 && (
+                <div
+                  className="absolute inset-0 h-[410px] transition-all duration-700 ease-out pointer-events-none"
+                  style={{
+                    transform: `translateY(-40px) scale(0.92)`,
+                    opacity: 0.2,
+                    zIndex: 5,
+                    filter: "blur(2px)",
+                  }}
+                >
+                  <MobileProductStackCard
+                    product={
+                      displayProducts[
+                        (activeIndex + 2) % displayProducts.length
+                      ]
+                    }
+                    isActive={false}
+                  />
+                </div>
+              )}
+            </div>
+
+            <AnimatePresence initial={false} custom={direction}>
+              <motion.div
+                key={activeIndex}
+                custom={direction}
+                variants={{
+                  enter: (direction: number) => ({
+                    scale: direction > 0 ? 0.96 : 1.1,
+                    y: direction > 0 ? -20 : 0,
+                    x: direction > 0 ? 0 : "100%",
+                    opacity: direction > 0 ? 0.4 : 0,
+                    zIndex: 50,
+                    filter: direction > 0 ? "blur(1px)" : "blur(0px)",
+                  }),
+                  center: {
+                    scale: 1,
+                    y: 0,
+                    x: 0,
+                    zIndex: 50,
+                    opacity: 1,
+                    filter: "blur(0px)",
+                  },
+                  exit: (direction: number) => ({
+                    x: direction > 0 ? "-100%" : "100%",
+                    opacity: 0,
+                    zIndex: 100,
+                    rotate: direction > 0 ? -15 : 15,
+                    scale: direction > 0 ? 1 : 0.95,
+                    transition: { duration: 0.4 },
+                  }),
+                }}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={(e, { offset, velocity }) => {
+                  const swipe =
+                    Math.abs(offset.x) > 50 || Math.abs(velocity.x) > 500;
+                  if (swipe) {
+                    paginate(offset.x > 0 ? -1 : 1);
+                  }
+                }}
+                transition={{
+                  x: { type: "spring", stiffness: 300, damping: 30 },
+                  y: { type: "spring", stiffness: 300, damping: 30 },
+                  scale: { type: "spring", stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.3 },
+                }}
+                className="absolute inset-x-0 top-0 w-full h-[410px]"
+              >
+                <MobileProductStackCard
+                  product={displayProducts[activeIndex]}
+                  isActive={true}
+                />
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Navigation Handles */}
+            <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-3 z-[150]">
+              {displayProducts.slice(0, 5).map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => scrollTo(idx)}
+                  className={`transition-all duration-500 rounded-full ${
+                    idx === activeIndex
+                      ? "w-10 h-2 bg-[#176FC0] shadow-[0_0_10px_rgba(23,111,192,0.3)]"
+                      : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
+                  }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop View: Original Grid */}
+        <div className="hidden lg:grid lg:grid-cols-5 gap-4">
           {displayProducts.map((product: any, index: number) => (
             <ProductCard
               key={product._id || index}
@@ -125,7 +289,7 @@ export default function PremiumPartsCategories() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mt-8 sm:mt-10"
+          className="text-center mt-1 sm:mt-10"
         >
           <motion.a
             href="/shop"
@@ -153,6 +317,56 @@ export default function PremiumPartsCategories() {
         </motion.div>
       </div>
     </section>
+  );
+}
+
+// Mobile Stack Card for the 3D Deck
+function MobileProductStackCard({
+  product,
+  isActive,
+}: {
+  product: any;
+  isActive: boolean;
+}) {
+  if (!product) return null;
+  const productLink = `/product/${product.slug || product._id}`;
+
+  return (
+    <motion.a
+      href={productLink}
+      className="group relative block w-full h-full bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden transition-all duration-300"
+    >
+      <div className="relative w-full aspect-[4/5] bg-slate-50 overflow-hidden">
+        <motion.div
+          className="h-full w-full"
+          animate={{ scale: isActive ? 1 : 1.1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <Image
+            src={product.images?.[0] || "/images/placeholder.jpg"}
+            alt={product.title || "Product"}
+            fill
+            className="object-cover"
+            priority={isActive}
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        </motion.div>
+      </div>
+
+      <div className="p-3 pb-1.5 bg-white relative overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+          transition={{ delay: 0.2 }}
+          className="w-full text-center"
+        >
+          <h3 className="text-xs sm:text-sm font-black text-slate-900 leading-tight uppercase tracking-tight truncate w-full px-1">
+            {product.title || product.name}
+          </h3>
+        </motion.div>
+      </div>
+    </motion.a>
   );
 }
 
@@ -255,24 +469,12 @@ function ProductCard({ product, index }: { product: any; index: number }) {
       >
         <div className="flex flex-col items-start gap-2">
           <motion.h3
-            className="text-xs sm:text-sm font-black text-white tracking-tight uppercase leading-tight line-clamp-2"
+            className="text-[10px] sm:text-xs font-black text-white tracking-tight uppercase leading-tight truncate w-full"
             whileHover={{ x: 2 }}
             transition={{ duration: 0.2 }}
           >
             {product.title || product.name || "Product"}
           </motion.h3>
-
-          {/* Enhanced CTA Icon - Smaller */}
-          <motion.div
-            whileHover={{ scale: 1.1, rotate: 45 }}
-            transition={{ type: "spring", stiffness: 400 }}
-            className={`w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 backdrop-blur-sm flex items-center justify-center shadow-lg`}
-          >
-            <ArrowRight
-              className="w-3 h-3 sm:w-4 sm:h-4 text-white"
-              strokeWidth={2.5}
-            />
-          </motion.div>
         </div>
       </div>
     </motion.a>

@@ -98,22 +98,22 @@ const CompactBlogCard = ({ article, index }) => {
             </span>
           </div>
           
-          <h4 className="text-sm font-bold text-slate-900 leading-tight line-clamp-2 group-hover:text-[#176FC0] transition-colors">
+          <h4 className="text-[13px] sm:text-sm font-bold text-slate-900 leading-tight line-clamp-2 group-hover:text-[#176FC0] transition-colors">
             {article.title}
           </h4>
           
-          <div className="flex items-center gap-3 mt-2">
-            <div className="flex items-center gap-1.5 text-slate-400">
-              <Calendar size={10} />
-              <span className="text-[10px] font-medium">
-                {new Date(article.createdAt).toLocaleDateString()}
+            <div className="flex items-center gap-3 mt-1.5">
+              <div className="flex items-center gap-1 text-slate-400">
+                <Calendar size={9} />
+                <span className="text-[9px] font-medium">
+                  {new Date(article.createdAt).toLocaleDateString()}
+                </span>
+              </div>
+              <span className="w-1 h-1 rounded-full bg-slate-200" />
+              <span className="text-[9px] font-medium text-slate-500 line-clamp-1">
+                {article.author?.fullName || 'Own Silent'}
               </span>
             </div>
-            <span className="w-1 h-1 rounded-full bg-slate-200" />
-            <span className="text-[10px] font-medium text-slate-500 line-clamp-1">
-              {article.author?.fullName || 'Own Silent'}
-            </span>
-          </div>
         </div>
       </Link>
     </motion.div>
@@ -166,12 +166,12 @@ export default function BlogSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-12">
           <div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">
+            <h2 className="text-xl sm:text-5xl font-bold text-slate-900 tracking-tight">
               {t("blog.title")}{" "}
               {/* Changed highlight color to match the theme */}
               <span className="text-[#176FC0]">{t("blog.highlight")}</span>
             </h2>
-            <p className="mt-3 text-lg text-slate-600 max-w-xl">
+            <p className="mt-1.5 text-[12px] sm:text-lg text-slate-600 max-w-xl line-clamp-2 sm:line-clamp-none">
               {t("blog.subtitle")}
             </p>
           </div>

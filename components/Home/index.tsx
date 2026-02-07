@@ -81,7 +81,7 @@ export default function HomePageContent() {
     <div className="min-h-screen overflow-x-hidden">
       {/* Critical above-the-fold content - loads immediately */}
       {/* <PremiumCarShowcase /> */}
-      <CarsSection />
+      <CarsSection part="1" />
 
       {/* Below-the-fold sections - lazy loaded */}
       <Suspense fallback={<SectionLoader />}>
@@ -92,6 +92,7 @@ export default function HomePageContent() {
         <PremiumPartsCategories />
       </Suspense>
 
+      <CarsSection part="2" />
       {/* <Suspense fallback={<SectionLoader />}>
         <OurGallery />
       </Suspense> */}
