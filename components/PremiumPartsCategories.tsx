@@ -120,7 +120,7 @@ export default function PremiumPartsCategories() {
 
           {/* Dots handles for mobile */}
           <div className="flex justify-center gap-2 mt-8">
-            {scrollSnaps.map((_, idx) => (
+            {displayProducts.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => scrollTo(idx)}

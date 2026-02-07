@@ -309,8 +309,6 @@ export default function CategoryShowcaseSection({ part }: { part?: string }) {
     dispatch(fetchPublicCategorySlides());
   }, [dispatch]);
 
-  if (status !== "loading" && categoriesWithContent.length === 0) return null;
-
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "start",
@@ -345,6 +343,8 @@ export default function CategoryShowcaseSection({ part }: { part?: string }) {
     () => emblaApi && emblaApi.scrollNext(),
     [emblaApi],
   );
+
+  if (status !== "loading" && categoriesWithContent.length === 0) return null;
 
   return (
     <section
@@ -426,7 +426,7 @@ export default function CategoryShowcaseSection({ part }: { part?: string }) {
           {/* Pagination Dots */}
           {slidesToRender.length > 1 && (
             <div className="flex justify-center gap-2 mt-8 lg:mt-12">
-              {scrollSnaps.map((_, idx) => (
+              {slidesToRender.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => scrollTo(idx)}
