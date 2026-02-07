@@ -236,50 +236,6 @@ const CategoryHeroCard = ({
 
 const MobileCategoryCard = ({ slide }: { slide: any }) => {
   const { t } = useLanguage();
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, axis: "x" }, [
-    Autoplay({ delay: 4000, stopOnInteraction: false }),
-  ]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    setScrollSnaps(emblaApi.scrollSnapList());
-    emblaApi.on("select", onSelect);
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
-  }, [emblaApi, onSelect]);
-
-  const scrollTo = useCallback(
-    (index: number) => {
-      if (emblaApi) emblaApi.scrollTo(index);
-    },
-    [emblaApi],
-  );
-
-  const scrollPrev = useCallback(
-    (e: React.MouseEvent) => {
-      e.preventDefault();
-      e.stopPropagation();
-      if (emblaApi) emblaApi.scrollPrev();
-    },
-    [emblaApi],
-  );
-
-  const scrollNext = useCallback(
-    (e: React.MouseEvent) => {
-      e.preventDefault();
-      e.stopPropagation();
-      if (emblaApi) emblaApi.scrollNext();
-    },
-    [emblaApi],
-  );
 
   if (!slide) return null;
   const categoryLink = slide.category?.slug
@@ -290,97 +246,21 @@ const MobileCategoryCard = ({ slide }: { slide: any }) => {
     <div className="mb-8 last:mb-0 px-2">
       <div className="group relative block bg-white rounded-sm shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 overflow-hidden transition-all duration-300">
         <div className="relative w-full aspect-[4/5] bg-slate-50 overflow-hidden">
-          <div className="h-full w-full touch-pan-y" ref={emblaRef}>
-            <div className="flex h-full">
-              {slide.images &&
-                slide.images.map((img: string, index: number) => (
-                  <div
-                    className="flex-[0_0_100%] relative h-full w-full"
-                    key={index}
-                  >
-                    <Image
-                      src={img}
-                      alt={`${slide.title} ${index + 1}`}
-                      fill
-                      className="object-cover"
-                      priority={index === 0}
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-transparent" />
-                  </div>
-                ))}
-            </div>
-          </div>
-
-          {slide.images && slide.images.length > 1 && (
-            <>
-              <button
-                onClick={scrollPrev}
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-slate-800 p-1.5 rounded-full shadow-md backdrop-blur-sm transition-all z-10 border border-slate-200"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                onClick={scrollNext}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-slate-800 p-1.5 rounded-full shadow-md backdrop-blur-sm transition-all z-10 border border-slate-200"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-
-              <div className="absolute bottom-4 left-0 right-0 flex justify-center z-10 pointer-events-none">
-                <div className="flex gap-1 p-1 rounded-full bg-black/10 backdrop-blur-sm border border-white/10 pointer-events-auto min-w-[24px] justify-center">
-                  {(() => {
-                    const maxDots = 7;
-                    const total = scrollSnaps.length;
-                    if (total <= maxDots) {
-                      return scrollSnaps.map((_, idx) => (
-                        <button
-                          key={idx}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            scrollTo(idx);
-                          }}
-                          className={`h-1 rounded-full transition-all duration-300 shadow-sm ${
-                            idx === selectedIndex
-                              ? "w-4 bg-white"
-                              : "w-1 bg-white/50"
-                          }`}
-                        />
-                      ));
-                    }
-
-                    let start = Math.max(
-                      0,
-                      selectedIndex - Math.floor(maxDots / 2),
-                    );
-                    let end = start + maxDots;
-                    if (end > total) {
-                      end = total;
-                      start = end - maxDots;
-                    }
-
-                    return Array.from(
-                      { length: maxDots },
-                      (_, i) => start + i,
-                    ).map((idx) => (
-                      <button
-                        key={idx}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          scrollTo(idx);
-                        }}
-                        className={`h-1 rounded-full transition-all duration-300 shadow-sm ${
-                          idx === selectedIndex
-                            ? "w-4 bg-white"
-                            : "w-1 bg-white/50"
-                        }`}
-                      />
-                    ));
-                  })()}
-                </div>
+          <div className="h-full w-full">
+            {slide.images && slide.images.length > 0 && (
+              <div className="relative h-full w-full">
+                <Image
+                  src={slide.images[0]}
+                  alt={slide.title}
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-transparent" />
               </div>
-            </>
-          )}
+            )}
+          </div>
         </div>
 
         <Link href={categoryLink} className="block p-5 bg-white relative">
@@ -573,7 +453,7 @@ export default function CategoryShowcaseSection() {
               )}
 
               <div className="max-w-md mx-auto space-y-8">
-                {filteredSlides.map((slide) => (
+                {filteredSlides.slice(0, 1).map((slide) => (
                   <MobileCategoryCard key={slide._id} slide={slide} />
                 ))}
               </div>
