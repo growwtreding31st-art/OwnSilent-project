@@ -16,6 +16,11 @@ export function generateStaticParams() {
   ];
 }
 
-export default function FeaturePage({ params }: { params: { slug: string } }) {
-  return <FeatureDetail slug={params.slug} />;
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+export default async function FeaturePage({ params }: Props) {
+  const { slug } = await params;
+  return <FeatureDetail slug={slug} />;
 }

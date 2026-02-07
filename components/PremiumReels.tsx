@@ -130,7 +130,7 @@ export default function PremiumReels() {
           </div>
 
           {/* Pagination Dots - Mobile only */}
-          <div className="flex sm:hidden justify-center gap-2 mt-6">
+          <div className="flex sm:hidden justify-center gap-1 mt-6">
             {scrollSnaps.map((_, index) => (
               <button
                 key={index}
@@ -138,7 +138,7 @@ export default function PremiumReels() {
                 className={`transition-all duration-300 rounded-full ${
                   index === selectedIndex
                     ? "w-8 h-1.5 bg-[#176FC0]"
-                    : "w-1.5 h-1.5 bg-slate-200"
+                    : "w-2 h-2 bg-slate-200"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />

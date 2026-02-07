@@ -24,6 +24,7 @@ export default function HowWeWork() {
       description: t("howWeWork.step1.desc"),
       gradient: "from-blue-500 to-cyan-500",
       bgGradient: "from-blue-50 to-cyan-50",
+      href: "/how-it-works/find-your-part",
     },
     {
       number: "02",
@@ -32,6 +33,7 @@ export default function HowWeWork() {
       description: t("howWeWork.step2.desc"),
       gradient: "from-indigo-500 to-blue-500",
       bgGradient: "from-indigo-50 to-blue-50",
+      href: "/how-it-works/ordering-process",
     },
     {
       number: "03",
@@ -40,6 +42,7 @@ export default function HowWeWork() {
       description: t("howWeWork.step3.desc"),
       gradient: "from-sky-500 to-indigo-500",
       bgGradient: "from-sky-50 to-indigo-50",
+      href: "/how-it-works/fast-shipping",
     },
     {
       number: "04",
@@ -48,6 +51,7 @@ export default function HowWeWork() {
       description: t("howWeWork.step4.desc"),
       gradient: "from-cyan-500 to-blue-500",
       bgGradient: "from-cyan-50 to-blue-50",
+      href: "/how-it-works/quality-delivery",
     },
   ];
 
@@ -151,74 +155,79 @@ export default function HowWeWork() {
               )}
 
               {/* Step Card - Compact */}
-              <motion.div
-                whileHover={{ y: -8, scale: 1.02 }}
-                className="group relative h-full bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-slate-200/50 shadow-sm hover:shadow-lg transition-all duration-500 overflow-hidden z-10"
-              >
-                {/* Glow Effect */}
+              <Link href={step.href} className="block group relative h-full">
                 <motion.div
-                  className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-500"
-                  style={{
-                    background: `radial-gradient(circle at center, rgba(23,111,192,0.2), transparent 70%)`,
-                  }}
-                />
-
-                {/* Animated Background Gradient */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${step.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
-                />
-
-                {/* Content */}
-                <div className="relative z-10 flex flex-col items-center text-center">
-                  {/* Number Badge - Compact */}
-                  <div className="absolute top-2 right-2 text-[10px] font-black text-slate-200 group-hover:text-[#176FC0] transition-colors duration-300">
-                    {step.number}
-                  </div>
-
-                  {/* Icon - Compact */}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="relative h-full bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-slate-200/50 shadow-sm hover:shadow-lg transition-all duration-500 overflow-hidden z-10"
+                >
+                  {/* Glow Effect */}
                   <motion.div
-                    className="mb-3"
-                    whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <div
-                      className={`inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${step.gradient} text-white shadow-lg shadow-blue-500/30 group-hover:shadow-xl group-hover:shadow-blue-500/40 transition-all duration-500`}
-                    >
-                      <step.icon
-                        className="w-5 h-5 sm:w-6 sm:h-6"
-                        strokeWidth={2}
-                      />
+                    className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-500"
+                    style={{
+                      background: `radial-gradient(circle at center, rgba(23,111,192,0.2), transparent 70%)`,
+                    }}
+                  />
+
+                  {/* Animated Background Gradient */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${step.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                  />
+
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col items-center text-center">
+                    {/* Number Badge - Compact */}
+                    <div className="absolute top-2 right-2 text-[10px] font-black text-slate-200 group-hover:text-[#176FC0] transition-colors duration-300">
+                      {step.number}
                     </div>
-                  </motion.div>
 
-                  {/* Title */}
-                  <h3 className="text-sm sm:text-base font-black text-slate-900 mb-2 tracking-tight group-hover:text-[#176FC0] transition-colors duration-300">
-                    {step.title}
-                  </h3>
-
-                  {/* Description - Compact text */}
-                  <p className="text-[10px] sm:text-xs text-slate-600 leading-relaxed font-medium line-clamp-3">
-                    {step.description}
-                  </p>
-
-                  {/* Progress Indicator - Compact */}
-                  <motion.div
-                    className="mt-3 h-0.5 w-full bg-slate-100 rounded-full overflow-hidden"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                  >
+                    {/* Icon - Compact */}
                     <motion.div
-                      className={`h-full bg-gradient-to-r ${step.gradient}`}
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
+                      className="mb-3"
+                      whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <div
+                        className={`inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${step.gradient} text-white shadow-lg shadow-blue-500/30 group-hover:shadow-xl group-hover:shadow-blue-500/40 transition-all duration-500`}
+                      >
+                        <step.icon
+                          className="w-5 h-5 sm:w-6 sm:h-6"
+                          strokeWidth={2}
+                        />
+                      </div>
+                    </motion.div>
+
+                    {/* Title */}
+                    <h3 className="text-sm sm:text-base font-black text-slate-900 mb-2 tracking-tight group-hover:text-[#176FC0] transition-colors duration-300">
+                      {step.title}
+                    </h3>
+
+                    {/* Description - Compact text */}
+                    <p className="text-[10px] sm:text-xs text-slate-600 leading-relaxed font-medium line-clamp-3">
+                      {step.description}
+                    </p>
+
+                    {/* Progress Indicator - Compact */}
+                    <motion.div
+                      className="mt-3 h-0.5 w-full bg-slate-100 rounded-full overflow-hidden"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
-                      transition={{ delay: index * 0.15 + 0.3, duration: 0.8 }}
-                      style={{ transformOrigin: "left" }}
-                    />
-                  </motion.div>
-                </div>
-              </motion.div>
+                    >
+                      <motion.div
+                        className={`h-full bg-gradient-to-r ${step.gradient}`}
+                        initial={{ scaleX: 0 }}
+                        whileInView={{ scaleX: 1 }}
+                        viewport={{ once: true }}
+                        transition={{
+                          delay: index * 0.15 + 0.3,
+                          duration: 0.8,
+                        }}
+                        style={{ transformOrigin: "left" }}
+                      />
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </Link>
             </motion.div>
           ))}
         </div>

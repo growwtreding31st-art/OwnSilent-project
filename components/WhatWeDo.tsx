@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { Wrench, Shield, Zap, Globe2, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function WhatWeDo() {
   const { t } = useLanguage();
@@ -47,6 +49,32 @@ export default function WhatWeDo() {
       href: "/features/global-support",
     },
   ];
+
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+  });
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
+
+  const scrollTo = useCallback(
+    (index: number) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi],
+  );
 
   return (
     <section className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-0 sm:py-10 lg:py-12 overflow-hidden">
@@ -131,8 +159,79 @@ export default function WhatWeDo() {
           </p>
         </motion.div>
 
-        {/* Enhanced Features Grid - 2 cols mobile, 4 cols desktop */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+        {/* Mobile View Slider */}
+        <div className="lg:hidden">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {features.map((feature, index) => (
+                <div key={index} className="flex-[0_0_100%] min-w-0 px-2">
+                  <Link href={feature.href} className="block h-full">
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        delay: index * 0.1,
+                        type: "spring",
+                        stiffness: 100,
+                      }}
+                      className="group relative h-full"
+                    >
+                      {/* Glow Effect */}
+                      <motion.div
+                        className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-500"
+                        style={{
+                          background: `radial-gradient(circle at center, ${feature.glowColor}, transparent 70%)`,
+                        }}
+                      />
+
+                      {/* Card - Compact */}
+                      <div className="relative h-full bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/50 shadow-sm hover:shadow-lg transition-all duration-500 overflow-hidden">
+                        <div className="relative z-10 flex flex-col items-center text-center">
+                          <motion.div className="mb-4">
+                            <div
+                              className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.iconBg} text-white shadow-lg shadow-blue-500/30 group-hover:shadow-xl transition-all duration-500`}
+                            >
+                              <feature.icon
+                                className="w-7 h-7"
+                                strokeWidth={2}
+                              />
+                            </div>
+                          </motion.div>
+                          <h3 className="text-lg font-black text-slate-900 mb-3 tracking-tight">
+                            {feature.title}
+                          </h3>
+                          <p className="text-sm text-slate-600 leading-relaxed font-medium">
+                            {feature.description}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Pagination Dots */}
+          <div className="flex justify-center gap-1 mt-8">
+            {features.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => scrollTo(idx)}
+                className={`transition-all duration-300 rounded-full ${
+                  idx === selectedIndex
+                    ? "w-8 h-1.5 bg-[#176FC0]"
+                    : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop View Grid */}
+        <div className="hidden lg:grid grid-cols-4 gap-4">
           {features.map((feature, index) => (
             <Link key={index} href={feature.href} className="block">
               <motion.div

@@ -60,7 +60,7 @@ export default function Reviews() {
   };
 
   return (
-    <section className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-2 sm:py-0 lg:py-2 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-6 sm:py-8 lg:py-10 overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
@@ -97,13 +97,13 @@ export default function Reviews() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-6 lg:mb-8"
+          className="text-center max-w-3xl mx-auto mb-4 lg:mb-6"
         >
           <motion.div
             initial={{ scale: 0.9 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 shadow-lg shadow-blue-500/10 mb-3"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 shadow-lg shadow-blue-500/10 mb-2"
           >
             <Sparkles className="w-3 h-3 text-[#176FC0]" />
             <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#176FC0]">
@@ -111,7 +111,7 @@ export default function Reviews() {
             </span>
           </motion.div>
 
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight mb-3 leading-tight">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight mb-2 leading-tight">
             {t("reviews.title")}{" "}
             <span className="relative inline-block">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#176FC0] via-[#1461A8] to-[#0F4C85]">
@@ -143,7 +143,7 @@ export default function Reviews() {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: -50, scale: 0.95 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-5 sm:p-6 lg:p-8 border border-slate-200/50 shadow-lg overflow-hidden"
+                className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-5 lg:p-6 border border-slate-200/50 shadow-lg overflow-hidden"
               >
                 {/* Glow Effect */}
                 <motion.div
@@ -160,9 +160,9 @@ export default function Reviews() {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <div className="flex bg-transparent flex-col md:flex-row md:items-start gap-4 sm:gap-6">
+                  <div className="flex bg-transparent flex-col md:flex-row md:items-start gap-3 sm:gap-4">
                     {/* Left: Quote Icon & Rating */}
-                    <div className="flex flex-row md:flex-col items-center md:items-center gap-4 shrink-0">
+                    <div className="flex flex-row md:flex-col items-center md:items-center gap-3 shrink-0">
                       {/* Quote Icon - Compact */}
                       <motion.div
                         initial={{ scale: 0, rotate: -180 }}
@@ -213,7 +213,7 @@ export default function Reviews() {
                     <div className="flex-1 text-center md:text-left">
                       {/* Feedback - Compact */}
                       <motion.p
-                        className="text-sm sm:text-base text-slate-700 leading-relaxed mb-4 font-medium italic"
+                        className="text-sm sm:text-base text-slate-700 leading-relaxed mb-3 font-medium italic"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 }}
@@ -223,7 +223,7 @@ export default function Reviews() {
 
                       {/* Customer Info - Compact */}
                       <motion.div
-                        className="flex flex-col md:flex-row items-center md:items-end justify-between gap-3 border-t border-slate-100 pt-4"
+                        className="flex flex-col md:flex-row items-center md:items-end justify-between gap-2 border-t border-slate-100 pt-3"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.6 }}
@@ -253,7 +253,7 @@ export default function Reviews() {
             </AnimatePresence>
 
             {/* Navigation Buttons - Compact */}
-            <div className="flex items-center justify-center gap-3 mt-6">
+            <div className="flex items-center justify-center gap-3 mt-4">
               <motion.button
                 onClick={prevReview}
                 whileHover={{ scale: 1.1, x: -3 }}
@@ -293,7 +293,7 @@ export default function Reviews() {
             </div>
 
             {/* Thumbnail Reviews - Compact Grid Hidden on Mobile */}
-            <div className="hidden lg:grid grid-cols-4 gap-3 mt-6">
+            <div className="hidden lg:grid grid-cols-4 gap-3 mt-4">
               {reviews.map((review, index) => (
                 <motion.button
                   key={index}

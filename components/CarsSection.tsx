@@ -77,7 +77,7 @@ const CategoryHeroCard = ({
               initial={{ opacity: 0, y: 20 }}
               animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-lg md:text-2xl lg:text-3xl font-extrabold text-slate-900 leading-tight mb-4 truncate w-full"
+              className="text-xl md:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight mb-4 line-clamp-2 w-full"
             >
               {slide.title}
             </motion.h3>
@@ -86,7 +86,7 @@ const CategoryHeroCard = ({
               initial={{ opacity: 0, y: 20 }}
               animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-sm md:text-base text-slate-500 mb-6 leading-relaxed max-w-lg font-medium truncate w-full"
+              className="text-base md:text-lg text-slate-500 mb-6 leading-relaxed max-w-lg font-medium line-clamp-2 w-full"
             >
               {slide.subtitle || slide.description?.mainText}
             </motion.p>
@@ -176,7 +176,7 @@ const MobileCategoryCard = ({
             transition={{ delay: 0.2 }}
             className="w-full text-center"
           >
-            <h3 className="text-xs sm:text-sm font-black text-slate-900 leading-tight truncate w-full px-1">
+            <h3 className="text-sm sm:text-base font-black text-slate-900 leading-tight line-clamp-2 w-full px-1">
               {slide.title}
             </h3>
           </motion.div>
@@ -382,7 +382,7 @@ export default function CategoryShowcaseSection({ part }: { part?: string }) {
                 : slidesToRender.map((slide, idx) => (
                     <div
                       key={idx}
-                      className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] min-w-0 px-2 lg:px-4"
+                      className="flex-[0_0_100%] min-w-0 px-2 lg:px-4"
                     >
                       <div className="h-full">
                         <div className="hidden lg:block h-[500px]">
@@ -425,7 +425,7 @@ export default function CategoryShowcaseSection({ part }: { part?: string }) {
 
           {/* Pagination Dots */}
           {slidesToRender.length > 1 && (
-            <div className="flex justify-center gap-2 mt-8 lg:mt-12">
+            <div className="flex justify-center gap-1 mt-8 lg:mt-12">
               {slidesToRender.map((_, idx) => (
                 <button
                   key={idx}
@@ -433,7 +433,7 @@ export default function CategoryShowcaseSection({ part }: { part?: string }) {
                   className={`transition-all duration-300 rounded-full ${
                     idx === selectedIndex
                       ? "w-8 h-1.5 bg-[#176FC0]"
-                      : "w-1.5 h-1.5 bg-slate-300 hover:bg-slate-400"
+                      : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
                   }`}
                   aria-label={`Go to slide ${idx + 1}`}
                 />

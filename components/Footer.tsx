@@ -338,7 +338,7 @@ export default function Footer() {
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex items-center">
               {brands.map((brand, idx) => (
-                <div key={idx} className="flex-[0_0_auto] px-12">
+                <div key={idx} className="flex-[0_0_auto] px-6">
                   <Link
                     href={`/collections/${brand.name.toLowerCase().replace(/\s+/g, "-")}`}
                     className="flex-shrink-0 hover:scale-110 transition-all duration-300 cursor-pointer block"
@@ -424,32 +424,35 @@ export default function Footer() {
                 className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-400/20 to-indigo-400/20 rounded-full blur-3xl"
               />
 
-              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
                 {/* Left Side - Title & Description */}
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
-                  className="flex items-center gap-4"
+                  className="flex items-center gap-3 sm:gap-4 w-full md:w-auto"
                 >
                   <motion.div
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
-                    className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#176FC0] to-[#0F4C85] text-white shadow-2xl shadow-blue-500/40"
+                    className="flex items-center justify-center w-10 h-10 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#176FC0] to-[#0F4C85] text-white shadow-xl shadow-blue-500/40"
                   >
-                    <ShieldCheck className="w-8 h-8" strokeWidth={2.5} />
+                    <ShieldCheck
+                      className="w-5 h-5 sm:w-8 sm:h-8"
+                      strokeWidth={2.5}
+                    />
                   </motion.div>
                   <div>
-                    <h3 className="font-black text-slate-900 text-base sm:text-lg uppercase tracking-wide mb-2 flex items-center gap-2">
+                    <h3 className="font-black text-slate-900 text-sm sm:text-lg uppercase tracking-wide mb-1 sm:mb-2 flex items-center gap-2">
                       {t("footer.payment.title")}
                       <motion.span
                         animate={{ scale: [1, 1.2, 1] }}
                         transition={{ duration: 2, repeat: Infinity }}
-                        className="inline-flex h-2 w-2 rounded-full bg-green-500"
+                        className="inline-flex h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-green-500"
                       />
                     </h3>
-                    <p className="text-sm sm:text-base text-slate-600 font-medium leading-relaxed max-w-md">
+                    <p className="text-[11px] sm:text-base text-slate-600 font-medium leading-relaxed max-w-sm sm:max-w-md">
                       {t("footer.payment.subtitle")}
                     </p>
                   </div>
@@ -461,126 +464,106 @@ export default function Footer() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
-                  className="flex flex-wrap items-center justify-center gap-3"
+                  className="flex flex-wrap items-center justify-center gap-2 sm:gap-3"
                 >
                   {/* PayPal */}
                   <motion.div
                     whileHover={{ y: -5, scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 400 }}
-                    className="group relative px-5 py-3 bg-white/90 backdrop-blur-sm rounded-xl border-2 border-slate-200 hover:border-[#0070BA] shadow-lg hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300"
+                    className="group relative px-3 py-2 sm:px-5 sm:py-3 bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl border border-slate-200 hover:border-[#0070BA] shadow-md hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300"
                   >
-                    <div className="flex flex-col items-center gap-1.5">
+                    <div className="flex flex-col items-center gap-1">
                       <Image
                         src="/images/banking/paypal.png"
                         alt="PayPal"
-                        width={80}
-                        height={24}
-                        className="h-6 w-auto group-hover:scale-110 transition-transform object-contain"
+                        width={60}
+                        height={20}
+                        className="h-4 sm:h-6 w-auto group-hover:scale-110 transition-transform object-contain"
                       />
-                      <span className="text-xs font-black text-[#0070BA] group-hover:scale-110 inline-block transition-transform">
+                      <span className="text-[8px] sm:text-xs font-black text-[#0070BA] group-hover:scale-110 inline-block transition-transform">
                         PayPal
                       </span>
                     </div>
-                    <motion.div
-                      className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#0070BA]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-                      initial={false}
-                    />
                   </motion.div>
 
                   {/* Visa */}
                   <motion.div
                     whileHover={{ y: -5, scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 400 }}
-                    className="group relative px-5 py-3 bg-white/90 backdrop-blur-sm rounded-xl border-2 border-slate-200 hover:border-blue-500 shadow-lg hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300"
+                    className="group relative px-3 py-2 sm:px-5 sm:py-3 bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl border border-slate-200 hover:border-blue-500 shadow-md hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300"
                   >
-                    <div className="flex flex-col items-center gap-1.5">
+                    <div className="flex flex-col items-center gap-1">
                       <Image
                         src="/images/banking/visa.png"
                         alt="Visa"
-                        width={60}
-                        height={24}
-                        className="h-6 w-auto object-contain"
+                        width={40}
+                        height={20}
+                        className="h-4 sm:h-6 w-auto object-contain"
                       />
-                      <span className="text-xs font-black text-slate-700 group-hover:text-blue-600 transition-colors">
+                      <span className="text-[8px] sm:text-xs font-black text-slate-700 group-hover:text-blue-600 transition-colors">
                         Visa
                       </span>
                     </div>
-                    <motion.div
-                      className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-                      initial={false}
-                    />
                   </motion.div>
 
                   {/* Mastercard */}
                   <motion.div
                     whileHover={{ y: -5, scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 400 }}
-                    className="group relative px-5 py-3 bg-white/90 backdrop-blur-sm rounded-xl border-2 border-slate-200 hover:border-orange-500 shadow-lg hover:shadow-xl hover:shadow-orange-500/20 transition-all duration-300"
+                    className="group relative px-3 py-2 sm:px-5 sm:py-3 bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl border border-slate-200 hover:border-orange-500 shadow-md hover:shadow-xl hover:shadow-orange-500/20 transition-all duration-300"
                   >
-                    <div className="flex flex-col items-center gap-1.5">
+                    <div className="flex flex-col items-center gap-1">
                       <Image
                         src="/images/banking/mastercard.svg.png"
                         alt="Mastercard"
-                        width={60}
-                        height={24}
-                        className="h-6 w-auto object-contain"
+                        width={40}
+                        height={20}
+                        className="h-4 sm:h-6 w-auto object-contain"
                       />
-                      <span className="text-xs font-black text-slate-700 group-hover:text-orange-600 transition-colors">
+                      <span className="text-[8px] sm:text-xs font-black text-slate-700 group-hover:text-orange-600 transition-colors">
                         Mastercard
                       </span>
                     </div>
-                    <motion.div
-                      className="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-                      initial={false}
-                    />
                   </motion.div>
 
                   {/* Amex */}
                   <motion.div
                     whileHover={{ y: -5, scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 400 }}
-                    className="group relative px-5 py-3 bg-white/90 backdrop-blur-sm rounded-xl border-2 border-slate-200 hover:border-indigo-500 shadow-lg hover:shadow-xl hover:shadow-indigo-500/20 transition-all duration-300"
+                    className="group relative px-3 py-2 sm:px-5 sm:py-3 bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl border border-slate-200 hover:border-indigo-500 shadow-md hover:shadow-xl hover:shadow-indigo-500/20 transition-all duration-300"
                   >
-                    <div className="flex flex-col items-center gap-1.5">
+                    <div className="flex flex-col items-center gap-1">
                       <Image
                         src="/images/banking/american-express.png"
                         alt="American Express"
-                        width={60}
-                        height={24}
-                        className="h-6 w-auto object-contain"
+                        width={40}
+                        height={20}
+                        className="h-4 sm:h-6 w-auto object-contain"
                       />
-                      <span className="text-xs font-black text-slate-700 group-hover:text-indigo-600 transition-colors">
+                      <span className="text-[8px] sm:text-xs font-black text-slate-700 group-hover:text-indigo-600 transition-colors">
                         Amex
                       </span>
                     </div>
-                    <motion.div
-                      className="absolute inset-0 rounded-xl bg-gradient-to-r from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-                      initial={false}
-                    />
                   </motion.div>
 
                   {/* Bank Transfer */}
                   <motion.div
                     whileHover={{ y: -5, scale: 1.05 }}
                     transition={{ type: "spring", stiffness: 400 }}
-                    className="group relative px-5 py-3 bg-white/90 backdrop-blur-sm rounded-xl border-2 border-slate-200 hover:border-green-500 shadow-lg hover:shadow-xl hover:shadow-green-500/20 transition-all duration-300"
+                    className="group relative px-3 py-2 sm:px-5 sm:py-3 bg-white/90 backdrop-blur-sm rounded-lg sm:rounded-xl border border-slate-200 hover:border-green-500 shadow-md hover:shadow-xl hover:shadow-green-500/20 transition-all duration-300"
                   >
-                    <div className="flex flex-col items-center gap-1.5">
+                    <div className="flex flex-col items-center gap-1">
                       <Image
                         src="/images/banking/banktransfer.png"
                         alt="Bank Transfer"
-                        width={60}
-                        height={24}
-                        className="h-6 w-auto object-contain"
+                        width={40}
+                        height={20}
+                        className="h-4 sm:h-6 w-auto object-contain"
                       />
-                      <span className="text-xs font-black text-slate-700 group-hover:text-green-600 transition-colors">
+                      <span className="text-[8px] sm:text-xs font-black text-slate-700 group-hover:text-green-600 transition-colors">
                         {t("footer.payment.bank")}
                       </span>
                     </div>
-                    <motion.div
-                      className="absolute inset-0 rounded-xl bg-gradient-to-r from-green-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
-                      initial={false}
-                    />
                   </motion.div>
                 </motion.div>
               </div>

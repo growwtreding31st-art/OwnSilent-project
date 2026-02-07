@@ -3,30 +3,31 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import {
+  Search,
+  ShoppingCart,
+  Truck,
+  CheckCircle2,
   ArrowRight,
+  Sparkles,
   Shield,
   Zap,
   Globe2,
   Wrench,
-  CheckCircle2,
-  Cpu,
-  Settings,
-  Clock,
-  MapPin,
   Headphones,
   Award,
-  TrendingUp,
+  Box,
+  CreditCard,
+  Eye,
+  BarChart3,
   Star,
-  Sparkles,
+  TrendingUp,
   Lock,
-  Target,
-  Layers,
 } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
-// Define the structure of our feature data
-type FeatureData = {
+// Define the structure of our How it Works data
+type StepData = {
   [key: string]: {
     title: string;
     subtitle: string;
@@ -38,212 +39,185 @@ type FeatureData = {
     stats: { label: string; value: string }[];
     details: { title: string; description: string; icon: React.ElementType }[];
     benefits: { title: string; icon: React.ElementType }[];
-    highlights: { text: string }[];
+    theme: "blue" | "indigo" | "sky" | "cyan";
   };
 };
 
-const FEATURES_DATA: FeatureData = {
-  maintenance: {
-    title: "Precision Maintenance",
-    subtitle: "Engineering Excellence for Your Vehicle",
+const HOW_IT_WORKS_DATA: StepData = {
+  "find-your-part": {
+    title: "Find Your Perfect Part",
+    subtitle: "Precision Filtering & Expert Navigation",
     description:
-      "Our state-of-the-art maintenance protocols ensure your luxury vehicle performs at its absolute peak. We utilize factory-grade diagnostics and specialized tooling.",
-    icon: Wrench,
+      "Navigate through our extensive catalog of high-performance components. Our intelligent filtering system ensures 100% fitment accuracy for your specific vehicle configuration.",
+    icon: Search,
     color: "#3b82f6",
     gradient: "from-blue-600 to-cyan-500",
     bgGradient: "bg-blue-950",
+    theme: "blue",
     stats: [
-      { label: "Checkpoints", value: "150+" },
-      { label: "Accuracy", value: "99.9%" },
-      { label: "Turnaround", value: "24h" },
+      { label: "Products", value: "50,000+" },
+      { label: "Car Models", value: "2,500+" },
+      { label: "Brands", value: "120+" },
     ],
     details: [
       {
-        title: "Diagnostic Mastery",
+        title: "Model-Specific Search",
         description:
-          "Advanced computerized scanning to detect micro-anomalies before they become issues.",
-        icon: Cpu,
+          "Our database is indexed by chassis code and engine type for perfect matching.",
+        icon: Eye,
       },
       {
-        title: "Specialized Tooling",
+        title: "Expert Guidance",
         description:
-          "We use only manufacturer-approved tools designed specifically for high-end chassis.",
-        icon: Settings,
+          "Chat with our specialists to confirm compatibility before you buy.",
+        icon: Headphones,
       },
       {
-        title: "Preventative Care",
+        title: "Visual Verification",
         description:
-          "Proactive replacement schedules derived from millions of miles of fleet data.",
-        icon: Clock,
+          "High-resolution 3D renders and photos of every component.",
+        icon: Sparkles,
       },
     ],
     benefits: [
-      { title: "Factory-Grade Equipment", icon: Settings },
-      { title: "Certified Technicians", icon: Award },
-      { title: "Lifetime Support", icon: Headphones },
-      { title: "Performance Tracking", icon: TrendingUp },
-    ],
-    highlights: [
-      { text: "OEM-Approved Procedures" },
-      { text: "Digital Service Records" },
-      { text: "24/7 Emergency Support" },
-      { text: "Complimentary Inspections" },
+      { title: "Instant Search Results", icon: Zap },
+      { title: "100% Fitment Guarantee", icon: Shield },
+      { title: "Live Expert Chat", icon: Headphones },
+      { title: "Advanced Filters", icon: Star },
     ],
   },
-  warranty: {
-    title: "Comprehensive Protection",
-    subtitle: "Peace of Mind, Guaranteed",
+  "ordering-process": {
+    title: "Secure Ordering",
+    subtitle: "Seamless Checkout & Order Management",
     description:
-      "Industry-leading warranty coverage that protects your investment. We stand behind every part and every service with absolute confidence.",
-    icon: Shield,
+      "Complete your purchase with complete peace of mind. Our secure system handles worldwide transactions, multiple currencies, and instant inventory confirmation.",
+    icon: ShoppingCart,
     color: "#4f46e5",
-    gradient: "from-indigo-600 to-purple-500",
+    gradient: "from-indigo-600 to-blue-500",
     bgGradient: "bg-indigo-950",
+    theme: "indigo",
     stats: [
-      { label: "Coverage", value: "3 Years" },
-      { label: "Claims", value: "Instant" },
-      { label: "Global", value: "Yes" },
+      { label: "Currencies", value: "30+" },
+      { label: "Security", value: "AES-256" },
+      { label: "Time", value: "<2 Min" },
     ],
     details: [
       {
-        title: "Zero Deductible",
-        description: "Complete coverage without hidden costs or surprise fees.",
-        icon: CheckCircle2,
-      },
-      {
-        title: "OEM Compliance",
+        title: "Global Payments",
         description:
-          "Our warranties adhere strictly to original manufacturer standards.",
-        icon: Award,
+          "Secure gateway supporting all major cards, PayPal, and bank transfers.",
+        icon: CreditCard,
       },
       {
-        title: "Global Network",
-        description: "Coverage honored at certified facilities worldwide.",
+        title: "Real-time Inventory",
+        description:
+          "We verify stock status in real-time across our global warehouses.",
+        icon: BarChart3,
+      },
+      {
+        title: "Fraud Protection",
+        description:
+          "Advanced AI-driven security to protect your financial data.",
+        icon: Shield,
+      },
+    ],
+    benefits: [
+      { title: "Encrypted Checkout", icon: Lock },
+      { title: "Instant Confirmation", icon: CheckCircle2 },
+      { title: "Order Tracking", icon: TrendingUp },
+      { title: "Easy Returns", icon: ArrowRight },
+    ],
+  },
+  "fast-shipping": {
+    title: "Fast Global Shipping",
+    subtitle: "Aerospace-Grade Logistics Network",
+    description:
+      "From our hub to your doorstep. We partner with elite courier services to ensure your premium parts arrive safely, quickly, and with full insurance coverage.",
+    icon: Truck,
+    color: "#0ea5e9",
+    gradient: "from-sky-500 to-indigo-600",
+    bgGradient: "bg-sky-950",
+    theme: "sky",
+    stats: [
+      { label: "Delivery", value: "3-5 Days" },
+      { label: "Tracking", value: "Live" },
+      { label: "Insurance", value: "100%" },
+    ],
+    details: [
+      {
+        title: "Priority Air Cargo",
+        description:
+          "Express shipping options for urgent performance upgrades.",
+        icon: Zap,
+      },
+      {
+        title: "Secure Packaging",
+        description:
+          "Military-grade packaging protocols to prevent transit damage.",
+        icon: Box,
+      },
+      {
+        title: "Customs Handling",
+        description:
+          "We manage all export documentation and clearance processes.",
         icon: Globe2,
       },
     ],
     benefits: [
-      { title: "No Hidden Fees", icon: CheckCircle2 },
-      { title: "Transferable Coverage", icon: ArrowRight },
-      { title: "Extended Options", icon: Star },
-      { title: "Priority Claims", icon: Zap },
-    ],
-    highlights: [
-      { text: "Bumper-to-Bumper Coverage" },
-      { text: "Roadside Assistance" },
-      { text: "Rental Car Provision" },
-      { text: "Transferable to New Owner" },
+      { title: "Express Delivery", icon: Zap },
+      { title: "Real-time GPS", icon: Globe2 },
+      { title: "Signature Required", icon: Shield },
+      { title: "Full Insurance", icon: Award },
     ],
   },
-  performance: {
-    title: "Performance Enhancement",
-    subtitle: "Unleash Your Vehicle's Potential",
+  "quality-delivery": {
+    title: "Quality Confirmation",
+    subtitle: "The Ultimate Unboxing Experience",
     description:
-      "Transform your driving experience with precision-engineered performance upgrades. Our expert team delivers measurable gains in power, handling, and efficiency.",
-    icon: Zap,
-    color: "#f59e0b",
-    gradient: "from-amber-500 to-orange-600",
-    bgGradient: "bg-amber-950",
+      "Receive your parts with the confidence that they have passed our rigorous 50-point quality check. Enjoy life-long support and professional installation guidance.",
+    icon: CheckCircle2,
+    color: "#06b6d4",
+    gradient: "from-cyan-500 to-teal-400",
+    bgGradient: "bg-cyan-950",
+    theme: "cyan",
     stats: [
-      { label: "Power Gain", value: "+25%" },
-      { label: "Efficiency", value: "+15%" },
-      { label: "Tested", value: "Track" },
+      { label: "Checkpoints", value: "50+" },
+      { label: "Guarantee", value: "Lifetime" },
+      { label: "Support", value: "24/7" },
     ],
     details: [
       {
-        title: "ECU Optimization",
+        title: "Authenticity Check",
         description:
-          "Custom tuning to unlock hidden performance while maintaining reliability.",
-        icon: Cpu,
+          "Every part includes a holographic security seal for verification.",
+        icon: Award,
       },
       {
-        title: "Dyno Testing",
+        title: "Installation Support",
         description:
-          "Real-world power measurements before and after modifications.",
-        icon: TrendingUp,
+          "Access to private video tutorials and expert tech support.",
+        icon: Wrench,
       },
       {
-        title: "Component Matching",
-        description:
-          "Carefully selected upgrades that work in harmony with your vehicle.",
-        icon: Layers,
+        title: "Satisfaction Promise",
+        description: "Hassle-free returns if you're not 100% satisfied.",
+        icon: CheckCircle2,
       },
     ],
     benefits: [
-      { title: "Dyno-Proven Results", icon: TrendingUp },
-      { title: "Warranty Safe Tuning", icon: Shield },
-      { title: "Track-Tested Parts", icon: Target },
-      { title: "Reversible Mods", icon: ArrowRight },
-    ],
-    highlights: [
-      { text: "Custom ECU Mapping" },
-      { text: "Performance Exhaust Systems" },
-      { text: "Suspension Upgrades" },
-      { text: "Brake Enhancement Kits" },
-    ],
-  },
-  "global-support": {
-    title: "Global Support Network",
-    subtitle: "Worldwide Assistance, Anytime",
-    description:
-      "Our international network of certified partners ensures you're never alone. Access expert support and genuine parts anywhere in the world, 24/7.",
-    icon: Globe2,
-    color: "#10b981",
-    gradient: "from-emerald-500 to-teal-600",
-    bgGradient: "bg-emerald-950",
-    stats: [
-      { label: "Countries", value: "120+" },
-      { label: "Partners", value: "500+" },
-      { label: "Response", value: "<1h" },
-    ],
-    details: [
-      {
-        title: "24/7 Hotline",
-        description:
-          "Multilingual support team available around the clock for emergencies.",
-        icon: Headphones,
-      },
-      {
-        title: "Partner Network",
-        description:
-          "Certified service centers in major cities across six continents.",
-        icon: MapPin,
-      },
-      {
-        title: "Parts Logistics",
-        description:
-          "Express shipping of genuine parts to any location worldwide.",
-        icon: Zap,
-      },
-    ],
-    benefits: [
-      { title: "Multilingual Support", icon: Globe2 },
-      { title: "Emergency Dispatch", icon: Zap },
-      { title: "Loaner Vehicles", icon: ArrowRight },
-      { title: "Travel Assistance", icon: MapPin },
-    ],
-    highlights: [
-      { text: "Concierge Service" },
-      { text: "Emergency Towing" },
-      { text: "Hotel Arrangements" },
-      { text: "Flight Rebooking" },
+      { title: "Quality Certified", icon: Award },
+      { title: "Video Guides", icon: Sparkles },
+      { title: "Lifetime Warranty", icon: Shield },
+      { title: "Expert Support", icon: Headphones },
     ],
   },
 };
 
-export default function FeatureDetail({ slug }: { slug: string }) {
+export default function HowItWorksDetail({ slug }: { slug: string }) {
   const { t } = useLanguage();
   const { scrollY } = useScroll();
   const benefitsRef = useRef(null);
-  const highlightsRef = useRef(null);
-  const isBenefitsInView = useInView(benefitsRef, {
-    once: true,
-    margin: "-100px",
-  });
-  const isHighlightsInView = useInView(highlightsRef, {
-    once: true,
-    margin: "-100px",
-  });
+  const isInView = useInView(benefitsRef, { once: true, margin: "-100px" });
 
   // Parallax effects
   const y1 = useTransform(scrollY, [0, 500], [0, 150]);
@@ -251,7 +225,7 @@ export default function FeatureDetail({ slug }: { slug: string }) {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const scale = useTransform(scrollY, [0, 300], [1, 0.95]);
 
-  const data = FEATURES_DATA[slug] || FEATURES_DATA["maintenance"];
+  const data = HOW_IT_WORKS_DATA[slug] || HOW_IT_WORKS_DATA["find-your-part"];
   const Icon = data.icon;
 
   return (
@@ -261,6 +235,7 @@ export default function FeatureDetail({ slug }: { slug: string }) {
         {/* Dynamic Background */}
         <div className={`absolute inset-0 ${data.bgGradient}`}>
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+
           {/* Abstract Animated Blobs */}
           <motion.div
             animate={{
@@ -293,7 +268,14 @@ export default function FeatureDetail({ slug }: { slug: string }) {
             >
               <Icon className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
               <span className="text-[9px] sm:text-xs font-bold tracking-widest uppercase">
-                {data.title}
+                Step{" "}
+                {slug === "find-your-part"
+                  ? "01"
+                  : slug === "ordering-process"
+                    ? "02"
+                    : slug === "fast-shipping"
+                      ? "03"
+                      : "04"}
               </span>
             </motion.div>
 
@@ -303,7 +285,7 @@ export default function FeatureDetail({ slug }: { slug: string }) {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-black leading-tight mb-3 sm:mb-6"
             >
-              {data.subtitle}
+              {data.title}
             </motion.h1>
 
             <motion.p
@@ -312,7 +294,7 @@ export default function FeatureDetail({ slug }: { slug: string }) {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-[11px] sm:text-base md:text-lg text-slate-200 font-light leading-relaxed max-w-xl mb-5 sm:mb-8 border-l-2 border-white/30 pl-3 sm:pl-6 opacity-90"
             >
-              {data.description}
+              {data.subtitle}
             </motion.p>
 
             <motion.div
@@ -321,10 +303,10 @@ export default function FeatureDetail({ slug }: { slug: string }) {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <Link
-                href="/contact-us"
+                href="/shop"
                 className="group relative inline-flex items-center gap-2 sm:gap-3 px-4 py-2 sm:px-6 sm:py-3 bg-white text-slate-900 rounded-full font-bold text-[11px] sm:text-base overflow-hidden transition-all hover:pr-8 sm:hover:pr-10 shadow-xl hover:shadow-2xl"
               >
-                <span>Get Started</span>
+                <span>Discover Products</span>
                 <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </motion.div>
@@ -335,7 +317,7 @@ export default function FeatureDetail({ slug }: { slug: string }) {
             style={{ y: y2 }}
             className="relative order-2 mt-6 sm:mt-8 lg:mt-0"
           >
-            {/* Glass Card */}
+            {/* HUD / Glass Card */}
             <div className="relative aspect-square w-full max-w-[220px] sm:max-w-md mx-auto rounded-[1.5rem] sm:rounded-[3rem] border border-white/20 bg-white/10 backdrop-blur-2xl p-3 sm:p-8 flex flex-col justify-between overflow-hidden group shadow-2xl shadow-black/20">
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${data.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-1000`}
@@ -397,7 +379,7 @@ export default function FeatureDetail({ slug }: { slug: string }) {
               Key Benefits
             </span>
             <h2 className="text-xl sm:text-4xl font-black text-slate-900 mb-3 sm:mb-6 leading-tight">
-              What You Get
+              Why Choose This Step
             </h2>
           </motion.div>
 
@@ -409,7 +391,7 @@ export default function FeatureDetail({ slug }: { slug: string }) {
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 50 }}
-                animate={isBenefitsInView ? { opacity: 1, y: 0 } : {}}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: idx * 0.1, duration: 0.6 }}
                 className="group relative p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-slate-50 to-white border border-slate-100 hover:border-slate-200 hover:shadow-xl transition-all duration-300"
               >
@@ -427,70 +409,8 @@ export default function FeatureDetail({ slug }: { slug: string }) {
         </div>
       </section>
 
-      {/* === HIGHLIGHTS SECTION === */}
-      <section className="py-10 sm:py-16 px-4 sm:px-6 relative z-10 bg-slate-50">
-        <div className="container mx-auto max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-8 sm:mb-12"
-          >
-            <span
-              className={`text-[9px] sm:text-xs font-bold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r ${data.gradient} mb-2 block`}
-            >
-              Service Highlights
-            </span>
-            <h2 className="text-xl sm:text-4xl font-black text-slate-900 mb-3 sm:mb-6 leading-tight">
-              What's Included
-            </h2>
-          </motion.div>
-
-          <div
-            ref={highlightsRef}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-3xl mx-auto"
-          >
-            {data.highlights.map((highlight, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: idx % 2 === 0 ? -30 : 30 }}
-                animate={isHighlightsInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="flex items-center gap-3 p-3 sm:p-4 rounded-xl bg-white border border-slate-100 hover:border-slate-200 hover:shadow-md transition-all"
-              >
-                <CheckCircle2
-                  className={`w-4 h-4 sm:w-5 sm:h-5 text-transparent bg-clip-text bg-gradient-to-r ${data.gradient} flex-shrink-0`}
-                  style={{ fill: `url(#gradient-${idx})` }}
-                />
-                <svg width="0" height="0">
-                  <defs>
-                    <linearGradient
-                      id={`gradient-${idx}`}
-                      x1="0%"
-                      y1="0%"
-                      x2="100%"
-                      y2="100%"
-                    >
-                      <stop offset="0%" stopColor={data.color} />
-                      <stop
-                        offset="100%"
-                        stopColor={data.color}
-                        stopOpacity="0.6"
-                      />
-                    </linearGradient>
-                  </defs>
-                </svg>
-                <span className="text-[10px] sm:text-sm font-bold text-slate-700">
-                  {highlight.text}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* === CONTENT SECTION === */}
-      <section className="py-10 sm:py-24 px-4 sm:px-6 relative z-10 bg-white">
+      <section className="py-10 sm:py-24 px-4 sm:px-6 relative z-10 bg-slate-50">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-24 items-start">
             <motion.div
@@ -502,23 +422,32 @@ export default function FeatureDetail({ slug }: { slug: string }) {
               <span
                 className={`text-[9px] sm:text-xs font-bold uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r ${data.gradient} mb-2 sm:mb-3 block`}
               >
-                Key Features
+                In-Depth Insights
               </span>
               <h2 className="text-lg sm:text-4xl font-black text-slate-900 mb-3 sm:mb-6 leading-tight">
-                Why Choose Our {data.title}?
+                Mastering the {data.title}
               </h2>
-              <p className="text-[11px] sm:text-base text-slate-600 leading-relaxed mb-5 sm:mb-6 opacity-80">
-                Experience the pinnacle of automotive excellence with our
-                specialized {data.title.toLowerCase()} services. We combine
-                years of heritage with cutting-edge innovation.
+              <p className="text-[11px] sm:text-base text-slate-600 leading-relaxed mb-5 sm:mb-6 font-medium opacity-80">
+                {data.description}
               </p>
-              <Link
-                href="/shop"
-                className="group inline-flex items-center gap-2 text-slate-900 text-[10px] sm:text-sm font-bold underline decoration-2 decoration-slate-300 underline-offset-4 hover:decoration-slate-900 transition-all"
-              >
-                Explore Compatible Parts
-                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+              <div className="space-y-2 sm:space-y-4">
+                <div className="flex items-center gap-2 sm:gap-3 text-slate-700">
+                  <div
+                    className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${data.gradient}`}
+                  />
+                  <span className="text-[10px] sm:text-sm font-bold">
+                    100% Secure & Verified
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 sm:gap-3 text-slate-700">
+                  <div
+                    className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${data.gradient}`}
+                  />
+                  <span className="text-[10px] sm:text-sm font-bold">
+                    Expert Manual Review
+                  </span>
+                </div>
+              </div>
             </motion.div>
 
             <div className="space-y-3 sm:space-y-8">
@@ -529,10 +458,10 @@ export default function FeatureDetail({ slug }: { slug: string }) {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ delay: idx * 0.15, duration: 0.6 }}
-                  className="group flex gap-3 sm:gap-6 p-3 sm:p-4 rounded-xl sm:rounded-2xl hover:bg-slate-50 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-slate-100"
+                  className="group flex gap-3 sm:gap-6 p-3 sm:p-6 rounded-xl sm:rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-slate-100 bg-white/40 sm:bg-transparent"
                 >
                   <div
-                    className={`flex-shrink-0 w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-white flex items-center justify-center text-slate-400 group-hover:text-white group-hover:bg-gradient-to-br ${data.gradient} transition-all duration-500 shadow-sm sm:shadow-md border border-slate-100`}
+                    className={`flex-shrink-0 w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-white flex items-center justify-center text-slate-400 group-hover:text-white group-hover:bg-gradient-to-br ${data.gradient} transition-all duration-500 shadow-sm sm:shadow-md`}
                   >
                     <detail.icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
@@ -551,6 +480,53 @@ export default function FeatureDetail({ slug }: { slug: string }) {
         </div>
       </section>
 
+      {/* === PROCESS STEPS === */}
+      <section className="py-10 sm:py-24 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center mb-6 sm:mb-16 px-4">
+            <h2 className="text-xl sm:text-5xl font-black text-slate-900 mb-2 sm:mb-4">
+              Our Commitment
+            </h2>
+            <div
+              className={`h-1 w-12 sm:w-20 bg-gradient-to-r ${data.gradient} mx-auto rounded-full`}
+            />
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-8">
+            {Object.entries(HOW_IT_WORKS_DATA).map(([key, step], idx) => (
+              <Link key={key} href={`/how-it-works/${key}`}>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className={`group p-3 sm:p-8 rounded-xl sm:rounded-[2rem] border transition-all duration-500 h-full ${key === slug ? `bg-gradient-to-br ${data.gradient} border-transparent text-white shadow-xl sm:shadow-2xl sm:scale-105` : "bg-slate-50 border-slate-100 hover:border-slate-200 text-slate-900 hover:bg-white hover:shadow-xl"}`}
+                >
+                  <div
+                    className={`w-7 h-7 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl flex items-center justify-center mb-2 sm:mb-6 ${key === slug ? "bg-white/20" : "bg-white shadow-sm"}`}
+                  >
+                    <step.icon
+                      className={`w-3.5 h-3.5 sm:w-6 sm:h-6 ${key === slug ? "text-white" : "text-slate-400 group-hover:text-slate-600"}`}
+                    />
+                  </div>
+                  <span
+                    className={`text-[7px] sm:text-[10px] font-black uppercase tracking-widest mb-1 sm:mb-2 block ${key === slug ? "text-white/60" : "text-slate-400"}`}
+                  >
+                    Step 0{idx + 1}
+                  </span>
+                  <h3 className="text-[11px] sm:text-lg font-black mb-1 sm:mb-2 leading-tight">
+                    {step.title}
+                  </h3>
+                  <ArrowRight
+                    className={`w-3.5 h-3.5 sm:w-5 sm:h-5 transform transition-transform group-hover:translate-x-1 ${key === slug ? "text-white" : "text-slate-300"}`}
+                  />
+                </motion.div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* === CTA SECTION === */}
       <section className="py-12 sm:py-24 bg-slate-900 text-white overflow-hidden relative px-4">
         <div
@@ -565,28 +541,35 @@ export default function FeatureDetail({ slug }: { slug: string }) {
             viewport={{ once: true }}
             className="block text-[9px] sm:text-xs font-black uppercase tracking-widest text-slate-400 mb-3 sm:mb-4"
           >
-            Take the Next Step
+            Ready to Start?
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl sm:text-3xl md:text-5xl font-black mb-5 sm:mb-8 leading-tight"
+            className="text-2xl sm:text-4xl md:text-6xl font-black mb-5 sm:mb-8 leading-tight"
           >
-            Ready to Elevate Your Experience?
+            Begin Your Upgrade <br className="hidden sm:block" /> Journey Today.
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6"
           >
             <Link
-              href="/contact-us"
-              className="inline-flex items-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 bg-white text-slate-900 rounded-full font-black text-[11px] sm:text-lg hover:scale-105 transition-transform shadow-lg shadow-white/10"
+              href="/shop"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 bg-white text-slate-900 rounded-full font-black text-[11px] sm:text-lg hover:scale-105 transition-transform shadow-lg shadow-white/10"
             >
-              <span>Contact Our Experts</span>
+              <span>Explore Catalog</span>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+            </Link>
+            <Link
+              href="/contact-us"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 sm:gap-3 px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white/20 text-white rounded-full font-black text-[11px] sm:text-lg hover:bg-white/10 transition-colors"
+            >
+              <span>Need Assistance?</span>
             </Link>
           </motion.div>
         </div>

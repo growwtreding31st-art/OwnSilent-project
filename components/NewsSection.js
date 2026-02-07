@@ -222,10 +222,10 @@ export default function BlogSection() {
           <Link
             href="/blog"
             // Changed button style to match login and hero buttons
-            className="group inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-white bg-gradient-to-r from-[#176FC0] to-[#1461A8] hover:to-[#0F4C85] shadow-lg shadow-blue-600/20 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99]"
+            className="group inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 sm:px-8 sm:py-4 text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-[#176FC0] to-[#1461A8] hover:to-[#0F4C85] shadow-lg shadow-blue-600/20 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99]"
           >
             {t("blog.viewAll")}{" "}
-            <LucideArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            <LucideArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </div>
       </div>

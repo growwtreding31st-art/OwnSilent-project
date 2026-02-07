@@ -119,7 +119,7 @@ export default function PremiumPartsCategories() {
           </div>
 
           {/* Dots handles for mobile */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center gap-1 mt-8">
             {displayProducts.map((_, idx) => (
               <button
                 key={idx}
@@ -127,7 +127,7 @@ export default function PremiumPartsCategories() {
                 className={`transition-all duration-300 rounded-full ${
                   idx === activeIndex
                     ? "w-8 h-1.5 bg-[#176FC0]"
-                    : "w-1.5 h-1.5 bg-slate-300 hover:bg-slate-400"
+                    : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
                 }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -223,7 +223,7 @@ function MobileProductStackCard({
           transition={{ delay: 0.2 }}
           className="w-full text-center"
         >
-          <h3 className="text-xs sm:text-sm font-black text-slate-900 leading-tight uppercase tracking-tight truncate w-full px-1">
+          <h3 className="text-sm sm:text-base font-black text-slate-900 leading-tight uppercase tracking-tight line-clamp-2 w-full px-1">
             {product.title || product.name}
           </h3>
         </motion.div>
@@ -331,7 +331,7 @@ function ProductCard({ product, index }: { product: any; index: number }) {
       >
         <div className="flex flex-col items-start gap-2">
           <motion.h3
-            className="text-[10px] sm:text-xs font-black text-white tracking-tight uppercase leading-tight truncate w-full"
+            className="text-xs sm:text-sm font-black text-white tracking-tight uppercase leading-tight line-clamp-2 w-full"
             whileHover={{ x: 2 }}
             transition={{ duration: 0.2 }}
           >
