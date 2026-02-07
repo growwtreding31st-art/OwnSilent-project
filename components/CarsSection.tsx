@@ -22,6 +22,7 @@ import {
   Layers,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import useEmblaCarousel from "embla-carousel-react";
 
 const CategoryHeroCard = ({
   slide,
@@ -61,21 +62,6 @@ const CategoryHeroCard = ({
         </div>
 
         <div className="relative p-6 md:p-10 lg:p-16 flex flex-col h-full bg-white justify-center overflow-hidden">
-          <motion.div
-            className="absolute top-0 right-0 p-12 opacity-[0.03] pointer-events-none"
-            animate={{
-              rotate: isActive ? 5 : 0,
-              scale: isActive ? 1.1 : 1,
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-          >
-            <Layers className="w-80 h-80 text-slate-900" />
-          </motion.div>
-
           <div className="relative z-10">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -159,9 +145,9 @@ const MobileCategoryCard = ({
     <div className="mb-1 last:mb-0">
       <Link
         href={categoryLink}
-        className="group relative block bg-white rounded-sm shadow-[0_8px_40px_rgb(0,0,0,0.08)] border border-slate-100 overflow-hidden transition-all duration-300"
+        className="group relative block bg-white rounded-sm shadow-[0_8px_40px_rgb(0,0,0,0.08)] border border-slate-100 overflow-hidden transition-all duration-300 h-full"
       >
-        <div className="relative w-full aspect-[4/5] bg-slate-50 overflow-hidden">
+        <div className="relative w-full h-[380px] lg:aspect-[4/5] bg-slate-50 overflow-hidden">
           <motion.div
             className="h-full w-full"
             animate={{ scale: isActive ? 1 : 1.1 }}
@@ -183,7 +169,7 @@ const MobileCategoryCard = ({
           </motion.div>
         </div>
 
-        <div className="p-4 bg-white relative overflow-hidden">
+        <div className="p-2 bg-white relative overflow-hidden">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
@@ -277,14 +263,22 @@ export default function CategoryShowcaseSection({ part }: { part?: string }) {
   const categoriesWithContent = useMemo(() => {
     if (!categories || !validCategorySlides.length) return [];
     const filteredCats = categories.filter((cat) =>
-      validCategorySlides.some((slide) => slide.category?._id === cat._id),
+      validCategorySlides.some((slide) => {
+        const slideCatId =
+          slide.category?._id?.toString() || slide.category?.toString();
+        const catId = cat._id?.toString() || cat.toString();
+        return slideCatId === catId;
+      }),
     );
 
     // Map cats to include the image from the first slide if available
     const catsWithImage = filteredCats.map((cat) => {
-      const slide = validCategorySlides.find(
-        (s) => s.category?._id === cat._id,
-      );
+      const slide = validCategorySlides.find((s) => {
+        const slideCatId =
+          s.category?._id?.toString() || s.category?.toString();
+        const catId = cat._id?.toString() || cat.toString();
+        return slideCatId === catId;
+      });
       return {
         ...cat,
         imageUrl: slide?.images?.[0] || "",
@@ -292,44 +286,23 @@ export default function CategoryShowcaseSection({ part }: { part?: string }) {
     });
 
     if (part === "1") return catsWithImage.slice(0, 5);
-    if (part === "2") return catsWithImage.slice(5, 10);
+    if (part === "2") return catsWithImage.slice(5, 12);
     return catsWithImage;
   }, [categories, validCategorySlides, part]);
 
   const slidesToRender = useMemo(() => {
     return categoriesWithContent
       .map((cat) => {
-        const slide = validCategorySlides.find(
-          (s) => s.category?._id === cat._id,
-        );
+        const slide = validCategorySlides.find((s) => {
+          const slideCatId =
+            s.category?._id?.toString() || s.category?.toString();
+          const catId = cat._id?.toString() || cat.toString();
+          return slideCatId === catId;
+        });
         return slide;
       })
       .filter(Boolean);
   }, [categoriesWithContent, validCategorySlides]);
-
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
-
-  const paginate = useCallback(
-    (newDirection: number) => {
-      setDirection(newDirection);
-      setSelectedIndex((prevIndex) => {
-        let nextIndex = prevIndex + newDirection;
-        if (nextIndex < 0) nextIndex = slidesToRender.length - 1;
-        if (nextIndex >= slidesToRender.length) nextIndex = 0;
-        return nextIndex;
-      });
-    },
-    [slidesToRender.length],
-  );
-
-  const scrollTo = useCallback(
-    (index: number) => {
-      setDirection(index > selectedIndex ? 1 : -1);
-      setSelectedIndex(index);
-    },
-    [selectedIndex],
-  );
 
   useEffect(() => {
     dispatch(fetchPublicCategories());
@@ -338,8 +311,45 @@ export default function CategoryShowcaseSection({ part }: { part?: string }) {
 
   if (status !== "loading" && categoriesWithContent.length === 0) return null;
 
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+  });
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
+
+  const scrollTo = useCallback(
+    (index: number) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi],
+  );
+
+  const scrollPrev = useCallback(
+    () => emblaApi && emblaApi.scrollPrev(),
+    [emblaApi],
+  );
+  const scrollNext = useCallback(
+    () => emblaApi && emblaApi.scrollNext(),
+    [emblaApi],
+  );
+
   return (
-    <section className={`py-4 sm:py-12 bg-slate-50 overflow-x-hidden pb-12 sm:pb-20 ${part === "1" ? "mt-10" : ""}`}>
+    <section
+      className={`py-8 sm:py-16 bg-slate-50 overflow-hidden ${part === "1" ? "mt-10" : ""}`}
+    >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-16">
           {/* <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-sm bg-white border border-slate-200 shadow-[0_4px_20px_rgba(0,0,0,0.03)] mb-5 hover:scale-105 transition-transform cursor-default">
@@ -357,191 +367,78 @@ export default function CategoryShowcaseSection({ part }: { part?: string }) {
           </h2>
         </div>
 
-        <div className="relative h-[450px] lg:h-[750px] overflow-visible perspective-[1200px]">
-          {/* Static Background Stack - Chunks at the back */}
-          <div className="absolute inset-0 z-0 pointer-events-none">
-            {slidesToRender.length > 1 && (
-              <div
-                className="absolute inset-0 transition-all duration-700 ease-out pointer-events-none"
-                style={{
-                  transform: `translateY(-20px) scale(0.96)`,
-                  opacity: 0.4,
-                  zIndex: 10,
-                  filter: "blur(1px)",
-                }}
-              >
-                <div className="hidden lg:block h-full">
-                  <CategoryHeroCard
-                    slide={
-                      slidesToRender[
-                        (selectedIndex + 1) % slidesToRender.length
-                      ]
-                    }
-                    isActive={false}
-                  />
-                </div>
-                <div className="lg:hidden h-full">
-                  <MobileCategoryCard
-                    slide={
-                      slidesToRender[
-                        (selectedIndex + 1) % slidesToRender.length
-                      ]
-                    }
-                    isActive={false}
-                  />
-                </div>
-              </div>
-            )}
-            {slidesToRender.length > 2 && (
-              <div
-                className="absolute inset-0 h-[460px] lg:h-full transition-all duration-700 ease-out pointer-events-none"
-                style={{
-                  transform: `translateY(-40px) scale(0.92)`,
-                  opacity: 0.2,
-                  zIndex: 5,
-                  filter: "blur(2px)",
-                }}
-              >
-                <div className="hidden lg:block h-full">
-                  <CategoryHeroCard
-                    slide={
-                      slidesToRender[
-                        (selectedIndex + 2) % slidesToRender.length
-                      ]
-                    }
-                    isActive={false}
-                  />
-                </div>
-                <div className="lg:hidden h-full">
-                  <MobileCategoryCard
-                    slide={
-                      slidesToRender[
-                        (selectedIndex + 2) % slidesToRender.length
-                      ]
-                    }
-                    isActive={false}
-                  />
-                </div>
-              </div>
-            )}
+        <div className="relative group">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {status === "loading"
+                ? Array.from({ length: 3 }).map((_, idx) => (
+                    <div
+                      key={idx}
+                      className="flex-[0_0_100%] min-w-0 px-2 lg:px-4"
+                    >
+                      <DesktopSkeletonLoader />
+                    </div>
+                  ))
+                : slidesToRender.map((slide, idx) => (
+                    <div
+                      key={idx}
+                      className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] min-w-0 px-2 lg:px-4"
+                    >
+                      <div className="h-full">
+                        <div className="hidden lg:block h-[500px]">
+                          <CategoryHeroCard
+                            slide={slide}
+                            isActive={idx === selectedIndex}
+                          />
+                        </div>
+                        <div className="lg:hidden">
+                          <MobileCategoryCard
+                            slide={slide}
+                            isActive={idx === selectedIndex}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+            </div>
           </div>
 
-          <AnimatePresence initial={false} custom={direction}>
-            <motion.div
-              key={selectedIndex}
-              custom={direction}
-              variants={{
-                enter: (direction: number) => ({
-                  scale: direction > 0 ? 0.96 : 1.1,
-                  y: direction > 0 ? -20 : 0,
-                  x: direction > 0 ? 0 : "100%",
-                  opacity: direction > 0 ? 0.4 : 0,
-                  zIndex: 50,
-                  filter: direction > 0 ? "blur(1px)" : "blur(0px)",
-                }),
-                center: {
-                  scale: 1,
-                  y: 0,
-                  x: 0,
-                  zIndex: 50,
-                  opacity: 1,
-                  filter: "blur(0px)",
-                },
-                exit: (direction: number) => ({
-                  x: direction > 0 ? "-100%" : "100%",
-                  opacity: 0,
-                  zIndex: 100,
-                  rotate: direction > 0 ? -15 : 15,
-                  scale: direction > 0 ? 1 : 0.95,
-                  transition: { duration: 0.4 },
-                }),
-              }}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.2}
-              onDragEnd={(e, { offset, velocity }) => {
-                const swipe =
-                  Math.abs(offset.x) > 50 || Math.abs(velocity.x) > 500;
-                if (swipe) {
-                  paginate(offset.x > 0 ? -1 : 1);
-                }
-              }}
-              transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                y: { type: "spring", stiffness: 300, damping: 30 },
-                scale: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.3 },
-              }}
-              className="absolute inset-x-0 top-0 w-full h-[460px] lg:h-full"
-            >
-              {status === "loading" ? (
-                <div className="w-full h-full">
-                  <div className="hidden lg:block h-full">
-                    <DesktopSkeletonLoader />
-                  </div>
-                  <div className="lg:hidden h-full">
-                    <MobileSkeletonLoader />
-                  </div>
-                </div>
-              ) : (
-                slidesToRender[selectedIndex] && (
-                  <div className="w-full h-full">
-                    <div className="hidden lg:block h-full">
-                      <CategoryHeroCard
-                        slide={slidesToRender[selectedIndex]}
-                        isActive={true}
-                      />
-                    </div>
-                    <div className="lg:hidden h-full">
-                      <MobileCategoryCard
-                        slide={slidesToRender[selectedIndex]}
-                        isActive={true}
-                      />
-                    </div>
-                  </div>
-                )
-              )}
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Navigation Controls */}
+          {/* Navigation Arrows - Desktop only */}
           {slidesToRender.length > 1 && (
             <>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => paginate(-1)}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center shadow-lg text-slate-900 border border-white/20 hidden lg:flex"
+              <button
+                onClick={scrollPrev}
+                className="absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg text-slate-900 border border-slate-100 hidden lg:flex hover:bg-slate-50 transition-colors"
+                aria-label="Previous slide"
               >
                 <ChevronLeft className="w-6 h-6" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => paginate(1)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center shadow-lg text-slate-900 border border-white/20 hidden lg:flex"
+              </button>
+              <button
+                onClick={scrollNext}
+                className="absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg text-slate-900 border border-slate-100 hidden lg:flex hover:bg-slate-50 transition-colors"
+                aria-label="Next slide"
               >
                 <ChevronRight className="w-6 h-6" />
-              </motion.button>
-
-              <div className="absolute -bottom-1 lg:-bottom-10 left-0 right-0 flex justify-center gap-3 z-30">
-                {slidesToRender.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => scrollTo(idx)}
-                    className={`transition-all duration-500 rounded-full ${
-                      idx === selectedIndex
-                        ? "w-10 h-2 bg-[#176FC0] shadow-[0_0_10px_rgba(23,111,192,0.3)]"
-                        : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
-                    }`}
-                    aria-label={`Go to slide ${idx + 1}`}
-                  />
-                ))}
-              </div>
+              </button>
             </>
+          )}
+
+          {/* Pagination Dots */}
+          {slidesToRender.length > 1 && (
+            <div className="flex justify-center gap-2 mt-8 lg:mt-12">
+              {scrollSnaps.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => scrollTo(idx)}
+                  className={`transition-all duration-300 rounded-full ${
+                    idx === selectedIndex
+                      ? "w-8 h-1.5 bg-[#176FC0]"
+                      : "w-1.5 h-1.5 bg-slate-300 hover:bg-slate-400"
+                  }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
           )}
         </div>
       </div>

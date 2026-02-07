@@ -17,6 +17,7 @@ import {
   Check,
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/lib/redux/store";
@@ -34,33 +35,31 @@ export default function PremiumPartsCategories() {
   // Get first 10 products
   const displayProducts = parts.slice(0, 5);
 
-  const [activeIndex, setActiveIndex] = React.useState(0);
-  const [direction, setDirection] = React.useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+  });
 
-  const paginate = React.useCallback(
-    (newDirection: number) => {
-      setDirection(newDirection);
-      setActiveIndex((prev) => {
-        let next = prev + newDirection;
-        if (next < 0) next = displayProducts.length - 1;
-        if (next >= displayProducts.length) next = 0;
-        return next;
-      });
-    },
-    [displayProducts.length],
-  );
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([]);
+
+  const onSelect = React.useCallback(() => {
+    if (!emblaApi) return;
+    setActiveIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
 
   const scrollTo = React.useCallback(
-    (index: number) => {
-      setDirection(index > activeIndex ? 1 : -1);
-      setActiveIndex(index);
-    },
-    [activeIndex],
+    (index: number) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi],
   );
-
-  const activeProduct = displayProducts[activeIndex];
-
-  if (!activeProduct && status !== "loading") return null;
 
   if (status === "loading") {
     return (
@@ -79,197 +78,60 @@ export default function PremiumPartsCategories() {
   return (
     <section className="relative bg-gradient-to-b from-white via-slate-50/50 to-white py-4 sm:py-10 lg:py-12 overflow-hidden">
       {/* Enhanced Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          animate={{
-            scale: [1, 1.1, 1],
-            rotate: [0, 5, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-br from-blue-400/10 to-indigo-400/10 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, -5, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
-          className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-cyan-400/10 to-blue-400/10 rounded-full blur-3xl"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20" />
-      </div>
+      {/* Simplified Background */}
+      <div className="absolute inset-0 bg-slate-50/50 pointer-events-none" />
 
       <div className="container mx-auto px-2 sm:px-4 lg:px-6 relative z-10">
         {/* Enhanced Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-8 lg:mb-8"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-8 lg:mb-12"
         >
-          {/* <motion.div
-            initial={{ scale: 0.9 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-slate-50 to-blue-50 border border-blue-200/50 shadow-lg shadow-blue-500/10 mb-3"
-          >
-            <TrendingUp className="w-3 h-3 text-[#176FC0]" />
-            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#176FC0]">
-              {t("categories.badge")}
-            </span>
-            <Sparkles className="w-3 h-3 text-[#176FC0]" />
-          </motion.div> */}
-
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight mb-3 leading-tight">
-            {t("categories.title")}{" "}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mb-4 leading-tight">
+            {t("categories.title") || "Choose From Premium Parts"}{" "}
             <span className="relative inline-block">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#176FC0] via-[#1461A8] to-[#0F4C85]">
-                {t("categories.titleHighlight")}
+                {t("categories.titleHighlight") || "For Your Car"}
               </span>
               <motion.div
-                className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-gradient-to-r from-[#176FC0] via-[#1461A8] to-[#0F4C85] rounded-full"
+                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#176FC0] via-[#1461A8] to-[#0F4C85] rounded-full"
                 initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
+                animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               />
             </span>
           </h2>
-
-          {/* <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
-            {t("categories.subtitle")}
-          </p> */}
         </motion.div>
 
-        {/* Mobile View: 3D Paginated Deck */}
-        <div className="lg:hidden mt-0">
-          <div className="relative h-[440px] overflow-visible perspective-[1200px]">
-            {/* Static Background Stack - Chunks at the back */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
-              {displayProducts.length > 1 && (
-                <div
-                  className="absolute inset-0 h-[410px] transition-all duration-700 ease-out pointer-events-none"
-                  style={{
-                    transform: `translateY(-20px) scale(0.96)`,
-                    opacity: 0.4,
-                    zIndex: 10,
-                    filter: "blur(1px)",
-                  }}
-                >
-                  <MobileProductStackCard
-                    product={
-                      displayProducts[
-                        (activeIndex + 1) % displayProducts.length
-                      ]
-                    }
-                    isActive={false}
-                  />
-                </div>
-              )}
-              {displayProducts.length > 2 && (
-                <div
-                  className="absolute inset-0 h-[410px] transition-all duration-700 ease-out pointer-events-none"
-                  style={{
-                    transform: `translateY(-40px) scale(0.92)`,
-                    opacity: 0.2,
-                    zIndex: 5,
-                    filter: "blur(2px)",
-                  }}
-                >
-                  <MobileProductStackCard
-                    product={
-                      displayProducts[
-                        (activeIndex + 2) % displayProducts.length
-                      ]
-                    }
-                    isActive={false}
-                  />
-                </div>
-              )}
-            </div>
-
-            <AnimatePresence initial={false} custom={direction}>
-              <motion.div
-                key={activeIndex}
-                custom={direction}
-                variants={{
-                  enter: (direction: number) => ({
-                    scale: direction > 0 ? 0.96 : 1.1,
-                    y: direction > 0 ? -20 : 0,
-                    x: direction > 0 ? 0 : "100%",
-                    opacity: direction > 0 ? 0.4 : 0,
-                    zIndex: 50,
-                    filter: direction > 0 ? "blur(1px)" : "blur(0px)",
-                  }),
-                  center: {
-                    scale: 1,
-                    y: 0,
-                    x: 0,
-                    zIndex: 50,
-                    opacity: 1,
-                    filter: "blur(0px)",
-                  },
-                  exit: (direction: number) => ({
-                    x: direction > 0 ? "-100%" : "100%",
-                    opacity: 0,
-                    zIndex: 100,
-                    rotate: direction > 0 ? -15 : 15,
-                    scale: direction > 0 ? 1 : 0.95,
-                    transition: { duration: 0.4 },
-                  }),
-                }}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.2}
-                onDragEnd={(e, { offset, velocity }) => {
-                  const swipe =
-                    Math.abs(offset.x) > 50 || Math.abs(velocity.x) > 500;
-                  if (swipe) {
-                    paginate(offset.x > 0 ? -1 : 1);
-                  }
-                }}
-                transition={{
-                  x: { type: "spring", stiffness: 300, damping: 30 },
-                  y: { type: "spring", stiffness: 300, damping: 30 },
-                  scale: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.3 },
-                }}
-                className="absolute inset-x-0 top-0 w-full h-[410px]"
-              >
+        {/* Mobile View: Simple Slider */}
+        <div className="lg:hidden mt-0 overflow-hidden" ref={emblaRef}>
+          <div className="flex">
+            {displayProducts.map((product: any, idx: number) => (
+              <div key={idx} className="flex-[0_0_100%] min-w-0 px-2 group">
                 <MobileProductStackCard
-                  product={displayProducts[activeIndex]}
-                  isActive={true}
+                  product={product}
+                  isActive={idx === activeIndex}
                 />
-              </motion.div>
-            </AnimatePresence>
+              </div>
+            ))}
+          </div>
 
-            {/* Navigation Handles */}
-            <div className="absolute bottom-2 left-0 right-0 flex justify-center gap-3 z-[150]">
-              {displayProducts.slice(0, 5).map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => scrollTo(idx)}
-                  className={`transition-all duration-500 rounded-full ${
-                    idx === activeIndex
-                      ? "w-10 h-2 bg-[#176FC0] shadow-[0_0_10px_rgba(23,111,192,0.3)]"
-                      : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
-                  }`}
-                  aria-label={`Go to slide ${idx + 1}`}
-                />
-              ))}
-            </div>
+          {/* Dots handles for mobile */}
+          <div className="flex justify-center gap-2 mt-8">
+            {scrollSnaps.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => scrollTo(idx)}
+                className={`transition-all duration-300 rounded-full ${
+                  idx === activeIndex
+                    ? "w-8 h-1.5 bg-[#176FC0]"
+                    : "w-1.5 h-1.5 bg-slate-300 hover:bg-slate-400"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
           </div>
         </div>
 
@@ -336,7 +198,7 @@ function MobileProductStackCard({
       href={productLink}
       className="group relative block w-full h-full bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden transition-all duration-300"
     >
-      <div className="relative w-full aspect-[4/5] bg-slate-50 overflow-hidden">
+      <div className="relative w-full h-[360px] lg:aspect-[4/5] bg-slate-50 overflow-hidden">
         <motion.div
           className="h-full w-full"
           animate={{ scale: isActive ? 1 : 1.1 }}
