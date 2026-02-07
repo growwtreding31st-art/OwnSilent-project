@@ -76,7 +76,7 @@ export default function AboutUs() {
   return (
     <section
       id="about"
-      className="relative bg-white py-8 sm:py-10 lg:py-12 overflow-hidden"
+      className="relative bg-white py-6 sm:py-10 lg:py-12 overflow-hidden"
     >
       {/* Background Decor */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -86,7 +86,7 @@ export default function AboutUs() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-16 items-center">
           {/* ADVANCED VIDEO INTERFACE */}
           <div className="hidden lg:flex lg:col-span-5 relative order-2 lg:order-1 items-center">
             <motion.div
@@ -234,10 +234,10 @@ export default function AboutUs() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 w-fit mb-8"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-50 border border-slate-200 w-fit mb-4 sm:mb-8"
             >
               <Activity size={14} className="text-[#176FC0]" />
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
+              <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">
                 Performance Metrics
               </span>
             </motion.div>
@@ -247,10 +247,10 @@ export default function AboutUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight mb-6 leading-[1.05]"
+              className="text-xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight mb-3 sm:mb-6 leading-[1.05]"
             >
               {t("about.title")}{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#176FC0] via-[#1461A8] to-[#0F4C85] block mt-2">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#176FC0] via-[#1461A8] to-[#0F4C85] block mt-1 sm:mt-2">
                 {t("about.titleHighlight")}
               </span>
             </motion.h2>
@@ -260,7 +260,7 @@ export default function AboutUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-sm sm:text-base text-slate-600 leading-relaxed mb-6 font-medium"
+              className="text-[13px] sm:text-base text-slate-600 leading-relaxed mb-4 sm:mb-6 font-medium"
             >
               {t("about.intro")}
             </motion.p>
@@ -277,7 +277,7 @@ export default function AboutUs() {
               </p>
             </motion.div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-6">
               {features.map((feature, idx) => (
                 <motion.div
                   key={idx}
@@ -285,16 +285,20 @@ export default function AboutUs() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 + idx * 0.1 }}
-                  className="group flex items-start gap-6 p-4 rounded-2xl bg-white border border-slate-100 hover:border-[#176FC0]/30 hover:shadow-xl hover:shadow-[#176FC0]/5 transition-all duration-500"
+                  className="group flex items-start gap-3 sm:gap-6 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-100 hover:border-[#176FC0]/30 hover:shadow-xl hover:shadow-[#176FC0]/5 transition-all duration-500"
                 >
-                  <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-xl bg-slate-50 text-slate-400 group-hover:bg-[#176FC0] group-hover:text-white group-hover:rotate-6 transition-all duration-500">
-                    <feature.icon size={22} strokeWidth={2} />
+                  <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 sm:h-12 sm:w-12 rounded-lg sm:rounded-xl bg-slate-50 text-slate-400 group-hover:bg-[#176FC0] group-hover:text-white group-hover:rotate-6 transition-all duration-500">
+                    <feature.icon
+                      size={20}
+                      className="sm:w-[22px] sm:h-[22px]"
+                      strokeWidth={2}
+                    />
                   </div>
                   <div>
-                    <h4 className="text-sm font-black text-slate-900 mb-1 tracking-tight group-hover:text-[#176FC0] transition-colors">
+                    <h4 className="text-[13px] sm:text-sm font-black text-slate-900 mb-0.5 sm:mb-1 tracking-tight group-hover:text-[#176FC0] transition-colors">
                       {feature.title}
                     </h4>
-                    <p className="text-[11px] text-slate-500 leading-relaxed font-medium">
+                    <p className="text-[10px] sm:text-[11px] text-slate-500 leading-relaxed font-medium">
                       {feature.description}
                     </p>
                   </div>

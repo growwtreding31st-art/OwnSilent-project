@@ -253,28 +253,28 @@ export default function Reviews() {
             </AnimatePresence>
 
             {/* Navigation Buttons - Compact */}
-            <div className="flex items-center justify-center gap-3 mt-4">
+            <div className="flex items-center justify-center gap-2 mt-3">
               <motion.button
                 onClick={prevReview}
                 whileHover={{ scale: 1.1, x: -3 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:border-[#176FC0] hover:text-[#176FC0] hover:bg-blue-50 transition-all duration-300 shadow-md"
+                className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:border-[#176FC0] hover:text-[#176FC0] hover:bg-blue-50 transition-all duration-300 shadow-md"
                 aria-label="Previous review"
               >
-                <ChevronLeft className="w-5 h-5" strokeWidth={2.5} />
+                <ChevronLeft className="w-4 h-4" strokeWidth={2.5} />
               </motion.button>
 
               {/* Dots Indicator - Compact */}
-              <div className="flex gap-2">
+              <div className="flex gap-1.5">
                 {reviews.map((_, index) => (
                   <motion.button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
                     whileHover={{ scale: 1.2 }}
-                    className={`h-2 rounded-full transition-all duration-500 ${
+                    className={`h-1.5 rounded-full transition-all duration-500 ${
                       index === currentIndex
-                        ? "w-8 bg-gradient-to-r from-[#176FC0] to-[#0F4C85]"
-                        : "w-2 bg-slate-200 hover:bg-slate-300"
+                        ? "w-6 bg-gradient-to-r from-[#176FC0] to-[#0F4C85]"
+                        : "w-1.5 bg-slate-200 hover:bg-slate-300"
                     }`}
                     aria-label={`Go to review ${index + 1}`}
                   />
@@ -285,10 +285,10 @@ export default function Reviews() {
                 onClick={nextReview}
                 whileHover={{ scale: 1.1, x: 3 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:border-[#176FC0] hover:text-[#176FC0] hover:bg-blue-50 transition-all duration-300 shadow-md"
+                className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600 hover:border-[#176FC0] hover:text-[#176FC0] hover:bg-blue-50 transition-all duration-300 shadow-md"
                 aria-label="Next review"
               >
-                <ChevronRight className="w-5 h-5" strokeWidth={2.5} />
+                <ChevronRight className="w-4 h-4" strokeWidth={2.5} />
               </motion.button>
             </div>
 
