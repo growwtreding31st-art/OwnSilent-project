@@ -62,9 +62,6 @@ export function middleware(request: NextRequestWithGeo) {
 
     // Set cookie to remember this country
     const urlCountryCode = getCountryCode(firstSegment);
-    if (urlCountryCode) {
-      // We'll apply this to the final response (rewrite or redirect)
-    }
 
     // If the slug is an alias, redirect to the canonical URL
     if (normalizedSlug && normalizedSlug !== firstSegment.toLowerCase()) {
@@ -82,29 +79,44 @@ export function middleware(request: NextRequestWithGeo) {
       return redirectResponse;
     }
 
-    // FIX for /[country] routing issue:
-    // If it's just the country root (e.g., /usa), do NOT rewrite to /. 
-    // Instead allow it to proceed so it matches app/[country]/page.tsx
-    if (pathSegments.length === 1) {
-      const response = NextResponse.next();
-      if (urlCountryCode) {
-        response.cookies.set("userCountry", urlCountryCode, {
-          maxAge: 60 * 60 * 24 * 30, // 30 days
-          path: "/",
-        });
-      }
-      return response;
-    }
-
-    // Rewrite to the actual page without the country prefix
     const pathWithoutCountry = "/" + pathSegments.slice(1).join("/");
     const url = request.nextUrl.clone();
-    url.pathname = pathWithoutCountry || "/";
 
-    // Use rewrite to serve the content without changing the URL
+    // REWRITE LOGIC:
+    const secondSegment = pathSegments[1];
+
+    // List of standard routes that should NOT be treated as special pages
+    // These are routes that exist in app/ or app/(public)/
+    const standardRoutes = [
+      'collections', 'product', 'products', 'cart', 'checkout', 'shop',
+      'about-us', 'contact-us', 'blog', 'news', 'account', 'login', 'signup',
+      'categories', 'category', 'category-faqs', 'forgot-password', 'reset-password',
+      'carbon-ceramic-rotors', 'features', 'custom-solution', 'become-dealer',
+      'full-desclaimer', 'how-it-works', 'privacy-policy', 'shipping-returns', 'terms-conditions',
+      'admin'
+    ];
+
+    // 1. If it's just the country root (e.g. /india), rewrite to /country-home/india
+    if (pathSegments.length === 1) {
+      url.pathname = `/country-home/${firstSegment}`;
+    }
+    // 2. If it is a known standard route (e.g. /india/collections/...), treat it as a standard page
+    // We rewrite it to the path without the country prefix (e.g. /collections/...)
+    // The cookie we set later will ensure the country context is preserved
+    else if (secondSegment && standardRoutes.includes(secondSegment)) {
+      url.pathname = pathWithoutCountry || "/";
+    }
+    // 3. If it has a sub-path AND is not a standard route, treat as Special Page (Blog/Landing)
+    // e.g. /india/some-blog -> /special-page/india/some-blog
+    else {
+      // The pathWithoutCountry already contains the leading slash, e.g. "/some-blog"
+      url.pathname = `/special-page/${firstSegment}${pathWithoutCountry}`;
+    }
+
+    // Use rewrite to serve the internal content without changing the browser URL
     const rewriteResponse = NextResponse.rewrite(url);
 
-    // IMPORTANT: Attach the cookie to the rewrite response as well
+    // Attach the cookie to the rewrite response
     if (urlCountryCode) {
       rewriteResponse.cookies.set("userCountry", urlCountryCode, {
         maxAge: 60 * 60 * 24 * 30, // 30 days

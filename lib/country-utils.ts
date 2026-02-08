@@ -55,12 +55,12 @@ export function getCountrySlug(countryCode: string): CountrySlug | null {
  */
 export function getCountryCode(slug: string): CountryCode | null {
   const lowerSlug = slug.toLowerCase();
-  
+
   // Check if it's an alias first
   if (COUNTRY_ALIASES[lowerSlug]) {
     return COUNTRY_ALIASES[lowerSlug];
   }
-  
+
   // Otherwise, look up in the main mapping
   const entry = Object.entries(SUPPORTED_COUNTRIES).find(
     ([_, value]) => value === lowerSlug
@@ -72,15 +72,14 @@ export function getCountryCode(slug: string): CountryCode | null {
  * Check if a slug is a valid country slug (including aliases)
  */
 export function isValidCountrySlug(slug: string | null | undefined): slug is CountrySlug {
-  console.log(slug)
   if (!slug) return false;
   const lowerSlug = slug.toLowerCase();
-  
+
   // Check if it's a direct match
   if (Object.values(SUPPORTED_COUNTRIES).includes(lowerSlug as CountrySlug)) {
     return true;
   }
-  
+
   // Check if it's an alias
   return lowerSlug in COUNTRY_ALIASES;
 }
@@ -98,17 +97,17 @@ export function getAllCountrySlugs(): CountrySlug[] {
  */
 export function normalizeCountrySlug(slug: string): CountrySlug | null {
   const lowerSlug = slug.toLowerCase();
-  
+
   // Check if it's already a valid slug
   if (Object.values(SUPPORTED_COUNTRIES).includes(lowerSlug as CountrySlug)) {
     return lowerSlug as CountrySlug;
   }
-  
+
   // Check if it's an alias
   if (COUNTRY_ALIASES[lowerSlug]) {
     const countryCode = COUNTRY_ALIASES[lowerSlug];
     return SUPPORTED_COUNTRIES[countryCode];
   }
-  
+
   return null;
 }

@@ -26,6 +26,7 @@ export async function generateMetadata({
     return {
         title: 'Special Page',
         alternates: {
+            // Updated to reflect the rewrite - logically it lives at /country/slug
             canonical: `https://ownsilent.international/${country}/${special_slug}`,
         }
     };
