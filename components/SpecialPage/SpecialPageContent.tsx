@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useParams, notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -11,7 +10,6 @@ import {
     ArrowLeft,
     Facebook,
     Twitter,
-    Linkedin,
     Copy,
     Eye,
     MessageSquare,
@@ -22,6 +20,7 @@ import {
 import toast from "react-hot-toast";
 import categoryBlogsApi from "@/lib/api/categoryBlogs.api";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { notFound } from "next/navigation";
 
 // --- Interfaces ---
 
@@ -49,6 +48,14 @@ interface Product {
     description?: string | { fullDescription?: string };
 }
 
+interface Update {
+    _id: string;
+    title: string;
+    content: string;
+    date: string;
+    image?: string;
+}
+
 interface CategoryBlog {
     _id: string;
     title: string;
@@ -57,7 +64,7 @@ interface CategoryBlog {
     slug: string;
     featuredImage?: string;
     publishedAt: string;
-    updatedAt?: string; // Add this
+    updatedAt?: string;
     createdAt?: string;
     author: {
         _id: string;
@@ -83,14 +90,6 @@ interface CategoryBlog {
         structuredData?: string;
     };
     updates?: Update[];
-}
-
-interface Update {
-    _id: string;
-    title: string;
-    content: string;
-    date: string;
-    image?: string;
 }
 
 // --- Components ---
@@ -144,17 +143,17 @@ const ProductCard: React.FC<{ part: Product }> = ({ part }) => {
     );
 };
 
+interface SpecialPageContentProps {
+    slug: string;
+}
 
-
-export default function SpecialPageDetailPage() {
-    const params = useParams();
-    const slug = params.slug as string;
-
+export default function SpecialPageContent({ slug }: SpecialPageContentProps) {
     const [blog, setBlog] = useState<CategoryBlog | null>(null);
     const [loading, setLoading] = useState(true);
     const [commentUser, setCommentUser] = useState({ name: '', email: '' });
     const [commentContent, setCommentContent] = useState('');
     const [submittingComment, setSubmittingComment] = useState(false);
+    const [notFoundError, setNotFoundError] = useState(false);
 
     useEffect(() => {
         const fetchBlog = async () => {
@@ -164,6 +163,9 @@ export default function SpecialPageDetailPage() {
                 setBlog(response.data);
             } catch (err: any) {
                 console.error("Error fetching blog:", err);
+                if (err.response && err.response.status === 404) {
+                    setNotFoundError(true);
+                }
             } finally {
                 setLoading(false);
             }
@@ -261,12 +263,12 @@ export default function SpecialPageDetailPage() {
         );
     }
 
-    if (!blog) return notFound();
+    if (notFoundError || !blog) return notFound();
 
     const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
     return (
-        <main className="bg-white">
+        <main className="bg-white pb-1 lg:pt-1 lg:pb-0"> {/* Replicating layout padding */}
             {/* Hero Section - Matches Collections Page */}
             <section className="relative h-[450px] md:h-[600px] w-full flex items-center justify-center text-center text-white">
                 <Image

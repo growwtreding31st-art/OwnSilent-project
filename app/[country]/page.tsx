@@ -1,16 +1,24 @@
 import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 import HomePageContent from "@/components/Home";
 import { getCountryCode, getAllCountrySlugs } from "@/lib/country-utils";
 
-interface CountryHomePageProps {
+interface PageProps {
   params: Promise<{ country: string }>;
 }
 
 export async function generateMetadata({
   params,
-}: CountryHomePageProps): Promise<Metadata> {
+}: PageProps): Promise<Metadata> {
   const { country } = await params;
   const countryCode = getCountryCode(country);
+
+  if (!countryCode) {
+    // If not a valid country, we will redirect in the component, but here we can return basic metadata or null
+    return {
+      title: 'Own Silent International',
+    };
+  }
 
   return {
     title: `Home | Luxury Car Tuning Parts - Own Silent International Limited (${country.toUpperCase()})`,
@@ -32,55 +40,47 @@ export async function generateStaticParams() {
 
 export default async function CountryHomePage({
   params,
-}: CountryHomePageProps) {
+}: PageProps) {
   const { country } = await params;
+  const countryCode = getCountryCode(country);
 
-  // Structured Data for SEO
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://ownsilent.international/#organization",
-        name: "Own Silent International Limited",
-        url: `https://ownsilent.international/${country}`,
-        logo: {
-          "@type": "ImageObject",
-          url: "https://ownsilent.international/logo.png",
-          width: 250,
-          height: 60,
-        },
-        description:
-          "Leading OEM manufacturer of luxury car tuning parts, carbon fiber components, carbon ceramic brakes, and high-performance auto parts.",
-        sameAs: [
-          "https://www.facebook.com/ownsilent",
-          "https://www.instagram.com/ownsilent",
-          "https://twitter.com/ownsilent",
-          "https://www.linkedin.com/company/ownsilent",
-        ],
-        contactPoint: {
-          "@type": "ContactPoint",
-          contactType: "Customer Service",
-          availableLanguage: ["English", "Chinese"],
-        },
-      },
-      {
-        "@type": "WebPage",
-        "@id": `https://ownsilent.international/${country}/#webpage`,
-        url: `https://ownsilent.international/${country}`,
-        name: "Luxury Car Tuning Parts - Own Silent International Limited",
-        description:
-          "Own Silent International Limited is a leading OEM manufacturer of luxury car tuning parts, carbon fiber components, carbon ceramic brakes, custom interiors, conversion body kits, and high-performance OEM parts.",
-      },
-    ],
-  };
+  if (!countryCode) {
+    // Redirect to home page if country is invalid
+    redirect('/');
+  }
 
   return (
     <div className="min-h-screen">
       {/* Structured Data for SEO */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://ownsilent.international/#organization",
+                name: "Own Silent International Limited",
+                url: `https://ownsilent.international/${country}`,
+                logo: {
+                  "@type": "ImageObject",
+                  url: "https://ownsilent.international/logo.png",
+                  width: 250,
+                  height: 60,
+                },
+                description:
+                  "Leading OEM manufacturer of luxury car tuning parts, carbon fiber components, carbon ceramic brakes, and high-performance auto parts.",
+              },
+              {
+                "@type": "WebPage",
+                "@id": `https://ownsilent.international/${country}/#webpage`,
+                url: `https://ownsilent.international/${country}`,
+                name: "Luxury Car Tuning Parts - Own Silent International Limited",
+              },
+            ],
+          }),
+        }}
       />
       <HomePageContent />
     </div>
