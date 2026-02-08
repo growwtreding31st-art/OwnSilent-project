@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useCallback, useEffect, useState } from "react";
 import {
   ShieldCheck,
   Truck,
@@ -22,10 +22,37 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
 
 export default function AboutUs() {
   const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+  });
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
+
+  const scrollTo = useCallback(
+    (index: number) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi],
+  );
 
   // 3D Tilt Values
   const x = useMotionValue(0);
@@ -229,7 +256,7 @@ export default function AboutUs() {
           </div>
 
           {/* CONTENT COLUMN */}
-          <div className="lg:col-span-7 flex flex-col justify-center order-1 lg:order-2">
+          <div className="lg:col-span-7 flex flex-col justify-center order-1 lg:order-2 overflow-hidden">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -277,7 +304,53 @@ export default function AboutUs() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-6">
+            {/* Features Mobile Slider */}
+            <div className="sm:hidden mb-6 overflow-hidden">
+              <div className="overflow-hidden" ref={emblaRef}>
+                <div className="flex">
+                  {features.map((feature, idx) => (
+                    <div key={idx} className="flex-[0_0_85%] min-w-0 px-2">
+                      <motion.div
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 + idx * 0.1 }}
+                        className="group flex items-start gap-3 p-4 rounded-xl bg-white border border-slate-100 shadow-sm"
+                      >
+                        <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-lg bg-slate-50 text-slate-400 group-hover:bg-[#176FC0] group-hover:text-white transition-all duration-500">
+                          <feature.icon size={20} strokeWidth={2} />
+                        </div>
+                        <div>
+                          <h4 className="text-[13px] font-black text-slate-900 mb-0.5 tracking-tight">
+                            {feature.title}
+                          </h4>
+                          <p className="text-[10px] text-slate-500 leading-relaxed font-medium">
+                            {feature.description}
+                          </p>
+                        </div>
+                      </motion.div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Pagination Dots */}
+              <div className="flex justify-center gap-1.5 mt-4">
+                {features.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => scrollTo(idx)}
+                    className={`transition-all duration-300 rounded-full ${
+                      idx === selectedIndex
+                        ? "w-6 h-1 bg-[#176FC0]"
+                        : "w-1.5 h-1.5 bg-slate-200"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Features Desktop/Tablet Grid */}
+            <div className="hidden sm:grid grid-cols-2 gap-4 sm:gap-6 mb-8">
               {features.map((feature, idx) => (
                 <motion.div
                   key={idx}
@@ -285,20 +358,16 @@ export default function AboutUs() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 + idx * 0.1 }}
-                  className="group flex items-start gap-3 sm:gap-6 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-100 hover:border-[#176FC0]/30 hover:shadow-xl hover:shadow-[#176FC0]/5 transition-all duration-500"
+                  className="group flex items-start gap-4 sm:gap-6 p-4 rounded-2xl bg-white border border-slate-100 hover:border-[#176FC0]/30 hover:shadow-xl hover:shadow-[#176FC0]/5 transition-all duration-500"
                 >
-                  <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 sm:h-12 sm:w-12 rounded-lg sm:rounded-xl bg-slate-50 text-slate-400 group-hover:bg-[#176FC0] group-hover:text-white group-hover:rotate-6 transition-all duration-500">
-                    <feature.icon
-                      size={20}
-                      className="sm:w-[22px] sm:h-[22px]"
-                      strokeWidth={2}
-                    />
+                  <div className="flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-xl bg-slate-50 text-slate-400 group-hover:bg-[#176FC0] group-hover:text-white group-hover:rotate-6 transition-all duration-500">
+                    <feature.icon size={22} strokeWidth={2} />
                   </div>
                   <div>
-                    <h4 className="text-[13px] sm:text-sm font-black text-slate-900 mb-0.5 sm:mb-1 tracking-tight group-hover:text-[#176FC0] transition-colors">
+                    <h4 className="text-sm font-black text-slate-900 mb-1 tracking-tight group-hover:text-[#176FC0] transition-colors">
                       {feature.title}
                     </h4>
-                    <p className="text-[10px] sm:text-[11px] text-slate-500 leading-relaxed font-medium">
+                    <p className="text-[11px] text-slate-500 leading-relaxed font-medium">
                       {feature.description}
                     </p>
                   </div>

@@ -164,7 +164,7 @@ export default function WhatWeDo() {
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {features.map((feature, index) => (
-                <div key={index} className="flex-[0_0_100%] min-w-0 px-2">
+                <div key={index} className="flex-[0_0_85%] min-w-0 px-2">
                   <Link href={feature.href} className="block h-full">
                     <motion.div
                       initial={{ opacity: 0, y: 30 }}

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   ArrowRight,
   Cpu,
@@ -13,9 +13,34 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
 
 export default function FeaturesBanner() {
   const { t } = useLanguage();
+
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+  });
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
+
+  const scrollTo = useCallback(
+    (index: number) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi],
+  );
   const workFeatures = [
     {
       icon: Cpu,
@@ -118,7 +143,72 @@ export default function FeaturesBanner() {
 
             {/* Features Grid - 2 cols mobile, fits in one line visually if packed well */}
             <div className="lg:col-span-8">
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
+              {/* Features Mobile Slider */}
+              <div className="lg:hidden mt-4 overflow-hidden">
+                <div className="overflow-hidden" ref={emblaRef}>
+                  <div className="flex">
+                    {workFeatures.map((feature, index) => (
+                      <div key={index} className="flex-[0_0_85%] min-w-0 px-2">
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.1 }}
+                          className="group relative bg-white border border-slate-100 p-5 rounded-2xl h-full"
+                        >
+                          <div className="flex items-center justify-between mb-4">
+                            <div className="w-12 h-12 rounded-xl bg-[#176FC0]/5 flex items-center justify-center text-[#176FC0]">
+                              <feature.icon size={24} strokeWidth={1.5} />
+                            </div>
+                            <CheckCircle2
+                              size={16}
+                              className="text-[#176FC0]"
+                            />
+                          </div>
+                          <h3 className="text-sm font-black text-slate-900 mb-2 tracking-tight">
+                            {feature.title}
+                          </h3>
+                          <p className="text-xs text-slate-500 leading-relaxed font-medium">
+                            {feature.description}
+                          </p>
+                        </motion.div>
+                      </div>
+                    ))}
+                    {/* Visual Performance Accent Slide */}
+                    <div className="flex-[0_0_85%] min-w-0 px-2">
+                      <div className="flex group relative bg-white border-2 border-dashed border-[#176FC0]/20 p-5 rounded-2xl h-full flex-col justify-center items-center text-center">
+                        <Zap
+                          size={24}
+                          className="text-[#176FC0] mb-3 animate-bounce-slow"
+                        />
+                        <p className="text-slate-900 font-black uppercase tracking-widest text-[10px]">
+                          Innovation
+                        </p>
+                        <p className="text-slate-400 text-[10px] mt-1 font-bold italic">
+                          Driven by Excellence
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {/* Pagination Dots */}
+                <div className="flex justify-center gap-1.5 mt-6">
+                  {[...workFeatures, null].map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => scrollTo(idx)}
+                      className={`transition-all duration-300 rounded-full ${
+                        idx === selectedIndex
+                          ? "w-8 h-1 bg-[#176FC0]"
+                          : "w-2 h-2 bg-slate-200"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {/* Features Desktop Grid */}
+              <div className="hidden lg:grid grid-cols-3 gap-3">
                 {workFeatures.map((feature, index) => (
                   <motion.div
                     key={index}

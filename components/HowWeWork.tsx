@@ -12,6 +12,8 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import Link from "next/link";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function HowWeWork() {
   const { t } = useLanguage();
@@ -55,8 +57,34 @@ export default function HowWeWork() {
     },
   ];
 
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "start",
+  });
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
+
+  const scrollTo = useCallback(
+    (index: number) => emblaApi && emblaApi.scrollTo(index),
+    [emblaApi],
+  );
+
   return (
-    <section className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-2 sm:py-2 lg:py-2 overflow-hidden">
+    <section className="relative bg-gradient-to-b from-white via-slate-50/30 to-white py-4 sm:py-6 lg:py-8 overflow-hidden">
       {/* Enhanced Background */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
@@ -93,7 +121,7 @@ export default function HowWeWork() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center max-w-3xl mx-auto mb-2 lg:mb-8"
+          className="text-center max-w-3xl mx-auto mb-6 lg:mb-10"
         >
           <motion.div
             initial={{ scale: 0.9 }}
@@ -101,8 +129,8 @@ export default function HowWeWork() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 shadow-lg shadow-blue-500/10 mb-3"
           >
-            <Sparkles className="w-3 h-3 text-[#176FC0]" />
-            <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#176FC0]">
+            <Sparkles className="w-3.5 h-3.5 text-[#176FC0]" />
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#176FC0]">
               {t("howWeWork.badge")}
             </span>
           </motion.div>
@@ -128,8 +156,78 @@ export default function HowWeWork() {
           </p>
         </motion.div>
 
-        {/* Steps Grid - 2 col mobile, 4 col desktop */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 mb-0 lg:mb-8">
+        {/* Mobile View Slider */}
+        <div className="lg:hidden">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {steps.map((step, index) => (
+                <div key={index} className="flex-[0_0_85%] min-w-0 px-2">
+                  <Link href={step.href} className="block h-full">
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        delay: index * 0.1,
+                        type: "spring",
+                        stiffness: 100,
+                      }}
+                      className="group relative h-full"
+                    >
+                      {/* Step Card */}
+                      <div className="relative h-full bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-slate-200/50 shadow-sm hover:shadow-lg transition-all duration-500 overflow-hidden">
+                        {/* Number Badge */}
+                        <div className="absolute top-4 right-4 text-xl font-black text-slate-100 group-hover:text-[#176FC0] transition-colors duration-300">
+                          {step.number}
+                        </div>
+
+                        {/* Animated Background Gradient */}
+                        <div
+                          className={`absolute inset-0 bg-gradient-to-br ${step.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                        />
+
+                        <div className="relative z-10 flex flex-col items-center text-center">
+                          <motion.div className="mb-4">
+                            <div
+                              className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${step.gradient} text-white shadow-lg shadow-blue-500/30 group-hover:shadow-xl transition-all duration-500`}
+                            >
+                              <step.icon className="w-7 h-7" strokeWidth={2} />
+                            </div>
+                          </motion.div>
+                          <h3 className="text-lg font-black text-slate-900 mb-3 tracking-tight">
+                            {step.title}
+                          </h3>
+                          <p className="text-sm text-slate-600 leading-relaxed font-medium">
+                            {step.description}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Pagination Dots */}
+          <div className="flex justify-center gap-1 mt-8">
+            {steps.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => scrollTo(idx)}
+                className={`transition-all duration-300 rounded-full ${
+                  idx === selectedIndex
+                    ? "w-8 h-1.5 bg-[#176FC0]"
+                    : "w-2 h-2 bg-slate-300 hover:bg-slate-400"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop View Grid */}
+        <div className="hidden lg:grid grid-cols-4 gap-4">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -143,7 +241,7 @@ export default function HowWeWork() {
               }}
               className="relative"
             >
-              {/* Connection Line - Hidden for compactness or kept subtle? Kept subtle on desktop */}
+              {/* Connection Line */}
               {index < steps.length - 1 && (
                 <motion.div
                   className="hidden lg:block absolute top-1/2 -translate-y-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-slate-200 to-transparent z-0"
@@ -154,13 +252,12 @@ export default function HowWeWork() {
                 />
               )}
 
-              {/* Step Card - Compact */}
+              {/* Step Card */}
               <Link href={step.href} className="block group relative h-full">
                 <motion.div
                   whileHover={{ y: -8, scale: 1.02 }}
                   className="relative h-full bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-5 border border-slate-200/50 shadow-sm hover:shadow-lg transition-all duration-500 overflow-hidden z-10"
                 >
-                  {/* Glow Effect */}
                   <motion.div
                     className="absolute -inset-1 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-500"
                     style={{
@@ -168,19 +265,15 @@ export default function HowWeWork() {
                     }}
                   />
 
-                  {/* Animated Background Gradient */}
                   <div
                     className={`absolute inset-0 bg-gradient-to-br ${step.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
                   />
 
-                  {/* Content */}
                   <div className="relative z-10 flex flex-col items-center text-center">
-                    {/* Number Badge - Compact */}
                     <div className="absolute top-2 right-2 text-[10px] font-black text-slate-200 group-hover:text-[#176FC0] transition-colors duration-300">
                       {step.number}
                     </div>
 
-                    {/* Icon - Compact */}
                     <motion.div
                       className="mb-3"
                       whileHover={{ rotate: [0, -10, 10, -10, 0] }}
@@ -196,17 +289,14 @@ export default function HowWeWork() {
                       </div>
                     </motion.div>
 
-                    {/* Title */}
                     <h3 className="text-sm sm:text-base font-black text-slate-900 mb-2 tracking-tight group-hover:text-[#176FC0] transition-colors duration-300">
                       {step.title}
                     </h3>
 
-                    {/* Description - Compact text */}
                     <p className="text-[10px] sm:text-xs text-slate-600 leading-relaxed font-medium line-clamp-3">
                       {step.description}
                     </p>
 
-                    {/* Progress Indicator - Compact */}
                     <motion.div
                       className="mt-3 h-0.5 w-full bg-slate-100 rounded-full overflow-hidden"
                       initial={{ opacity: 0 }}

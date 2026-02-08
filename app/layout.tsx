@@ -11,6 +11,7 @@ import { CurrencyProvider } from "@/context/CurrencyContext";
 // === UI Components ===
 import ConditionalLayout from "@/components/ConditionalLayout";
 import { Toaster } from "react-hot-toast";
+import { CountryRedirect } from "@/components/CountryRedirect";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     "OwnSilent supercar tuning parts",
     "OwnSilent premium automotive components",
     "OwnSilent carbon ceramic brake pads",
-    "OwnSilent carbon ceramic brake rotors"
+    "OwnSilent carbon ceramic brake rotors",
   ],
   authors: [{ name: "OwnSilent Team" }],
   creator: "Own Silent International Limited",
@@ -97,10 +98,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Blocking script for instant country redirect - runs BEFORE React */}
+        <script src="/country-redirect.js" />
+      </head>
       <body className={`${inter.className} overflow-x-hidden`}>
         <ReduxProvider>
           <LanguageProvider>
             <CurrencyProvider>
+              <CountryRedirect />
               <Toaster position="top-center" reverseOrder={false} />
               <ConditionalLayout>{children}</ConditionalLayout>
 
@@ -126,7 +132,7 @@ export default function RootLayout({
                         "https://x.com/ownsilentintern",
                         "https://www.threads.com/@ownsilent.international",
                         "https://hk.linkedin.com/company/own-silent-international-limited",
-                        "https://www.youtube.com/channel/UCVLc73Mcd89bmyFG5-Ye91g"
+                        "https://www.youtube.com/channel/UCVLc73Mcd89bmyFG5-Ye91g",
                       ],
                     },
                     {
