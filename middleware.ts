@@ -15,6 +15,20 @@ interface NextRequestWithGeo extends NextRequest {
 
 export function middleware(request: NextRequestWithGeo) {
   const { pathname } = request.nextUrl;
+  const hostname = request.headers.get("host") || "";
+
+  // Domain Redirect Logic
+  // Check if we are in production (not localhost) and not on the correct domain
+  const isLocalhost = hostname.includes("localhost") || hostname.includes("127.0.0.1");
+  // Strict check: redirect to ownsilent.international if not localhost and not already on it
+  // We exclude vercel.app to avoid breaking preview deployments unless intended
+  if (!isLocalhost && !hostname.endsWith("ownsilent.international") && !hostname.includes("vercel.app")) {
+     const url = request.nextUrl.clone();
+     url.hostname = "ownsilent.international";
+     url.port = "";
+     url.protocol = "https";
+     return NextResponse.redirect(url, 308);
+  }
   
   // Skip middleware for static files, API routes, and Next.js internals
   if (
@@ -27,8 +41,7 @@ export function middleware(request: NextRequestWithGeo) {
   }
 
   // Get the country from geolocation or cookie
-  const isLocalhost = request.headers.get("host")?.includes("localhost") || 
-                      request.headers.get("host")?.includes("127.0.0.1");
+
   
   // Check for country in cookie first (for returning users)
   const cookieCountry = request.cookies.get("userCountry")?.value;
@@ -67,6 +80,20 @@ export function middleware(request: NextRequestWithGeo) {
         });
       }
       return redirectResponse;
+    }
+    
+    // FIX for /[country] routing issue:
+    // If it's just the country root (e.g., /usa), do NOT rewrite to /. 
+    // Instead allow it to proceed so it matches app/[country]/page.tsx
+    if (pathSegments.length === 1) {
+        const response = NextResponse.next();
+        if (urlCountryCode) {
+            response.cookies.set("userCountry", urlCountryCode, {
+              maxAge: 60 * 60 * 24 * 30, // 30 days
+              path: "/",
+            });
+        }
+        return response;
     }
     
     // Rewrite to the actual page without the country prefix
