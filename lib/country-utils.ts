@@ -71,7 +71,9 @@ export function getCountryCode(slug: string): CountryCode | null {
 /**
  * Check if a slug is a valid country slug (including aliases)
  */
-export function isValidCountrySlug(slug: string): slug is CountrySlug {
+export function isValidCountrySlug(slug: string | null | undefined): slug is CountrySlug {
+  console.log(slug)
+  if (!slug) return false;
   const lowerSlug = slug.toLowerCase();
   
   // Check if it's a direct match

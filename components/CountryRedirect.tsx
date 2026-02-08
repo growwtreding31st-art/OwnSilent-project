@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { getCountrySlug, isValidCountrySlug } from "@/lib/country-utils";
 
 /**
@@ -13,7 +13,6 @@ import { getCountrySlug, isValidCountrySlug } from "@/lib/country-utils";
  * 3. Uses sessionStorage to ensure we only hit the IP API once per session.
  */
 export function CountryRedirect() {
-  const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -40,16 +39,20 @@ export function CountryRedirect() {
 
         for (const service of services) {
           try {
-            console.log(`Verifying location: ${service.url}`);
             const response = await fetch(service.url, {
               signal: AbortSignal.timeout(5000),
             });
             if (response.ok) {
               const data = await response.json();
               countryCode = service.extractCountry(data);
-              break;
+              if (countryCode) break;
+            } else {
+              console.warn(
+                `Geolocation service failed: ${service.url} - ${response.status}`,
+              );
             }
           } catch (err) {
+            console.warn(`Geolocation service error: ${service.url}`, err);
             continue;
           }
         }
@@ -61,11 +64,15 @@ export function CountryRedirect() {
           sessionStorage.setItem("sessionLocationDetected", "true");
 
           if (countrySlug) {
+            // Also update localStorage for the blocking script (country-redirect.js)
+            localStorage.setItem("detectedCountry", countrySlug);
+
             // Check current URL prefix
             const segments = pathname.split("/").filter(Boolean);
             const currentPrefix = segments[0];
 
             // If the URL has NO country, OR the country is DIFFERENT than reality:
+            // isValidCountrySlug(currentPrefix) handles undefined safely now.
             if (
               !isValidCountrySlug(currentPrefix) ||
               currentPrefix !== countrySlug
@@ -74,7 +81,7 @@ export function CountryRedirect() {
                 `Location mismatch! Reality: ${countrySlug}, URL: ${currentPrefix || "none"}. Redirecting...`,
               );
 
-              // Update cookie and redirect
+              // Update cookie
               document.cookie = `userCountry=${countryCode}; path=/; max-age=${60 * 60 * 24 * 30}`;
 
               const pathWithoutCountry = isValidCountrySlug(currentPrefix)
@@ -82,9 +89,13 @@ export function CountryRedirect() {
                 : pathname;
 
               const newPath = `/${countrySlug}${pathWithoutCountry === "/" ? "" : pathWithoutCountry}`;
-              router.replace(newPath);
+
+              // Use window.location.replace for a hard redirect to ensure middleware and all state is consistent
+              window.location.replace(newPath);
             }
           }
+        } else {
+          console.warn("Could not detect country from any service.");
         }
       } catch (error) {
         console.error("Geolocation check failed:", error);
@@ -92,7 +103,7 @@ export function CountryRedirect() {
     }
 
     detectAndRedirect();
-  }, [pathname, router]);
+  }, [pathname]);
 
   return null;
 }
