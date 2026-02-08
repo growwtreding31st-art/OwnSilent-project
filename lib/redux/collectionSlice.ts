@@ -24,16 +24,16 @@ const initialState: CollectionState = {
 };
 
 const uploadImage = async (imageFile: File) => {
-    const { data: { signedUrl, imageUrl } } = await api.post('/admin/products/generate-upload-url', { 
-        folder: 'collections', 
-        contentType: imageFile.type 
-    });
-    await fetch(signedUrl, { 
-        method: 'PUT', 
-        body: imageFile, 
-        headers: { 'Content-Type': imageFile.type } 
-    });
-    return imageUrl;
+  const { data: { signedUrl, imageUrl } } = await api.post('/admin/products/generate-upload-url', {
+    folder: 'collections',
+    contentType: imageFile.type
+  });
+  await fetch(signedUrl, {
+    method: 'PUT',
+    body: imageFile,
+    headers: { 'Content-Type': imageFile.type }
+  });
+  return imageUrl;
 };
 
 export const fetchCollections = createAsyncThunk('collections/fetchCollections', async (_, { rejectWithValue }) => {
@@ -47,7 +47,10 @@ export const fetchCollections = createAsyncThunk('collections/fetchCollections',
 
 export const addCollection = createAsyncThunk('collections/addCollection', async (collectionData: any, { rejectWithValue }) => {
   try {
-    const imageUrl = await uploadImage(collectionData.coverImageFile);
+    let imageUrl = collectionData.coverImage || '';
+    if (collectionData.coverImageFile) {
+      imageUrl = await uploadImage(collectionData.coverImageFile);
+    }
     const finalData = { ...collectionData, coverImage: imageUrl };
     delete finalData.coverImageFile;
     const response = await api.post('/admin/collections', finalData);
@@ -61,8 +64,9 @@ export const updateCollection = createAsyncThunk('collections/updateCollection',
   try {
     let finalData = { ...data };
     if (data.coverImageFile) {
-        finalData.coverImage = await uploadImage(data.coverImageFile);
+      finalData.coverImage = await uploadImage(data.coverImageFile);
     }
+    // If no file but coverImage string provided, it stays in finalData
     delete finalData.coverImageFile;
     const response = await api.patch(`/admin/collections/${id}`, finalData);
     return response.data;
@@ -81,21 +85,21 @@ export const deleteCollection = createAsyncThunk('collections/deleteCollection',
 });
 
 export const fetchPublicCollections = createAsyncThunk('collections/fetchPublicCollections', async (_, { rejectWithValue }) => {
-    try {
-      const response = await api.get('/collections');
-      return response.data;
-    } catch (error: any) {
-      return rejectWithValue(error.response?.data?.message);
-    }
+  try {
+    const response = await api.get('/collections');
+    return response.data;
+  } catch (error: any) {
+    return rejectWithValue(error.response?.data?.message);
+  }
 });
 
 export const fetchPublicCollectionBySlug = createAsyncThunk('collections/fetchPublicCollectionBySlug', async (slug: string, { rejectWithValue }) => {
-    try {
-        const response = await api.get(`/collections/${slug}`);
-        return response.data;
-    } catch (error: any) {
-        return rejectWithValue(error.response?.data?.message);
-    }
+  try {
+    const response = await api.get(`/collections/${slug}`);
+    return response.data;
+  } catch (error: any) {
+    return rejectWithValue(error.response?.data?.message);
+  }
 });
 
 const collectionSlice = createSlice({
@@ -103,7 +107,7 @@ const collectionSlice = createSlice({
   initialState,
   reducers: {
     clearCurrentCollection: (state) => {
-        state.currentCollection = null;
+      state.currentCollection = null;
     }
   },
   extraReducers: (builder) => {
@@ -123,25 +127,25 @@ const collectionSlice = createSlice({
       })
       .addCase(fetchPublicCollections.pending, (state) => { state.publicStatus = 'loading'; })
       .addCase(fetchPublicCollections.fulfilled, (state, action: PayloadAction<any[]>) => {
-          state.publicStatus = 'succeeded';
-          state.publicCollections = action.payload;
+        state.publicStatus = 'succeeded';
+        state.publicCollections = action.payload;
       })
       .addCase(fetchPublicCollections.rejected, (state) => { state.publicStatus = 'failed'; })
       .addCase(fetchPublicCollectionBySlug.pending, (state) => {
-          state.collectionProductsStatus = 'loading';
+        state.collectionProductsStatus = 'loading';
       })
       .addCase(fetchPublicCollectionBySlug.fulfilled, (state, action: PayloadAction<any>) => {
-          state.collectionProductsStatus = 'succeeded';
-          state.currentCollection = action.payload;
-          state.collectionProducts = action.payload.products || [];
+        state.collectionProductsStatus = 'succeeded';
+        state.currentCollection = action.payload;
+        state.collectionProducts = action.payload.products || [];
       })
       .addCase(fetchPublicCollectionBySlug.rejected, (state) => {
-          state.collectionProductsStatus = 'failed';
+        state.collectionProductsStatus = 'failed';
       })
       .addMatcher((action) => (action.type.startsWith('collections/') && !action.type.includes('Public')) && action.type.endsWith('/pending'), (state) => { state.status = 'loading'; })
       .addMatcher((action) => (action.type.startsWith('collections/') && !action.type.includes('Public')) && action.type.endsWith('/fulfilled'), (state) => { state.status = 'succeeded'; })
-      .addMatcher((action) => action.type.startsWith('collections/') && action.type.endsWith('/rejected'),(state, action) => {
-          state.error = action.payload as string;
+      .addMatcher((action) => action.type.startsWith('collections/') && action.type.endsWith('/rejected'), (state, action) => {
+        state.error = action.payload as string;
       });
   },
 });

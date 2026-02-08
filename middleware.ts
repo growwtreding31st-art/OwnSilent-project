@@ -23,13 +23,13 @@ export function middleware(request: NextRequestWithGeo) {
   // Strict check: redirect to ownsilent.international if not localhost and not already on it
   // We exclude vercel.app to avoid breaking preview deployments unless intended
   if (!isLocalhost && !hostname.endsWith("ownsilent.international") && !hostname.includes("vercel.app")) {
-     const url = request.nextUrl.clone();
-     url.hostname = "ownsilent.international";
-     url.port = "";
-     url.protocol = "https";
-     return NextResponse.redirect(url, 308);
+    const url = request.nextUrl.clone();
+    url.hostname = "ownsilent.international";
+    url.port = "";
+    url.protocol = "https";
+    return NextResponse.redirect(url, 308);
   }
-  
+
   // Skip middleware for static files, API routes, and Next.js internals
   if (
     pathname.startsWith("/_next") ||
@@ -42,14 +42,14 @@ export function middleware(request: NextRequestWithGeo) {
 
   // Get the country from geolocation or cookie
 
-  
+
   // Check for country in cookie first (for returning users)
   const cookieCountry = request.cookies.get("userCountry")?.value;
-  
+
   // On localhost: use cookie, on production: use request.geo.country
   const countryCode = cookieCountry || (isLocalhost ? null : (request.geo?.country || null));
   const detectedCountrySlug = countryCode ? getCountrySlug(countryCode) : null;
-  
+
   // Check if URL already has a country prefix
   const pathSegments = pathname.split("/").filter(Boolean);
   const firstSegment = pathSegments[0];
@@ -59,20 +59,20 @@ export function middleware(request: NextRequestWithGeo) {
   if (hasCountryPrefix) {
     // Normalize the country slug (e.g., 'usa' -> 'america')
     const normalizedSlug = normalizeCountrySlug(firstSegment);
-    
+
     // Set cookie to remember this country
     const urlCountryCode = getCountryCode(firstSegment);
     if (urlCountryCode) {
       // We'll apply this to the final response (rewrite or redirect)
     }
-    
+
     // If the slug is an alias, redirect to the canonical URL
     if (normalizedSlug && normalizedSlug !== firstSegment.toLowerCase()) {
       const url = request.nextUrl.clone();
       const pathWithoutCountry = pathSegments.slice(1).join("/");
       url.pathname = `/${normalizedSlug}${pathWithoutCountry ? `/${pathWithoutCountry}` : ""}`;
       const redirectResponse = NextResponse.redirect(url, 307);
-      
+
       if (urlCountryCode) {
         redirectResponse.cookies.set("userCountry", urlCountryCode, {
           maxAge: 60 * 60 * 24 * 30,
@@ -81,29 +81,29 @@ export function middleware(request: NextRequestWithGeo) {
       }
       return redirectResponse;
     }
-    
+
     // FIX for /[country] routing issue:
     // If it's just the country root (e.g., /usa), do NOT rewrite to /. 
     // Instead allow it to proceed so it matches app/[country]/page.tsx
     if (pathSegments.length === 1) {
-        const response = NextResponse.next();
-        if (urlCountryCode) {
-            response.cookies.set("userCountry", urlCountryCode, {
-              maxAge: 60 * 60 * 24 * 30, // 30 days
-              path: "/",
-            });
-        }
-        return response;
+      const response = NextResponse.next();
+      if (urlCountryCode) {
+        response.cookies.set("userCountry", urlCountryCode, {
+          maxAge: 60 * 60 * 24 * 30, // 30 days
+          path: "/",
+        });
+      }
+      return response;
     }
-    
+
     // Rewrite to the actual page without the country prefix
     const pathWithoutCountry = "/" + pathSegments.slice(1).join("/");
     const url = request.nextUrl.clone();
     url.pathname = pathWithoutCountry || "/";
-    
+
     // Use rewrite to serve the content without changing the URL
     const rewriteResponse = NextResponse.rewrite(url);
-    
+
     // IMPORTANT: Attach the cookie to the rewrite response as well
     if (urlCountryCode) {
       rewriteResponse.cookies.set("userCountry", urlCountryCode, {
@@ -111,7 +111,7 @@ export function middleware(request: NextRequestWithGeo) {
         path: "/",
       });
     }
-    
+
     return rewriteResponse;
   }
 
@@ -120,7 +120,7 @@ export function middleware(request: NextRequestWithGeo) {
   if (detectedCountrySlug && !hasCountryPrefix) {
     const url = request.nextUrl.clone();
     url.pathname = `/${detectedCountrySlug}${pathname}`;
-    
+
     // Use 307 (Temporary Redirect) to preserve the request method
     const response = NextResponse.redirect(url, 307);
     // Set cookie to remember this country
@@ -132,7 +132,7 @@ export function middleware(request: NextRequestWithGeo) {
     }
     return response;
   }
-  
+
   // Case 3: No country detected or country matches - serve current route
   // Note: We don't force redirect if user manually selected a different country
   // The cookie will be updated to their manual selection

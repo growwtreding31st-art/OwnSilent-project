@@ -271,6 +271,34 @@ export default function MyProfilePage() {
               </p>
             </div>
 
+            <div>
+              <label className="flex items-center gap-3 p-4 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition-colors">
+                <input
+                  type="checkbox"
+                  checked={profile?.isSubscribed || false}
+                  onChange={async () => {
+                    try {
+                      // Direct API call for immediate feedback or we can dispatch an action if we added it to slice
+                      // For simplicity, let's assume we dispatch an update or call API directly. 
+                      // Since I haven't updated the slice, I'll direct call here or dispatch a generic update? 
+                      // Better to just use the api instance directly for this small toggle.
+                      const { default: api } = await import('@/lib/api/axiosConfig');
+                      const res = await api.post('/user/subscription');
+                      toast.success(res.data.isSubscribed ? "Subscribed to newsletter!" : "Unsubscribed from newsletter.");
+                      dispatch(fetchUserProfile()); // Refresh profile to update state
+                    } catch (error) {
+                      toast.error("Failed to update subscription.");
+                    }
+                  }}
+                  className="w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300"
+                />
+                <div>
+                  <span className="block text-sm font-bold text-slate-700">Subscribe to Newsletter</span>
+                  <span className="block text-xs text-slate-500">Receive updates about new products and special offers.</span>
+                </div>
+              </label>
+            </div>
+
             <div className="pt-4">
               <button
                 type="submit"

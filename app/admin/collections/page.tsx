@@ -1,17 +1,18 @@
 "use client"
 import React, { useState, useEffect, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@/lib/redux/store';
 import { fetchCollections, addCollection, updateCollection, deleteCollection } from '@/lib/redux/collectionSlice';
 import { fetchParts } from '@/lib/redux/productSlice';
-import { Layers, Plus, Pencil, Trash2, UploadCloud, Loader2, Search, X, Check, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Layers, Plus, Pencil, Trash2, UploadCloud, Loader2, Search, X, Check, ArrowRight, ArrowLeft, Eye, Database } from 'lucide-react';
 import Image from 'next/image';
 import toast from 'react-hot-toast';
-import { useRouter } from 'next/navigation';
+import MediaPickerModal from '@/components/admin/MediaPickerModal';
 
 const TabButton = ({ active, onClick, children }: { active: boolean, onClick: () => void, children: React.ReactNode }) => (
-    <button 
-        onClick={onClick} 
+    <button
+        onClick={onClick}
         className={`px-5 py-2.5 text-sm font-medium transition-all duration-200 rounded-full ${active ? 'bg-slate-900 text-white shadow-md' : 'text-slate-600 bg-white border border-slate-200 hover:bg-slate-50'}`}
     >
         {children}
@@ -19,25 +20,28 @@ const TabButton = ({ active, onClick, children }: { active: boolean, onClick: ()
 );
 
 export default function CollectionsPage() {
+    const router = useRouter();
+    const dispatch = useDispatch<AppDispatch>();
+
     const [activeTab, setActiveTab] = useState('all');
     const [editingCollection, setEditingCollection] = useState<any>(null);
-    const router = useRouter();
+
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [status, setStatus] = useState('Draft');
     const [coverImageFile, setCoverImageFile] = useState<File | null>(null);
     const [imagePreview, setImagePreview] = useState<string | null>(null);
+    const [isMediaPickerOpen, setIsMediaPickerOpen] = useState(false);
     const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
-    
+
     const [productSearch, setProductSearch] = useState('');
 
-    const dispatch = useDispatch<AppDispatch>();
     const { collections, status: collectionStatus } = useSelector((state: RootState) => state.collections);
     const { parts: allProducts } = useSelector((state: RootState) => state.products);
 
     useEffect(() => {
         dispatch(fetchCollections());
-        dispatch(fetchParts({ limit: 1000 })); 
+        dispatch(fetchParts({ limit: 1000 }));
     }, [dispatch]);
 
     const handleEditClick = (collection: any) => {
@@ -76,16 +80,17 @@ export default function CollectionsPage() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!coverImageFile && !editingCollection) {
+        if (!coverImageFile && !imagePreview && !editingCollection) {
             return toast.error("A cover image is required for a new collection.");
         }
 
-        const collectionData = { 
-            name, 
-            description, 
-            status, 
-            products: selectedProducts, 
-            coverImageFile 
+        const collectionData = {
+            name,
+            description,
+            status,
+            products: selectedProducts,
+            coverImageFile,
+            coverImage: imagePreview // Send the URL if no file is selected (it will be used if file is null)
         };
 
         const action = editingCollection
@@ -100,7 +105,7 @@ export default function CollectionsPage() {
             handleCancelEdit();
         });
     };
-    
+
     const handleDelete = (id: string) => {
         if (window.confirm('Are you sure you want to delete this collection?')) {
             toast.promise(dispatch(deleteCollection(id)).unwrap(), {
@@ -114,7 +119,7 @@ export default function CollectionsPage() {
     }, [allProducts, productSearch]);
 
     const toggleProductSelection = (productId: string) => {
-        setSelectedProducts(prev => 
+        setSelectedProducts(prev =>
             prev.includes(productId) ? prev.filter(id => id !== productId) : [...prev, productId]
         );
     };
@@ -139,7 +144,7 @@ export default function CollectionsPage() {
                 </TabButton>
                 <TabButton active={activeTab === 'add'} onClick={() => { resetForm(); setActiveTab('add'); }}>
                     <span className="flex items-center gap-2">
-                        {editingCollection ? <Pencil size={14}/> : <Plus size={14}/>}
+                        {editingCollection ? <Pencil size={14} /> : <Plus size={14} />}
                         {editingCollection ? 'Edit Collection' : 'Create New'}
                     </span>
                 </TabButton>
@@ -173,7 +178,7 @@ export default function CollectionsPage() {
                                                     {col.coverImage ? (
                                                         <Image src={col.coverImage} alt={col.name} fill className="object-cover" />
                                                     ) : (
-                                                        <div className="w-full h-full flex items-center justify-center text-slate-400"><Layers size={20}/></div>
+                                                        <div className="w-full h-full flex items-center justify-center text-slate-400"><Layers size={20} /></div>
                                                     )}
                                                 </div>
                                                 <div onClick={() => router.push(`/collections/${col.slug}`)}>
@@ -186,21 +191,23 @@ export default function CollectionsPage() {
                                             {col.products?.length || 0} items
                                         </td>
                                         <td className="p-4 sm:p-5">
-                                            <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold border ${
-                                                col.status === 'Active' 
-                                                    ? 'bg-green-50 text-green-700 border-green-200' 
-                                                    : 'bg-slate-100 text-slate-600 border-slate-200'
-                                            }`}>
+                                            <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold border ${col.status === 'Active'
+                                                ? 'bg-green-50 text-green-700 border-green-200'
+                                                : 'bg-slate-100 text-slate-600 border-slate-200'
+                                                }`}>
                                                 {col.status}
                                             </span>
                                         </td>
                                         <td className="p-4 sm:p-5 text-right">
                                             <div className="flex items-center justify-end gap-2">
+                                                <a href={`/collections/${col.slug}`} target="_blank" className="p-2 text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors">
+                                                    <Eye size={18} />
+                                                </a>
                                                 <button onClick={() => handleEditClick(col)} className="p-2 text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors">
-                                                    <Pencil size={18}/>
+                                                    <Pencil size={18} />
                                                 </button>
                                                 <button onClick={() => handleDelete(col._id)} className="p-2 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition-colors">
-                                                    <Trash2 size={18}/>
+                                                    <Trash2 size={18} />
                                                 </button>
                                             </div>
                                         </td>
@@ -222,26 +229,26 @@ export default function CollectionsPage() {
                     <div className="lg:col-span-2 space-y-6">
                         <div className="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
                             <h3 className="text-lg font-bold text-slate-800 mb-6 border-b border-slate-100 pb-4">Collection Details</h3>
-                            
+
                             <div className="space-y-5">
                                 <div>
                                     <label className="block text-sm font-semibold text-slate-700 mb-2">Title</label>
-                                    <input 
-                                        type="text" 
-                                        value={name} 
-                                        onChange={(e) => setName(e.target.value)} 
-                                        className="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition-all" 
+                                    <input
+                                        type="text"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        className="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition-all"
                                         placeholder="e.g. Summer Essentials"
-                                        required 
+                                        required
                                     />
                                 </div>
-                                
+
                                 <div>
                                     <label className="block text-sm font-semibold text-slate-700 mb-2">Description</label>
-                                    <textarea 
-                                        value={description} 
-                                        onChange={(e) => setDescription(e.target.value)} 
-                                        rows={4} 
+                                    <textarea
+                                        value={description}
+                                        onChange={(e) => setDescription(e.target.value)}
+                                        rows={4}
                                         className="w-full border border-slate-300 rounded-lg px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-transparent transition-all resize-y"
                                         placeholder="Describe what makes this collection special..."
                                     ></textarea>
@@ -262,11 +269,11 @@ export default function CollectionsPage() {
                                     <div className="p-3 bg-white border-b border-slate-200">
                                         <div className="relative">
                                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
-                                            <input 
-                                                type="text" 
-                                                placeholder="Search available products..." 
-                                                value={productSearch} 
-                                                onChange={e => setProductSearch(e.target.value)} 
+                                            <input
+                                                type="text"
+                                                placeholder="Search available products..."
+                                                value={productSearch}
+                                                onChange={e => setProductSearch(e.target.value)}
                                                 className="w-full pl-9 pr-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:border-slate-400"
                                             />
                                         </div>
@@ -274,14 +281,14 @@ export default function CollectionsPage() {
                                     <div className="flex-1 overflow-y-auto p-2 space-y-1 custom-scrollbar">
                                         <p className="text-xs font-semibold text-slate-400 uppercase p-2">Available Products</p>
                                         {filteredProducts.filter(p => !selectedProducts.includes(p._id)).map(p => (
-                                            <div 
-                                                key={p._id} 
-                                                onClick={() => toggleProductSelection(p._id)} 
+                                            <div
+                                                key={p._id}
+                                                onClick={() => toggleProductSelection(p._id)}
                                                 className="group flex items-center justify-between p-3 bg-white border border-slate-100 rounded-lg cursor-pointer hover:border-indigo-500 hover:shadow-sm transition-all"
                                             >
                                                 <div className="flex items-center gap-3 overflow-hidden">
                                                     <div className="w-8 h-8 rounded bg-slate-100 flex items-center justify-center text-slate-400 flex-shrink-0">
-                                                        <Layers size={14}/>
+                                                        <Layers size={14} />
                                                     </div>
                                                     <span className="text-sm font-medium text-slate-700 truncate">{p.name}</span>
                                                 </div>
@@ -308,14 +315,14 @@ export default function CollectionsPage() {
                                     </div>
                                     <div className="flex-1 overflow-y-auto p-2 space-y-1 custom-scrollbar">
                                         {allProducts.filter(p => selectedProducts.includes(p._id)).map(p => (
-                                            <div 
-                                                key={p._id} 
-                                                onClick={() => toggleProductSelection(p._id)} 
+                                            <div
+                                                key={p._id}
+                                                onClick={() => toggleProductSelection(p._id)}
                                                 className="group flex items-center justify-between p-3 bg-white border border-indigo-100 rounded-lg cursor-pointer hover:border-red-300 hover:bg-red-50 transition-all"
                                             >
                                                 <div className="flex items-center gap-3 overflow-hidden">
                                                     <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 flex-shrink-0">
-                                                        <Check size={12}/>
+                                                        <Check size={12} />
                                                     </div>
                                                     <span className="text-sm font-medium text-slate-800 truncate">{p.name}</span>
                                                 </div>
@@ -324,7 +331,7 @@ export default function CollectionsPage() {
                                         ))}
                                         {selectedProducts.length === 0 && (
                                             <div className="h-full flex flex-col items-center justify-center text-slate-400 p-8 text-center">
-                                                <Layers size={32} className="mb-2 opacity-20"/>
+                                                <Layers size={32} className="mb-2 opacity-20" />
                                                 <p className="text-sm">No products selected yet.</p>
                                                 <p className="text-xs opacity-70">Click items on the left to add them.</p>
                                             </div>
@@ -338,12 +345,12 @@ export default function CollectionsPage() {
                     <div className="space-y-6">
                         <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
                             <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">Publishing</h3>
-                            
+
                             <label className="block text-xs font-semibold text-slate-500 mb-2">Status</label>
                             <div className="relative">
-                                <select 
-                                    value={status} 
-                                    onChange={(e) => setStatus(e.target.value)} 
+                                <select
+                                    value={status}
+                                    onChange={(e) => setStatus(e.target.value)}
                                     className="w-full appearance-none bg-slate-50 border border-slate-300 rounded-lg p-3 text-sm font-medium text-slate-700 focus:ring-2 focus:ring-slate-900 focus:border-transparent outline-none"
                                 >
                                     <option value="Draft">Draft</option>
@@ -357,19 +364,27 @@ export default function CollectionsPage() {
 
                         <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
                             <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">Cover Image</h3>
-                            
+
+                            <button
+                                type="button"
+                                onClick={() => setIsMediaPickerOpen(true)}
+                                className="w-full mb-3 py-2 bg-blue-50 text-[#176FC0] font-semibold rounded-lg border border-blue-100 hover:bg-blue-100 transition-colors flex items-center justify-center gap-2"
+                            >
+                                <Database size={16} /> Select from Library
+                            </button>
+
                             <div className={`relative border-2 border-dashed rounded-xl transition-all ${imagePreview ? 'border-indigo-300 bg-indigo-50' : 'border-slate-300 hover:border-slate-400 hover:bg-slate-50'}`}>
-                                <input 
-                                    id="coverImageFile" 
-                                    type="file" 
-                                    onChange={handleImageChange} 
-                                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" 
+                                <input
+                                    id="coverImageFile"
+                                    type="file"
+                                    onChange={handleImageChange}
+                                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                                     accept="image/*"
                                 />
                                 <div className="p-6 text-center">
                                     {imagePreview ? (
                                         <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-sm">
-                                            <Image src={imagePreview} alt="preview" fill className="object-cover"/>
+                                            <Image src={imagePreview} alt="preview" fill className="object-cover" />
                                         </div>
                                     ) : (
                                         <div className="py-4">
@@ -383,12 +398,12 @@ export default function CollectionsPage() {
                                 </div>
                                 {imagePreview && (
                                     <div className="absolute top-2 right-2 z-20">
-                                        <button 
-                                            type="button" 
-                                            onClick={() => { setImagePreview(null); setCoverImageFile(null); }} 
+                                        <button
+                                            type="button"
+                                            onClick={() => { setImagePreview(null); setCoverImageFile(null); }}
                                             className="p-1.5 bg-white rounded-full shadow-md text-slate-500 hover:text-red-500"
                                         >
-                                            <Trash2 size={14}/>
+                                            <Trash2 size={14} />
                                         </button>
                                     </div>
                                 )}
@@ -396,18 +411,18 @@ export default function CollectionsPage() {
                         </div>
 
                         <div className="flex flex-col gap-3 pt-2">
-                            <button 
-                                type="submit" 
-                                disabled={collectionStatus === 'loading'} 
+                            <button
+                                type="submit"
+                                disabled={collectionStatus === 'loading'}
                                 className="w-full flex justify-center items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg shadow-slate-900/10 disabled:bg-slate-400 disabled:cursor-not-allowed"
                             >
-                                {collectionStatus === 'loading' ? <Loader2 className="animate-spin" size={20}/> : (editingCollection ? 'Save Changes' : 'Create Collection')}
+                                {collectionStatus === 'loading' ? <Loader2 className="animate-spin" size={20} /> : (editingCollection ? 'Save Changes' : 'Create Collection')}
                             </button>
-                            
+
                             {editingCollection && (
-                                <button 
-                                    type="button" 
-                                    onClick={handleCancelEdit} 
+                                <button
+                                    type="button"
+                                    onClick={handleCancelEdit}
                                     className="w-full py-3 text-sm font-semibold text-slate-600 hover:bg-slate-100 rounded-xl transition-colors"
                                 >
                                     Cancel
@@ -417,6 +432,15 @@ export default function CollectionsPage() {
                     </div>
                 </form>
             )}
+
+            <MediaPickerModal
+                isOpen={isMediaPickerOpen}
+                onClose={() => setIsMediaPickerOpen(false)}
+                onSelect={(url) => {
+                    setImagePreview(url);
+                    setCoverImageFile(null);
+                }}
+            />
         </div>
     );
 }

@@ -221,8 +221,11 @@ const uploadImages = async (imageFiles: File[]) => {
 
 export const addPart = createAsyncThunk('products/addPart', async (partData: any, { rejectWithValue }) => {
   try {
-    const images = await uploadImages(partData.imageFiles);
-    const finalPartData = { ...partData, images };
+    const uploadedImages = await uploadImages(partData.imageFiles || []);
+    const existingImages = partData.images || [];
+    const finalImages = [...existingImages, ...uploadedImages];
+
+    const finalPartData = { ...partData, images: finalImages };
     delete finalPartData.imageFiles;
     const response = await api.post('/admin/products/parts', finalPartData);
     return response.data;
@@ -232,10 +235,18 @@ export const addPart = createAsyncThunk('products/addPart', async (partData: any
 export const updatePart = createAsyncThunk('products/updatePart', async ({ id, data }: { id: string, data: any }, { rejectWithValue }) => {
   try {
     let finalData = { ...data };
-    if (data.imageFiles && data.imageFiles.length > 0) {
-      const images = await uploadImages(data.imageFiles);
-      finalData.images = images;
+    const uploadedImages = await uploadImages(data.imageFiles || []);
+    const existingImages = data.images || [];
+
+    // Only update images if we have new files OR explicit images list passed
+    // If both are empty/undefined, we might assume no change, BUT 
+    // if we want to delete images, we must pass the new list in data.images.
+    // So we basically always construct the new image list.
+
+    if (data.imageFiles || data.images) {
+      finalData.images = [...existingImages, ...uploadedImages];
     }
+
     delete finalData.imageFiles;
     const response = await api.patch(`/admin/products/parts/${id}`, finalData);
     return response.data;

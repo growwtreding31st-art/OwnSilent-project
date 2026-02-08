@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@/lib/redux/store';
 import { fetchBrands } from '@/lib/redux/productSlice';
 import { fetchNews, addNews, updateNews, deleteNews } from '@/lib/redux/newsSlice';
-import { Newspaper, Loader2, CheckCircle2, Tag, Pencil, Trash2, UploadCloud } from 'lucide-react';
+import { Newspaper, Loader2, CheckCircle2, Tag, Pencil, Trash2, UploadCloud, Mail } from 'lucide-react';
 import Image from 'next/image';
 import toast from 'react-hot-toast';
 import RichTextEditor from '@/components/RichTextEditor';
@@ -22,7 +22,7 @@ export default function NewsAdminPage() {
     const [content, setContent] = useState('');
     const [imageFile, setImageFile] = useState<File | null>(null);
     const [imagePreview, setImagePreview] = useState<string | null>(null);
-    
+
     const dispatch = useDispatch<AppDispatch>();
     const { articles, status } = useSelector((state: RootState) => state.news);
     const { brands } = useSelector((state: RootState) => state.products);
@@ -31,12 +31,12 @@ export default function NewsAdminPage() {
         dispatch(fetchNews());
         dispatch(fetchBrands());
     }, [dispatch]);
-    
+
     const handleEditClick = (article: any) => {
         setEditingNews(article);
-        setNewsData({ 
-            title: article.title, 
-            excerpt: article.excerpt, 
+        setNewsData({
+            title: article.title,
+            excerpt: article.excerpt,
             brand: article.brand?._id || article.brand || ''
         });
         setContent(article.content);
@@ -60,14 +60,14 @@ export default function NewsAdminPage() {
             setImagePreview(URL.createObjectURL(file));
         }
     };
-    
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!imageFile && !editingNews) return toast.error("A featured image is required for new articles.");
-        
+
         const finalData = { ...newsData, content, imageFile };
         const action = editingNews ? updateNews({ id: editingNews._id, data: finalData }) : addNews(finalData);
-        
+
         toast.promise(dispatch(action).unwrap(), {
             loading: editingNews ? 'Updating article...' : 'Creating article...',
             success: `Article ${editingNews ? 'updated' : 'created'} successfully!`,
@@ -75,13 +75,40 @@ export default function NewsAdminPage() {
         }).then(handleCancelEdit);
     };
 
-     const handleDelete = async (id: string) => {
+    const handleDelete = async (id: string) => {
         if (window.confirm('Are you sure you want to delete this article?')) {
             toast.promise(dispatch(deleteNews(id)).unwrap(), {
                 loading: 'Deleting article...',
                 success: 'Article deleted!',
                 error: (err) => err || 'Failed to delete article.'
             });
+        }
+    };
+
+    const handleSendNewsletter = async (article: any) => {
+        if (!window.confirm(`Are you sure you want to send a newsletter for "${article.title}" to ALL registered users?`)) return;
+
+        const toastId = toast.loading("Sending newsletter...");
+        try {
+            // Dynamically import api to avoid top-level issues if any, or just consistent with usage
+            const { default: api } = await import('@/lib/api/axiosConfig');
+
+            await api.post('/admin/newsletter/send', {
+                subject: `News Update: ${article.title}`,
+                content: `
+                    <h2>${article.title}</h2>
+                    <p>${article.excerpt}</p>
+                    ${article.image ? `<img src="${article.image}" alt="${article.title}" style="max-width: 100%; height: auto; border-radius: 8px; margin: 10px 0;" />` : ''}
+                    <p>Read the full article on our website.</p>
+                `,
+                entityType: 'News',
+                entityId: article._id,
+                link: `https://ownsilent.international/news/${article._id}` // Adjust route as needed
+            });
+            toast.success("Newsletter sent successfully!", { id: toastId });
+        } catch (error: any) {
+            console.error("Newsletter failed:", error);
+            toast.error(error.response?.data?.message || "Failed to send newsletter", { id: toastId });
         }
     };
 
@@ -124,7 +151,7 @@ export default function NewsAdminPage() {
                                         <td className="p-4 pl-6">
                                             <div className="flex items-center gap-4">
                                                 <div className="w-16 h-12 rounded-lg border border-slate-200 bg-slate-50 overflow-hidden shrink-0">
-                                                    <Image src={article.image || '/placeholder.png'} alt={article.title} width={64} height={48} className="w-full h-full object-cover"/>
+                                                    <Image src={article.image || '/placeholder.png'} alt={article.title} width={64} height={48} className="w-full h-full object-cover" />
                                                 </div>
                                                 <p className="font-semibold text-slate-800 text-sm max-w-sm truncate">{article.title}</p>
                                             </div>
@@ -135,6 +162,7 @@ export default function NewsAdminPage() {
                                         <td className="p-4 text-sm text-slate-600">{new Date(article.createdAt).toLocaleDateString()}</td>
                                         <td className="p-4 pr-6 text-right">
                                             <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <button onClick={() => handleSendNewsletter(article)} className="p-2 rounded-lg text-slate-500 hover:bg-slate-200 hover:text-amber-600 transition-colors" title="Send Newsletter"><Mail size={16} /></button>
                                                 <button onClick={() => handleEditClick(article)} className="p-2 rounded-lg text-slate-500 hover:bg-slate-200 hover:text-blue-600 transition-colors"><Pencil size={16} /></button>
                                                 <button onClick={() => handleDelete(article._id)} className="p-2 rounded-lg text-slate-500 hover:bg-red-50 hover:text-red-600 transition-colors"><Trash2 size={16} /></button>
                                             </div>
@@ -153,11 +181,11 @@ export default function NewsAdminPage() {
                         <div className="lg:col-span-2 space-y-6">
                             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
                                 <label className="block text-sm font-semibold text-slate-700 mb-1.5">Article Title</label>
-                                <input type="text" value={newsData.title} onChange={(e) => setNewsData({...newsData, title: e.target.value})} className="w-full text-xl font-bold bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-[#176FC0] transition-all" required placeholder="Enter article title..."/>
+                                <input type="text" value={newsData.title} onChange={(e) => setNewsData({ ...newsData, title: e.target.value })} className="w-full text-xl font-bold bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-[#176FC0] transition-all" required placeholder="Enter article title..." />
                             </div>
                             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
                                 <label className="block text-sm font-semibold text-slate-700 mb-1.5">Excerpt</label>
-                                <textarea rows={3} value={newsData.excerpt} onChange={(e) => setNewsData({...newsData, excerpt: e.target.value})} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#176FC0] transition-all" required placeholder="A short summary of the article..."></textarea>
+                                <textarea rows={3} value={newsData.excerpt} onChange={(e) => setNewsData({ ...newsData, excerpt: e.target.value })} className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-[#176FC0] transition-all" required placeholder="A short summary of the article..."></textarea>
                             </div>
                             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
                                 <label className="block text-sm font-semibold text-slate-700 mb-2">Full Content</label>
@@ -166,19 +194,19 @@ export default function NewsAdminPage() {
                         </div>
                         <div className="space-y-6">
                             <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
-                                <h4 className="font-bold text-slate-800 mb-4 flex items-center gap-2"><CheckCircle2 size={18}/> Actions</h4>
-                                <button type="submit" disabled={status === 'loading'} className="w-full flex justify-center items-center bg-[#176FC0] text-white font-bold py-3 rounded-xl hover:bg-blue-700 shadow-lg shadow-blue-500/20 active:scale-[0.98] transition-all disabled:opacity-70">{status === 'loading' ? <Loader2 className="animate-spin"/> : (editingNews ? 'Update Article' : 'Publish Article')}</button>
+                                <h4 className="font-bold text-slate-800 mb-4 flex items-center gap-2"><CheckCircle2 size={18} /> Actions</h4>
+                                <button type="submit" disabled={status === 'loading'} className="w-full flex justify-center items-center bg-[#176FC0] text-white font-bold py-3 rounded-xl hover:bg-blue-700 shadow-lg shadow-blue-500/20 active:scale-[0.98] transition-all disabled:opacity-70">{status === 'loading' ? <Loader2 className="animate-spin" /> : (editingNews ? 'Update Article' : 'Publish Article')}</button>
                                 {editingNews && <button type="button" onClick={handleCancelEdit} className="w-full text-center mt-2 py-2 text-sm font-medium text-slate-500 hover:text-slate-800">Cancel</button>}
                             </div>
                             <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
                                 <label className="block text-sm font-bold text-slate-800 mb-3">Featured Image</label>
                                 <div className="border-2 border-dashed border-slate-200 rounded-xl p-4 text-center hover:bg-slate-50 transition-colors cursor-pointer relative">
-                                    <input id="imageFile" type="file" onChange={handleImageChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept="image/*"/>
-                                    {imagePreview ? <Image src={imagePreview} alt="preview" width={300} height={150} className="w-full h-32 object-cover rounded-lg"/> : <div className="py-4"><UploadCloud className="mx-auto h-8 w-8 text-slate-300" /><p className="mt-2 text-xs font-semibold text-slate-400">Upload an image</p></div>}
+                                    <input id="imageFile" type="file" onChange={handleImageChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept="image/*" />
+                                    {imagePreview ? <Image src={imagePreview} alt="preview" width={300} height={150} className="w-full h-32 object-cover rounded-lg" /> : <div className="py-4"><UploadCloud className="mx-auto h-8 w-8 text-slate-300" /><p className="mt-2 text-xs font-semibold text-slate-400">Upload an image</p></div>}
                                 </div>
                             </div>
                             <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-                                <div><label className="block text-sm font-bold text-slate-800 mb-2 flex items-center gap-2"><Tag size={16}/> Brand</label><select value={newsData.brand} onChange={(e) => setNewsData({...newsData, brand: e.target.value})} className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#176FC0]" required><option value="">Select Brand</option>{brands.map((b:any) => <option key={b._id} value={b._id}>{b.name}</option>)}</select></div>
+                                <div><label className="block text-sm font-bold text-slate-800 mb-2 flex items-center gap-2"><Tag size={16} /> Brand</label><select value={newsData.brand} onChange={(e) => setNewsData({ ...newsData, brand: e.target.value })} className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:border-[#176FC0]" required><option value="">Select Brand</option>{brands.map((b: any) => <option key={b._id} value={b._id}>{b.name}</option>)}</select></div>
                             </div>
                         </div>
                     </form>

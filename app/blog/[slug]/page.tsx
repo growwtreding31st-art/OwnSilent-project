@@ -36,6 +36,15 @@ interface Post {
   createdAt: string;
 }
 
+const injectIds = (html: string) => {
+  if (typeof html !== 'string') return '';
+  return html.replace(/<(h[23])([^>]*)>(.*?)<\/\1>/gi, (match, tag, attrs, content) => {
+    if (attrs.includes('id=')) return match;
+    const slug = content.replace(/<[^>]*>/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    return `<${tag} id="${slug}"${attrs}>${content}</${tag}>`;
+  });
+};
+
 export default function BlogDetailPage() {
   const params = useParams();
   const slug = params.slug as string;
@@ -143,7 +152,27 @@ export default function BlogDetailPage() {
       <div className="container mx-auto px-4 py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
           <div className="lg:col-span-8">
-            <article className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
+
+            {/* Table of Contents */}
+            <div className="bg-white rounded-2xl shadow-sm p-6 border border-slate-200 mb-8">
+              <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <span className="w-1 h-6 bg-blue-600 rounded-full"></span>
+                Table of Contents
+              </h3>
+              <nav className="space-y-1">
+                <a href="#content-start" className="block text-sm text-slate-600 hover:text-blue-600 hover:pl-1 transition-all">
+                  Introduction
+                </a>
+                {/* JavaScript to dynamically generate TOC from H2/H3 would go here, 
+                        but for SSR/SEO friendly approach, we'd need to parse content on server or pre-render.
+                        For now, adding basic structure. */}
+                <a href="#comments" className="block text-sm text-slate-600 hover:text-blue-600 hover:pl-1 transition-all">
+                  Comments
+                </a>
+              </nav>
+            </div>
+
+            <article id="content-start" className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
               <div className="relative aspect-video w-full bg-slate-100 border-b border-slate-100">
                 <Image
                   src={post.featuredImage}
@@ -158,7 +187,7 @@ export default function BlogDetailPage() {
               <div className="p-8 md:p-12">
                 <div
                   className="prose prose-lg max-w-none prose-slate prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-slate-900 prose-p:text-slate-600 prose-p:leading-relaxed prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-900 prose-img:rounded-xl"
-                  dangerouslySetInnerHTML={{ __html: post.content }}
+                  dangerouslySetInnerHTML={{ __html: injectIds(post.content) }}
                 />
               </div>
             </article>

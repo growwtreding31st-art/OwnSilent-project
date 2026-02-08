@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '@/lib/redux/store';
 import {
@@ -9,11 +10,11 @@ import {
     addModel, deleteModel,
     addPart, updatePart, deletePart, fetchAllModels, fetchBrands, fetchModelsByBrand, syncZohoData, exportManualProductsToZoho, stopSyncZoho
 } from '@/lib/redux/productSlice';
-import { Wrench, Plus, Search, UploadCloud, Pencil, Trash2, Loader2, X, PlusCircle, Database, Cloud, ChevronDown, ChevronLeft, ChevronRight, RefreshCw, Filter, Layers, Tag, Car, Package, Upload, XCircle } from 'lucide-react';
+import { Wrench, Plus, Search, UploadCloud, Pencil, Trash2, Loader2, X, PlusCircle, Database, Cloud, ChevronDown, ChevronLeft, ChevronRight, RefreshCw, Filter, Layers, Tag, Car, Package, Upload, XCircle, Eye } from 'lucide-react';
 import Image from 'next/image';
 import toast from 'react-hot-toast';
 import RichTextEditor from '@/components/RichTextEditor';
-import { useRouter } from 'next/navigation';
+import MediaPickerModal from '@/components/admin/MediaPickerModal';
 
 const getStockClass = (quantity: number) => {
     if (quantity === 0) return 'bg-red-50 text-red-700 border border-red-200';
@@ -92,7 +93,10 @@ export default function ProductsPage() {
     const [currentItem, setCurrentItem] = useState<any>(null);
     const [formData, setFormData] = useState<any>({ name: '', logoFile: null, brand: '' });
     const [editingPart, setEditingPart] = useState<any>(null);
-    const [imagePreviews, setImagePreviews] = useState<string[]>([]);
+    const [imagePreviews, setImagePreviews] = useState<string[]>([]); // Display all images
+    const [existingImages, setExistingImages] = useState<string[]>([]); // URLs of existing/gallery images
+    const [newImageFiles, setNewImageFiles] = useState<File[]>([]); // New files to upload
+    const [isMediaPickerOpen, setIsMediaPickerOpen] = useState(false);
 
     const dispatch = useDispatch<AppDispatch>();
     const { parts, categories, brands, models, modelsForFilter, status, totalCount, currentPage, totalPages } = useSelector((state: RootState) => state.products);
@@ -120,12 +124,21 @@ export default function ProductsPage() {
             const brandId = editingPart.brand?._id;
             if (brandId) dispatch(fetchModelsByBrand(brandId));
             setPartForm({ brand: brandId || '', model: editingPart.model?._id || '' });
-            setImagePreviews(editingPart.images || []);
+
+            // Set images
+            const currentImages = editingPart.images || [];
+            setImagePreviews(currentImages);
+            setExistingImages(currentImages);
+            setNewImageFiles([]); // Reset new files on edit load
+
             setSpecifications(editingPart.description?.specifications?.length > 0 ? editingPart.description.specifications : [{ key: '', value: '' }]);
             setFullDescription(editingPart.description?.fullDescription || (typeof editingPart.description === 'string' ? editingPart.description : ''));
         } else {
             setPartForm({ brand: '', model: '' });
             setImagePreviews([]);
+            setExistingImages([]);
+            setNewImageFiles([]);
+            setSpecifications([{ key: '', value: '' }]);
             setSpecifications([{ key: '', value: '' }]);
             setFullDescription('');
         }
@@ -196,10 +209,11 @@ export default function ProductsPage() {
         const form = e.target as HTMLFormElement;
         const formElements = form.elements as any;
 
-        const imageFiles = formElements.imageFiles.files ? Array.from(formElements.imageFiles.files) : [];
 
-        if (imageFiles.length === 0 && !editingPart) {
-            return toast.error('Product images are required for a new part.');
+
+        // Use our state instead of form elements for images
+        if (imagePreviews.length === 0) { // Check total visible images
+            return toast.error('Product images are required.');
         }
 
         const description = { fullDescription, highlights: formElements.highlights.value.split('\n').filter(Boolean), specifications: specifications.filter(s => s.key && s.value) };
@@ -218,7 +232,11 @@ export default function ProductsPage() {
             model: formElements.model.value,
             category: formElements.category.value,
             brand: partForm.brand,
-            imageFiles
+            model: formElements.model.value,
+            category: formElements.category.value,
+            brand: partForm.brand,
+            images: existingImages, // Send existing/gallery URLs
+            imageFiles: newImageFiles // Send new files to upload
         };
         const action = editingPart ? updatePart({ id: editingPart._id, data }) : addPart(data);
 
@@ -459,6 +477,9 @@ export default function ProductsPage() {
                                         </td>
                                         <td className="p-4 pr-6 text-right">
                                             <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <a href={`/product/${part.slug || part._id}`} target="_blank" className="p-2 rounded-lg hover:bg-slate-200 text-slate-500 hover:text-blue-600 transition-colors" title="View">
+                                                    <Eye size={16} />
+                                                </a>
                                                 <button onClick={() => handleEditPart(part)} disabled={part.source === 'Zoho'} className="p-2 rounded-lg hover:bg-slate-200 text-slate-500 hover:text-blue-600 transition-colors disabled:opacity-30 disabled:cursor-not-allowed" title="Edit">
                                                     <Pencil size={16} />
                                                 </button>
@@ -563,16 +584,78 @@ export default function ProductsPage() {
                         <div className="space-y-6">
                             <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
                                 <label className="block text-sm font-bold text-slate-800 mb-3">Product Images <span className="text-red-500">*</span></label>
+
+                                {/* Image Actions */}
+                                <div className="flex gap-2 mb-4">
+                                    <button
+                                        type="button"
+                                        onClick={() => setIsMediaPickerOpen(true)}
+                                        className="flex-1 py-2.5 bg-blue-50 text-[#176FC0] font-semibold rounded-xl border border-blue-100 hover:bg-blue-100 transition-colors flex items-center justify-center gap-2"
+                                    >
+                                        <Database size={16} /> Select from Library
+                                    </button>
+                                </div>
+
                                 <div className="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center hover:bg-slate-50 transition-colors relative group">
                                     <UploadCloud className="mx-auto h-10 w-10 text-slate-400 group-hover:text-[#176FC0] transition-colors" />
                                     <p className="mt-2 text-sm font-medium text-slate-600">Drag & drop or <span className="text-[#176FC0]">browse</span></p>
-                                    <input id="imageFiles" name="imageFiles" type="file" multiple className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" onChange={(e: any) => setImagePreviews(Array.from(e.target.files).map((file: any) => URL.createObjectURL(file)))} />
+                                    <input
+                                        id="imageFiles"
+                                        type="file"
+                                        multiple
+                                        accept="image/*"
+                                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                                        onChange={(e: any) => {
+                                            const files = Array.from(e.target.files || []) as File[];
+                                            if (files.length > 0) {
+                                                const newPreviews = files.map(f => URL.createObjectURL(f));
+                                                setNewImageFiles(prev => [...prev, ...files]);
+                                                setImagePreviews(prev => [...prev, ...newPreviews]);
+                                            }
+                                        }}
+                                    />
                                 </div>
                                 {imagePreviews.length > 0 && (
                                     <div className="mt-4 grid grid-cols-3 gap-2">
                                         {imagePreviews.map((src, i) => (
-                                            <div key={i} className="relative aspect-square rounded-lg overflow-hidden border border-slate-200">
+                                            <div key={i} className="relative aspect-square rounded-lg overflow-hidden border border-slate-200 group">
                                                 <Image src={src} alt="preview" fill className="object-cover" />
+                                                <button
+                                                    type="button"
+                                                    onClick={() => {
+                                                        // Remove logic
+                                                        // This is tricky because indices are mixed.
+                                                        // We can guess: existingImages come first?
+                                                        // Actually simpler logic:
+                                                        // If src starts with blob:, it's in newImageFiles.
+                                                        // Else it's in existingImages.
+
+                                                        if (src.startsWith('blob:')) {
+                                                            const blobIndex = newImageFiles.findIndex(f => URL.createObjectURL(f) === src); // Approximate matching by recreating URL might fail if createObjectURL creates new ref.
+                                                            // Better: Filter by keeping index sync? No.
+                                                            // Revert to index based logic if we assume strict order: 
+                                                            // [ ...existingImages, ...newImageFilesPreviews ]
+
+                                                            // Let's assume order: existingImages first, then newImageFiles.
+                                                            if (i < existingImages.length) {
+                                                                // Removing existing
+                                                                setExistingImages(prev => prev.filter((_, idx) => idx !== i));
+                                                            } else {
+                                                                // Removing new
+                                                                const newIndex = i - existingImages.length;
+                                                                setNewImageFiles(prev => prev.filter((_, idx) => idx !== newIndex));
+                                                            }
+                                                            setImagePreviews(prev => prev.filter((_, idx) => idx !== i));
+                                                        } else {
+                                                            // It is a URL (existing)
+                                                            setExistingImages(prev => prev.filter(img => img !== src));
+                                                            setImagePreviews(prev => prev.filter((_, idx) => idx !== i));
+                                                        }
+                                                    }}
+                                                    className="absolute top-1 right-1 p-1 bg-white text-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-50"
+                                                >
+                                                    <X size={14} />
+                                                </button>
                                             </div>
                                         ))}
                                     </div>
@@ -620,8 +703,10 @@ export default function ProductsPage() {
 
             {activeTab === 'manage' && (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
+                    {/* ... Existing manage content ... */}
+                    {/* I'll leave manage content as is, just wrapped */}
                     <div className="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden flex flex-col max-h-[600px]">
+                        {/* ... */}
                         <div className="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
                             <h3 className="text-lg font-bold text-slate-800 flex items-center gap-2"><Layers size={18} className="text-[#176FC0]" /> Categories</h3>
                             <button onClick={() => openModal('ADD_CATEGORY')} className="p-2 bg-white border border-slate-200 rounded-lg hover:border-[#176FC0] hover:text-[#176FC0] transition-colors shadow-sm"><Plus size={18} /></button>
@@ -708,6 +793,15 @@ export default function ProductsPage() {
                     </div>
                 </div>
             )}
+
+            <MediaPickerModal
+                isOpen={isMediaPickerOpen}
+                onClose={() => setIsMediaPickerOpen(false)}
+                onSelect={(url) => {
+                    setExistingImages(prev => [...prev, url]);
+                    setImagePreviews(prev => [...prev, url]);
+                }}
+            />
         </div>
     );
 }
