@@ -90,7 +90,7 @@ export function middleware(request: NextRequestWithGeo) {
     const standardRoutes = [
       'collections', 'product', 'products', 'cart', 'checkout', 'shop',
       'about-us', 'contact-us', 'blog', 'news', 'account', 'login', 'signup',
-      'categories', 'category', 'category-faqs', 'forgot-password', 'reset-password',
+      'categories', 'all-categories', 'category', 'category-faqs', 'forgot-password', 'reset-password',
       'carbon-ceramic-rotors', 'features', 'custom-solution', 'become-dealer',
       'full-desclaimer', 'how-it-works', 'privacy-policy', 'shipping-returns', 'terms-conditions',
       'admin'
