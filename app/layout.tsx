@@ -99,6 +99,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta charSet="utf-8" />
         {/* Blocking script for instant country redirect - runs BEFORE React */}
         <script src="/country-redirect.js" />
       </head>
