@@ -13,7 +13,6 @@ const nextConfig = {
   // Optimize package imports to reduce bundle size
   experimental: {
     optimizePackageImports: [
-      'lucide-react',
       '@radix-ui/react-accordion',
       '@radix-ui/react-alert-dialog',
       '@radix-ui/react-avatar',
