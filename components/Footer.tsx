@@ -40,6 +40,7 @@ export default function Footer() {
     { href: "/blog", label: t("footer.link.blog") },
     { href: "/news", label: t("footer.link.news") },
     { href: "/contact-us", label: t("footer.link.contact") },
+    { href: "/all-special-page", label: "Special Pages" },
   ];
   const supportLinks = [
     { href: "/shipping-returns", label: t("footer.link.shipping") },
@@ -274,7 +275,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="col-span-1 md:col-span-3 lg:col-span-2">
+          {/* <div className="col-span-1 md:col-span-3 lg:col-span-2">
             <h3 className="font-bold text-slate-900 mb-5 text-sm uppercase tracking-wider">
               Pages
             </h3>
@@ -290,7 +291,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* <div className="col-span-1 md:col-span-3 lg:col-span-2">
             <h3 className="font-bold text-slate-900 mb-5 text-sm uppercase tracking-wider">
