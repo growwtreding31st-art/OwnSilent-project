@@ -33,7 +33,7 @@ export default function AllSpecialPagesPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
-  const limit = 12; // Items per page
+  const limit = 5000000; // Items per page
 
   // Fetch blogs when search changes
   useEffect(() => {
@@ -65,6 +65,7 @@ export default function AllSpecialPagesPage() {
       // Filtering for published items only on the client side
       const response = await categoryBlogsApi.admin.getAll({
         search: searchQuery,
+        limit: 5000000,
         status: "Published", // Only fetch published items
       });
 
@@ -175,7 +176,7 @@ export default function AllSpecialPagesPage() {
         </div>
 
         {/* Results Count */}
-        {!loading && (
+        {/* {!loading && (
           <div className="mb-4 sm:mb-6 text-center">
             <p className="text-xs sm:text-sm font-medium text-slate-600">
               Showing{" "}
@@ -184,7 +185,7 @@ export default function AllSpecialPagesPage() {
               special pages
             </p>
           </div>
-        )}
+        )} */}
 
         {/* Loading State */}
         {loading && (
