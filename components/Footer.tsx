@@ -47,6 +47,9 @@ export default function Footer() {
     { href: "/become-dealer", label: t("footer.link.dealer") },
     { href: "/full-desclaimer", label: t("footer.link.disclaimer") },
   ];
+  const pagesLinks = [
+    { href: "/all-special-page", label: "Special Pages" },
+  ];
   const categoryLinks = [
     { href: "/shop?category=engine", label: t("footer.cat.engine") },
     { href: "/shop?category=suspension", label: t("footer.cat.suspension") },
@@ -259,6 +262,24 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               {supportLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-slate-500 hover:text-[#176FC0] transition-colors hover:pl-1 inline-block duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="col-span-1 md:col-span-3 lg:col-span-2">
+            <h3 className="font-bold text-slate-900 mb-5 text-sm uppercase tracking-wider">
+              Pages
+            </h3>
+            <ul className="space-y-3">
+              {pagesLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}

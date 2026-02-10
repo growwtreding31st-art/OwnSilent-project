@@ -89,7 +89,7 @@ export function middleware(request: NextRequestWithGeo) {
     // These are routes that exist in app/ or app/(public)/
     const standardRoutes = [
       'collections', 'product', 'products', 'cart', 'checkout', 'shop',
-      'about-us', 'contact-us', 'blog', 'news', 'account', 'login', 'signup',
+      'about-us', 'contact-us', 'blog', 'news', 'account', 'login', 'signup', 'all-special-page',
       'categories', 'category', 'category-faqs', 'forgot-password', 'reset-password',
       'carbon-ceramic-rotors', 'features', 'custom-solution', 'become-dealer',
       'full-desclaimer', 'how-it-works', 'privacy-policy', 'shipping-returns', 'terms-conditions',
